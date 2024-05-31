@@ -19,7 +19,7 @@ public class 연산자_1 {
         System.out.println(10 != 5);
 
 
-//        논리 연산자(참 거짓) --> && (and),  ||(or)
+//        논리 연산자(참 거짓) --> && (and),  ||(or 이거나,)
 //          x가 5보다 크고 10이하다.  x >5  x <= 10
         int x = 7 ;
         boolean r1 = x > 5 && x <= 10;
