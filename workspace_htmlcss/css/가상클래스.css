@@ -1,0 +1,95 @@
+/* 선택자 : 가상클래스   <: 콜론 중요!> */
+
+.container1{
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+  margin: 30px;
+}
+
+.container1 > div {
+  width: 80px;
+  height: 80px;
+  background-color: violet;
+  border: 1px solid black;
+  color: whitesmoke;
+  font-size: 2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* 변환 : 모두 1초동안 (원래 디자인에 넣은거 인식) */
+  transition:all 1s;
+}
+
+
+/* <<가상클래스 >>*/
+
+/* hover : 선택자에 마우스를 올리면 발생 */
+  .d1:hover{
+    width: 150px;
+    height: 150px;
+  }
+
+  .d2:hover{
+    background-color: cadetblue;
+    color: black;
+  }
+
+  /* position: relative;  단독 사용하면 원래 위치가 기준!  */
+
+  .d3:hover{
+    position: relative;
+    top: 10px; left: 10px; 
+  }
+
+
+
+  /* */
+
+  /* input은 사이즈 변경시 padding을 많이 씀(상하좌우) */
+  input{
+    margin-left: 30px;
+    width: 200px;
+    padding: 10px 4px;
+    border: 1px solid rgb(255, 205, 113);
+    border-radius: 7px;
+    outline:none;
+    transition: all 0.5s;
+    
+  }
+  /* :focus  input과 button 많이씀 / 포커스(커서) 클릭하면 디자인 변경 */
+
+  input:focus{
+    color: rgb(87, 0, 185);
+    width: 300px;
+  }
+
+
+  /*  */
+
+  ul{
+    margin: 30px;
+
+  }
+
+  
+  /* ::before & ::after 은 content :"" 무조건 입력    선택자 앞, 뒤로 inline 요소 추가  */
+
+  .li-1::after{
+    content: "No1";
+    font-size: 10px;
+    
+    color: red;
+  }
+
+  .li-1::before{
+    content: "new";
+    font-size: 10px;
+    color: blueviolet;
+    background-color: burlywood;
+    border-radius: 2px;
+    margin-right: 2px ;
+
+  }

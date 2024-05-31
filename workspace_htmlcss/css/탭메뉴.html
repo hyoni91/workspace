@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabmenu</title>
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="탭메뉴.css">
+</head>
+<body>
+  <div class="container">
+    <div class="tab-btn">
+      <a href="#tab1" class="show"><i class="bi bi-music-note-list"></i>
+      </i></i>ITEM 1</a>
+      <a href="#tab2"><i class="bi bi-music-note-list"></i>
+      </i>ITEM 2</a>
+      <a href="#tab3"><i class="bi bi-music-note-list"></i>
+      </i>ITEM 3</a>
+      <a href="#tab4"><i class="bi bi-music-note-list"></i>
+      </i>ITEM 4</a>
+    </div>
+    <div class="tab-content">
+      <div class="tab-item" id="tab1">
+        <h2>소우주(Mikrokosmos)</h2>
+          <p>
+            반짝이는 별빛들 깜빡이는 불 켜진 건물 우린 빛나고 있네 각자의 방 각자의 별에서 어떤 빛은 야망 어떤 빛은 방황 사람들의 불빛들 모두 소중한 하나 어두운 밤 (외로워 마) 별처럼 다 (우린 빛나) 사라지지 마 큰 존재니까 Let us shine 어쩜 이 밤의 표정이 이토록 또 아름다운 건 Oh 저 별들도 불빛도 아닌 우리 때문일 거야 You got me 난 너를 보며 꿈을 꿔 I got you 칠흑 같던 밤들 속 서로가 본 서로의 빛 같은 말을 하고 있었던 거야 우린 가장 깊은 밤에 더 빛나는 별빛
+          </p>
+      </div>
+      <div class="tab-item" id="tab2">
+        <h2>둘! 셋! (그래도 좋은 날이 더 많기를)</h2>
+          <p>
+            꽃길만 걷자 그런 말은 난 못해 좋은 것만 보자 그런 말도 난 못해 이제 좋은 일만 있을 거란 말 더는 아프지도 않을 거란 말 그런 말 난 못해 그런 거짓말 못해 (okay)  괜찮아 (괜찮아) 자 하나 둘 셋 하면 잊어 (잊어) 슬픈 기억 모두 지워 (지워) 내 손을 잡고 웃어 (웃어) 괜찮아 (괜찮아) 자 하나 둘 셋 하면 잊어 (잊어) 슬픈 기억 모두 지워 (지워) 서로 손을 잡고 웃어 (웃어) 그래도 좋은 날이 앞으로 많기를
+          </p>
+      </div>
+      <div class="tab-item" id="tab3">
+        <h2>Whalien 52</h2>
+          <p>
+            이 넓은 바다 그 한가운데 한 마리 고래가 나즈막히 외롭게 말을 해 아무리 소리쳐도 닿지 않는 게 사무치게 외로워 조용히 입 다무네 아무렴 어때 뭐가 됐던 이젠 뭐 I don't care 외로움이란 녀석만 내 곁에서 머물 때 온전히 혼자가 돼 외로이 채우는 자물쇠 누군 말해 새끼 연예인 다 됐네 Oh fuck that, 그래 뭐 어때 누군가 곁에 머물 수 없다 한대도 그걸로 족해 날 향해 쉽게 얘기하는 이 말은 곧 벽이 돼 외로움조차 니들 눈엔 척이 돼 그 벽에 갇혀서 내 숨이 막혀도 저 수면 위를 향해 이렇게 혼자 노래불러 외딴 섬 같은 나도 밝게 빛날 수 있을까
+          </p>
+      </div>
+      <div class="tab-item" id="tab4">
+        <h2>낙원</h2>
+          <p>
+            마라톤 마라톤 삶은 길어 천천히 해 42.195 그 끝엔 꿈의 낙원이 가득해 하지만 진짜 세상은 약속과는 달라 우린 달려야 해 밟아야 해 신호탄을 쏘면 너, 목적지도 없어 아무 풍경도 없어 숨이 턱까지 넘칠 때  you need to 멈춰서도 괜찮아 아무 이유도 모르는 채 달릴 필요 없어 꿈이 없어도 괜찮아 잠시 행복을 느낄 네 순간들이 있다면 멈춰서도 괜찮아 이젠 목적도 모르는 채 달리지 않아 꿈이 없어도 괜찮아 네가 내뱉는 모든 호흡은 이미 낙원에 우린 꿈을 남한테서 꿔 
+          </p>
+      </div>
+    </div>
+  </div>
+
+
+  <!--  자바스크립트 -->
+  <script>
+    document.querySelectorAll('a').forEach((element, i) => {
+      element.addEventListener('click', (e) => {
+        document.querySelectorAll('a').forEach((a_tag, idx) => {
+          a_tag.classList.remove('show');
+        });
+        e.target.classList.add('show');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+
+table{
+  margin: 20px;
+  width: 600px;
+  height: 200px;
+  text-align: center;
+  margin: auto;
+  
+}
+
+thead>tr{
+  background-color: chocolate;
+  height: 40px;
+  /* line-height: 40px; */
+  color: white;
+}
+
+/* tr:hover{
+  background-color: rgb(245, 213, 173);
+} */
+
+
+/* .back-color{
+  background-color: antiquewhite;
+} */
+
+tr,td{
+  vertical-align:middle;
+  height: 40px;
+}
+
+tr{
+  border-bottom:  1.5px solid rgb(196, 196, 196);
+}
+
+tr > td:nth-child(2){
+  text-align: left;
+}
+
+/* -----------선생님 풀이------------- */
+
+
+/* 홀수 odd, 짝수 even */
+/* tr:nth-child(odd){
+  background-color: antiquewhite;
+} */
+
+thead>tr{
+  border-top: 1px solid grey;
+  /* background-color: blue; */
+}
+
+td{
+  padding: 6px;
+}
+
+/* tbody>tr > td:nth-child(2){
+  text-align: right;
+} */
+
+tbody > tr:nth-child(even){
+  background-color: antiquewhite;
+}
+
+tbody>tr:hover{
+  background-color: rgb(223, 209, 191);
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table{
+      border-collapse: collapse;
+      border: 1px solid black;
+      width: 300px;
+      text-align: center;
+    }
+    tr, td{
+      border: 1px solid black;
+    }
+  </style>
+
+</head>
+<!-- 
+  <tabel> 안에 오는 태그 = tr(행), thead(테이블헤더), tbody(테이블 안 내용들) , tfoot(테이블 종합 정보) ->각 역할을 알 수 있음(위치 등) *헤드랑 바디는 자주 씀
+              *헤드,바디,풋 안에 행과 열 만들어 주기  
+              *이 밖에 caption(테이블 제목), colgroup(열 너비 조절) 이 있다.
+-->
+
+<!-- 
+  <clogroup> <col width="정해진 너비에서 전체에서 얼마나 차지할지 정할 수 있음"> *열 갯수만큼 쓰고 조절하기 
+  -->
+
+<body>
+  <table>
+    <colgroup>
+      <col width="50%">
+      <col width="20%">
+      <col width="*">
+      <!-- * = 나머지 퍼센트  -->
+    </colgroup>
+    <caption>학생 정보</caption>
+    <thead>
+      <tr>
+        <td>이름</td>
+        <td>나이</td>
+        <td>점수</td>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <tr>
+        <td>김길동</td>
+        <td>20</td>
+        <td>90</td>
+      </tr>
+      <tr>
+        <td>임꺽정</td>
+        <td>30</td>
+        <td>80</td>
+      </tr>
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <td>평균</td>
+        <td>25</td>
+        <td>85</td>
+      </tr>
+    </tfoot>
+
+  </table>
+
+</body>
+</html>

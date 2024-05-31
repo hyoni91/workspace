@@ -1,0 +1,18 @@
+
+/*   list-style-type: none(앞에 타입바꿔줌);
+ */
+
+ul{
+  list-style-type: none;
+}
+
+ul > li{
+  border: 1px solid rgb(214, 121, 0);
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+}
+
+/* body{
+  background-image: ;
+} */

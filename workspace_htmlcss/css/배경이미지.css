@@ -1,0 +1,27 @@
+body{
+  margin: 0;
+}
+
+.content{
+  background-image: url('배경.jpg');
+  background-repeat: no-repeat;
+  /* 
+    backgroun-size
+     cover : 이미지 비율을 유지하며 여백없이 꽉 채움 *많이 씀
+
+     contain :  사이즈 유지, 여백생김
+
+  */
+  background-size: cover;
+
+  /* 
+  화면 가로 세로 꽉 채우기 (화면 위에 공간이 있으면 그 공간은 놔둠 *ex) h3 메뉴영역, body margin, border 등등등
+  */
+  width: 100vw;
+  height: 95vh;
+  /* border: 1px solid black; */
+}
+
+h3{
+ margin: 0; padding: 0;
+}

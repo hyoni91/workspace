@@ -1,0 +1,32 @@
+
+/* 
+https://studiomeal.com/archives/533
+*/
+
+.container{
+  width: 800px;
+  height: 600px;
+  margin: 20px auto;
+  border: 1px solid black;
+  
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr 1fr;
+
+  /* 상하 좌우 공백 */
+  gap:10px;
+}
+
+
+.container > div {
+  border: 1px solid salmon;
+}
+
+
+/* grid col 은 선을 기준으로 
+ 예제) 1번 선에서 3번 선까지 */
+.container > div:nth-child(1){
+  /* grid-column-start: 1;
+  grid-column-end: 3; */
+  /* grid-column: 1/3; */
+}

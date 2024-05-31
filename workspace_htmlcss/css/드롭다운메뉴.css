@@ -1,0 +1,86 @@
+.container{
+  width: 500px;
+  margin: 50px auto;
+}
+
+.menu{
+  display: flex;
+  border: 1px solid wheat;
+}
+
+
+/* sub-menu 의 부모태그 */
+.menu > li {
+  /* border: 1px solid wheat; */
+  width: 150px;
+  /* 글자도 가운데로 , 높이도 주기위해 패딩을 주는 것을 추천 */
+  /* height: 50px; */
+  text-align: center;
+  padding: 12px 0px;
+  background-color: black;
+
+  position: relative;
+}
+
+
+/* ITEM 뒤에 content설정 */
+.menu > li::after{
+  content: "|" ;
+  color: aliceblue;
+  position: absolute;
+  right: 0px;
+}
+
+.menu > li:last-child::after{
+  content:none
+}
+
+
+.menu a{
+  color: aliceblue;
+  text-decoration: none;
+}
+
+
+/* 하위 메뉴 class="sub-menu" */
+.sub-menu{
+  position: absolute;
+  width: 100%;
+  top: 43px;
+  left: 0px;
+  background-color: rgba(0,0,0,0.4);
+  
+  /* display 속성이 바뀌면 transition 안됨 */
+  display: none;
+  /* overflow: hidden; */
+  /* transition 속성을 쓰고 싶다면 투명도쓰기 */
+  /* opacity: 0; */
+  transition: all 1s;
+  max-height: auto;
+}
+
+
+/* 마우스를 올리면 변화 */
+.sub-menu > li:hover{
+  font-weight: 600 ;
+}
+
+.sub-menu > li {
+  margin: 8px 0px;
+}
+
+
+.menu > li:hover{
+  .sub-menu{
+    /* max-height: 200px; */
+    display: block;
+    /* opacity: 1; */
+  }
+}
+
+
+/* 선생님 풀이 */
+/* .menu > li:hover .sub-menu {
+  display: block;
+} */
+

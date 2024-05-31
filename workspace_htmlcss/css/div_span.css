@@ -1,0 +1,31 @@
+
+/* 
+  영역잡기 힘들때는 처음에 테두리 잡아주고 나중에 지우는 것을 권장
+*/
+.d1 {
+  border: 1px solid brown;
+  background-color: antiquewhite;
+  width: 100px;
+  height: 100px;
+  /* 속성 바꾸기 display */
+  display: inline-block;
+}
+
+input{
+  width: 80px;
+  margin-top: 10px;
+}
+
+.d2{
+  background-color: rgb(206, 248, 250);
+  width: 300px;
+  height: 100px;
+  margin-top: 10px;
+}
+
+/* inline */
+span{
+  color: brown;
+  font-weight: bold;
+  font-style: italic;
+}

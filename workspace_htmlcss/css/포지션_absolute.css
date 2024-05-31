@@ -1,0 +1,39 @@
+body{
+  margin: 0;
+}
+
+div{
+  border: 1px solid black;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  line-height: 200px;
+}
+
+.d1{
+  background-color: rgb(250, 217, 174);
+
+}
+
+/* 
+  position: absolute; 
+  top: ; botton: ; left: ; right: ;
+  
+  단독으로 쓰는 경우가 별로 없음.
+  *좌표이동시, 기준을 앱솔루트로 바꿔줌?
+
+*/
+.d2{
+  background-color: coral;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  
+}
+
+
+
+.d3{
+  background-color: hotpink;
+}
+

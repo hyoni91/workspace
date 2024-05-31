@@ -1,0 +1,21 @@
+.container{
+  width: 700px;
+  border: 3px solid black;
+  margin: auto;
+  padding: 10px;
+  overflow: hidden;
+}
+
+p{
+  font-size: 16px;
+  /* line-height: 50px; */
+  margin-top: 0px;
+  text-align: justify;
+}
+
+/* float -> 부모태그의 높이 값을 잃어버림
+ 높이를 잃어버리는 것을 방지하기위해, 부모태그에 overflow:hidden을 쓰면 된다. */
+
+img{
+  float:left;
+}

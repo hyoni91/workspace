@@ -1,0 +1,51 @@
+
+.container{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(205, 255, 255);
+  display: flex;
+  justify-content: center;
+}
+
+.box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img{
+  width: 70px;
+  border: 1px solid rgb(189, 189, 255);
+  border-radius: 50%;
+}
+
+.d1{
+  display: flex;
+  /* justify-content: left; */
+  align-items: center;
+  width: 300px;
+  background-color: white;
+  border-radius: 10px;
+  /* padding: 10px 20px; */
+  /* border: 1px solid black; */
+  margin-bottom: 10px;
+  justify-content: space-around;
+  transition: all 0.5s;
+}
+
+.d1:hover{
+  scale: 1.2;
+}
+
+
+.d1 p:nth-child(1){
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.d1 p:nth-child(2){
+  font-size: 0.9rem;
+  color: grey;
+}
+

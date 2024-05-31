@@ -1,0 +1,78 @@
+.u1{
+  background-color: cornflowerblue;
+  padding: 10px;
+}
+
+/* li{
+  background-color: rgb(221, 163, 122);
+  margin: 5px;
+} */
+
+
+/* 자식 선택자   부모 > 자식  */
+/* ul이라는 클래스 안의 자식 li태그들 모두 선택 */
+.u1 > li{
+  background-color: rgb(221, 163, 122);
+  margin: 5px;
+}
+
+/* d1클래스를 가진 태그의 자식 중 div 태그만 선택하기 */
+
+.d1 > div{
+ background-color: beige;
+}
+
+.d1 > span{
+  background-color: aqua;
+}
+
+/* 
+자손 선택자(하위 선택자) 태그 안의 모든 태그 전부 선택
+
+클래스명 뒤에 한 칸 띄어쓰고 태그명
+
+*/
+
+.d1 div{
+  color: red;
+}
+
+/* ul태그 안의 test라는 클래스를 지닌 자식 과 하위(자손) div를 전체 선택
+
+*/
+ul > .class div{
+  
+}
+
+.u2 > li{
+  color: blueviolet;
+}
+
+/* 자식 중 에서 고르는 법 */
+/* .u2 > li:first-child{
+  color: blue;
+}
+
+.u2 > li:last-child{
+  color: red;
+} */
+/* 
+/* :nth-child(자식 순서 번호 입력)  */
+/* .u2 > li:nth-child(3){
+  color: cadetblue;
+}
+
+.u2 > li:nth-child(4){
+  color: rgb(0, 0, 0);
+} */ 
+
+/* 홀수 add , 짝수 even  선택해서 바꾸기  */
+.u2 > li:nth-child(odd){
+  color: red;
+}
+.u2 > li:nth-child(even){
+  color: rgb(0, 153, 20);
+}
+
+
+

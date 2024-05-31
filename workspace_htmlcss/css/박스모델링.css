@@ -1,0 +1,57 @@
+/* 
+  [태그 영역 확인]
+  테두리 > border: 1px(테두리 굵기) solid(테두리선) black(색상);
+  
+  [★박스모델링]
+  ★모든 태그★들은 각자의 영역(box)이 있다. (영역은 태그마다 다름) 
+  *태그 사이에는 여백 존재함 (padding(안쪽여백/ margin(바깥여백)) 
+  *내용(content)
+*/
+
+/* 
+  태그의 너비는 기본적으로 width + padding + border의 합이다.
+ 
+  */
+
+.p1{
+  border: 1px solid black;
+  /* 상하좌우 여백 동시에 적용*/
+  margin: 30px;
+  padding: 20px;
+}
+
+.p2{
+  border: 1px solid orangered;
+  /* 특정 여백 적용 (ex.왼쪽 바깥 여백) *자동완성기능 이용! */
+  margin-left: 30px;
+  padding-top: 20px;
+}
+
+.p3{
+  /* 박스 사이 여백이 다른 이유는 여백을 조절해줘서임!! */
+  border: 2px solid blueviolet;
+  /* 상하좌우 여백을 한번에 따로 설정도 가능! 순서는 12시 시계 방향 (padding, margin 동일)*/
+  padding: 5px 15px 20px 30px;
+  /* 여백 두개를 줄 때는 상하/좌우 */
+  margin: 50px 20px;
+}
+
+.p4{
+  border: 2px dotted black;
+  background-color: antiquewhite;
+  /* 너비와 높이 조절 */
+  width: 280px;
+  height: 100px;
+}
+
+.a1{
+  border: 1px solid palevioletred;
+  font-size: 25px;
+  background-color: bisque;
+  /* 너비와 높이 조절 안됨*/
+  width: 500px;
+  height: 250px;
+  /* 마진은 좌우만 되고 위아래 안됨 */
+  margin: 50px 50px;
+  padding: 15px 15px;
+}

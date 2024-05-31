@@ -1,0 +1,23 @@
+
+.header{
+  background-color: black;
+  width: 100vw;
+  height: 60px;
+  display: flex;
+  color: white;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+
+ul {
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+}
+
+/* .header>div{
+  border: 1px solid red;
+} */
+

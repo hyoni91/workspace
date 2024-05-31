@@ -1,0 +1,67 @@
+
+
+h1{
+  color: yellowgreen;
+}
+
+/* 
+  폰트 크기 단위
+  px : 기본(deafult) 16px (해상도에따라 큰 차이)
+  % : 100% = 16px
+  em : 
+  rem : 1rem = 16px / 2rem = 32px / 0.5rem = 8px
+*/
+
+/* 
+글자꾸미기
+기본 폰트 사이즈 > font-size :16px
+기본 폰트 굵기 > font-weight: 400 (=normal),  700 (=bold) 굵게
+글자 가로 정렬 > text-align: 가운데, 왼쪽 등
+기울임체 > font-style : italic
+줄간격 > line-height
+글자꾸밈 > text-decoration > 취소선 등
+자간 >  letter-spacing:
+*/
+.p1 {
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+  line-height: 50px;
+  text-align: center;
+
+}
+
+.p2{
+  color: rgb(86, 33, 134);
+  text-decoration: underline;
+  letter-spacing: 10px;
+}
+
+/* 하이퍼 링크 언더라인 없애기 및 여러 스타일 적용 가능 */
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+/* 
+  색상
+  정해진 문자 사용 : red, green, blue ...(색상 표현 제한적임) ex)color:red
+  RGB 사용 :  #(00,~,ff) 16진수로 표기  ex) #00ff00 (초록색 나옴) 
+              #000000 / rgb(0~255,0~255,0~255)  / rgba(0,0,255,0~1) a>alpha(선명도)   >>>RGB표현방식은 3가지
+*/
+
+
+#c_1{
+  color: #999999;
+}
+#c_2{
+  color: rgb(255,0,0);
+
+}
+#c_3{
+  color: rgba(0,0,255,0.3);
+}
+#c_4{
+
+}

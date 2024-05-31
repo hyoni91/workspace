@@ -1,0 +1,49 @@
+
+.but-cen{
+  text-align: center;
+}
+
+table,tr,td{
+  border: 2px solid black;
+}
+
+table{
+    border-collapse: collapse;
+    border: 1px solid black;
+    margin: auto;
+}
+
+span{
+  color: red;
+  font-style: italic;
+  font-size: 13px;
+}
+
+.t1{
+  text-align: center;
+  background-color: rgb(142, 251, 255);
+}
+
+button{
+  background-color: rgb(214, 211, 211);
+}
+
+.i1{
+  width: 250px;
+}
+
+.i2{
+  width: 50px;
+}
+
+.i3{
+  width: 90px;
+}
+
+/* .te1{
+  text-align: center;
+} */
+
+table > tbody > tr > td:first-child{
+  text-align: center;
+}

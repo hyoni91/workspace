@@ -1,0 +1,20 @@
+
+/* 
+  [포지션 픽스드 세트 (상하좌우는 필요한거 쓰기)]
+  position:fixed;
+  top: ; bottom: ; left: ; right: ;
+*/
+
+.arrow{
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  border: 1px solid black;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 30px;
+  line-height: 50px;
+  border-radius: 50%;
+}
+

@@ -1,0 +1,55 @@
+.container{
+  width: 600px;
+  height: 200px;
+  border: 1px solid black;
+  margin: auto;
+
+  /* display : flex  (float,inline-block단점 보완) 부모태그에!  */
+  display: flex;
+  /* text-align: center; */
+}
+
+.container > div {
+  /* width: 100px; */
+  /* height: 100px; */
+  border: 1px solid red;
+}
+
+.flex1{
+  /* flex-direction: row;(디폴트값) 행 빙향으로 
+    교차축(반대방향) 부모태그에 맞춤 */
+  flex-direction: row; 
+
+   /* justify-content: flex-start;(디폴트값) */
+
+  justify-content: center;
+
+  /* align-items: stretch; (디폴트 .교차축으로 늘어남) */
+  align-items: stretch; }
+  
+
+
+.flex1 > div:nth-child(1){
+  flex-basis: 50%;
+}
+.flex1 > div:nth-child(2){
+  flex-basis: 30%;
+}
+.flex1 > div:nth-child(3){
+  flex-basis: 10%;
+}
+.flex1 > div:nth-child(4){
+  flex-basis: 10%;
+}
+
+.flex2{
+  /* 크기에 맞춰서 자동정렬  열 방향으로 */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .flex1 > div:nth-child(2){
+  align-self: flex-start;
+
+} */

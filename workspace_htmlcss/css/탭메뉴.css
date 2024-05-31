@@ -1,0 +1,67 @@
+body{
+  background-color: lightblue;
+}
+
+.container{
+  width: 700px;
+  margin: 100px auto;
+}
+
+.tab-btn{
+  display: flex;
+  gap:1px;
+}
+
+
+.tab-btn a{
+  background-color: black;
+  color: whitesmoke;
+  border-top: 2px solid black;
+  text-align: center;
+  width: 140px;
+  padding: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+
+/* tab item 위치선청 */
+.tab-content{
+  position: relative;
+}
+
+.tab-content > .tab-item{
+  position: absolute;
+  /* display: none; */
+
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ;
+
+  background-color:whitesmoke;
+  padding: 15px;
+}
+
+/* target */
+.tab-item:target{
+  /* display: block; */
+
+  opacity: 1;
+  visibility: visible
+}
+
+/* 투명도로 설정할 경우 모든 컨텐츠가 겹쳐져 있는 상태 */
+
+.tab-btn > a:hover{
+  color: rgb(218, 190, 190);
+  /* background-color:whitesmoke; */
+}
+
+/* 띄어쓰기 없을때, a태그중에서! 클래스show */
+
+a.show{
+  background-color: whitesmoke;
+  color: black;
+  border-top: 2px solid;
+}

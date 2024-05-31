@@ -1,0 +1,38 @@
+/* 
+  absolute 줄때는 부모요소에도 포지션을 주는것을 권장! (position: relative;)
+  >>>absolute의 좌표기준으로 바꾸어줌
+*/
+
+.img-div{
+  background-color: rgb(214, 196, 173);
+  position: relative;
+  /* border: 1px solid black; */
+}
+
+.img-div img{
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 50%;
+  position: absolute;
+}
+
+
+/* 
+    position: absolute; 는 준 상태이기 때문에 상하좌우 속성만 줘도 된다.
+    z-imdex는 숫자가 클수록 앞으로 나옴
+*/
+
+.img-div img:nth-child(1){
+  z-index: 3;
+}
+
+.img-div img:nth-child(2){
+  left: 40px;
+  z-index: 2;
+
+}
+
+.img-div img:nth-child(3){
+  left: 80px;
+  z-index: 1;
+
+}

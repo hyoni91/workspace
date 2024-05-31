@@ -1,0 +1,25 @@
+
+
+/*
+ visibility: visible 기본 속성(보임)
+숨기고 싶을땐 hidden;
+★영역은 살아있음!! (안 보일 뿐)
+*/
+.img1{
+  visibility: hidden;
+}
+
+/* 
+  display: none; (숨김, 공간도 사라짐)
+  dispaly : block; (생김,공간도 생김)
+*/
+.img2{
+  display: none;
+}
+
+/* 
+  opacity: 0~1사이 값;
+*/
+.img3{
+  opacity: 0.6;
+}

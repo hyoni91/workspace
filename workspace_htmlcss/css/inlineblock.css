@@ -1,0 +1,23 @@
+.container1{
+  width: 500px;
+  height: 500px;
+  border: 1px solid black;
+  margin: 30px;
+  /* inline block 공백 메꾸기   (폰트사이즈0) */
+  font-size: 0px;
+}
+
+.container1 > div {
+  width: 150px;
+  height: 150px;
+  background-color: rgb(253, 253, 109);
+  border: 1px solid black;
+  color: rgb(0, 143, 55);
+  font-size: 1.2rem;
+  text-align: center;
+  line-height: 150px;
+  font-weight: bold;
+  /* float: left;  >부모요소 높이를 임시로 지정했기 때문에 높이 유지 */
+  /* inline은 크기 가질 수 없음 */
+  display: inline-block;
+}
