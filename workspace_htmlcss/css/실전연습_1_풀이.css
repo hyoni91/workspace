@@ -1,0 +1,167 @@
+
+.container{
+  width: 1200px;
+  margin: auto;
+  /* border: 1px solid black; */
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  /* 교차축 정렬  */
+  align-items: center;
+  background-color: darkblue;
+  height: 100px;
+}
+
+
+.header > h1{
+  margin-left: 40px;
+  color: white;
+}
+
+.header > ul {
+  display: flex;
+  background-color: rgb(1, 1, 100);
+  width: 650px;
+  padding: 15px 0px;
+  border-radius: 5px;
+  justify-content: space-around;   
+}
+
+.header >ul a{
+  color: white;
+  text-decoration: none;
+}
+
+
+/* 이미지 공백을 없애기 위해서, 백그라운드 이미지 또는 디스플레이 속성을 블럭으로 만듦 */
+img{
+  display: block;
+}
+
+.banner>img{
+  width: 100%;
+}
+
+.banner{
+  position: relative;
+
+}
+
+.banner > div{
+  position: absolute;
+
+  /* 포지션 기준으로 중앙으로 맞추기 1단계 (탑, 레프트 50%) 주고 트랜스폼쓰기 (-50 -50) */
+  top : 50%; left: 50%;
+  transform: translate(-50% , -50%);
+
+  color: white;
+  width: 400px;
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 5px;
+  text-align: center;
+  padding: 20px 30px;
+}
+
+.banner h2{
+  margin-bottom: 12px;
+}
+
+.content{
+  display: flex;
+  height: 200px;
+}
+
+.content div {
+  flex-basis: 400px;
+}
+
+.board{
+  background-color: rgb(212, 243, 255);
+  padding: 16px;
+}
+
+.board a{
+  color: black;
+  text-decoration: none;
+}
+
+.board > h2{
+  margin-bottom: 12px;
+}
+
+.board li{
+  margin-bottom: 8px;
+
+  /*자식은 a 와 span */
+  display: flex;
+  justify-content: space-between;
+}
+
+.content img{
+  /* 이미지 꽉 채우고 , 오브젝트 핏으로 비율 유지 */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.banner-div{
+  position: relative;
+}
+
+.banner-div > div {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50% ,-50%);
+  width: 80%;
+  color: white;
+  text-align: center;
+}
+
+.banner-div span{
+
+  /* span은 인라인 요소 (상하마진 안됨) */
+  background-color: rgba(0,0,0,0.3);
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+.banner-div  h3{
+  margin-bottom: 20px;
+}
+
+.footer{
+  height: 100px;
+  background-color: rgb(255, 241, 224);
+  display: flex;
+  align-items: center;
+  
+}
+
+.footer > h2 {
+/* width 줘도 똑같음(<-크기설정) */
+  flex-basis: 30%;
+  color: rgb(65, 65, 65);
+  margin-left: 30px;
+  
+}
+
+footer > div {
+  flex-basis: 70%;
+  text-align: center;
+}
+
+.footer  ul {
+  display: flex;
+  width: 650px;
+  margin: auto;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.footer a{
+  color: black;
+  text-decoration: none;
+}

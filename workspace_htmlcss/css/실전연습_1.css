@@ -1,0 +1,123 @@
+/* 
+머리 길이 100
+사진 1200
+공지 200
+풋터 100 */
+
+body{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.container{
+  width: 1200px;
+  height: auto;
+}
+
+
+.header{
+  display: flex;
+  height: 100px;
+  background-color: darkblue;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header > h1 {
+  color: white;
+  margin: 30px
+}
+
+.head-list{
+  background-color: rgba(0,0,0,0.6);
+  display: flex;  
+  color: white;
+  border: 1px solid red;
+  /* justify-content: space-around; */
+}
+
+.top > img{
+  width: 1200px;
+}
+
+.top{
+  display: flex;
+  position: relative;
+  text-align: center;
+}
+
+.top-1{
+  /* display: inline-block; */
+  position: absolute;
+  top:0px; left: 0px;
+  text-align: center;
+  background-color: rgba(0,0,0,0.6);
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+
+}
+.banner{
+  position: relative;
+  text-align: center;
+  height: 200px;
+}
+
+
+.banner-1{
+  position: absolute;
+  top:0px; left: 0px;
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.banner-1 >div {
+  background-color: rgba(0,0,0,0.6);
+  width: 100px;
+  padding: 10px;
+  border-radius: 5px;
+  margin: auto;
+}
+
+
+.content{
+  display: flex;
+  margin-left: 10px;
+
+}
+
+ul.li{
+  display: inline-block;
+}
+
+
+
+.footer{
+  display: flex;
+  background-color: antiquewhite;
+  height: 100px;
+}
+
+.footer > div {
+  margin: auto;
+}
+
+.img2{
+  position: relative;
+}
+
+.img2 > div{
+  position: absolute;
+  margin: auto;
+}
+
+.content-1{
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  line-height: 30px;
+}
