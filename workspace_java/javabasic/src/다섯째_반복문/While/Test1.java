@@ -10,14 +10,13 @@ package 다섯째_반복문.While;
 public class Test1 {
     public static void main(String[] args) {
 
+    int star = 1;
 
-//
-//
-//        while (){
-//            System.out.println("*");
-//
-//        }
-//
+    while (star <= 5){
+        System.out.print("*");
+        star++;
+    }
+
 
     }
 }

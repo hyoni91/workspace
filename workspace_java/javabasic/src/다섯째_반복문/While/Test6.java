@@ -5,15 +5,18 @@ package 다섯째_반복문.While;
 public class Test6 {
     public static void main(String[] args) {
 
-        int i = 1;
+        int i = 1;      //1~100까지 반복할 변수
+        int cnt = 0;   // 3의 배수의 개수를 저장할 변수
 
-        while (i <=100){
 
+        //  i <=100
+        while (i <101){
             if(i % 3 ==0){
-                System.out.println(i);
+                cnt++;   //3의 배수이면 1씩 증가
             }
             i++;
         }
 
+        System.out.println(cnt);
     }
 }

@@ -1,19 +1,20 @@
 package 다섯째_반복문.While;
 
-//while문을 사용하여 1 ~ 10까지의 합을 구하여라.
+// while문을 사용하여 1 ~ 10까지의 합을 구하여라.
 
 public class Test5 {
     public static void main(String[] args) {
 
-        int i = 1;
-        int sum = 0;
+        int i = 1;  //1 ~ 10
+        int sum = 0; // 합을 저장하는 변수
 
-        while (i <= 10){
-            sum = sum+i;
-            System.out.println(sum);
+        // i <= 10 과 같지만, 포함관계는 잘 쓰지 않음
+        while (i < 11){
+            sum = sum+i;  // sum += i ;
             i++;
         }
 
+        System.out.println(sum);
 
     }
 }

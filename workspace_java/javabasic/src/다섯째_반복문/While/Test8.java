@@ -11,16 +11,20 @@ public class Test8 {
 
         int i = 1;
         int a ;
+        int cnt = 0;
 
         System.out.print("숫자 입력 : ");
-
         a = sc.nextInt();
+
+        // i < a +1
         while (i <= a){
             if(i %2 ==0){
-            }    i++;
+                cnt++;
+            }
+            i++;
         }
 
-
+        System.out.print("짝수의 개수 : " + cnt);
 
     }
 }

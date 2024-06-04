@@ -6,15 +6,21 @@ public class Test7 {
     public static void main(String[] args) {
 
         int i= 1;
+        int cnt= 0;
 
-        while (i <= 100) {
+        //i <= 100
+        while (i < 101) {
             if (i % 5 ==0){
-                System.out.println(i);
+                cnt++;   //c 안에 5의 배수가 추가 될때마다 1씩 증가 시키기
+                System.out.print(i + " ");
             }
             i++;
         }
+        System.out.println();
+        System.out.print("5의 배수의 개수 : " + cnt);
 
-        //갯수 출력????
+
+
 
 
     }
