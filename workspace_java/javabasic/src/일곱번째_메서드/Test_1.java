@@ -16,6 +16,7 @@ public class Test_1 {
 //        test6(2,1,1);
 //        test7(10,2);
 //        test8("김","석진");
+//        test9_1("정호석");
 //        test10("김남준",29,"서울");
 
         Scanner sc = new Scanner(System.in);
@@ -25,13 +26,16 @@ public class Test_1 {
 //        int b = sc.nextInt();
 //        test13(a,b);
 
-//         System.out.print("이름: ");
-//         String a = sc.next();
-//        System.out.print("나이: ");
-//         int b = sc.nextInt();
-//        System.out.print("주소: ");
-//         String c = sc.next();
-//         test12(a,b,c);
+/*
+        //12번문제는 메서드 필요없음
+         System.out.print("이름: ");
+         String a = sc.next();
+        System.out.print("나이: ");
+         int b = sc.nextInt();
+        System.out.print("주소: ");
+         String c = sc.next();
+         test10(a,b,c);
+*/
 
 
 
@@ -94,25 +98,36 @@ public class Test_1 {
     //나이는 33살입니다.
     //주소는 울산입니다.
 
+    public static void test9_1(String n){
+        System.out.println("이름은 "+ n +"입니다.");
+//        test9_2(33);
+//        test9_3("울산");
+    }
+
+    public static void test9_2(int a){
+        System.out.println("나이는 "+ a +"입니다.");
+
+    }
+    public static void test9_3(String ad){
+        System.out.println("주소는 "+ ad +"입니다.");
+
+    }
+
     //위의 문제를 하나의 메소드를 사용하여 출력결과가 같게 프로그래밍 해보세요.
     public static void test10(String name, int age, String addr){
-        System.out.println("이름은 "+ name + "입니다");
-        System.out.println("나이는 "+ age + "입니다");
-        System.out.println("주소는 "+ addr + "입니다");
+       test9_1(name);  //System.out.println("이름은 "+ n(name) +"입니다.");
+       test9_2(age);
+       test9_3(addr);
     }
 
-    //입력받은 정수를 매수변수로 받아, 해당 정수를 출력하는 메소드를 선언하고 호출해보세요.
-    public static void  test11(int scan){
 
-    }
-
-    //10번 문제를 풀었다면, 10번 문제에서 매개변수로 받는 이름, 나이, 주소를 scanner를 통한 입력으로 바꾸어 풀어보세요.
-    public static void test12(String name1, int age1, String addr1){
-        System.out.println("이름은 "+ name1 + "입니다");
-        System.out.println("나이는 "+ age1 + "입니다");
-        System.out.println("주소는 "+ addr1 + "입니다");
-
-    }
+//    //12. 10번 문제를 풀었다면, 10번 문제에서 매개변수로 받는 이름, 나이, 주소를 scanner를 통한 입력으로 바꾸어 풀어보세요.
+//    public static void test12(String name1, int age1, String addr1){
+//        System.out.println("이름은 "+ name1 + "입니다");
+//        System.out.println("나이는 "+ age1 + "입니다");
+//        System.out.println("주소는 "+ addr1 + "입니다");
+//
+//    }
 
     //13scanner로 정수 두 개를 입력받아, 입력받은 두 수를 매개변수로 사용하여 두 수의 합을 출력하는 메소드를 선언하고, 호출해보세요.
     public static void test13(int scan1, int scan2){
