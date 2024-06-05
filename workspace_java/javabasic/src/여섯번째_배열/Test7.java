@@ -16,21 +16,21 @@ public class Test7 {
 
 
         for (int i =0; i <arr.length; i++){
-            System.out.print("입력 : ");
+            System.out.print(i + "번째 요소 입력 : ");
             arr[i] = sc.nextInt();
-
-
         }
 
-        for (int i =0; i <arr.length; i++){
-            System.out.println(arr[i]);
+        System.out.println("--배열에 저장된 요소--");
+
+        //for 문으로 배열 값 출력
+//        for (int i =0; i <arr.length; i++){
+//            System.out.println(arr[i]);
+//        }
+
+        // for each 문으로 배열 값 출력
+        for (int e : arr){
+            System.out.print(e + " ");
         }
-
-
-
-
-
-
 
     }
 }

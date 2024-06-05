@@ -14,12 +14,21 @@ public class Test8 {
         }
 
         int cnt=0;
-        for (int i =0 ; i <arr.length; i++){
-            if (arr[i]%2==0){
+
+        //for 문
+//        for (int i =0 ; i <arr.length; i++){
+//            if (arr[i]%2==0){
+//                cnt++;
+//            }
+//
+//            }
+
+        //for each 문
+        for(int e : arr){
+            if(e%2==0){
                 cnt++;
             }
-
-            }
+        }
 
         System.out.println("짝수 개수 : "+ cnt);
         }
