@@ -1,0 +1,40 @@
+.container{
+  width: 500px;
+ margin: 50px auto;
+ display: flex;
+}
+
+.item-box{
+  display: flex;
+  border: 1px solid wheat;
+  position: relative;
+  padding: 10px 0px;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+.item-box > li{
+  background-color: black;
+  text-align: center;
+}
+
+.sub-menu{
+  background-color: rgba(0,0,0,0.4);
+  display: none;
+  border: 1px solid red;
+  position: relative;
+  width: 100%;
+  top: 0px; 
+  margin: 8px 0px;
+
+ 
+}
+
+.item-box:hover{
+  .sub-menu{
+    display: block;
+  }
+}
