@@ -1,15 +1,24 @@
 .container{
-  width: 500px;
+  width: 600px;
  margin: 50px auto;
  display: flex;
 }
 
 .item-box{
   display: flex;
-  border: 1px solid wheat;
+  /* border: 1px solid wheat; */
   position: relative;
-  padding: 10px 0px;
+  padding: 15px 0px;
+  background-color: black;
+  width: 150px;
+  justify-content: space-around;
 }
+.item-box >li > a::after{
+  content: "|" ;
+  position: absolute;
+  right: 0px;
+}
+
 
 a{
   text-decoration: none;
@@ -17,7 +26,6 @@ a{
 }
 
 .item-box > li{
-  background-color: black;
   text-align: center;
 }
 
@@ -25,9 +33,10 @@ a{
   background-color: rgba(0,0,0,0.4);
   display: none;
   border: 1px solid red;
-  position: relative;
+  position: absolute;
   width: 100%;
-  top: 0px; 
+  top: 41px; 
+  left: 0px;
   margin: 8px 0px;
 
  
