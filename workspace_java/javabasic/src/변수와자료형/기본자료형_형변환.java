@@ -1,5 +1,6 @@
 package 변수와자료형;
 
+
 public class 기본자료형_형변환 {
     public static void main(String[] args) {
 
