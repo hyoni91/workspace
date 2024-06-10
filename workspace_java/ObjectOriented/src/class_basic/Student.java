@@ -8,6 +8,7 @@ public class Student {
 
 
 
+
     //데이터관리, 재사용성, 안전성을 위해 메서드로 값 입력 받기.
     //매개변수로 전달된 문자열을 name 값을 변경
     public void setName(String reName){

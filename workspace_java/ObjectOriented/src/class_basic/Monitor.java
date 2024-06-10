@@ -1,5 +1,6 @@
 package class_basic;
 
+//클래스는 자료형!!
 //클래스의 구성 멤버(요소)  : 변수, 메서드의 정의, 생성자 (무조건 필요한건 아님)
 
 /*  [변수 - 변수를 선언한 위치에 따라 변수의 종류가 달라진다.]
@@ -17,7 +18,7 @@ public class Monitor {
     int price; // 0
     String color; //null
 
-    //★메서드 호출안됨요
+    //★메서드 정의는 가능하나, 호출안됨 !!!
 
     public void monitor1(){
     }

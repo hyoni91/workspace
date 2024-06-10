@@ -2,6 +2,9 @@ package class_basic;
 
 //클래스의 필드에 직접 접근하는 것보다는 메서드를 통해 값을 입력하는 것이 좋은 프로그래밍 관행.
 
+import class_basic.car.Phone;
+import class_basic.car.PhoneTset;
+
 public class StudentTest {
     public static void main(String[] args) {
         //Student객체 stu1생성
@@ -30,5 +33,11 @@ public class StudentTest {
         System.out.println("---------------------");
         stu1.setAge(26); // age 변경
         stu1.stuIntro();
+
+
+
+        Phone p = new Phone();
+        p.modelName="public 접근자로 같은 프로젝트에서 사용가능!";
+
     }
 }

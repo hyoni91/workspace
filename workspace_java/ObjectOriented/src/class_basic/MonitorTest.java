@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class MonitorTest {
     public static void main(String[] args) {
         //모니터 설계도에서 모니터 객체 생성
-        //객체 생성 문법 : 클래스명 객체명 = new 클래스명();
-        Monitor mo = new Monitor();
+        //객체 생성 문법 : 클래스명 객체명(변수명) = new 클래스명();
+        Monitor mo = new Monitor();   // <- 자료형이기 때문에 변수선언처럼 선언!
 
         //객체의 정보(변수)값 확인 방법
         //문법 : 객체명.변수명;
