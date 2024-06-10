@@ -1,4 +1,4 @@
-package member_two;
+package class_basic.member_two;
 
 public class MemberService {
 

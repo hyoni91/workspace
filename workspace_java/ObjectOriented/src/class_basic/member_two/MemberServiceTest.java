@@ -1,6 +1,4 @@
-package member_two;
-
-import class_basic.member.Member;
+package class_basic.member_two;
 
 public class MemberServiceTest {
     public static void main(String[] args) {

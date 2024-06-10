@@ -1,7 +1,6 @@
-package calculator;
+package class_basic.calculator;
 
 import java.util.Scanner;
-import java.util.zip.Inflater;
 
 public class CalculatorTest {
 
@@ -32,7 +31,7 @@ public class CalculatorTest {
 
         System.out.print(n1 + " "+ what +" "+ n2 +" = " );
         cal.setCalculator(n1,n2,what);
-
-
     }
+
+
 }
