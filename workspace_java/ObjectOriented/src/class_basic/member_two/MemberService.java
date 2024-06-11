@@ -1,7 +1,7 @@
 package class_basic.member_two;
 
-public class MemberService {
 
+public class MemberService {
         String id;
         String pw;
 
@@ -17,12 +17,9 @@ public class MemberService {
     }
 
     public void logout(String id){
-        this.id=id;
-
-        if(id.equals("hong")){
             System.out.println("로그아웃 되셨습니다.");
         }
 
     }
 
-}
+

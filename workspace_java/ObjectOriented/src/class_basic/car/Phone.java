@@ -7,10 +7,7 @@ package class_basic.car;
 * default : 같은 패키지 내에 있으면 접근가능
 * protected : pass(상속에서 만나요)
 * private : 변수, 메서드가 선언된 클래스 안에서만 접근가능
-
 * */
-
-
 
 
 //멤버변수에는 무조건 private!
@@ -19,7 +16,7 @@ package class_basic.car;
 public class Phone {
     private int price;
     public String modelName;    // 퍼블릭 연습
-    String brand;   //default 는 현재쓰고 있는 것임, 따로 앞에 적어주지 않아도 디폴드값!
+    String brand;   //default 는 현재쓰고 있는 것
 
     //생성자
     public Phone(){

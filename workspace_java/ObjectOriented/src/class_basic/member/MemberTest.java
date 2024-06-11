@@ -3,7 +3,6 @@ package class_basic.member;
 public class MemberTest {
     public static void main(String[] args) {
 
-
         Member stuMember = new Member();
         stuMember.name = "김태형";
 

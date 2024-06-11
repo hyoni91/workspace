@@ -23,7 +23,6 @@ public class Man {
         this.addr=addr;
     }
 
-
     //getter, setter 오른쪽 마우스 클릭, 제너레이터로 만들 수 있음
     public String getName() {
         return name;

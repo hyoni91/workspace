@@ -4,6 +4,8 @@ package class_basic.member;
 // setter (변경)와  getter(리턴)를 만들어라.
 //2. 모든 필드의 값을 출력하는 displayInfo() 메소드를 만들어라.
 //3. 실행 클래스를 만들어 이름을 ‘자바’, 아이디는  ‘java’, 비밀번호는  ‘123’으로 변경하고 출력메소드를 사용하여 결과를 확인하여라.
+
+
 public class Member_2 {
 
     private String name;
