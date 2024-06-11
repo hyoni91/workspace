@@ -6,6 +6,6 @@ public class WorkerManamer {
 
         w.setInfo("김자바",20,"울산");
         w.setWorkInfo("삼성","무선사업부",5000000);
-        w.displayWoker();
+//        w.displayWoker();
     }
 }

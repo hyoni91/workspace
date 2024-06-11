@@ -5,29 +5,24 @@ package class_basic.manager;
 
 public class Worker {
 
-    //디폴트라서 같은 패키지내 사용가능?
     PersonInfo personInfo = new PersonInfo();
     WorkInfo workInfo = new WorkInfo();
 
-    public void setInfo(String name, int age, String addr){
-        this.personInfo.name = name;
-        this.personInfo.age = age;
-        this.personInfo.addr = addr;
 
+    public void setInfo(String name, int age, String addr){
+        personInfo.setName(name);
+        personInfo.setAge(age);
+        personInfo.setAddr(addr);
     }
 
     public void setWorkInfo(String companyName, String partName, int salary ){
-        this.workInfo.companyName = companyName;
-        this.workInfo.partName = partName;
-        this.workInfo.salary = salary;
+        workInfo.setCompanyName(companyName);
+        workInfo.setPartName(partName);
+        workInfo.setSalary(salary);
     }
 
     public void displayWoker(){
-        System.out.println("이름 : " + personInfo.name );
-        System.out.println("나이 : " + personInfo.age );
-        System.out.println("주소 : " + personInfo.addr );
-        System.out.println("회사명 : "+ workInfo.companyName);
-        System.out.println("부서 : "+ workInfo.partName);
-        System.out.println("급여 : "+ workInfo.salary);
+
     }
 }
+

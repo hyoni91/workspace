@@ -93,7 +93,6 @@ public class StuManage {
             }
         }
 
-
     }
 
     //모든학생정보출력
