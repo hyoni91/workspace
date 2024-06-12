@@ -11,7 +11,6 @@ package Inheritance_상속;
     extends (확장한다) : 부모클래스의 모든 속성과 메서드 상속 받고, 이를 확장한 기능을 추가, 변경가능
 */
 
-
 //Woman :부모클래스, 슈퍼클래스, 상위클래스
 //BusinessWoman: 자식클래스 , 서브클래스 , 하위클래스
 public class Woman {
@@ -50,9 +49,6 @@ class BusinessWoman extends Woman {
         System.out.println("저는 삼성에 다닙니다.");
     }
 }
-
-
-
 
 // 통상적으로 클래스는 한 파일에 하나!
 // 상속공부를 위해 같은페이지에 적음(단, public 은 못 붙임)
