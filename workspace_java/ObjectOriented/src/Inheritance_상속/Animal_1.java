@@ -9,7 +9,6 @@ public class Animal_1 {
         Cat[] catHouse = new Cat[5];
         Cow[] cowHouse = new Cow[5];
 
-
         //동물 객체 생성하고 요소에 저장
         Dog d1 = new Dog();
         dogHouse[0] = d1;
