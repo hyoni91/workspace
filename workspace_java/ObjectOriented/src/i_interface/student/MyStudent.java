@@ -1,8 +1,5 @@
 package i_interface.student;
 
-import com.sun.source.tree.WhileLoopTree;
-
-import java.util.Arrays;
 
 public class MyStudent implements StudentUtil{
     @Override
