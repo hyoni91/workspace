@@ -25,14 +25,19 @@ public class MyArray implements MyArrayUtil {
 
     @Override
     public boolean isEvenArray(int[] array) {
-//        return true;
-        boolean result;
+
+        //쌤 풀이
+//        for(int e : array){
+//            if(e%2 ==1){
+//                return false;
+//            }
+//        }return true;
+
 
         for (int i = 0; i < array.length; i++) {
-            if (array[i] % 2!= 0) {
+            if (array[i] %2 == 1) {
                 return false;
             }
-
         }return true;
 
 

@@ -6,10 +6,15 @@ package i_interface.student;
 
 public interface StudentUtil {
 
+
+    String getGradeByStudentName(Student[] stu, String name);
+    int[] getTotalScoresToArray(Student[] stu);
+    Student getHighScoreStudent(Student stu1, Student stu2);
+
     /*첫번째 메서드
     메서드명 : getGradeByStudentName
     첫번째 매개변수로 받은 다수의 학생 중
-    두번째 매개변수로 받은 이름을 가진 힉생의 정수 등급을 리턴
+    두번째 매개변수로 받은 이름을 가진 힉생의 점수 등급을 리턴
     단, 전달받은 이름을 가진 학생이 없다면 점수 등급은 "등급없음"이 된다.
 
     <점수등급 >
@@ -31,5 +36,7 @@ public interface StudentUtil {
     단, 전달된 두 학생의 총점이 같은 경우는 없다고 가정.
     */
 
+    //내가푼거
+//    String getGradeByStudentName(Student stu);
 
 }

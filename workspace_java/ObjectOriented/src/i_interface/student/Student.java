@@ -19,6 +19,7 @@ public class Student {
     }
     public void setName(String name) {
         this.name = name;
+
     }
 
     public int getKorScore() {
@@ -42,6 +43,17 @@ public class Student {
         this.engScore = engScore;
     }
 
+
+    //문제에서는 이거 만들지마융~~~
+    public int getSum(){
+        int sum = korScore+engScore+mathScore;
+        return sum;
+    }
+
+    public double getAvg(){
+        int sum = korScore+engScore+mathScore;
+        return sum/(double)3;
+    }
 
 
 }
