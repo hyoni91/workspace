@@ -24,4 +24,15 @@ public class FirstController {
         return "third";
     }
 
+    @GetMapping("/login")
+    public String goLogin(){
+        return "login";
+    }
+
+    @GetMapping("/loginResult")
+    public String loginResult(){
+        System.out.println("loginResult 메서드 실행");
+        return "";
+    }
+
 }
