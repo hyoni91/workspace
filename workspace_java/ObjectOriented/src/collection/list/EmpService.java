@@ -1,5 +1,7 @@
 package collection.list;
 
+import com.sun.source.tree.CaseTree;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -7,7 +9,7 @@ public class EmpService extends Employee {
     Scanner sc;
     String pw;
 
-    public EmpService(int empNum, String name, String partName, String empPhoneNum, int salary, String pw) {
+    public EmpService(String empNum, String name, String partName, String empPhoneNum, int salary, String pw) {
         super(empNum, name, partName,empPhoneNum,salary);
         sc = new Scanner(System.in);
         this.pw =pw;
@@ -18,15 +20,19 @@ public class EmpService extends Employee {
         String empNo;
         String pw ;
 
-        System.out.print("사번: ");
-        empNo = sc.next();
-        System.out.print("비밀번호: ");
-        pw = sc.next();
-        if(empNo.equals(empNo) && this.pw.equals(pw)){
-            System.out.println("로그인 하였습니다.");
-            System.out.println(getName()+"님 반갑습니다.");
-        }else {
-            System.out.println("비밀번호 또는 사번이 일치하지 않습니다.");
+        // for문으로 해야하므로 틀렸다규
+        while (true) {
+            System.out.print("사번: ");
+            empNo = sc.next();
+            System.out.print("비밀번호: ");
+            pw = sc.next();
+            if (empNo.equals(empNo) && this.pw.equals(pw)) {
+                System.out.println("로그인 하였습니다.");
+                System.out.println(getName() + "님 반갑습니다.");
+                break;
+            } else {
+                System.out.println("비밀번호 또는 사번이 일치하지 않습니다.");
+            }
         }
    }
 
@@ -64,12 +70,14 @@ public class EmpService extends Employee {
         */
 
     public void upSalary(List<EmpService> emp){
+
+        int up = 100000;
         System.out.print("부서명: ");
         String partName = sc.next();
-        System.out.println(partName+"각 사원의 급여가 각각"+ "인상급여"+ "원씩 "+ "인상됩니다.");
+        System.out.println(partName+" 각 사원의 급여가 각각"+ "인상급여 "+ up +"원씩 "+ "인상됩니다.");
         System.out.println(" ==월급 인상 후 개발부 월급 현황==");
         for(EmpService e : emp) {
-            System.out.println("이름 : " + e.getName() + " 월급 : " + e.getSalary() + "인상급여");
+            System.out.println("이름 : " + e.getName() + " 월급 : " + (e.getSalary() + up));
         }
     }
 

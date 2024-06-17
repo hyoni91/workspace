@@ -26,8 +26,6 @@ public class Collection_basic {
         -ArrayList :  공간을 먼저 생성(읽는거 빠름), 데이터 추가 / 삭제 느림(공간 다시)
         -LinkedList : 연결연결~(지하철 1번칸에서 3번칸 가려면 1 -> 2-> 3) , 데이터 추가/삭제 빠름
 
-
-
     */
 
 

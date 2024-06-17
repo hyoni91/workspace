@@ -9,6 +9,8 @@ public class List_1 {
 
         //ArrayList 객체생성 추천방법!  (많은 데이터를 저장할 통)
         // 인터페이스 이름 (List<저장할 자료형> 객체명 = List 인터페이스를 구현한 클래스명
+        //LinkedList 도 같은 인터페이스로 구현함  --->>>>>그러므로, add(); get(); remove(); size(); 같은 기능~
+        //List<String> 객체명 = new LinkedList<>();
         List<String> list6 = new ArrayList<>();
         list6.add("리스트 추가");
         list6.add("두번째예용");

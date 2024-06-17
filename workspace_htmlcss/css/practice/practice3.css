@@ -5,7 +5,7 @@ body{
 }
 
 .container{
-  width: 1000px;
+  width: 1200px;
   border: 1px solid black;
   margin: auto;
 
@@ -78,6 +78,13 @@ img{
 .content-1{
   display: flex;
   border: 1px solid blue;
+  justify-content: first baseline;
+
+}
+
+.content-1 div{
+  width: 300px;
+  border: 1px solid rgb(115, 255, 0);
 
 }
 

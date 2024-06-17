@@ -12,6 +12,15 @@ public class Student {
     private int mathSco;
     private int totalScore ;  //-> 생성자 만들때 생성하지마세요
 
+////    public Student(int mathSco, int engSco, int korSco, String name) {
+////        this.mathSco = mathSco;
+////        this.engSco = engSco;
+////        this.korSco = korSco;
+////        this.name = name;
+
+//            //총점은 매개변수 NO  메서드로 토달점수 getter만드는걸 추천
+////    }
+
     public String getName() {
         return name;
     }
@@ -55,9 +64,8 @@ public class Student {
     }
 
 
-
-    public void getTotalSco(int totalSco ){
-        totalSco = getEngSco()+getKorSco()+getMathSco();
+    public int getTotalSco(){
+        return this.totalScore = getEngSco()+getKorSco()+getMathSco();
     }
 
 
