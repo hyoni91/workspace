@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <!-- for each 문  div를 반복하고, member.name이 출력됨
+      th:each="member : ${memberList}"    "저장할 이름 : java model객체에서 설정한 이름" -->
+  <div th:each="member : ${memberList}">[[${member.name}]]</div>
+
+  <!-- th:block 을 감싸고 for each를 돌리면, m.age만 반복됨 
+    그렇기 때문에, age만 반복되어서 실행  -->
+  <th:block th:each="m : ${memberList}">
+    [[${m.age}]]
+  </th:block>
+
+  <table border="1">
+    <tr>
+      <td>이름</td>
+      <td>나이</td>
+      <td>점수</td>
+    </tr>
+    <!-- tr 멤버리스트 크기만큼 만들어 주기 -->
+      <tr th:each="member : ${memberList} "> 
+        <td>[[${member.name}]]</td>
+        <td>[[${member.age}]]</td>
+        <td>[[${member.score}]]</td>
+      </tr>
+
+    </tr>
+  </table>
+
+
+
+  <div>
+    <table>
+      <tr>
+        <td>이름</td>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <td>연락처</td>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <td>성별</td>
+        <td><input type="radio" checked>남 <input type="radio" name="" id="">여</td>
+      </tr>
+      <tr>
+        <td>취미</td>
+        <td><input type="checkbox" checked>독서 <input type="checkbox">게임 <input type="checkbox">운동</td>
+      </tr>
+      <tr>
+        <td>가입경로</td>
+        <td>
+          <select style="width: 150px;">
+          <option value="인터넷">인터넷</option>
+          <option value="지인추천">지인추천</option>
+          <option value="신문">신문</option>
+        </select>
+      </td>
+      </tr>
+    </table>
+  </div>
+  <div><a href=""><button>join</button></a><a href="/main"><button>Go back</button></a></div>
+</body>
+</html>

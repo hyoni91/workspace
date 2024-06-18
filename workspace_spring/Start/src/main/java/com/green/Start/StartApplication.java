@@ -1,13 +1,13 @@
-package com.green.SpringFisrt;
+package com.green.Start;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringFisrtApplication {
+public class StartApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringFisrtApplication.class, args);
-
+		SpringApplication.run(StartApplication.class, args);
 	}
+
 }

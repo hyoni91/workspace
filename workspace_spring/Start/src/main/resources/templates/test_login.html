@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <!-- 
+  [[${key.(getter호출)}]] 
+
+  예를 들어, 
+  [[${member.age}]] 는 member.getAge(); 호출
+  그러므로, getter/setter 무조건 생성해야함
+
+  -->
+
+  [[${member.age}]] <br> 
+  [[${member.name}]] <br>
+  <!-- [[${hobby}]]   배열이기 때문에 제대로 출력 안됨-->
+  [[${hobby[0]}]] 
+  
+  <div >
+    <div>
+      <table>
+        <tr>
+          <td>아이디</td>
+          <td> <input type="text"></td>
+        </tr>
+        <tr>
+          <td>비밀번호</td>
+          <td><input type="password"></td>
+        </tr>
+    </table>
+    </div>
+   <div>
+    <a href="/test_join">
+      <button type="button" style="text-align: center;">
+        Go join</button>
+      </a>
+    </div>
+  </div>
+   
+</body>
+</html>
