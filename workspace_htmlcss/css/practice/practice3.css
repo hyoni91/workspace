@@ -69,7 +69,7 @@ img{
 }
 
 .content{
-  /* display: flex; */
+  display: flex;
   height: 200px;
   /* border: 1px solid blue; */
 
@@ -79,12 +79,15 @@ img{
   display: flex;
   border: 1px solid blue;
   justify-content: first baseline;
+  border: 1px solid rgb(115, 255, 0);
+  width: 100%;
+  flex-direction: 400px;
 
 }
 
-.content-1 div{
-  width: 300px;
-  border: 1px solid rgb(115, 255, 0);
+.content div{
+  flex-direction: 400px;
+/* border: 1px solid rgb(115, 255, 0); */
 
 }
 
