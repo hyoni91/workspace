@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  [[${name}]]
+  <br>
+  <form action="/cccc" method="post">
+    나이 <input type="text" name="age">
+    <input type="submit" value="확인">
+    <!-- th:value 타임리프로 적은 밸류값입니다 라는 뜻  /  type="hidden"-->
+    <input type="hidden" name="name" th:value="${name}">
+  </form>
+ 
+</body>
+</html>

@@ -9,13 +9,13 @@
 
   <!-- for each 문  div를 반복하고, member.name이 출력됨
       th:each="member : ${memberList}"    "저장할 이름 : java model객체에서 설정한 이름" -->
-  <div th:each="member : ${memberList}">[[${member.name}]]</div>
+  <!-- <div th:each="member : ${memberList}">[[${member.name}]]</div> -->
 
   <!-- th:block 을 감싸고 for each를 돌리면, m.age만 반복됨 
     그렇기 때문에, age만 반복되어서 실행  -->
-  <th:block th:each="m : ${memberList}">
-    [[${m.age}]]
-  </th:block>
+  <!-- <th:block th:each="m : ${memberList}"> -->
+    <!-- [[${m.age}]] -->
+  <!-- </th:block> -->
 
   <table border="1">
     <tr>

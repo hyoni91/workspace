@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    td{
+      width: 100px;
+      text-align: center;
+    }
+  </style>
+
+</head>
+<form action="/reg_member" method="get">
+  <body>
+    <table border="1">
+      <!-- Model 인스턴스 없이, 커맨드 객체로 데이터 전송 받기!!  -->
+      <tr>
+        <td>아이디</td>
+        <td>[[${memberVO.id}]]</td>
+        <td>이름</td>
+        <td>[[${memberVO.name}]]</td>
+      </tr>
+      <tr>
+        <td>연락처</td>
+        <td>[[${memberVO.tel}]]</td>
+        <td>이메일</td>
+        <td>[[${memberVO.email}]]</td>
+      </tr>
+      <tr>
+        <td>생일</td>
+        <td style="text-align: center;" colspan="3">[[${memberVO.birth}]]</td>
+      </tr>
+    </table>
+    <input type="submit" value="뒤로가기">
+</form>
+
+</body>
+</html>

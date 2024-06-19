@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <!-- spring 은 / 를 넣고 css명을 넣어주면 됨 (/ 만 넣어도 알아서 static 안에 있는 css 불러옴 ) -->
+  <link rel="stylesheet" href="/login.css">
+</head>
+<body>
+  <!--
+   <input태그에 입력한 정보를 자바로 전달하기>
+   1.input태그를 form태그로 감싸기 
+   2.form태그 안에 submit을 클릭하면 form 태그의 action속성으로 페이지 이동
+   3.action="/페이지이름 "  method=""
+   4.input태그의 입력값은 name 속성에 작성한 이름으로 자바로 전달된다.
+   5.form태그 안의 input태그의 데이터가 전달된다는 것은 input태그의 ★value 속성 값★이 전달되는 것이다. (예) check박스, select등등 value속성 입력하기) 
+     input태그에 넣는 글자는 (type"text" or pw, email 등) 입력받은 값이 value값이 된다.
+
+   -->
+   <h2 style="color: lightcoral;">RequestPram으로 데이터 전달 받기(java)</h2>
+ <form  action="/loginPage" method="get">
+    <table>
+      <tr>
+        <td>아이디</td>
+        <td><input type="text" name="id"></td>
+      </tr>
+      <tr>
+        <td>비밀번호</td>
+        <td><input type="password" name="pw"></td>
+      </tr>
+    </table>
+    <input type="submit" value="로그인">
+ </form>
+
+  <hr>
+
+  <!-- 
+  form태그의 method 의 속성이 get일 경우 자바로 넘어가는 데이터가 UR에 노출이 된다.
+  이를 방지 하기 위해서는 method의 속성값을 post로 지정한다.
+  
+  단, 여기서 주의 할 점 (java controller 의 어포테이션을 바꾸어 준다.)
+  get : @getMapping
+  post : @PostMapping 
+  form태그 쓰면 post로 하자!!!!!!!!!!!!!
+  -->
+  <h2 style="color: lightblue;">객체로 데이터 전달 받기(java)</h2>
+ <form  action="/loginPage1" method="post">
+  <table>
+    <tr>
+      <td>아이디</td>
+      <td><input type="text" name="id"></td>
+    </tr>
+    <tr>
+      <td>비밀번호</td>
+      <td><input type="password" name="pw"></td>
+    </tr>
+  </table>
+  <input type="submit" value="로그인">
+</form>
+
+
+</body>
+</html>

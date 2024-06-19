@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+ <form action="/survey_result" method="post">
+    <table>
+      <tr>
+        <td>자기소개</td>
+        <td>
+          <textarea cols="40" rows="5" name="intro">
+          </textarea>
+        </td>
+      </tr>
+      <tr>
+        <td>성별</td>
+        <td>
+          <!-- radio 특성 상 둘 중 하나이기 때문에 name 중복이어도 상관없음 (value 입력 필수) -->
+          <input type="radio" name="gender" value="남자" checked>남 
+          <input type="radio" name="gender" value="여자">여
+          
+        </td>
+      </tr>
+      <tr>
+        <td>취미</td>
+        <td>
+          <!-- checkbox도 name도 동일 시 하기! (value 입력 필수) 
+           체크박스는 같은 경우는 같은 name 속성을 가지면 check한 밸류 값을 리스트로 가져온다.
+           그러므로! 배열로 받는 것이 좋다!!!   -->
+          <input type="checkbox" name="hobby" value="111" checked>독서 
+          <input type="checkbox" name="hobby" value="222">게임 
+          <input type="checkbox" name="hobby" value="333">운동</td>
+      </tr>
+      <tr>
+        <td>가입경로</td>
+        <td><select name="path" style="width: 100px; height: 30px;">
+          <option value="internet">인터넷</option>
+          <option value="newspaper">신문</option>
+          <option value="recomment">지인추천</option>
+        </select>
+      </td>
+      </tr>
+    </table>
+    <input style="width: 80px; padding: 2px 0px;" type="submit" value="제출하기">
+ </form>
+</body>
+</html>

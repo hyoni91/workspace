@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="/result_grade" method="post">
+    <h4>학생 성적 입력 프로그램</h4>
+    <div> [[${scoreVO.name}]] 학생의 성적을 입력합니다.</div>
+    <div>
+      <table>
+        <tr>
+          <td>국어</td>
+          <td><input type="text" name="kor"></td>
+        </tr>
+        <tr>
+          <td>영어</td>
+          <td><input type="text" name="eng"></td>
+        </tr>
+        <tr>
+          <td>수학</td>
+          <td><input type="text" name="math"></td>
+        </tr>
+      </table>
+      <input type="submit" value="확인">
+    </div>
+    <input type="hidden" name="name" th:value="${scoreVO.name}">  
+    <input type="hidden" name="hak" th:value="${scoreVO.hak}">
+    <input type="hidden" name="tel2" th:value="${scoreVO.tel2}">
+    <input type="hidden" name="gender" th:value="${scoreVO.gender}">
+  </body>
+  </form>
+</html>
