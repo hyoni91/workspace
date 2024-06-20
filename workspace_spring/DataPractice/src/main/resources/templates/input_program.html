@@ -3,22 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>second</title>
 </head>
 <body>
-  <form action="/grade" method="post">
-    <h4>학생 성적 입력 프로그램</h4>
-    <div> [[${scoreVO.name}]] 학생의 기본정보를 입력합니다.</div>
-
+  <h4>학생 성적 입력 프로그램</h4>
+  <div> [[${scoreVO.name}]] 학생의 기본정보를 입력합니다.</div>
+  <form action="/input_grade" method="post">
     <table>
       <tr>
         <td>학년<td>
-        <td><input type="text" name="hak"></td>
+        <td>
+          <input type="text" name="hak">
+        </td>
       </tr>
       <tr>
         <td>연락처</td>
         <td>
-          <input type="tel" name="tel2">
+          <select name="tel" >
+            <option value="010">010</option>
+            <option value="090">090</option>
+          </select>
+          <input type="tel" name="tel">
         </td>
       </tr>
       <tr>
@@ -29,14 +34,9 @@
         </td>
       </tr>
     </table>
+    <input type="hidden" name="name" th:value="${scoreVO.name}">
     <input type="submit" value="확인"> 
-    <input type="hidden" name="name" th:value="${scoreVO.name}"> 
+    <input type="button" value="뒤로가기"> 
   </form>
-
-  <form action="/score_input" method="get">
-    <input type="submit" value="뒤로가기">
-    <input type="hidden" name="name" th:value="${scoreVO.name}"> 
-  </form>
-
 </body>
 </html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="head">
+  <input type="button" value="value값 읽기" onclick="readValue()">
+  <input type="button" value="value값 세팅" onclick="setValue()">
+
+  <script>
+    //노드선택하기 =  태그선택하기와 같은 개념
+
+    //함수만들기 (자바에서의 메서드)
+    function readValue(){
+     const read = document.querySelector('#head');  //id로 접근
+     console.log(read.type);  // read 의 타입을 출력
+     console.log(read.id); // read의 id가 나옴
+     console.log(read.value); // input태그의 value값 출력
+    }
+
+
+    function setValue(){
+      const setting = document.querySelector('#head');
+      setting.value = 30;  // 클릭하면 input태그 value값에 30 입력
+    }
+    
+    
+  </script>
+</body>
+</html>
