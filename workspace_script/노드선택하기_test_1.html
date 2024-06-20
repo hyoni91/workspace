@@ -17,8 +17,9 @@
       const num1 = a.value
       const num2 = document.querySelector('#num2').value; //이렇게 value값 접근하는 것도 가능함.
      
-      const sum = Number(num1) + Number(num2);  // 문자열을 숫자로 바꾸기
+      const sum = parseInt(num1) + Number(num2);  // 문자열을 숫자로 바꾸기(두가지 방법)
       document.querySelector('#result').value = sum;
+
 
 
     }
