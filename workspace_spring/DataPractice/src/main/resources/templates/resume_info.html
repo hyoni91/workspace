@@ -8,44 +8,56 @@
 <body>
   <h2>이력서 정보</h2>
   <div>학력</div>
-  <p>
-  <select name="" >
-    <option value="대졸">대졸</option>
-    <option value="전문대졸">전문대졸</option>
-    <option value="고졸">고졸</option>
-  </select>
-    <input type="text" name="">
-  </p>
-  <div>
-    지원 구분 
-    <input type="radio" name="" value="신입">신입
-    <input type="radio" name="" value="경력">경력
-  </div>
-  <div>자격정보</div>
-  <table>
-    <tr>
-      <td>자격증명</td>
-      <td>취득일자</td>
-      <td>발행기관</td>
-    </tr>
-    <tr>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
-    </tr>
-  </table>
-  <div>경력정보</div>
-  <table>
-    <tr>
-      <td>회사명</td>
-      <td>담당업무</td>
-      <td>경력기관</td>
-    </tr>
-    <tr>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
-      <td><input type="text">년 <input type="text">개월</td>
-    </tr>
-  </table>
+  <form action="/resume_result" method="post">
+    <p>
+    <select name="education" >
+      <option value="대졸">대졸</option>
+      <option value="전문대졸">전문대졸</option>
+      <option value="고졸">고졸</option>
+    </select>
+      <input type="text" name="educationName">
+    </p>
+    <div>
+      지원 구분 
+      <input type="radio" name="category" value="신입">신입
+      <input type="radio" name="category" value="경력">경력
+    </div>
+    <div>자격정보</div>
+    <table>
+      <tr>
+        <td>자격증명</td>
+        <td>취득일자</td>
+        <td>발행기관</td>
+      </tr>
+      <tr>
+        <td><input type="text" name="licenseName"></td>
+        <td><input type="date" name="licenseDate"></td>
+        <td><input type="text" name="Issuer"></td>
+      </tr>
+    </table>
+    <div>경력정보</div>
+    <table>
+      <tr>
+        <td>회사명</td>
+        <td>담당업무</td>
+        <td>경력기관</td>
+      </tr>
+      <tr>
+        <td><input type="text" name="companyName"></td>
+        <td><input type="text" name="Respon"></td>
+        <td><input type="int" name="
+          careerYear">년 
+          <input type="int" name="
+          careerMonth">개월</td>
+      </tr>
+    </table>
+    <div>
+      자기 소개
+      <p><textarea name="introduce" cols="100" rows="3"></textarea></p>
+    </div>
+    <input type="hidden" name="name" value="${resumeVO.name}">
+    <input type="hidden" name="tel" value="${resumeVO.tel}">
+    <input type="submit" value="등록">
+  </form>
 </body>
 </html>
