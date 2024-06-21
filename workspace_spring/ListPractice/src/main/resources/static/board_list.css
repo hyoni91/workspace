@@ -1,0 +1,49 @@
+
+.container{
+  width: 800px;
+  margin: 30px auto;
+}
+
+.list-table{
+  border: 1px solid black;
+  width: 100%;
+  text-align: center;
+}
+
+thead{
+  background-color: rgb(70, 186, 224);
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+.list-table tr:nth-child(even){
+  background-color: rgb(176, 230, 248);
+}
+
+/* .list-table tr:nth-child(odd){
+  background-color: rgb(193, 219, 228);
+} */
+
+.list-table tr, .list-table td{
+  border: 1px solid black;
+}
+
+/* td안의 글 떨어뜨리기 */
+.list-table td{
+  padding: 5px;
+}
+
+/* 버튼 위 여백 */
+.btn-div{
+  margin-top: 20px;
+  text-align: center;
+}
+
+.btn-div input {
+  width: 100px;
+  padding: 5px;
+
+}
+
+
+

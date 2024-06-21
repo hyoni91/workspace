@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게시글 목록 화면</title>
+  <link rel="stylesheet" href="/reset.css">
+  <link rel="stylesheet" href="/board_list.css">
+</head>
+<body>
+  <div class="container">
+    <h2 style="text-align: center;">게시판</h2>
+    <div class="list-div">
+      <table class="list-table">
+        <colgroup>
+          <col width="15%">
+          <col width="*">
+          <col width="15%">
+          <col width="25%">
+        </colgroup>
+        <thead>
+          <tr>
+            <td>글번호</td>
+            <td>제목</td>
+            <td>작성자</td>
+            <td>작성일</td>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 게시글이 없으면 실행 -->
+          <th:block th:if="${#lists.isEmpty(boardList)}">
+            <tr>
+              <td colspan="4">게시글이 없습니다.</td>
+            </tr>
+          </th:block>    
+          <!-- 게시글이 존재하면 실행 -->
+          <th:block th:unless="${#lists.isEmpty(boardList)}">
+            <tr th:each=" board : ${boardList}">
+              <td>[[${board.boardNum}]]</td>
+              <td><a th:href="@{/board_detail(boardNum=${board.boardNum})}">[[${board.title}]]</a></td>
+              <td>[[${board.writer}]]</td>
+              <td>[[${board.createDate}]]</td>
+            </tr>
+          </th:block>    
+        </tbody>
+      </table>
+    </div>
+    <div class="btn-div">
+
+      <input type="button" value="글쓰기" onclick="setWrite()">
+    </div>
+  </div>
+
+  <!-- 자바스크립트 불러오기 -->
+  <script src="/board_list.js"></script>
+</body>
+</html>

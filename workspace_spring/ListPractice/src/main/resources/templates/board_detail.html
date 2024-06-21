@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/reset.css">
+</head>
+
+<style>
+  .container3{
+    margin: auto;
+    width: 600px;
+  }
+
+  tr, td {
+    border: 1px solid black;
+    text-align: center;
+  }
+
+</style>
+
+<body>
+  <form action="" method="">
+    <div class="container3">
+      <div>
+        <table>
+          <tr>
+            <td>글번호</td>
+            <td>[[${board.boardNum}]]</td>
+            <td>작성자</td>
+            <td>[[${board.writer}]]</td>
+            <td>작성일</td>
+            <td>[[${board.createDate}]]</td>
+          </tr>
+          <tr>
+            <td>제목</td>
+            <td colspan="5">[[${board.title}]]</td>
+          </tr>
+          <tr>
+            <td>내용</td>
+            <td colspan="5">[[${board.content}]]</td>
+          </tr>
+        </table>
+        <!-- 현재 상세보기 하고 있는 게시글을 삭제하고, 게시글 목록 페이지로 이동 -->
+        <a th:href="@{/remove_detail(boardNum=${board.boardNum})}">글삭제</a><br>
+      </div>
+      <div>
+        <input type="submit" value="뒤로가기">
+        <!-- 삭제하기 누르면 매개변수의 글 번호가 자바스크립트로 넘어가! 매개변수는 대괄호 포함! -->
+        <input type="button" value="삭제하기" th:onclick="goDelete([[${board.boardNum}]])">
+      </div>
+    </div>
+  </form>
+
+
+  <script>
+  //삭제 버튼 클릭 시, 실행되는 함수 
+  function goDelete(boardNum){
+    //컨펌 실행 후, 확인을 클릭하면 true리턴
+    //취소를 클릭하면 flase를 리턴
+    const result = confirm('해당 게시물을 삭제 하시겠습니까?');
+    
+    //확인을 클릭했을 때만 삭제를 위해 자바로 이동
+    if(result){
+      // location.href='/delete?boardNum='+boardNum;   //''안은 문자열로 인식하기 때문에! 
+      location.href=`/delete?boardNum=${boardNum}`;   // ` 빽틱? 안에는  ${변수명} 로 변수 인식 가능
+    }
+    
+  }
+  </script>
+</body>
+</html>
