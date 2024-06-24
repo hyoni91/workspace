@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/reset.css">
+</head>
+
+<style>
+
+  .container{
+    margin: auto;
+    width: 600px;
+  }
+
+  .table-div{
+    width: 100%;
+  }
+
+  tr,td{
+    border: 1px solid black;
+    text-align: center;
+  }
+
+  td{
+    padding: 5px;
+  }
+</style>
+
+<body>
+<form action="/write_student" method="get">
+    <div class="container">
+      <div class="table-div">
+        <colgroup>
+          <col width="*">
+          <col width="15%">
+          <col width="25%">
+          <col width="25%">
+          <col width="25%">
+        </colgroup>
+        <table>
+          <tr>
+            <td>학번</td>
+            <td>학생명</td>
+            <td>국어점수</td>
+            <td>영어점수</td>
+            <td>총점</td>
+          </tr>
+          <th:block th:if="${#lists.isEmpty(stu_list)}">
+            <tr>
+              <td colspan="5">등록된 학생이 없습니다.</td>
+            </tr>
+          </th:block>
+          <th:block th:unless="${#lists.isEmpty(stu_list)}">
+            <tr th:each="stulist : ${stu_list}">
+              <td>[[${stulist.stuNum}]]</td>
+              <td><a th:href="@{/student_detail(stuNum=${stulist.stuNum})}">[[${stulist.stuName}]]</a></td>
+              <td>[[${stulist.korScore}]]</td>
+              <td>[[${stulist.engScore}]]</td>
+              <td>[[${stulist.korScore+stulist.engScore}]]</td>
+            </tr>
+          </th:block>
+          
+        </table>
+      </div>
+      <div class="button-div">
+        <input type="button" value="학생등록" onclick="goReg_student()">
+      </div>
+    </div>
+</form>
+
+<script>
+  function goReg_student(){
+    location.href='/write_student';
+  }
+
+</script>
+
+</body>
+</html>
