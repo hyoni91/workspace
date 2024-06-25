@@ -14,9 +14,11 @@ public class MemberController {
     //이 메소드가 실행되면 TEST_MEMBER 테이블에 하나의 데이터가 INSERT 됨
     @GetMapping("/insert1")
     public String insert1(){
-        memberService.insertMember();
+//        memberService.insertMember();
+        memberService.insertMember2();
         return "insert_1";
     }
+
 
 
 

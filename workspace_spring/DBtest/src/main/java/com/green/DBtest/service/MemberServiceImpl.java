@@ -19,6 +19,7 @@ public class MemberServiceImpl implements MemberService{
     데이터 삭제(DELETE) : 객체명.delete("쿼리가 있는 mapper 파일의 namespace.쿼리 id", []);
     */
 
+    //@Autowired: 의존성 주입을 수행할 때 사용됩니다. 스프링은 해당 어노테이션이 지정된 필드나 생성자를 찾아 해당하는 빈을 주입
     @Autowired
     private SqlSessionTemplate sqlSession;
 
@@ -31,6 +32,6 @@ public class MemberServiceImpl implements MemberService{
 
     @Override
     public void insertMember2() {
-        
+        sqlSession.insert("memberMapper.insert2", 20);
     }
 }

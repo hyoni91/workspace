@@ -8,6 +8,11 @@
         INSERT INTO TEST_MEMBER VALUES(7,'김태형',28,'광주');
     </insert>
 
+<!--빈값에 매개변수로 받을 데이터를 넣어주기 -->
+    <insert id="insert2">
+        INSERT INTO TEST_MEMBER VALUES(8,'박수지',#{age},'울산');
+    </insert>
+
 
 
 </mapper>
