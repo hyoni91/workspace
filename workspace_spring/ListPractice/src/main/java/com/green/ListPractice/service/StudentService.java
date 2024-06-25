@@ -42,7 +42,7 @@ public class StudentService {
         } return stu_list.remove(index);
     }
 
-    //정보수정
+    //정보수정 setter활용 (학번은 수정할 학생의 정보 확인용이므로 수정 No)
     public void setUpdateStu(StudentVO studentVO){
 
         for(StudentVO student : stu_list){

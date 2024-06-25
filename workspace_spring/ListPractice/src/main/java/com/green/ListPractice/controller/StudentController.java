@@ -124,12 +124,13 @@ public class StudentController {
     }
 
 
-    //수정 (디테일페이지의 매개변수 인 stuNum도 넘겨야함)
+    //수정 (디테일페이지의 매개변수인 stuNum도 넘겨야함)
     @PostMapping("/reg_update")
     public String regUpdateStu(StudentVO studentVO){
 
         stuSV.setUpdateStu(studentVO);
 
+        //html로 바로 보내지 않고 student_detail메서드를 다시 실행시킨 후 html로 이동
         return "redirect:/student_detail?stuNum=" + studentVO.getStuNum();  //stuNum 넘겨주기 (학번)
     }
 
