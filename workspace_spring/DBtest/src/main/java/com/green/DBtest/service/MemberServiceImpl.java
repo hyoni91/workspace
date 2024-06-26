@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 //Impl => implements(구현하다)
 //TEST_MEMBER 테이블에 데이터를 조작하는 DB(쿼리작성) 작업을 하는 클래스
-@Service("memberService")
+@Service("memberService")  // MemberServiceImpl memberService(소괄호 안에 넣은 이름으로 객체 생성됨) = new MemberServiceImpl();
 public class MemberServiceImpl implements MemberService{
 
     //쿼리 실행을 위한 메서드를 가지고 있는 객체
@@ -19,7 +19,7 @@ public class MemberServiceImpl implements MemberService{
     데이터 삭제(DELETE) : 객체명.delete("쿼리가 있는 mapper 파일의 namespace.쿼리 id", []);
     */
 
-    //@Autowired: 의존성 주입을 수행할 때 사용됩니다. 스프링은 해당 어노테이션이 지정된 필드나 생성자를 찾아 해당하는 빈을 주입
+    //@Autowired: 의존성 주입(DI)을 수행할 때 사용됩니다. 스프링은 해당 어노테이션이 지정된 필드나 생성자를 찾아 해당하는 빈(객체)을 주입
     @Autowired
     private SqlSessionTemplate sqlSession;
 
