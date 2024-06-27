@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="" method="">
+    <table>
+      <tr>
+        <td>학번</td>
+        <td>[[${stuDetail.stuNum}]]</td>
+        <td>이름</td>
+        <td>[[${stuDetail.stuName}]]</td>
+      </tr>
+      <tr>
+        <td>국어점수</td>
+        <td>[[${stuDetail.korScore}]]</td>
+        <td>영어점수</td>
+        <td>[[${stuDetail.engScore}]]</td>
+      </tr>
+      <tr>
+        <td>자기소개</td>
+        <td colspan="3">[[${stuDetail.intro}]]</td>
+      </tr>
+    </table>
+    <input type="button" value="뒤로가기" onclick="goBack()">
+    <input type="button" value="학생수정" th:onclick="goUpdate([[${stuDetail.stuNum}]])">
+    <input type="button" value="학생삭제" onclick="goDelete">
+  </form>
+</body>
+
+<script>
+  function goBack(){
+    location.href="/"
+  }
+
+  function goUpdate(stuNum){
+    const result = confirm('수정하시겠습니까?')
+
+    if(result){
+      location.href=`/DBupdate?stuNum=${stuNum}`
+    }
+  }
+
+  function goDelete(stuNum){
+    const result1 = confirm('삭제하시겠습니까?')
+
+    if(result1){
+      location.href=`/DBdelete?stuNum=${stuNum}`
+    }
+  }
+
+</script>
+
+</html>

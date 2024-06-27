@@ -74,7 +74,6 @@ SET MEM_NAME = '김진수', MEM_AGE = 20
 WHERE MEM_NAME = 'KJS';
 COMMIT;
 
-
 -- 데이터삭제 [DELETE]
 -- DELETE FROM 테이블명 [WHERE 조건]
 -- 조건이 없으면 데이터가 전부 삭제됨
@@ -88,3 +87,4 @@ ROLLBACK;
 
 SELECT * FROM test_member;
 COMMIT;
+

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<!-- namespace 는 다른 mapper 파일과 중복되면 안됨 -->
+<mapper namespace="dbMapper">
+
+    <!--resultMap 은 DB 에서 조회된 데이터를 VO 클래스로 가져오기 위한 설정 -->
+    <resultMap id="member" type="com.green.DB_Member.vo.MemberVO">
+        <result column="MEM_NUM" property="memNum" />
+        <result column="MEM_NAME" property="memName" />
+        <result column="MEM_AGE" property="memAge" />
+        <result column="MEM_ADDR" property="memAddr" />
+    </resultMap>
+
+    <!-- <select>태그는 조회결과 데이터를 자바로 어떻게 가져올 지 작성해야 한다 -->
+    <!-- resultType : 조회된 데이터에서 하나의 행 정보를 담을 자료형 -->
+    <!-- resultMap : 조회된 데이터에서 하나의 행 정보를 담을 자료형 (여러타입이 겹칠경우) 예제) MemberVO  -->
+    <!-- 하기의 쿼리문은 빈값을 채워줄 데이터 없음 -> 매개변수 없음 -->
+
+    <!--회원번호가 1번인 학생의 이름을 조회-->
+    <select id="selectNum1" resultType="String">
+        SELECT MEM_NAME
+        FROM TEST_MEMBER
+        WHERE MEM_NUM = 1 ;
+    </select>
+
+    <!-- 전달된 회원번호로 회원의 나이를 조회 -->
+    <select id="select2" resultType="int">
+        SELECT MEM_AGE
+        FROM test_member
+        WHERE MEM_NUM = #{memNum};
+    </select>
+
+    <!-- 전달받은 나이 이상인 회원의 이름을 조회 -->
+    <!-- Mapper에서의   크다: &gt;   작다 : &lt; -->
+    <select id="select3" resultType="String">
+        SELECT MEM_NAME
+        FROM test_member
+        WHERE MEM_AGE &gt;= #{memAge};
+    </select>
+
+    <!-- 전달받은 회원 번호를 지닌 회원의 회원번호, 이름, 나이, 주소를 조회 -->
+    <!-- resultMap ="연결해줄 resultMap의 id" -->
+    <select id="select4" resultMap="member">
+        SELECT
+        MEM_NUM
+        , MEM_NAME
+        , MEM_AGE
+        , MEM_ADDR
+        FROM test_member
+        WHERE MEM_NUM = #{memNum};
+    </select>
+
+    <!-- 모든 회원의 회원번호, 이름, 나이, 주소를 조회 -->
+    <select id="select5" resultMap="member">
+        SELECT *
+        FROM test_member;
+    </select>
+
+    <!--전달받은 회원번호를 가진 회원을 삭제-->
+    <delete id="delete">
+        DELETE FROM test_member
+        WHERE MEM_NUM = #{memNum};
+    </delete>
+
+    <!-- 전달받은 정보로 회원 등록 -->
+    <insert id="insert" >
+        INSERT
+        INTO test_member (
+        MEM_NUM
+        , MEM_NAME
+        , MEM_AGE
+        , MEM_ADDR
+        )
+        VALUES (
+        #{memNum}
+        , #{memName}
+        , #{memAge}
+        , #{memAddr}
+        );
+    </insert>
+
+    <!-- 전달받은 정보로 회원 수정 -->
+    <update id="update">
+        UPDATE test_member
+        SET
+        MEM_NAME = #{memName}
+        , MEM_AGE = #{memAge}
+        , MEM_ADDR = #{memAddr}
+        WHERE MEM_NUM =  #{memNum} ;
+    </update>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

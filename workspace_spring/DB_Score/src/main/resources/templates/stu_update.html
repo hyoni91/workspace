@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <table>
+    <tr>
+      <td>학번</td>
+      <td>[[${stuDetail.stuNum}]]</td>
+      <td>이름</td>
+      <td><input type="text" name="stuName" th:value="${dbScoreVO.stuName}"></td>
+    </tr>
+    <tr>
+      <td>국어점수</td>
+      <td><input type="text" name="korScore" th:value="${dbScoreVO.korScore}"></td>
+      <td>영어점수</td>
+      <td><input type="text" name="engScore" th:value="${dbScoreVO.engScore}"></td>
+    </tr>
+    <tr>
+      <td>자기소개</td>
+      <td colspan="3"><textarea name="intro"  cols="30" rows="10">[[${dbScoreVO.intro}]]</textarea></td>
+    </tr>
+  </table>
+</body>
+</html>

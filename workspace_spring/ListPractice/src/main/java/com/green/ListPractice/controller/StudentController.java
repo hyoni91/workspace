@@ -79,6 +79,7 @@ public class StudentController {
 
         //학생 목록 데이터 조회 메서드를 리스트에 추가하기
         List<StudentVO> stu_list = stuSV.getStuList();
+
         //학생목록을 html로 전달하기
         model.addAttribute("stu_list",stu_list);
         return "stu_list";

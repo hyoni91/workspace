@@ -2,7 +2,7 @@ package com.green.DB_Member.service;
 
 import com.green.DB_Member.vo.MemberVO;
 
-//MVC 의 M : Model
+
 //TEST_MEMBER 테이블의 DB 조작 기능 정의
 public interface MemberService {
 
