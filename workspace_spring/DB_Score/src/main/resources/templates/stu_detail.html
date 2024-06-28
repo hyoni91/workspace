@@ -4,7 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  
+  <link rel="stylesheet" href="/reset.css">
+  <style>
+    td{
+      padding: 5px;
+      text-align: center;
+    }
+ 
+
+  </style>
 </head>
 <body>
   <form action="" method="">
@@ -23,7 +31,7 @@
       </tr>
       <tr>
         <td>자기소개</td>
-        <td colspan="3">[[${stuDetail.intro}]]</td>
+        <td colspan="3"> <textarea>[[${stuDetail.intro}]]</textarea></td>
       </tr>
     </table>
     <input type="button" value="뒤로가기" onclick="goBack()">

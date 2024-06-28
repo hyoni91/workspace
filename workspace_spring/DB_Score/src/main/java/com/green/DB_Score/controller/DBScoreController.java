@@ -67,13 +67,6 @@ public class DBScoreController {
         return "redirect:/DBdetail?stuNum="+dbScoreVO.getStuNum();   //상세정보갈때 가져갈 넘버
     }
 
-//    //삭제
-//    @GetMapping("/DBdelete")
-//    public String DBdelete(@RequestParam(name="stuNum") int stuNum){
-//        dbScoreService.stuDelete(stuNum);
-//        return "redirect:/";
-//    }
-
     //삭제  (Param말고도 가능!! (넘어오는 매개변수 명과 클래스 멤버변수명이 같으면 넘길 수 있음)
     @GetMapping("/DBdelete")
     public String DBdelete(DBScoreVO dbScoreVO){

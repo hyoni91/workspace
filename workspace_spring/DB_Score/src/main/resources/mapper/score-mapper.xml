@@ -49,6 +49,7 @@
         STU_NUM = #{stuNum}
     </update>
 
+    <!-- 삭제 -->
     <delete id="delete">
         DELETE
         FROM SCORE_INFO
