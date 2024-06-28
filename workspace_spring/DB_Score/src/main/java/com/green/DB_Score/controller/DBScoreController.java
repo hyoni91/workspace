@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
@@ -48,18 +49,24 @@ public class DBScoreController {
         return "stu_detail";
     }
 
+    //수정페이지
+    @GetMapping("/updateForm")
+    public String updateForm(@RequestParam(name="stuNum")int stuNum,Model model){
+        model.addAttribute("stuUpdate", stuNum);
+        return "stu_update";
+    }
+
     //수정
     @GetMapping("/DBupdate")
-    public String DBUpdate(@RequestParam(name="stuNum")int stuNum, DBScoreVO dbScoreVO){
-        dbScoreVO.setStuNum(stuNum);
+    public String DBUpdate( DBScoreVO dbScoreVO){
         dbScoreService.stuUpdate(dbScoreVO);
-        return "stu_update";
+        return "redirect:/DBdetail?stuNum=" + dbScoreVO.getStuNum();
     }
 
     //삭제
     @GetMapping("/DBdelete")
-    public String DBdelete(){
-
+    public String DBdelete(@RequestParam(name="stuNum") int stuNum){
+        dbScoreService.stuDelete(stuNum);
         return "redirect:/";
     }
 

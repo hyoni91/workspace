@@ -17,4 +17,8 @@ public interface DBScoreService {
 
     //학생정보수정
     void stuUpdate(DBScoreVO dbScoreVO);
+
+    //학생정보삭제
+    void stuDelete(int stuNum);
+
 }

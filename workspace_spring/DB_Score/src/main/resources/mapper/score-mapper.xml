@@ -50,7 +50,9 @@
     </update>
 
     <delete id="delete">
-        DELETE 
+        DELETE
+        FROM SCORE_INFO
+        WHERE STU_NUM = #{stuNum}
     </delete>
 
 	

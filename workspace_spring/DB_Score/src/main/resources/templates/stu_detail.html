@@ -27,20 +27,20 @@
     </table>
     <input type="button" value="뒤로가기" onclick="goBack()">
     <input type="button" value="학생수정" th:onclick="goUpdate([[${stuDetail.stuNum}]])">
-    <input type="button" value="학생삭제" onclick="goDelete">
+    <input type="button" value="학생삭제" th:onclick="goDelete([[${stuDetail.stuNum}]])">
   </form>
 </body>
 
 <script>
   function goBack(){
-    location.href="/"
+    location.href="/";
   }
 
   function goUpdate(stuNum){
     const result = confirm('수정하시겠습니까?')
 
     if(result){
-      location.href=`/DBupdate?stuNum=${stuNum}`
+      location.href=`/updateForm?stuNum=${stuNum}`;
     }
   }
 
@@ -48,7 +48,7 @@
     const result1 = confirm('삭제하시겠습니까?')
 
     if(result1){
-      location.href=`/DBdelete?stuNum=${stuNum}`
+      location.href=`/DBdelete?stuNum=${stuNum}`;
     }
   }
 

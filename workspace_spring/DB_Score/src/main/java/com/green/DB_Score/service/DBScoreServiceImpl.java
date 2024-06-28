@@ -37,7 +37,14 @@ public class DBScoreServiceImpl implements DBScoreService {
     //수정
     @Override
     public void stuUpdate(DBScoreVO dbScoreVO) {
+
         sqlSession.update("scoreMapper.update",dbScoreVO);
+    }
+
+    //삭제
+    @Override
+    public void stuDelete(int stuNum) {
+        sqlSession.delete("scoreMapper.delete",stuNum);
     }
 
 

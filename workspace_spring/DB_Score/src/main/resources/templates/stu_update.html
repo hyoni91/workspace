@@ -9,20 +9,35 @@
   <table>
     <tr>
       <td>학번</td>
-      <td>[[${stuDetail.stuNum}]]</td>
+      <td>[[${stuUpdate}]]</td>
       <td>이름</td>
-      <td><input type="text" name="stuName" th:value="${dbScoreVO.stuName}"></td>
+      <td><input type="text" name="stuName" ></td>
     </tr>
     <tr>
       <td>국어점수</td>
-      <td><input type="text" name="korScore" th:value="${dbScoreVO.korScore}"></td>
+      <td><input type="text" name="korScore" ></td>
       <td>영어점수</td>
-      <td><input type="text" name="engScore" th:value="${dbScoreVO.engScore}"></td>
+      <td><input type="text" name="engScore" ></td>
     </tr>
     <tr>
       <td>자기소개</td>
-      <td colspan="3"><textarea name="intro"  cols="30" rows="10">[[${dbScoreVO.intro}]]</textarea></td>
+      <td colspan="3"><textarea name="intro"  cols="30" rows="10"></textarea></td>
     </tr>
   </table>
+  <input type="button" value="수정하기" onclick="gogoUpdate()">
+
 </body>
+
+  
+<script>
+  function gogoUpdate(){
+    const result = confirm('수정하시겠습니까?')
+
+    if(result){
+      location.href='/DBupdate';
+    }
+    
+  }
+</script>
+
 </html>
