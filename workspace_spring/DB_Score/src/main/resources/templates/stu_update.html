@@ -6,29 +6,33 @@
   <title>Document</title>
 </head>
 <body>
-  <table>
-    <tr>
-      <td>학번</td>
-      <td>[[${stuUpdate}]]</td>
-      <td>이름</td>
-      <td><input type="text" name="stuName" ></td>
-    </tr>
-    <tr>
-      <td>국어점수</td>
-      <td><input type="text" name="korScore" ></td>
-      <td>영어점수</td>
-      <td><input type="text" name="engScore" ></td>
-    </tr>
-    <tr>
-      <td>자기소개</td>
-      <td colspan="3"><textarea name="intro"  cols="30" rows="10"></textarea></td>
-    </tr>
-  </table>
-  <input type="button" value="수정하기" onclick="gogoUpdate()">
+  <form action="/DBupdate" method="post">
+    <table>
+      <tr>
+        <td>학번</td>
+        <td>[[${stuUpdate}]]</td>
+        <td>이름</td>
+        <td><input type="text" name="stuName" th:value="${student.stuName}"></td>
+      </tr>
+      <tr>
+        <td>국어점수</td>
+        <td><input type="text" name="korScore" th:value="${student.korScore}"></td>
+        <td>영어점수</td>
+        <td><input type="text" name="engScore" th:value="${student.engScore}"></td>
+      </tr>
+      <tr>
+        <td>자기소개</td>
+        <td colspan="3"><textarea name="intro"  cols="30" rows="10">[[${student.intro}]]</textarea></td>
+      </tr>
+    </table>
+    <input type="hidden" name="stuNum" th:value="${student.stuNum}">
+    <input type="submit" value="수정하기">
+  </form>
+  <!-- <input type="button" value="수정하기" onclick="gogoUpdate()"> -->
 
 </body>
 
-  
+<!--   
 <script>
   function gogoUpdate(){
     const result = confirm('수정하시겠습니까?')
@@ -38,6 +42,6 @@
     }
     
   }
-</script>
+</script> -->
 
 </html>
