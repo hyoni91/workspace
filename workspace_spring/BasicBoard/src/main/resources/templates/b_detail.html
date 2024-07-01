@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <form action="/updateForm" method="post">
+      <table>
+        <colgroup>
+          <col width="20%">
+          <col width="*">
+        </colgroup>
+        <tr>
+          <td>글번호</td>
+          <td>[[${board.bNum}]]</td>
+          <td>작성자</td>
+          <td>[[${board.bWriter}]]</td>
+        </tr>
+        <tr>
+          <td>제목</td>
+          <td>[[${board.bTitle}]]</td>
+        </tr>
+        <tr>
+          <td>내용</td>
+          <td><textarea>[[${board.bContent}]]</textarea></td>
+        </tr>
+      </table>
+      <input type="button" value="뒤로가기" onclick="back()">
+    
+    <input type="button" value="수정하기" th:onclick="goUpdate([[${board.bNum}]])">
+    <input type="button" value="삭제하기" th:onclick="goDelete([[${board.bNum}]])">
+    </form>
+
+    <script>
+      function back(){
+        location.href="/"
+      }
+
+      function goUpdate(bNum){
+        const result2= confirm('수정 하시겠습니까?')
+
+    if(result2){
+      location.href=`/updateForm?bNum=${bNum}`;
+    }
+      }
+
+      function goDelete(bNum){
+        const result= confirm('삭제 하시겠습니까?')
+
+    if(result){
+      location.href=`/bDelete?bNum=${bNum}`;
+    }
+      }
+
+    </script>
+    
+</body>
+</html>

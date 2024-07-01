@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<mapper namespace="boardMapper">
+    <resultMap id="boardInfo" type="com.green.BasicBoard.vo.BoardVO">
+        <result column="B_NUM" property="bNum"/>
+        <result column="B_TITLE" property="bTitle"/>
+        <result column="B_WRITER" property="bWriter"/>
+        <result column="B_CONTENT" property="bContent"/>
+        <result column="B_DATE" property="bDate"/>
+        <result column="READ_CNT" property="readCnt"/>
+    </resultMap>
+
+    <select id="select" resultMap="boardInfo">
+        SELECT *
+        FROM BASIC_BOARD
+        <!-- 검색창이 UNLL도 아니고 빈글자가 아니라면(!)  -->
+        <!-- '' 안은 글자로 해석하기 때문에 변수는 '' 밖에! -->
+        <!-- ${} -> 컬럼명이 변수로 나올 때! -->
+        <if test="searchValue != null and !searchValue.equals('')">
+            WHERE ${searchKeyWord} LIKE CONCAT ('%',#{searchValue},'%')
+
+        </if>
+
+    </select>
+
+    <!-- 글등록 -->
+    <insert id="insert">
+        INSERT INTO BASIC_BOARD(
+        B_TITLE
+        , B_WRITER
+        , B_CONTENT
+        )
+        VALUES(
+        #{bTitle}
+        , #{bWriter}
+        , #{bContent}
+        );
+    </insert>
+
+    <!--상세조회-->
+    <select id="detail" resultMap="boardInfo">
+        SELECT B_NUM, B_WRITER, B_TITLE, B_CONTENT
+        FROM BASIC_BOARD
+        WHERE B_NUM = #{bNum};
+    </select>
+
+    <!-- 수정 -->
+    <update id="update">
+        UPDATE BASIC_BOARD
+        SET B_TITLE = #{bTitle}
+        , B_WRITER = #{bWriter}
+        , B_CONTENT = #{bContent}
+        WHERE B_NUM = #{bNum};
+    </update>
+
+    <!-- 삭제 -->
+    <delete id="delete">
+        DELETE FROM BASIC_BOARD
+        WHERE B_NUM = #{bNum};
+    </delete>
+
+    <!-- 검색 -->
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

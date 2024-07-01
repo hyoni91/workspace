@@ -33,7 +33,7 @@
     <!-- 상세페이지 -->
     <select id="stuInfo" resultMap="stuInfo">
         SELECT *
-        FROM SCORE_INFO
+        FROM SCORE_INF
         WHERE STU_NUM = #{stuNum}
     </select>
 
