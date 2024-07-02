@@ -24,10 +24,11 @@ public class BoardController {
     @RequestMapping("/")
     public String boardList(Model model, SearchVO searchVO){
         //searchVO 데이터 검사 (검색누르면 searchVO에 값 전달함)
+        //html은 from으로 데이터 받아옴 (method:post)
         System.out.println(searchVO);
 
-        // 리턴값으로 받은 후, 모델로 html에 넘기기
-        List<BoardVO> bList = boardService.bList(searchVO);
+        // 리턴값으로 받은 후, 모델로 html에 넘기기 (getMapping)
+        List<BoardVO> bList = boardService.bList(searchVO);  //빈값채우기(searchVO)
         model.addAttribute("bList", bList);
         return "board_list";
     }
@@ -50,6 +51,7 @@ public class BoardController {
     @GetMapping("/bDetail")
     public String bDetail(@RequestParam(name="bNum") int bNum, Model model){
         BoardVO board = boardService.bDtail(bNum);
+        boardService.updateReadCnt(bNum);
         model.addAttribute("board",board);
 
         return "b_detail";
@@ -78,12 +80,6 @@ public class BoardController {
     @GetMapping("/bDelete")
     public String bDelete(@RequestParam(name="bNum")int bNum){
         boardService.bDelete(bNum);
-        return "redirect:/";
-    }
-
-    //검색
-    public String serch(){
-
         return "redirect:/";
     }
 

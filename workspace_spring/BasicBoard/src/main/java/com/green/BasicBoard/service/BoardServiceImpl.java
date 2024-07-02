@@ -36,15 +36,23 @@ public class BoardServiceImpl implements BoardService {
         return sqlSession.selectOne("boardMapper.detail",bNum);
     }
 
+    //수정
     @Override
     public void bUpdate(BoardVO boardVO) {
         sqlSession.update("boardMapper.update",boardVO);
 
     }
 
+    //삭제
     @Override
     public void bDelete(int bNum) {
         sqlSession.delete("boardMapper.delete",bNum);
+    }
+
+    // 조회수
+    @Override
+    public void updateReadCnt(int bNum) {
+        sqlSession.update("boardMapper.updateReadCnt",bNum);
     }
 
 

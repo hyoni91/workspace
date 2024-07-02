@@ -4,7 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="/reset.css">
 </head>
+<style>
+  td{
+    padding: 5px;
+    text-align: center;
+  }
+  .bnt-2 > input{
+      padding: 5px;
+      background-color: lightskyblue;
+      border: none;
+      border-radius: 5%;
+      color: rgb(255, 255, 255);
+  }
+
+</style>
 <body>
     <form action="/updateForm" method="post">
       <table>
@@ -21,16 +36,19 @@
         <tr>
           <td>제목</td>
           <td>[[${board.bTitle}]]</td>
+          <td>조회수</td>
+          <td>[[${board.readCnt}]]</td>
         </tr>
         <tr>
           <td>내용</td>
-          <td><textarea>[[${board.bContent}]]</textarea></td>
+          <td colspan="3"><textarea cols="15" rows="7">[[${board.bContent}]]</textarea></td>
         </tr>
       </table>
-      <input type="button" value="뒤로가기" onclick="back()">
-    
-    <input type="button" value="수정하기" th:onclick="goUpdate([[${board.bNum}]])">
-    <input type="button" value="삭제하기" th:onclick="goDelete([[${board.bNum}]])">
+      <span class="bnt-2">
+        <input type="button" value="목록가기" onclick="back()">
+      <input type="button" value="수정하기" th:onclick="goUpdate([[${board.bNum}]])">
+      <input type="button" value="삭제하기" th:onclick="goDelete([[${board.bNum}]])">
+      </span>
     </form>
 
     <script>

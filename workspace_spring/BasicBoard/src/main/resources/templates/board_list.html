@@ -4,61 +4,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <style>
-    thead{
-      background-color: lightblue;
-      text-align: center;
-    }
-    
-
-  </style>
+  <link rel="stylesheet" href="/reset.css">
+  <link rel="stylesheet" href="/board_list.css">
+  
 </head>
 <body>
 
   <!-- value값 주의! -> title, writer 왜? -> 쿼리문 컬럼명 작성을 위해서!!!! -->
-  <form action="/" method="post">
-    <select name="searchKeyWord">
-      <option value="B_TITLE" name="bTitle">제목</option>
-      <option value="B_WRITER" name="bWriter">작성자</option>
-    </select>
-    <input type="text" name="searchValue"> 
-    <input type="submit" value="검색" >
-  </form>
-  
-  <form action="b_write_form" method="post">
-    <table>
-      <colgroup>
-        <col width="20%">
-        <col width="*">
-        <col width="25%">
-        <col width="20%">
-      </colgroup>
-      <thead>
-        <tr>
-          <td>글번호</td>
-          <td>제목</td>
-          <td>작성자</td>
-          <td>작성일</td>
-          <td>조회수</td>
-        </tr>
-      </thead>
-      <th:block th:if="${#lists.isEmpty(bList)}">
-        <tr>
-          <td colspan="4">해당 게시물이 없습니다.</td>
-        </tr>
-      </th:block>
-      <th:block th:unless="${#lists.isEmpty(bList)}">
-        <tr th:each=" bList : ${bList}">
-            <td>[[${bList.bNum}]]</td>        
-            <td><a th:href="@{/bDetail(bNum=${bList.bNum})}">[[${bList.bTitle}]]</a></td>        
-            <td>[[${bList.bWriter}]]</td> 
-            <td>[[${bList.bDate}]]</td>       
-            <td>[[${bList.readCnt}]]</td>        
-        </tr>
-      </th:block>
-    </table>
-    <input type="submit" value="글쓰기">
-  </form>
+ <div class="container">
+    <div class="search">
+      <form action="/" method="post">
+        <select name="searchKeyWord">
+          <option value="B_TITLE" name="bTitle">제목</option>
+          <option value="B_WRITER" name="bWriter">작성자</option>
+        </select>
+        <input type="text" name="searchValue"> 
+        <span class="btn-search"><input class="btn-submit" type="submit" value="검색" ></span>
+      </form>
+    </div>
+    
+    <form action="b_write_form" method="post">
+      <table>
+        <colgroup>
+          <col width="10%">
+          <col width="*">
+          <col width="20%">
+          <col width="15%">
+          <col width="10%">
+        </colgroup>
+        <thead>
+          <tr>
+            <td>글번호</td>
+            <td>제목</td>
+            <td>작성자</td>
+            <td>작성일</td>
+            <td>조회수</td>
+          </tr>
+        </thead>
+        <tbody>
+          <th:block th:if="${#lists.isEmpty(bList)}">
+            <tr>
+              <td colspan="4">해당 게시물이 없습니다.</td>
+            </tr>
+          </th:block>
+          <th:block th:unless="${#lists.isEmpty(bList)}">
+            <tr th:each=" bList : ${bList}">
+                <td>[[${bList.bNum}]]</td>        
+                <td><a th:href="@{/bDetail(bNum=${bList.bNum})}">[[${bList.bTitle}]]</a></td>        
+                <td>[[${bList.bWriter}]]</td> 
+                <td>[[${bList.bDate}]]</td>       
+                <td>[[${bList.readCnt}]]</td>        
+            </tr>
+          </th:block>
+        </tbody>
+      </table>
+      <div class="btn">
+        <input type="submit" value="글쓰기">
+      </div>
+    </form>
+ </div>
 
 </body>
 </html>

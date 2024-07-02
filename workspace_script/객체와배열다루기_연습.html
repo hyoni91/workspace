@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체와 배열 다루기 연습문제</title>
+</head>
+<body>
+  <h1>객체와 배열</h1>
+
+
+  <script>
+    const movie_info = [
+      {
+        title : '이웃집 토토로',
+        theater : ['울산점','부산점','서울점'],
+        grade : [4.0,4.8,3.2]
+      },
+      {
+        title : '센과 치히로의 행방불명',
+        theater : ['대구점','부산점','서울점'],
+        grade : [3.3,4.0,4.2]
+      },
+      {
+        title : '벼랑 위의 포뇨',
+        theater : ['울산점','대전점','제주점'],
+        grade : [2.5,4.5,4.3]
+      }
+    ];
+
+      // if , for 
+      //영화 중에서 평균 평점이 가장 높은 영화의 평균 평점과 영화 명을 출력하라
+
+      let max_grade =0;
+      movie_info.forEach(function ( movie , i ) {
+        //각 영화의 평점 배열의 요소의 합을 구함
+        let sum = 0;
+        for(const grade of movie.grade){
+          sum = grade + sum;    
+        } 
+        const avg = sum / movie.grade.length  //각각의 평균
+        if(max_grade < avg){  // 각각의 평균 점수 중 맥스
+          max_grade = avg; // 큰 값을 맥스 그레이드에 저장
+        }
+      }); 
+      
+      console.log(max_grade);
+
+
+      //영화 제목이 센과 치히로인 영화를 제외한 나머지 영화의 모든 상영관명을 배열에 저장하라
+      
+      const theater_arr = [];
+      let index = 0;
+
+      movie_info.forEach(function(movie , i ){
+        if(movie.title != movie.title[1])
+        for(const theater of movie.theater){
+        theater_arr.push(theater);
+        }
+      });
+
+      theater_arr.forEach(function(e, i ){
+        console.log(e)
+      });
+      
+
+      console.log('\n');
+      // 풀이
+
+      const theater_arr_answer = [];
+      movie_info.forEach(function(e , index){
+        if(e.title != '센과 치히로의 행방불명'){
+          for(const each of e.theater){
+            theater_arr_answer.push(each);
+          }
+        }
+      });
+
+      theater_arr_answer.forEach(function(theater,index){
+        console.log(theater);
+      });
+
+
+     
+
+
+
+
+
+
+
+          // let sum =0;
+      // let sum1 =0;
+      // let sum2 =0;
+
+      // for(let i =0; i < movie_info.length; i++){
+      //  sum = movie_info[0].grade[i] + sum;
+      // } 
+
+      // for(let i =0; i < movie_info.length; i++){
+      //  sum1 = movie_info[1].grade[i] + sum;
+      // } 
+
+      // for(let i =0; i < movie_info.length; i++){
+      //  sum2 = movie_info[2].grade[i] + sum;
+      // } 
+  
+      // console.log(sum);
+      // console.log(sum1);
+      // console.log(sum2);
+  </script>
+</body>
+</html>

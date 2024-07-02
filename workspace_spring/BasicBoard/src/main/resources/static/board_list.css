@@ -1,0 +1,74 @@
+
+    .container{
+      width: 800px;
+      margin: auto;
+    }
+
+    tr, td {
+      border: 1.5px solid white;
+    }
+
+    .search{
+      margin: 10px 0px;
+      text-align: right;
+     
+    }
+
+    thead{
+      background-color: #A1EEBD;
+      color: rgb(245, 245, 245);
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+
+    td{
+      padding: 5px;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    tbody > tr:nth-child(odd){
+      background-color: #ffffe3;
+    }
+    tbody > tr:nth-child(even){
+      background-color:#fdeeee;
+    }
+
+    .btn{
+      margin-top: 15px;
+      width: 100%;
+      text-align: center;
+    }
+    .btn > input{
+      width: 100px;
+      padding: 5px;
+      background-color: lightskyblue;
+      border: none;
+      border-radius: 5%;
+      color: rgb(255, 255, 255);
+    }
+
+    .btn > input:hover{
+      cursor: pointer;
+      background-color: rgb(112, 171, 207);
+      color: rgb(201, 201, 201);
+    }
+
+    .btn-search > .btn-submit{
+      width: 60px;
+      padding: 2px;
+      background-color: lightskyblue;
+      border: none;
+      border-radius: 5%;
+      color: rgb(255, 255, 255);
+
+    }
+    
+    .btn-search > .btn-submit:hover{
+      cursor: pointer;
+      background-color: rgb(112, 171, 207);
+      color: rgb(201, 201, 201);
+    }

@@ -12,6 +12,8 @@
         <result column="READ_CNT" property="readCnt"/>
     </resultMap>
 
+    <!-- 빈 값을 채우기 위해서 가져온 VO 객체에서 getter 호출 -->
+
     <select id="select" resultMap="boardInfo">
         SELECT *
         FROM BASIC_BOARD
@@ -20,9 +22,7 @@
         <!-- ${} -> 컬럼명이 변수로 나올 때! -->
         <if test="searchValue != null and !searchValue.equals('')">
             WHERE ${searchKeyWord} LIKE CONCAT ('%',#{searchValue},'%')
-
         </if>
-
     </select>
 
     <!-- 글등록 -->
@@ -36,14 +36,14 @@
         #{bTitle}
         , #{bWriter}
         , #{bContent}
-        );
+        )
     </insert>
 
     <!--상세조회-->
     <select id="detail" resultMap="boardInfo">
-        SELECT B_NUM, B_WRITER, B_TITLE, B_CONTENT
+        SELECT B_NUM, B_WRITER, B_TITLE, READ_CNT, B_CONTENT
         FROM BASIC_BOARD
-        WHERE B_NUM = #{bNum};
+        WHERE B_NUM = #{bNum}
     </select>
 
     <!-- 수정 -->
@@ -52,16 +52,22 @@
         SET B_TITLE = #{bTitle}
         , B_WRITER = #{bWriter}
         , B_CONTENT = #{bContent}
-        WHERE B_NUM = #{bNum};
+        WHERE B_NUM = #{bNum}
     </update>
 
     <!-- 삭제 -->
     <delete id="delete">
         DELETE FROM BASIC_BOARD
-        WHERE B_NUM = #{bNum};
+        WHERE B_NUM = #{bNum}
     </delete>
 
-    <!-- 검색 -->
+    <!-- 조회수 증가 -->
+    <update id="updateReadCnt">
+        UPDATE BASIC_BOARD
+        SET
+        READ_CNT = READ_CNT +1
+        WHERE B_NUM = #{bNum}
+    </update>
 	
 </mapper>
 

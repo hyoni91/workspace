@@ -22,6 +22,9 @@ public interface BoardService {
     //삭제
     void bDelete(int bNum);
 
+    //조회수 증가
+    void updateReadCnt(int bNum);
+
 
 
 }

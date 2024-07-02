@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>배열다루기</title>
+</head>
+<body>
+  <h1 style="color: lightpink;">배열 다루기</h1>
+  <pre>
+    자바스크립트는 배열과 리스트의 개념이 동일하다
+
+    [특징]
+    1. 자료형이 달라도 저장이 가능하다.
+    2. 몇 개 저장할 지 정하지 않아도된다. (자바의 리스트와 동일)
+    3. 위에서 아래로 실행
+
+    ★for each 추천 ★
+    element : 배열의 데이터 값 , index : 배열의 요소 
+    매개변수 이름은 바꿀 수 있음 (e , i) 도 가능!
+
+    arr.forEach(function(element, index){
+        console.log(`element=${element} / index=${index}`);
+    });
+
+  </pre>
+
+  <script>
+    //배열생성하기
+    
+    const arr = [];
+
+    //배열의 데이터 저장 1
+    arr[0] = '0번째 데이터';
+    arr[1] = 1;
+
+    //배열의 데이터 저장 2
+    arr.push(3);
+    arr.push(5);   
+    
+    // 반복문(for문) 
+    // let (값이 변할 때)
+    for(let i =0; i < arr.length; i++){
+      console.log('for문 : ' + arr[i]);
+    }
+
+    //반복문(for each 첫번째)  java식 : for(int e : arr){}
+    for(const e of arr){
+      console.log('for each문 : '+ e);
+    }
+
+
+    //반복문(이건뭐지)
+    for(let i of arr){
+      if(i == 3){
+        console.log('3과 같으면 : ' + i);
+      }
+    } 
+
+     //반복문(for each 추천)
+    arr.forEach(first);  // '1' 3번 출력됨 (배열의 길이만큼)
+
+    function first(){
+      console.log(1);
+    }
+
+    //반복문(for each 추천) 조금 더 보기 -> 매개변수에 함수가 들어감(이때는 함수 이름이 없어도 된다.)
+    arr.forEach(function (){
+      console.log(2);
+    });
+
+    //★★★반복문(for each 추천 완성)★★★
+    //element : 배열의 데이터 값 , index : 배열의 요소 
+    arr.forEach(function(element, index){
+        console.log(`element=${element} / index=${index}`);
+    });
+
+    //function [함수명생략가능] (데이터 값 , 배열의 요소){}
+    arr.forEach(function(e, i){
+        console.log(`e=${e} / i=${i}`);
+    });
+
+  </script>
+
+</body>
+</html>

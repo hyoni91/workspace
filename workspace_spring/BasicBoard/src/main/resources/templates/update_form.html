@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="/reset.css">
 </head>
 <body>
  <form action="/update" method="post">
@@ -21,23 +22,25 @@
       <tr>
         <td>제목</td>
         <td><input type="text" name="bTitle" th:value="${bUp.bTitle}"></td>
+        <td>조회수</td>
+          <td>[[${bUp.readCnt}]]</td>
       </tr>
       <tr>
         <td>내용</td>
-        <td><textarea name="bContent">[[${bUp.bContent}]]</textarea></td>
+        <td><textarea name="bContent" cols="15" rows="7" >[[${bUp.bContent}]]</textarea></td>
       </tr>
     </table>
     <input type="hidden" name="bNum" th:value="${bUp.bNum}">
     <input type="hidden" name="bWriter" th:value="${bUp.bWriter}">
     <input type="hidden" name="bContent" th:value="${bUp.bContent}">
     <input type="submit" value="수정하기">
-    <input type="button" value="뒤로가기" onclick="goBack()">
+    <input type="button" value="뒤로가기" th:onclick="goBack(${bUp.bNum})">
  </form>
 </body>
 
 <script>
-  function goBack(){
-    location.href="/bDetail"
+  function goBack(bNum){
+    location.href=`/bDetail?bNum=${bNum}`
   }
 </script>
 
