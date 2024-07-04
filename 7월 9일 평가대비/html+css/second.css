@@ -30,8 +30,9 @@ table , tr, td{
 }
 
 td{
-  padding: 10px;
+  padding: 8px;
   font-size: 0.8rem;
+  padding-left: 13px;
 }
 
 .first-table{
@@ -45,9 +46,37 @@ td{
 }
 
 .third-table{
-  margin-top: 20px;
+  margin-top: 10px;
+}
+
+.tbody-span{
+  font-size: 0.7rem;
+  color: black;
+  float: right;
+  margin-top: 10px;
+}
+
+.tbody-span::before{
+  content: '*';
+  color: red;
 }
 
 #post{
-  width: 50px;
+  margin-bottom: 5px;
+}
+
+.bir-1 input:nth-child(2){
+  width: 55px;
+}
+.bir-1 input:nth-child(3){
+  width: 55px;
+}
+
+.bir-1 input:nth-child(4){
+  margin-left: 30px;
+}
+
+
+.bir-1 input:first-child{
+  width: 70px;
 }

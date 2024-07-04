@@ -32,53 +32,54 @@
           <col width="*">
         </colgroup>
           <tbody>
-            <h3>기본정보<span>*필수입력사항</span></h3>
+            <h3>기본정보<span class="tbody-span">필수입력사항</span></h3>
             <tr>
-              <td>아이디</td>
-              <td><input type="text">(영문소문자/숫자,4~16자)</td>
+              <td>아이디 <span>*</span></td>
+              <td><input type="text"> (영문소문자/숫자,4~16자)</td>
             </tr>
             <tr>
-              <td>비밀번호<span>*</span></td>
-              <td><input type="password">(영문 대소문자/숫자/특수문자 중 2가지 이상 조합,8~16자)</td>
+              <td>비밀번호 <span>*</span></td>
+              <td><input type="password"> (영문 대소문자/숫자/특수문자 중 2가지 이상 조합,8~16자)</td>
             </tr>
             <tr>
-              <td>비밀번호 확인<span>*</span></td>
+              <td>비밀번호 확인 <span>*</span></td>
               <td><input type="password"></td>
             </tr>
             <tr>
-              <td>이름<span>*</span></td>
+              <td>이름 <span>*</span></td>
               <td><input type="text"></td>
             </tr>
             <tr>
               <td>주소</td>
               <td>
-                <input type="text"> <input type="button" value="우편번호" id="post" >
-                <input type="text">기본주소
-                <input type="text">나머지주소(선택입력가능)
+                <input type="text" style="width: 60px;">
+                <input type="button" value="우편번호" id="post">
+                <p style="margin-bottom: 5px;"><input type="text" style="width: 300px;"> 기본주소</p>
+                <input type="text" style="width: 300px;"> 나머지주소(선택입력가능)
               </td>
             </tr>
             <tr>
               <td>일반전호</td>
               <td>
-                <select name="tel">
+                <select name="tel" style="width: 50px;">
                   <option value="02">02</option>
                   <option value="052">052</option>
-                </select>-
-                <input type="tel"> -<input type="tel">
+                </select> -
+                <input type="tel" style="width: 70px;"> - <input type="tel" style="width: 70px;">
                 </td>
             </tr>
             <tr>
-              <td>휴대전화<span>*</span></td>
+              <td>휴대전화 <span>*</span></td>
               <td>
-                <select name="phone">
+                <select name="phone" style="width: 50px;">
                   <option value="010">010</option>
                   <option value="070">070</option>
-                </select>-
-                <input type="tel"> -<input type="tel">
+                </select> -
+                <input type="tel" style="width: 70px;"> - <input type="tel" style="width: 70px;">
                 </td>
             </tr>
             <tr>
-              <td> SMS 수신여부<span>*</span></td>
+              <td> SMS 수신여부 <span>*</span></td>
               <td>
                 <input type="checkbox">동의함
                 <p>쇼핑몰에서 제공하는 유익한 이벤트 소식을 SMS로 받으실 수 있습니다.</p>
@@ -86,18 +87,18 @@
               
             </tr>
             <tr>
-              <td>이메일<span>*</span></td>
+              <td>이메일 <span>*</span></td>
               <td><input type="text"></td>
             </tr>
             <tr>
-              <td>이메일 수신여부<span>*</span></td>
+              <td>이메일 수신여부 <span>*</span></td>
               <td>
                 <input type="checkbox">동의함
                 <p>쇼핑몰에서 제공하는 유익한 이벤트 소식을 이메일로 받으실 수 있습니다.</p>
               </td>
             </tr>
             <tr>
-              <td>평생회원<span>*</span></td>
+              <td>평생회원</td>
               <td>
                 <input type="radio">동의함
                 <input type="radio" checked>동의안함
@@ -118,9 +119,9 @@
             <tr class="t1">
               <td>생년월일<span class="col-red">*</span></td>
               <td class="bir-1">
-                <input type="number">년
-                <input type="number">월
-                <input type="number">일
+                <input type="number"> 년
+                <input type="number"> 월
+                <input type="number"> 일   
                 <input type="radio" name="bith" checked>양력
                 <input type="radio" name="bith">음력 (14세 미만 회원가입을 제한하고 있습니다.)
               </td>
