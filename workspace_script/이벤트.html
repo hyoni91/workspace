@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .d1{
+      background-color: lightcoral;
+      width: 300px;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+    }
+
+
+  </style>
+
+</head>
+<body>
+  
+  <div class="d1"> div 태그 </div>
+  <input type="text" value="">
+
+</body>
+
+  <script>
+  //event를 사용할 태그를 선택
+  const divTat = document.querySelector('.d1')
+
+  //선택한 태그에 이벤트를 추가
+  //첫번째 매개변수 : 이벤트 발생 시기
+  //두번째 매개변수 : function(){이벤트 발생 시, 실행되는 값 ?}
+  divTat.addEventListener('click',function(){
+    alert('누르셨습니깡????')
+  })
+
+
+  //이벤트 추가2
+  divTat.addEventListener('mousemove',function(){
+      console.log('되냐?')
+  });
+
+
+  //input태그 이벤트 
+  const input = divTat.nextElementSibling;
+  input.addEventListener('keyup',function(){
+    alert('입력 완력')
+  })
+
+  //키보드로 입력한 값을 콘솔에 출력
+  input.addEventListener('keyup',function(){
+    console.log(input.value)
+  })
+
+
+  //함수안에 (event) : 이벤트의 모든 정보가 담긴 데이터
+  input.addEventListener('keyup',function(event){
+    console.log(event.target)  // 이벤트가 발생하는 타겟을 알려줌
+    console.log(event.target.value)
+  })
+
+
+
+  </script>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>node 정보 가져오기</title>
+</head>
+<body>
+  <h2> 선택한 태그(node) 정보 가져오기</h2>
+  
+  <div>
+    <input type="text" name="이름" class="input1" placeholder="이름을 입력하세요">
+  </div>
+
+  <div id="d1">
+    second div
+  </div>
+
+  <table border="1">
+    <tr>
+      <td>국어점수</td>
+      <td>영어점수</td>
+    </tr>
+    <tr class="score">
+      <td>70</td>
+      <td>90</td>
+    </tr>
+
+  </table>
+
+  <span></span>
+
+
+  <script>
+    //선택한 태그의 속성 값 받아오기
+    const input_tag = document.querySelector('.input1')
+    console.log(input_tag.type) // 출력: text
+    console.log(input_tag.name) // 출력: 이름
+    console.log(input_tag.placeholder) // 출력: 이름을 입력하세요
+    console.log(input_tag.className) // 출력: input1   (클래스는 주의하세요~)
+    console.log(input_tag.nodeValue=input_tag) // 다 나옴!
+
+
+    //선택한 태그의 속성 값 변경하기
+    input_tag.placeholder = '한글/영어 포함'
+
+    //second div 라는 글자를 출력 (속성아님 주의)
+    const d1 = document.querySelector('#d1')
+    console.log(d1.textContent)
+
+    // td 의 점수 합
+    const score1 = document.querySelector('.score > td:first-child').textContent
+    const score2 = document.querySelector('.score > td:last-child').textContent
+    const result = Number(score1)+Number(score2)
+    console.log(result)
+
+    //span 태그안에 result 값 넣기 (160)
+    const span = document.querySelector('span')
+    span.textContent = result
+    console.log(span.textContent)
+
+
+    
+
+  </script>
+
+
+
+</body>
+</html>

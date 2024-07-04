@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>노드추가 연습 2</title>
+  <style>
+    .div1{
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      margin: 8px;
+      text-align: center;
+      line-height: 80px;
+      font-weight: bold;
+      font-size: 2rem;
+      color: rgb(255, 255, 255);
+      background-color: lightpink;
+    }
+  </style>
+
+</head>
+<body>
+  <h2>노드 추가 연습 2</h2>
+
+  <input type="text" value="" id="input1">
+  <input type="button" value="실행" onclick="addDiv()">
+
+  <div id="result">
+    <div class="div1">1</div>
+  </div>
+
+
+  <script>
+    function addDiv(){
+      const inputTag = document.querySelector('#input1')
+      const num = inputTag.value;
+      console.log(num)
+
+       let str = '';
+      for(let i = 0 ; i <num;  i++){
+        str += `<div class="div1">${i+1}</div>` ;
+      }
+      
+      //추가할 태그의 위치
+      const divtag = document.querySelector('#result')
+     
+      divtag.innerHTML='';
+      divtag.insertAdjacentHTML('beforeend', str);      
+     
+      
+      
+
+    }
+
+
+
+    // function addDiv(){
+
+    //   const input1 = document.querySelector('#input1')
+
+      
+    //   //input 태그에 넣은 밸류값
+    //   const num = input1.value
+
+    //   // 추가할 태그
+    //   let str = '';
+    //   for(let i = 0 ; i <num;  i++){
+    //     srt += `<div class="div1">${i+1}</div>`;
+    //   }
+      
+    //   //추가할 태그의 위치
+    //   const divtag = document.querySelector('#result')
+     
+    //   divTag.innerHTML = '';
+    //   divTag.insertAdjacentHTML('beforeend',str);
+
+    // }
+
+
+  </script>
+</body>
+</html>

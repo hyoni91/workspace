@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>checkbox다루기</title>
+</head>
+<body>
+  <h2>체크 박스</h2>
+
+  <table border="1px" style="width: 200px; text-align: center;">
+    <thead>
+      <tr style="font-weight: bold">
+        <td><input type="checkbox" onclick="checkAll()" id="chkAll"></td>
+        <td>모두선택/해제</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="checkbox" class="chk"></td>
+        <td>샤프</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" class="chk"></td>
+        <td>지우개</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" id="chk" class="chk"></td>
+        <td>화이트</td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <button type="button" onclick="checkOn()">체크하기</button>
+  <button type="button" id="checkOff">체크해제</button>
+
+ 
+
+  <script>
+    //onclick으로
+    function checkOn(){
+     const chk = document.querySelector('#chk')
+       chk.checked=true; // 또는 'checked'
+    }
+
+
+   //event로
+   const checkOff = document.querySelector('#checkOff')
+   checkOff.addEventListener('click',function(event){
+    const chk = document.querySelector('#chk')
+      chk.checked=''; //또는 false
+   }) 
+
+
+   //주문 체크박스를 체크하면 모든 항목 체크, 체크해제하면 모든 항목 해제
+   function checkAll(){
+    //제목줄의 체크박스 여부 확인
+    const chkAll =  document.querySelector('#chkAll').checked
+    const isChecked = chkAll
+    
+    const inpuAll = document.querySelectorAll('.chk')
+    
+    //checked됐을때 
+    if(isChecked){
+      //모든 항목 체크
+      //태그들.속성명으로는 안됨! //태그.속성명
+      for(const input of inpuAll){
+        input.checked=true;
+      }
+    }
+    //해제되었을때
+    else{
+      //모든 항목 체크 해제
+      //태그들.속성명으로는 안됨! //태그.속성명
+
+      for(const input of inpuAll){
+        input.checked=false;
+      }
+
+    }
+  
+   }
+
+
+
+  </script>
+  
+</body>
+</html>

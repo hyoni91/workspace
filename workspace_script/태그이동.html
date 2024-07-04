@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>태그 선택 후 이동</title>
+</head>
+<body>
+  <h2 style="color: lightcoral;">부모 태그, 자식 태그, 형제 태그 선택</h2>
+
+  <div>
+    <pre>
+      부모태그
+      자식태그 (td td td )
+      (td들은 형제 태그)
+
+      tbody : 자식 태그 tr두개 ! 주의하셈
+    </pre>
+  </div>
+
+  <table style="text-align: center; width: 300px;" border="" >
+    <thead>
+      <tr>
+        <td id="stuNum">학번</td>
+        <td>이름</td>
+        <td>나이</td>
+      </tr>
+    </thead>
+
+      <tbody>
+        <tr id="firstRow">
+          <td>1</td>
+          <td >김남준</td>
+          <td>30</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td id="name">정호석</td>
+          <td>30</td>
+        </tr>
+      </tbody>
+  </table>
+
+
+  <script>
+  const stuNumTD = document.querySelector('#stuNum')
+  //선택한 태그(stuNumTD)의 부모태그를 선택
+  const stuNumParent = stuNumTD.parentElement
+  stuNumParent.style.background="lightblue"
+  console.log(stuNumParent)
+  console.log('\n')
+
+
+
+  const firstRow = document.querySelector('#firstRow')
+  //선택한 태그(#firstRow)의 자식태그를 선택
+  const firstRowChildren = firstRow.children
+  // for(let i=0; i<firstRowChildren.length; i++){
+  //   console.log(firstRowChildren[i])
+  // }
+
+  for(const children of firstRowChildren){
+    console.log(children)
+  }
+  console.log('\n')
+
+  
+
+
+  const nameTD = document.querySelector('#name')
+  //선택한 태그의 이전 형제 태그 찾기
+  const nameTDprevious = nameTD.previousElementSibling;
+  console.log(nameTDprevious)
+  //선택한 다음 형제 태그 잦기
+  const nameTDnext = nameTD.nextElementSibling
+  console.log(nameTDnext)
+
+
+  </script>
+</body>
+</html>

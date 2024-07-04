@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div class="java" id="start">
+    <div>떡볶이</div>
+  </div>
+
+  <div>
+    <div>김밥</div>
+    <div>순대</div>
+  </div>
+
+  <div>
+    <div id="second">튀김</div>
+  </div>
+
+
+
+  <script>
+    //김밥 순대 출력하기
+    const parentDiv = document.querySelector('#start')
+    const next = parentDiv.nextElementSibling
+    const children = next.children
+    for(const chid of children){
+      console.log(chid.textContent)
+    }
+
+
+
+    //이렇게 쭉 늘어서 써도 됨
+    const bunsik = parentDiv.nextElementSibling.children
+    //하나하나 출력해도 됨
+    console.log(bunsik[0].textContent)
+    console.log(bunsik[1].textContent)
+
+
+    //튀김(second)에서 id가 start인 태그의 클래스 속성 값을 출력하라
+    const second = document.querySelector('#second')
+    const startDiv = second.parentElement.previousElementSibling.previousElementSibling
+    console.log('class 속성을 찾아보시오')
+    console.log(startDiv.className)
+   
+
+    //second를 기준으로 한방에 start찾는 법
+    //closest는 선택한 태그를 감싸는 가장 가까운 태그를 찾아감
+    const start1 = second.closest('#start')
+   
+
+  </script>
+
+</body>
+</html>

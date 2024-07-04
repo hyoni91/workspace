@@ -1,4 +1,53 @@
 
+.container{
+  width: 1000px;
+  margin: auto;
+}
+
+.container > h3{
+  margin-top: 10px;
+}
+
+.container > h3:nth-child(1):before{
+   content : "|" 
+}
+
+span{
+  color: red;
+  font-weight: bold;
+}
+
+table{
+  width: 100%;
+}
+
+tr > td:nth-child(1){
+  background-color: rgb(240, 240, 240);
+}
+
 table , tr, td{
   border: 1px solid black;
+}
+
+td{
+  padding: 10px;
+  font-size: 0.8rem;
+}
+
+.first-table{
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.second-table{
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.third-table{
+  margin-top: 20px;
+}
+
+#post{
+  width: 50px;
 }

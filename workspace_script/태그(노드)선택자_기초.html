@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tag선택자_기초</title>
+</head>
+<body>
+  <h2> 태그이름,id,class 선택자 </h2>
+
+  <div>
+    <div id="d1">div1</div>
+    <div class="div-class">div2</div>
+    <div class="div-class">div3</div>
+  </div>
+
+
+  <script>
+    //자바스크립트를 사용하여 태그의 내용을 확인 변경 가능
+    //태그의 정보를 확인하기 위해서는 태그를 선택할 수 있어야 한다.
+    
+    //h2태그를 선택
+    const h2_tag = document.querySelector('h2');
+    console.log(h2_tag);
+    h2_tag.style.color='lightpink'
+
+    //id가 'd1'인 태그를 선택
+    const id_d1 = document.querySelector('#d1')
+    console.log(id_d1);
+    
+    //클래스가 div-class 선택 출력 (2개임)
+    const div_cls = document.querySelectorAll('.div-class')
+    console.log(div_cls);  // 한개 이상이기 때문에 for으로 출력하기
+    console.log('\n')
+
+    div_cls.forEach(function(node , index){
+      console.log(node)
+    });
+    
+    console.log('\n')
+
+    //모든 div 선택하기 (자식, 자손 이용하기 )
+    const div_all = document.querySelectorAll('div > div')
+    div_all.forEach(function(node, i){
+      console.log(node)
+    })
+    
+    
+
+
+  </script>
+
+
+</body>
+</html>
