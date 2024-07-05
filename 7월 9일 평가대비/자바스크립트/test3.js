@@ -17,7 +17,7 @@ function addTable(){
   for(let i =0; i < num1; i++){
     str += `<tr>`
     for(let j = 0; j < num2 ; j++){
-      str +=`<td></td>`
+      str +=`<td>${i+1}행${j+1}열</td>`
     }
     str += "</tr>"
   }
