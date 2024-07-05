@@ -3,7 +3,45 @@
 
 <!-- 해당 파일에 모든 쿼리문을 작성 -->
 <mapper namespace="board-practice">
-	
+    <resultMap id="board" type="com.greenpractice.BoardPractice.vo.PracticeVO">
+        <result column="p_NUM" property="pNum" />
+        <result column="TITLE" property="title" />
+        <result column="WRITER" property="writer" />
+        <result column="CONTENT" property="content" />
+        <result column="P_DATE" property="pDate" />
+        <result column="READ_CNT" property="readCnt" />
+
+    </resultMap>
+
+    <select id="list" resultMap="board">
+        SELECT *
+        FROM PRACTICE_BOARD
+    </select>
+
+    <insert id="insert">
+        INSERT INTO
+        PRACTICE_BOARD(
+        TITLE
+        ,WRITER
+        ,CONTENT
+        )
+        VALUES(
+        #{title}
+        ,#{writer}
+        ,#{content}
+        )
+    </insert>
+
+    <select id="detail" resultMap="board">
+        SELECT *
+        FROM PRACTICE_BOARD
+        WHERE p_NUM = #{pNum}
+    </select>
+
+    <delete id="delete">
+        DELETE FROM PRACTICE_BOARD
+        WHERE p_NUM = #{p_NUM}
+    </delete>
 </mapper>
 
 

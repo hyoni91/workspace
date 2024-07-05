@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="/reg_insert">
+    <table>
+      <tr>
+        <td>제목</td>
+        <td><input type="text" name="title"></td>
+      </tr>
+      <tr>
+        <td>작성자</td>
+        <td><input type="text" name="writer"></td>
+      </tr>
+      <tr>
+        <td>내용</td>
+        <td><textarea name="content" cols="30" rows="10"></textarea></td>
+      </tr>
+    </table>
+    <input type="hidden" name="pNum" th:value="[[${board.bNum}]]">
+    <input type="submit" value="등록하기">
+  </form>
+
+
+  <script>
+    function goInsert(){
+      const result = confirm('등록하시겠습니까?')
+
+      if(result){
+        location.href="/reg_insert"
+      }
+      
+    }
+  </script>
+
+</body>
+
+</html>

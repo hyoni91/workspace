@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+ <form action="/write_form" method="post">
+    <table>
+      <colgroup>
+        <col width="15%">
+        <col width="*">
+        <col width="20%">
+        <col width="20%">
+        <col width="15%">
+      </colgroup>
+      <thead>
+        <tr>
+          <td>번호</td>
+          <td>제목</td>
+          <td>작성자</td>
+          <td>날짜</td>
+          <td>조회수</td>
+        </tr>
+      </thead>
+      <tbody>
+        <th:block th:if="${#lists.isEmpty(boardList)}">
+          <tr>
+            <td colspan="5">해당 게시글이 없습니다.</td>
+          </tr>
+        </th:block>
+        <th:block  th:unless="${#lists.isEmpty(boardList)}">
+          <tr th:each="board : ${boardList}">
+            <td>[[${board.pNum}]]</td>
+            <td><span th:onclick="goDetail([[${board.pNum}]])">[[${board.title}]]</span></td>
+            <td>[[${board.writer}]]</td>
+            <td>[[${board.pDate}]]</td>
+            <td>[[${board.readCnt}]]</td>
+          </tr>
+        </th:block>
+      </tbody>
+    </table>
+    <input type="submit" value="글쓰기">
+ </form>
+
+ <script>
+  function goDetail(pNum){
+    location.href=`/pDetail?pNum=${pNum}`
+  }
+ </script>
+
+
+</body>
+</html>
