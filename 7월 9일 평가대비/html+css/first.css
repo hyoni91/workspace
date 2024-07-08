@@ -43,8 +43,9 @@ body{
 }
 
 .header-input >input:focus{
-  border-color: orange;
+  border-color:rgb(184, 184, 184);
   outline: none;
+  
 }
 
 .header-input i {
@@ -192,6 +193,10 @@ body{
 
 .img1 span{
   font-weight: bold;
+}
+
+.img1 span:hover{
+  cursor: pointer;
 }
 
 .img1 p{

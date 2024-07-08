@@ -58,14 +58,24 @@ public class PracticeConrtoller {
     @GetMapping("/pDelete")
     public String delete(PracticeVO practiceVO){
         practiceService.delete(practiceVO.getPNum());
+        System.out.println(practiceVO);
         return "redirect:/?pNum="+practiceVO.getPNum();
     }
 
-    //수정
-    @PostMapping("pUpdate")
-    public String update(){
+    //수정 페이지
+    @PostMapping("/pUpdate")
+    public String update(PracticeVO practiceVO, Model model){
+        model.addAttribute("board",practiceVO);
+        System.out.println(practiceVO);
 
-        return "redirect:/?pNum=";
+        return "update_form";
+    }
+
+    //수정
+    @PostMapping("/reg_update")
+    public String update(PracticeVO practiceVO){
+        practiceService.update(practiceVO);
+        return "redirect:/pDetail?pNum="+practiceVO.getPNum();
     }
 
     }

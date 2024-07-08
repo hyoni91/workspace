@@ -1,7 +1,5 @@
 
 
-
-
 function checkAllMenu() {
   const isChecked = document.querySelector('#chk_all').checked;
   const menus = document.querySelectorAll('input');

@@ -36,4 +36,10 @@ public class PracticeServiceImpl implements PracticeService {
     public void delete(int pNum) {
         sqlSession.delete("board-practice.delete",pNum);
     }
+
+    @Override
+    public void update(PracticeVO practiceVO) {
+        sqlSession.update("board-practice.update", practiceVO);
+
+    }
 }

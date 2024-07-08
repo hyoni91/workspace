@@ -40,14 +40,15 @@
 
     <delete id="delete">
         DELETE FROM PRACTICE_BOARD
-        WHERE p_NUM = #{p_NUM}
+        WHERE p_NUM = #{pNum}
     </delete>
 
     <update id="update">
-        UPDATE
-        FROM PRACTICE_BOARD
-        SET TITLE = #{title}
-        WHERE = #{p_NUM}
+        UPDATE PRACTICE_BOARD
+        SET TITLE = #{title},
+        WRITER = #{writer},
+        CONTENT = #{content}
+        WHERE p_NUM = #{pNum}
     </update>
 
 </mapper>

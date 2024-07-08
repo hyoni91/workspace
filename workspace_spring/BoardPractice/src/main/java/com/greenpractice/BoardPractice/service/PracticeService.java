@@ -16,4 +16,6 @@ public interface PracticeService {
     PracticeVO detail(int pNum);
 
     void delete(int pNum);
+
+    void update(PracticeVO practiceVO);
 }

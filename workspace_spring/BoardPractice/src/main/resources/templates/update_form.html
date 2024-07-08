@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>제목</td>
+        <td><input type="text" name="title" th:value="${board.title}"></td>
+        <td>조회수</td>
+        <td><input type="text" name="readCnt" th:value="${board.readCnt}"></td>
+      </tr>
+      <tr>
+        <td>작성자</td>
+        <td>[[${board.writer}]]</td>
+        <td>날짜</td>
+        <td>[[${board.pDate}]]</td>
+      </tr>
+      <tr>
+        <td>내용</td>
+        <td><textarea name="content" cols="30" rows="10">
+          [[${board.content}]]
+        </textarea></td>
+      </tr>
+      
+    </table>
+    <input type="button" value="수정하기" onclick="goUpdate()">
+    <script>
+      function goUpdate(){
+
+      }
+    </script>
+</body>
+</html>

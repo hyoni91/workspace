@@ -3,8 +3,8 @@ import java.util.Scanner;
 // 3정수 스캐너로 받아서  큰수로 나열 (클래스 Test1)
 public class Test1 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
+        Scanner sc = new Scanner(System.in);
         int a,b,c;
         int max = 0;
         int mid = 0;
@@ -51,3 +51,5 @@ public class Test1 {
     }
 
 }
+
+
