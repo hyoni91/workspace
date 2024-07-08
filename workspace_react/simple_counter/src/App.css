@@ -1,0 +1,45 @@
+.App {
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+h2{
+  text-align: center;
+}
+
+.view{
+  width: 500px;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: left;
+  background-color: rgb(255, 196, 205);
+  margin: auto;
+  margin-top: 50px;
+  
+}
+
+.btn{
+  width: 500px;
+  padding: 10px;
+  background-color:  rgb(255, 196, 205);
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  text-align: left;
+}
+
+button {
+  padding: 10px;
+  margin-right: 10px;
+  width: 88px;
+  border: none;
+  background-color: rgb(255, 54, 84);
+  color: white;
+  border-radius: 10px;
+}
+
+button:hover{
+  cursor: pointer;
+  background-color: rgb(252, 14, 50);
+  color: rgb(216, 216, 216);
+}
