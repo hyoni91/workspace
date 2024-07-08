@@ -1,0 +1,58 @@
+.App {
+  width: 500px;
+  margin: auto;
+}
+
+h1{
+  color: darksalmon;
+}
+
+.list{
+  width: 500px;
+  margin: auto;
+  background-color: lightblue;
+  text-align: left;
+  padding: 10px;
+  margin-bottom: 25px;
+  border-radius: 5px;
+
+}
+
+span{
+  display: inline-block;
+  width: 200px;
+}
+
+.btn{
+  width: 500px;
+  margin: auto;
+  padding: 10px;
+  background-color: lightblue;
+  border-radius: 5px;
+}
+
+button{
+  margin-left: 10px;
+  width: 60px;
+  border: none;
+  padding: 5px;
+  background-color: rgb(25, 196, 253);
+  color: white;
+  border-radius: 10px;
+}
+.item-div{
+  margin-bottom: 10px;
+}
+
+input{
+  width: 280px;
+  padding: 8px;
+  border: grey;
+  border-radius: 5px;
+}
+
+button:hover{
+  cursor: pointer;
+  background-color: rgb(4, 174, 231);
+  color: rgb(189, 189, 189);
+}
