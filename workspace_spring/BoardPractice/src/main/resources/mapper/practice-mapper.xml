@@ -42,6 +42,14 @@
         DELETE FROM PRACTICE_BOARD
         WHERE p_NUM = #{p_NUM}
     </delete>
+
+    <update id="update">
+        UPDATE
+        FROM PRACTICE_BOARD
+        SET TITLE = #{title}
+        WHERE = #{p_NUM}
+    </update>
+
 </mapper>
 
 

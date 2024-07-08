@@ -61,5 +61,12 @@ public class PracticeConrtoller {
         return "redirect:/?pNum="+practiceVO.getPNum();
     }
 
+    //수정
+    @PostMapping("pUpdate")
+    public String update(){
+
+        return "redirect:/?pNum=";
+    }
+
     }
 
