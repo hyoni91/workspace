@@ -45,7 +45,8 @@
 
     <update id="update">
         UPDATE PRACTICE_BOARD
-        SET TITLE = #{title},
+        SET
+        TITLE = #{title},
         WRITER = #{writer},
         CONTENT = #{content}
         WHERE p_NUM = #{pNum}

@@ -45,6 +45,7 @@ body{
 .header-input >input:focus{
   border-color:rgb(184, 184, 184);
   outline: none;
+  caret-color:rgb(184, 184, 184);
   
 }
 

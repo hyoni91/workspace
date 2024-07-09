@@ -1,5 +1,5 @@
+package test;
 
-//정수 두개의 데이터
 public class Calculate {
     int num1;
     int num2;

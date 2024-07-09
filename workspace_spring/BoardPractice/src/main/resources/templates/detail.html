@@ -7,7 +7,7 @@
 </head>
 <body>
 
-    <form action="/pUpdate" method="post">
+    <!-- <form action="/pUpdate" method="post"> -->
       <table>
         <tr>
           <td>제목</td>
@@ -23,19 +23,24 @@
         </tr>
         <tr>
           <td>내용</td>
-          <td><textarea name="content" cols="30" rows="10">
+          <td><textarea name="content" cols="30" rows="10" >
             [[${board.content}]]
           </textarea></td>
         </tr>
       </table>
-      <input type="hidden" name="pNum" th:value="${board.pNum}">
+
+      <!-- 모델로 다음 업데이트 폼에 정보를 넘겨서 필요없음  -->
+      <!-- 정보넘기기 -->
+      <!-- <input type="hidden" name="pNum" th:value="${board.pNum}">
       <input type="hidden" name="title" th:value="${board.title}" >
       <input type="hidden" name="writer" th:value="${board.writer}" >
-      <input type="hidden" name="pDate" th:value="${board.pDate}" >
+      <input type="hidden" name="pDate" th:value="${board.pDate}" > -->
+
+      <!-- //버튼들 -->
       <input type="button" value="뒤로가기" onclick="goBack()">
-      <input type="submit" value="수정하기">
+      <input type="button" value="수정하기" th:onclick="goUpdate([[${board.pNum}]])">
       <input type="button" value="삭제하기" th:onclick="goDelete([[${board.pNum}]])">
-    </form>
+    <!-- </form> -->
 
 
 
@@ -44,8 +49,18 @@
       location.href='/';
     }
 
+    function goUpdate(pNum){
+      const result = confirm('수정 하시겠습니까?')
+      if(result){
+       location.href=`/pUpdate?pNum=${pNum}`
+      }
+    }
+
     function goDelete(pNum){
+      const result = confirm('수정 하시겠습니까?')
+      if(result){
       location.href=`/pDelete?pNum=${pNum}`
+      }
   }
   </script>
 

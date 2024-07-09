@@ -1,10 +1,3 @@
-// let sum = 0;
-// const ageAll = document.querySelectorAll('.ageTd')
-//  for(let age of ageAll){
-//   sum = Number(sum)+Number(age.textContent);
-
-//   } console.log(sum/3.0)
-
 
 function setAvgAge(){
 

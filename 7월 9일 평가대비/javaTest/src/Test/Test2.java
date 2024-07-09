@@ -1,8 +1,7 @@
+package Test;
+
 import java.util.Arrays;
 
-
-// 정수 6개 저장하는 배열 만들고, 배열 요소에 1-46 사이의 난수를 저장 (중복값 허용/ 46 미포함)
-//배열에 난수를 저장하고 출력하기  (Test2)
 public class Test2 {
 
     public static void main(String[] args) {

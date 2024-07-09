@@ -17,7 +17,7 @@ public class Test1 {
             System.out.print("세번째 입력 : ");
             c = sc.nextInt();
 
-            //a가 큰 경우, b가 큰 경우, c가 큰 경우
+            //a,b,c 각각의 큰 경우
             if (a < b && a > c){
                 max = a;
                 if (b > c){

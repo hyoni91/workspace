@@ -47,10 +47,9 @@ public class PracticeConrtoller {
     //상세페이지
     @GetMapping("/pDetail")
     public String detail(PracticeVO practiceVO, Model model){
-
         PracticeVO detail = practiceService.detail(practiceVO.getPNum());
         model.addAttribute("board",detail);
-        System.out.println(practiceVO);
+        System.out.println(detail);
         return "detail";
     }
 
@@ -63,10 +62,11 @@ public class PracticeConrtoller {
     }
 
     //수정 페이지
-    @PostMapping("/pUpdate")
+    @GetMapping("/pUpdate")
     public String update(PracticeVO practiceVO, Model model){
-        model.addAttribute("board",practiceVO);
-        System.out.println(practiceVO);
+        PracticeVO detail = practiceService.detail(practiceVO.getPNum());  //detail값 넘겨받기
+        model.addAttribute("board",detail);
+        System.out.println(detail);
 
         return "update_form";
     }
@@ -75,6 +75,7 @@ public class PracticeConrtoller {
     @PostMapping("/reg_update")
     public String update(PracticeVO practiceVO){
         practiceService.update(practiceVO);
+//        System.out.println(practiceVO);
         return "redirect:/pDetail?pNum="+practiceVO.getPNum();
     }
 

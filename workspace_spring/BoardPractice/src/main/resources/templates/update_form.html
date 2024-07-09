@@ -14,32 +14,37 @@
     <title>Document</title>
   </head>
   <body>
-    <table>
-      <tr>
-        <td>제목</td>
-        <td><input type="text" name="title" th:value="${board.title}"></td>
-        <td>조회수</td>
-        <td><input type="text" name="readCnt" th:value="${board.readCnt}"></td>
-      </tr>
-      <tr>
-        <td>작성자</td>
-        <td>[[${board.writer}]]</td>
-        <td>날짜</td>
-        <td>[[${board.pDate}]]</td>
-      </tr>
-      <tr>
-        <td>내용</td>
-        <td><textarea name="content" cols="30" rows="10">
-          [[${board.content}]]
-        </textarea></td>
-      </tr>
-      
-    </table>
-    <input type="button" value="수정하기" onclick="goUpdate()">
-    <script>
-      function goUpdate(){
+   <form action="/reg_update" method="post">
+      <table>
+        <tr>
+          <td>제목</td>
+          <td><input type="text" name="title" th:value="${board.title}"></td>
+          <td>조회수</td>
+          <td>[[${board.readCnt}]]</td>
+        </tr>
+        <tr>
+          <td>작성자</td>
+          <td><input type="text" name="writer" th:value="${board.writer}"></td>
+          <td>날짜</td>
+          <td>[[${board.pDate}]]</td>
+        </tr>
+        <tr>
+          <td>내용</td>
+          <td><textarea name="content" cols="30" rows="10">
+            [[${board.content}]]
+          </textarea></td>
+        </tr>
+      </table>
+      <input type="hidden" name="pNum" th:value="${practiceVO.pNum}">
 
-      }
-    </script>
+      <!-- form으로 인풋태그 정보 넘겼으므로 아래는 필요가 없음 -->
+      <!-- <input type="hidden" name="title" th:value="${practiceVO.title}" >
+      <input type="hidden" name="writer" th:value="${practiceVO.writer}" >
+      <input type="hidden" name="pDate" th:value="${practiceVO.pDate}" > -->
+      <input type="submit" value="수정하기">
+   </form>
+
+
+   
 </body>
 </html>

@@ -1,8 +1,11 @@
-public class CarTest {
+package test;
+
+public class CalTest {
     public static void main(String[] args) {
 
         //calculate 객체생성
         Calculate cal = new Calculate();
+
 
         //setNumber 호출
         cal.setNumber(3,5);
