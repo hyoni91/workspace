@@ -1,5 +1,12 @@
+
 //item_list는 현재 쇼핑몰에서 판매하고 있는 상품들의 목록 정보이다.
 //아래 데이터를 참고하여 요구사항을 해결하시오.
+
+
+//아래 자료형 배열 --> 데이터 여러개 존재 --> 순번으로 접근 (반복 돌리기)
+//주의사항 (접근할때 참고하기): item_list[0]  --> 자료형'객체임'   -->  item_list[0] = { ...... }  
+// item_list[0].item_name   --> 자료형 '문자열'  
+// item_list[0].size[1]  ---> 자료형 '정수'
 const item_list = [
   {
     item_name : '여름 셔츠',
@@ -31,7 +38,6 @@ const item_list = [
 item_list.forEach(function(e,i){
   if(e.brand == 'java마켓'){
     console.log(`상품명 : ${e.item_name} \n가격: ${e.price}`)
-   
   }
 })
 
@@ -48,30 +54,52 @@ item_list.forEach(function(e,i){
 
 //3. '등록 및 출력' 버튼을 클릭하면 입력 내용 저장 후 콘솔창에 데이터를 출력하시오.
 
-  const cheks = document.querySelectorAll('.size')
-  const isChecked = cheks
-  const itemName = document.querySelector('#itemName').value
-  const price = document.querySelector('#price').value
-  const brand = document.querySelector('#brand').value
-
+//풀이
 
 function addItem(){
-   if(itemName.value ==''){
+
+  //체크박스들 
+  if(document.querySelector('#itemName').value == ''){
     alert('상품명을 입력하세요')
-   }else{
-      item_list.push(
-      {
-        item_name : itemName,
-        price : price,
-        brand : brand,
-        size : ''
-      }
-    )
+  }else{
+  let chk = null;
+  const checks = document.querySelectorAll('.size:checked');
+   // size도 배열!!!!!!!!!!!!!!!
+  const size =[]; 
+  checks.forEach((check, i)=>{
+      // size도 배열!!!!!!!!!!!!!!!
+        size.push(check)}
+  )
+  //추가할 객체 
+  const add_data = {
+    item_name : document.querySelector('#itemName').value,
+    price : document.querySelector('#price').value,
+    brand : document.querySelector('#brand').value,
+    size : size
   }
+  item_list.push(add_data);
+  console.log(item_list)
+}
 }
 
 
-item_list.forEach(function(e,i){
-  console.log(e,i)
-})
+//   const cheks = document.querySelectorAll('.size')
+//   const itemName = document.querySelector('#itemName').value
+//   const price = document.querySelector('#price').value
+//   const brand = document.querySelector('#brand').value
 
+
+// function addItem(){
+//    if(itemName ==""){
+//     alert('상품명을 입력하세요')
+//    }else{
+//       item_list.push(
+//       {
+//         item_name : itemName,
+//         price : price,
+//         brand : brand,
+//         size : ''
+//       }
+//     )
+//   }
+// }
