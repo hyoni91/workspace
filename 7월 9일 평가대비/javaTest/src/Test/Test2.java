@@ -9,7 +9,7 @@ public class Test2 {
         int[] arr = new int[6];
 
         for(int i =0; i < arr.length; i++){
-            int ramdom = (int) (Math.random()*46);
+            int ramdom = (int) (Math.random()*45+1);  //46하면 0 나오쥬~~~~~~~~~~~~~~~~~~~~~~
             arr[i] = ramdom;
         }
 

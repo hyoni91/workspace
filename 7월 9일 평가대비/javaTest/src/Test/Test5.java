@@ -17,62 +17,96 @@ public class Test5 {
 
         int[] baseball = new int[3];
 
-        // 숫자 생성
-        for(int i =0; i < baseball.length; i++){
-            int ramdom = (int) (Math.random()*10);
+
+        // 숫자 생성 (1 ~ 9 까지!!!!!)
+        for (int i = 0; i < baseball.length; i++) {
+            int ramdom = (int) (Math.random() * 9 + 1);  // *10  하면 0나온다구~~
             baseball[i] = ramdom;
-            for (int j=0; j<i; j++){
-                if(baseball[i] == baseball[j]){
-                    i =-1;
+            //중복검사
+            for (int j = 0; j < i; j++) {  // i만큼 도는 이유는 배열이 늘어날 수록 중복할 배열도 늘어나기 때문에
+                if (baseball[i] == baseball[j]) {
+                    i = -1;
+                    break; // 넣어주면 깔끔쓰
                 }
             }
         }
 
 //        //만들어진 숫자 확인용
-//        System.out.print("만들어진 숫자 : ");
-//        System.out.println(Arrays.toString(baseball));
-
+        System.out.print("만들어진 숫자 : ");
+        System.out.println(Arrays.toString(baseball));
 
 
         int cnt = 0;
         boolean result = true;
 
         System.out.println("숫자를 정했습니다. 게임을 시작합니다.");
-        while (result) {
-            int ball =0;
+
+//        while (result) {
+//            int ball =0;
+//            int str = 0;
+//            cnt ++;
+//            int a,b,c;
+////            System.out.println("한자리 숫자를 연속 3회 입력하세요.");
+////            System.out.print(cnt + ">>");  쌤풀이
+//            a = sc.nextInt();
+//            b = sc.nextInt();
+//            c = sc.nextInt();
+//
+//
+//            if (baseball[0] == a) {
+//                str++;
+//            } else if (baseball[1] == a || baseball[2] == a) {
+//                ball++;
+//            }
+//            if (baseball[1] == b) {
+//                str++;
+//            } else if (baseball[0] == b || baseball[2] == b) {
+//                ball++;
+//            }
+//            if (baseball[2] == c) {
+//                str++;
+//            } else if (baseball[0] == c || baseball[1] == c) {
+//                ball++;
+//            }
+//
+//            System.out.println(cnt + " >> "+ a + " " + b + " " + c + " ");
+//            System.out.println(str + "스트라이크 " + ball + "볼");
+//
+//             if(str ==3 ){
+//                 System.out.println(cnt +"회만에 정답을 맞췄습니다.");
+//                 result = false;
+//             }
+//
+//        }
+
+
+        //쌤풀이
+        int[] answer = new int[3];  //쌤풀이  배열 활용하기
+        boolean result2 = true;
+
+        while (result2) {
+            int ball = 0;
             int str = 0;
-            cnt ++;
-            int a,b,c;
-//            System.out.println("한자리 숫자를 연속 3회 입력하세요.");
-            a = sc.nextInt();
-            b = sc.nextInt();
-            c = sc.nextInt();
+            cnt++;
 
-            if (baseball[0] == a) {
-                str++;
-            } else if (baseball[1] == a || baseball[2] == a) {
-                ball++;
-            }
-            if (baseball[1] == b) {
-                str++;
-            } else if (baseball[0] == b || baseball[2] == b) {
-                ball++;
-            }
-            if (baseball[2] == c) {
-                str++;
-            } else if (baseball[0] == c || baseball[1] == c) {
-                ball++;
-            }
+            System.out.print(cnt + ">>");
+            answer[0] = sc.nextInt();
+            answer[1] = sc.nextInt();
+            answer[2] = sc.nextInt();
 
-            System.out.println(cnt + " >> "+ a + " " + b + " " + c + " ");
+            for (int i = 0; i < baseball.length; i++) {
+                for (int j = 0; j < answer.length; j++) {
+                    if (baseball[i] == answer[j]) {
+                        if (i == j) {  // 두 수가 같을 때 요소의 순번이 같으면 스트라이크
+                            str++;
+                        } else ball++;  // 두 수가 같을 때 요소의 순번이 다르면 ball
+                    }
+                }
+            }
             System.out.println(str + "스트라이크 " + ball + "볼");
-
-             if(str ==3 ){
-                 System.out.println(cnt +"회만에 정답을 맞췄습니다.");
-                 result = false;
-             }
-
+               if (str == 3) {
+                System.out.println(cnt + "회만에 정답을 맞췄습니다.");
+            }  result2 = false;
         }
-
     }
 }

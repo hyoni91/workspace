@@ -3,7 +3,7 @@
 
 import Item from "./Item";
 
-//같은거임
+
 const ItemList = ({item_list}) => {
   return(
     // {/* 화면에 그리려면 map!!!!!!! */}

@@ -8,7 +8,7 @@ const ageAll = document.querySelectorAll('.ageTd')
   sum = Number(sum)+Number(age.textContent);
  //나이의 합과 평균 구하기
   }const result = sum/3.0
-  
+    // sum / ageAll.length
   
    // 결과값 출력할 노드 선택
   document.querySelector('#resultTd').textContent = result

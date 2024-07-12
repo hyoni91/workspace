@@ -1,7 +1,11 @@
 
 
 function checkAllMenu() {
+
+  // isChecked -> checked (true)상태
   const isChecked = document.querySelector('#chk_all').checked;
+
+  //모든 input태그들
   const menus = document.querySelectorAll('input');
 
   if (isChecked) {
@@ -19,12 +23,20 @@ function checkAllMenu() {
 
 
 
+
+
+
+//menuInput이란 this 속성의 이름 (지금 현재 태그)
 function checkAllOption(menuInput) {
+
+  //this태그 cheked 의 경우 IsChecked = true상태
   const isChecked = menuInput.checked;
 
 
  //체크박스들 
+ //this태그의. 다음 형제 (ul)안의. 쿼리들 (input태그)
  const chks = menuInput.nextElementSibling.querySelectorAll('input');
+ 
 
   if(isChecked){
     for(const chk of chks){

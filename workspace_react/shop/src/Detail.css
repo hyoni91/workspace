@@ -1,0 +1,42 @@
+
+
+.datail {
+  width: 60%;
+  margin: auto;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  /* border: 1px solid black; */
+}
+
+.detail-div {
+  display: flex;
+  align-items: center;
+}
+
+
+.datail img{
+  border: 1px solid grey;
+  margin-right: 15px;
+}
+
+
+.intro-div{
+  width: 200px;
+  margin-top: 10px;
+  /* border: 1px solid black; */
+  text-align: center;
+}
+
+button{
+  border: none;
+  padding: 8px;
+  background-color: green;
+  border-radius: 10px;
+  color: white;
+}
+
+button:hover{
+  cursor: pointer;
+  background-color: rgb(2, 110, 2);
+}
