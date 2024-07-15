@@ -20,7 +20,6 @@ function App() {
         <Route path='/writeForm' element={<Insert board={board} setBoard={setBoard}/>}/>
         <Route path='/insert' element={<BaordList data={board}/>}/>
         <Route path='/detail/:boardNum' element={<Detail data={board}/>}/>
-        <Route path='/delete/:boardNum' element={<Detail data={board} setBoard={setBoard}/>} />
 
         {/* input 값 입력받기 연습  */}
         <Route path='/insert_test' element={<InputTest />} />

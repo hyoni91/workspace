@@ -1,24 +1,19 @@
 import { useNavigate, useParams } from "react-router-dom";
 import './Detail.css'
 
-const Detail = ({data, setBoard}) => {
+const Detail = ({data}) => {
   let {boardNum} = useParams();
   const navigate = useNavigate();
+  
+  //글 번호와 일치하는 리스트번호(요소)
   let index = 0;
 
   data.forEach((board ,i)=>{
     if(board.boardNum == boardNum){
       index = i;
-      console.log(i)
     }
   })
 
-  const goDelete = (index) => {
-    const newBoard = [...data];
-        newBoard.slice(index, 1)
-        setBoard(newBoard);
-      }  
- 
 
   return(
     <div className='detail'>
@@ -46,7 +41,10 @@ const Detail = ({data, setBoard}) => {
           navigate(`/`)
         }}>뒤로가기</button>
         <button type="button" onClick={(e)=>{ 
-          goDelete(index)
+          //게시글 목록 필요
+          //삭제할 게시글의 글 번호 필요
+          //스플라이스는 좋은 코드는 아님 (??)
+          data.splice(index,1)   //(요소에서 몇 번째, 몇개?)
           navigate('/')
         }}>삭제하기</button>
       </div>

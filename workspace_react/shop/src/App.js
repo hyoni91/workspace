@@ -31,7 +31,7 @@ function App() {
         <Route path='*' element={<div>잘못된 페이지 입니다.</div>}/>
       </Routes>
 
-   
+
       {/* 구조분해 할당 예시 */}
       {/* <Test  name={'yam'} age={20}/> */}
     </div>

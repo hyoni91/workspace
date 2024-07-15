@@ -37,6 +37,17 @@ public class Bank {
 
     public Client clientInfo(String accNUmber, String name){
 
+        // 쌤 풀이
+//        Client resultClient = null;   // 지역변수는 반드시 초기화를 설정해줘야하기 때문에 unll넣어두기
+//        for (Client c : clientList){
+//            if(c.getName().equals(name)&&
+//               c.getAccInfo().getAccNUmber().equals(accNUmber)){
+//                resulutClient = c;
+//            }
+//        }
+//        return resultClient;   // if문 실행되면 c를 리턴, 실행 안되면 최초값인 unll리턴 !!
+
+
 
        for(int i=0; i <clientList.size(); i++ ){
            if(clientList.get(i).getAccInfo().getAccNUmber().equals(accNUmber) &&
