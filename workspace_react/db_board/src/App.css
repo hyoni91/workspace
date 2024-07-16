@@ -9,6 +9,8 @@
   border-radius: 10px;
   background-color: rgb(103, 196, 103);
   color: white;
+  margin-top: 20px;
+  margin-right: 10px;
 }
 
 .write-btn:hover{
@@ -19,6 +21,7 @@
 .list-table{
   border-collapse: collapse;
   margin-bottom: 15px;
+  margin: auto;
 }
 
 thead{
@@ -27,11 +30,11 @@ thead{
 
 .insert-table{
   border-collapse: collapse;
-  margin: auto;
   margin-bottom: 15px;
+  margin: auto;
+
   text-align: center;
 }
-
 
 
 .insert-table tr,td{
@@ -43,3 +46,29 @@ thead{
   cursor: pointer;
   color: grey;
 }
+
+.detail-table{
+  border-collapse: collapse;
+  margin: auto;
+  text-align: center;
+}
+
+/* axiostest button  */
+.btn{
+  margin: 10px;
+}
+
+.btn > button{
+  border: none;
+  padding: 8px;
+  background-color: lightsalmon;
+  border-radius: 10px;
+  color: white;
+}
+
+.btn >button:hover{
+  cursor: pointer;
+  background-color: rgb(252, 145, 103);
+}
+
+/* axiostest button */

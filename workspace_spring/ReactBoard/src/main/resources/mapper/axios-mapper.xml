@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 해당 파일에 모든 쿼리문을 작성 -->
-<mapper namespace="boardMapper">
+<mapper namespace="axiosMapper">
 
     <!-- DB 테이블에서 조회한 데이터를 자바로 가져올 때 어떤 자료형으로 담아올 지 결정 -->
     <!-- REACT_BOARD 테이블의 조회된 데이터는 BoardVO 자료형을 통해 가져옴 -->
@@ -14,55 +14,24 @@
         <result column="BOARD_DATE" property="createDate"/>
     </resultMap>
 
-    <!--목록-->
-    <select id="getBoardList" resultMap="board">
+    <!-- axios 연습용 -->
+
+    <select id="get1" resultMap="board">
         SELECT
         BOARD_NUM
         ,BOARD_TITLE
-        ,BOARD_WRITER
-        ,BOARD_DATE
-        FROM REACT_BOARD
+        FROM REACT_BOARD;
     </select>
 
-    <!--상세-->
-    <select id="detail" resultMap="board">
+    <!-- 빈 값을 채워야할 때 -->
+    <select id="get2" resultMap="board">
         SELECT
-        *
+        BOARD_NUM
+        ,BOARD_TITLE
         FROM REACT_BOARD
         WHERE BOARD_NUM = #{boardNum}
     </select>
-
-    <!--작성-->
-    <insert id="insertBoard">
-        INSERT INTO REACT_BOARD(
-        BOARD_TITLE
-        ,BOARD_WRITER
-        ,BOARD_CONTENT
-        )
-        VALUES(
-        #{boardTitle}
-        ,#{boardWriter}
-        ,#{boardContent}
-        )
-    </insert>
-
-    <!--수정-->
-	<update id="updateBoard">
-        UPDATE REACT_BOARD
-        SET
-        BOARD_TITLE = #{boardTitle}
-        ,BOARD_WRITER = #{boardWriter}
-        ,BOARD_CONTENT = #{boardContent}
-        WHERE BOARD_NUM = #{boardNum}
-    </update>
-
-    <!--삭제-->
-    <delete id="deleteBoard">
-        DELETE FROM REACT_BOARD
-        WHERE BOARD_NUM = #{boardNum}
-    </delete>
-
-
+	
 </mapper>   
 
 

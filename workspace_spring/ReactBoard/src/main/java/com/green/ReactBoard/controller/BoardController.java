@@ -5,8 +5,7 @@ import com.green.ReactBoard.service.BoardService;
 import com.green.ReactBoard.vo.BoardVO;
 import jakarta.annotation.Resource;
 import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,15 +20,43 @@ public class BoardController {
     @Resource(name="boardService")
     private BoardService boardService;
 
+    //목록조회
     @GetMapping("/boardList")
     public List<BoardVO> getBoardList(){
         List<BoardVO> boardList = boardService.getBoardList();
         return boardList;
     }
 
-    @GetMapping("insert")
-    public void insertBoard(BoardVO boardVO){
-        boardService.insertBoard(boardVO);
+    //상세보기
+    @GetMapping("/detail/{boardNum}")
+    public BoardVO detailBoard(@PathVariable("boardNum") int boardNum) {
+        System.out.println(boardService.detailBoard(boardNum)); //확인용
+        return boardService.detailBoard(boardNum);
     }
+
+    //글등록
+    @PostMapping("/insertBoard")
+    public BoardVO insertBoard(@RequestBody BoardVO boardVO){
+        System.out.println(boardVO);
+         boardService.insertBoard(boardVO);
+        return boardVO;
+    }
+
+    //삭제하기
+    @DeleteMapping("/delete/{boardNum}")
+    public void deleteBoard(@PathVariable("boardNum") int boardNum , BoardVO boardVO){
+        System.out.println(boardNum);
+        System.out.println(boardVO);
+        boardService.deleteBoard(boardNum);
+
+    }
+
+    //수정하기
+    @PutMapping("/updateBoard")
+    public void updateBoard(@RequestBody BoardVO boardVO){
+        System.out.println(boardVO);
+        boardService.updateBoard(boardVO);
+    }
+
 
 }
