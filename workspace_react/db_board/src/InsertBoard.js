@@ -14,16 +14,34 @@ const InsertBoard = ()=>{
     })
   }
 
+
+
     //글등록
     function inputButton(){
+      //해당 쿼리가 빈값을 경우 axios함수 실행 안함
+      const boardTitle = document.querySelector('input[name="boardTitle"]')
+      if(boardTitle.value == ''){
+        alert('제목은 필수입력입니다.')
+        boardTitle.focus()
+        return;
+      }
+
+      //이렇게도 가능함
+      if(input.boardWriter == ''){
+        alert('작성자는 필수입력입니다.')
+        return;
+      }
+
+
       axios
       .post('/insertBoard', input )
       .then((res)=>{
+        alert('등록완료!')
         navigate('/')
         console.log(res.data)
       })
       .catch((error)=>{
-        console.log('error!!')
+        console.log('등록 오류!!')
         console.log(error)
       });
   

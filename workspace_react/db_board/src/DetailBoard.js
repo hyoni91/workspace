@@ -15,15 +15,28 @@ const DetailBoard = ()=>{
       setDetail(res.data)
     })
     .catch((error)=>{})
+    
   },[])
+
+  
 
   //삭제데이터
   function goDelete (){
-    axios
-    .delete(`/delete/${boardNum}`)
-    .then((res)=>{navigete('/')})
-    .catch((error)=>{})
+    const result = window.confirm('삭제하시겠습니까?')
+    if(result){
+      axios
+      .delete(`/delete/${boardNum}`)
+      .then((res)=>{
+        alert('삭제완료!')
+        navigete('/')})
+      .catch((error)=>{
+        alert('오류발생!!')
+        console.log(error)
+      })
+    }
   }
+
+
   return(
     <>
       <h2>게시글 상세조회</h2>
@@ -57,7 +70,7 @@ const DetailBoard = ()=>{
         navigete('/')
       }}>뒤로가기</button>
       <button type="button" className="write-btn" onClick={()=>{
-        navigete(`/update/${boardNum}`)
+        navigete(`/update/${detail.boardNum}`)
       }}>수정하기</button>
       <button type="button" className="write-btn" onClick={()=>{
         goDelete()

@@ -1,0 +1,87 @@
+.App{
+  width: 100vw;
+  height: 100vh;
+}
+
+.stu-menu{
+  width: 100%;
+}
+.stu-menu > ul{
+  display: flex;
+  justify-content: space-around;
+  width: 800px;
+  margin: auto;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: lightblue;
+  margin-top: 15px;
+  
+}
+
+li{
+  list-style-type: none;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+a:hover{
+  cursor: pointer;
+  font-weight: 700;
+  color: rgb(66, 66, 66);
+}
+
+.content{
+  width: 500px;
+  margin: auto;
+}
+
+/* 학생정보 */
+
+.stuinfo{
+  width: 100%;
+  margin: auto;
+}
+
+.stu-table{
+  border-collapse: collapse;
+  text-align: center;
+  border-spacing: 0;
+}
+
+thead{
+  background-color: rgb(83, 189, 224);
+  color: rgb(255, 255, 255);
+}
+
+tr,td{
+  border: 1px solid rgb(255, 255, 255);
+}
+
+td{
+  padding: 5px;
+}
+
+
+/* 학생등록 */
+
+button{
+  border: none;
+  padding: 5px;
+  width: 75px;
+  border-radius: 10px;
+  background-color:lightseagreen;
+  color: white;
+  font-weight: 600;
+  margin-left: 100px;
+  margin-top: 25px;
+}
+
+/* 학생상세 */
+
+span:hover{
+  cursor: pointer;
+  color: grey;
+}
