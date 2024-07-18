@@ -65,9 +65,9 @@ const StuInput = ()=>{
             }}/></td>
           </tr>
         </table>
-        <button type="button" onClick={()=>{goInput(
+        <button  type="button" onClick={()=>{goInput(
           navigate('/')
-        )}}>글쓰기</button>
+        )}}>학생 등록</button>
       </div>
     </>
   )

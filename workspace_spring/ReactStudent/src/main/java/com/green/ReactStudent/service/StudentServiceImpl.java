@@ -35,4 +35,12 @@ public class StudentServiceImpl implements StudentService{
     public void stuDelete(int stuNum) {
         sqlSession.delete("studentMapper.delete", stuNum);
     }
+
+
+    //score등록
+    @Override
+    public void stuUpdate(StudentVO studentVO) {
+
+        sqlSession.update("studentMapper.update", studentVO );
+    }
 }

@@ -42,7 +42,8 @@
 
     <select id="detail" resultMap="student">
         SELECT
-        STU_NAME
+        STU_NUM
+        ,STU_NAME
         ,STU_AGE
         ,STU_TEL
         ,STU_ADDR
@@ -58,6 +59,15 @@
         FROM REACT_STUDENT
         WHERE STU_NUM = #{stuNum}
     </delete>
+
+    <update id="update">
+        UPDATE REACT_STUDENT
+        SET
+        KOR_SCORE = #{korScore}
+        ,ENG_SCORE = #{engScore}
+        ,MATH_SCORE = #{mathScore}
+        WHERE STU_NUM = #{stuNum}
+    </update>
 	
 </mapper>
 

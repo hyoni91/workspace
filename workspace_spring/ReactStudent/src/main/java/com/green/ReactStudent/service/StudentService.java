@@ -17,4 +17,7 @@ public interface StudentService {
 
     //삭제
     void stuDelete(int stuNum);
+
+    //score등록
+    void stuUpdate(StudentVO studentVO);
 }

@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 const StuDelete = ()=>{
   const [stuDel, setStuDel] = useState([])
   const navigate = useNavigate();
-  // const {stuNum} = useParams();
+  const {stuNum} = useParams();
  
 
   useEffect(()=>{
@@ -26,6 +26,15 @@ const StuDelete = ()=>{
     .delete(`/stuDelete/${stuNum}`)
     .then((res)=>{
       console.log(res.data)
+      // 자동 새로고침을 하기 위해서 useState값 변화 시키기
+      // 내가 지운 사람이랑 똑같이 지우기! 
+      stuDel.forEach((stu,i)=>{
+        if(stu.stuNum == stuNum){
+          stuDel.splice(i,1)
+        }
+      }); 
+      // 구조분해 할당으로 새로운 stuDel로 넣어주기
+      setStuDel([...stuDel])
     })
     .catch((error)=>{})
   }
@@ -53,10 +62,11 @@ const StuDelete = ()=>{
               stuDel.map((stu,i)=>{
                 return(
                 <tr key={i}>
-                  <td>{stu.stuNum}</td>
+                  <td>{i+1}</td>
                   <td>{stu.stuName}</td>
-                  <td><button type="button" value={stu.stuNum} onChange={()=>{
+                  <td><button type="button" value={stu.stuNum} onClick={()=>{
                     goDelete(stu.stuNum)
+                    
                   }}>삭제</button></td>
                 </tr>
                 )

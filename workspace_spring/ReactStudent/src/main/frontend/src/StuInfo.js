@@ -44,28 +44,26 @@ const StuInfo = ()=>{
           </thead>
           <tbody>
             {
+              stuList.length == 0 ?
+              <tr>
+                <td colSpan={'6'}>등록된 정보가 없습니다.</td>
+              </tr>
+              :
               stuList.map((stu,i)=>{
-                if(stu == []){
                   return(
-                    <tr>
-                      <td colSpan={6}>등록된 정보가 없습니다.</td>
-                    </tr>
-                  )
-                } else {
-                  return(
-                  
+                    
                     <tr key={i}>
-                      <td>{stu.stuNum}</td>
+                      <td>{i+1}</td>
                       <td><span onClick={()=>{
                         navigate(`/detail/${stu.stuNum}`)
                       }}>{stu.stuName}</span></td>
                       <td>{stu.korScore}</td>
                       <td>{stu.engScore}</td>
                       <td>{stu.mathScore}</td>
-                      <td>평균점수</td>
+                      <td>{Math.round(((stu.korScore+stu.engScore+stu.mathScore)/3)*100)/100}</td>
                     </tr>
                   )
-                }
+                
               })
             }
           </tbody>

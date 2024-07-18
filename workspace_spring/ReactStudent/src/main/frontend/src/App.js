@@ -7,6 +7,7 @@ import StuInput from './StuInput';
 import StuDelete from './StuDelete';
 import StuScoInfo from './StuScoInfo';
 import StuDetail from './StuDetail';
+import InfutSco from './InfutSco';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path='/stuDelete' element={<StuDelete />}/>
           <Route path='/stuScoInfo' element={<StuScoInfo />}/>
           <Route path='/detail/:stuNum' element={<StuDetail />}/>
+          <Route path='/infutSco/:stuNum' element={<InfutSco />}/>
         </Routes>
       </div>
     

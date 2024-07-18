@@ -18,11 +18,11 @@ const StuDetail = ()=>{
       console.log(error)
     })
   })
-
+  
   return(
     <>
       <h3>학생 상세 정보</h3>
-      <table>
+      <table className="detail-table">
         <tr>
           <td>이름</td>
           <td>{detail.stuName}</td>
@@ -45,7 +45,7 @@ const StuDetail = ()=>{
           <td>수학점수</td>
           <td>{detail.mathScore}</td>
           <td>평균점수</td>
-          <td>평균</td>
+          <td>{Math.round((detail.korScore+detail.engScore+detail.mathScore)/3*10)/10}</td>
         </tr>
       </table>
     </>

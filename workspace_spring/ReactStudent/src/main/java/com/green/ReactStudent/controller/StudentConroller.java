@@ -38,4 +38,8 @@ public class StudentConroller {
         studentService.stuDelete(stuNum);
     }
 
+    @PutMapping("/stuScore")
+    public void stuUpdate(@RequestBody StudentVO studentVO){
+        studentService.stuUpdate(studentVO);
+    }
 }

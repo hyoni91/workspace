@@ -1,7 +1,22 @@
+
+
+@font-face {
+  font-family: 'Ownglyph_ryurue-Rg';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405-2@1.0/Ownglyph_ryurue-Rg.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*{
+  font-family: 'Ownglyph_ryurue-Rg';
+  font-size: 25px;
+}
+
 .App{
   width: 100vw;
   height: 100vh;
 }
+
 
 .stu-menu{
   width: 100%;
@@ -34,9 +49,14 @@ a:hover{
 }
 
 .content{
-  width: 500px;
+  width: 600px;
   margin: auto;
 }
+
+tbody > tr:nth-child(even){
+  background-color: rgb(215, 242, 250);
+}
+
 
 /* 학생정보 */
 
@@ -49,16 +69,15 @@ a:hover{
   border-collapse: collapse;
   text-align: center;
   border-spacing: 0;
+  border: 1px solid lightblue;
 }
 
 thead{
   background-color: rgb(83, 189, 224);
   color: rgb(255, 255, 255);
+  border-bottom: 4px double ;
 }
 
-tr,td{
-  border: 1px solid rgb(255, 255, 255);
-}
 
 td{
   padding: 5px;
@@ -70,7 +89,7 @@ td{
 button{
   border: none;
   padding: 5px;
-  width: 75px;
+  width: 100px;
   border-radius: 10px;
   background-color:lightseagreen;
   color: white;
@@ -84,4 +103,33 @@ button{
 span:hover{
   cursor: pointer;
   color: grey;
+}
+
+.detail-table{
+  border-collapse: collapse;
+  width: 600px;
+}
+
+.detail-table > tr,td{
+  border: 1px solid rgb(195, 221, 230);
+  text-align: center;
+}
+
+.detail-table > tr > td:nth-child(1){
+  background-color: rgb(83, 189, 224);
+  color: rgb(255, 255, 255);
+}
+.detail-table > tr > td:nth-child(3){
+  background-color: rgb(83, 189, 224);
+  color: white;
+}
+
+h3{
+  display: inline-block;
+  background-color:lightseagreen;
+  color: white;
+}
+
+h3::before{
+  content: '💁‍♀️';
 }
