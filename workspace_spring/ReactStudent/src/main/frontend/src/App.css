@@ -65,11 +65,16 @@ tbody > tr:nth-child(even){
   margin: auto;
 }
 
-.stu-table{
+.stu-table, .stu-table2{
+  width: 100%;
   border-collapse: collapse;
   text-align: center;
   border-spacing: 0;
   border: 1px solid lightblue;
+}
+
+.stu-table2{
+  width: 60%;
 }
 
 thead{
@@ -87,15 +92,22 @@ td{
 /* 학생등록 */
 
 button{
+  display: inline-block;
   border: none;
   padding: 5px;
   width: 100px;
   border-radius: 10px;
   background-color:lightseagreen;
+  /* background-color:#ff9d89; */
   color: white;
   font-weight: 600;
   margin-left: 100px;
   margin-top: 25px;
+}
+
+button:hover{
+  cursor: pointer;
+  background-color:rgb(28, 158, 152);
 }
 
 /* 학생상세 */
@@ -127,9 +139,21 @@ span:hover{
 h3{
   display: inline-block;
   background-color:lightseagreen;
+  /* background-color:#ff9d89; */
   color: white;
+  border-radius: 5px;
+  /* width: 160px; */
+  text-align: center;
 }
 
 h3::before{
   content: '💁‍♀️';
 }
+
+
+/* 버튼위치 */
+
+.btn-doko{
+  margin: 0px ;
+}
+

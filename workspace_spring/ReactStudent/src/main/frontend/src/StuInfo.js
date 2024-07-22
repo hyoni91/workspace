@@ -1,14 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getStuList } from "./api";
 
 const StuInfo = ()=>{
   const [stuList , setStuList] = useState([])
   const navigate = useNavigate()
   
   useEffect(()=>{
-    axios
-    .get('/stuList')
+    getStuList()
     .then((res)=>{
       setStuList(res.data)
       console.log(stuList)

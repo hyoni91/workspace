@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { getStuDetail } from "./api";
 
 const StuDetail = ()=>{
   const {stuNum} = useParams()
@@ -8,8 +9,7 @@ const StuDetail = ()=>{
   console.log(stuNum)
 
   useEffect(()=>{
-    axios
-    .get(`/stuDetail/${stuNum}`)
+    getStuDetail(stuNum)
     .then((res)=>{
       setDetail(res.data)
     })

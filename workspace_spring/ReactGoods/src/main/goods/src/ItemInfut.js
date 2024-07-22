@@ -22,7 +22,7 @@ console.log(input)
     axios
     .post('/itemInsert', input)
     .then((res)=>{
-    
+      navigate('/'); // 등록 후 홈페이지로 이동
     })
     .catch((error)=>{
       console.log(error)
@@ -57,7 +57,6 @@ console.log(input)
         </table>
         <button type='button' onClick={()=>{
           goInput();
-          navigate('/')
         }}>등록하기</button>
       </div>
     </>

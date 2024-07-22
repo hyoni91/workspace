@@ -5,6 +5,8 @@ import { Link, Route, Routes } from 'react-router-dom';
 import ItemInfo from './ItemInfo';
 import ItemInfut from './ItemInfut';
 import InputDetail from './InputDetail';
+import Order from './Order';
+import OrderList from './OrderList';
 
 function App() {
   return (
@@ -20,11 +22,17 @@ function App() {
 
       <div className='content'>
         <Routes>
-          <Route path='/' element={<ItemInfo />} />
+          {/* <Route> */}
+            <Route path='/*' element={<ItemInfo />} />
+            {/* <Route path=':itemNum' element={<InputDetail />} />
+          </Route> */}
+          
+          
+          
           <Route path='/insert' element={<ItemInfut />} />
-          <Route path='/order' element={<div>주문하기</div>} />
-          <Route path='/orderList' element={<div>주문목록</div>} />
-          <Route path='/detail/:itemNum' element={<InputDetail />}/>
+          <Route path='/order' element={<Order />} />
+          <Route path='/orderList' element={<OrderList />} />
+          
         </Routes>
       </div>
 

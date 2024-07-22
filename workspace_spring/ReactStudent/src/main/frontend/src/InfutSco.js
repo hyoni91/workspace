@@ -2,6 +2,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
+import { getStuDetail } from './api'; 
 
 const InfutSco = () => {
   const navigate = useNavigate();
@@ -18,8 +19,7 @@ const InfutSco = () => {
 
   //본래값
   useEffect(()=>{
-    axios
-    .get(`/stuDetail/${stuNum}`)
+    getStuDetail(stuNum)
     .then((res)=>{
       setSco(res.data)
     }
@@ -49,21 +49,21 @@ const InfutSco = () => {
 
   return (
     <>
+      <h3>{sco.stuName} 학생의 성적을 입력합니다.</h3>
         <table>
-          <h3>{sco.stuName} 학생의 성적을 입력합니다.</h3>
             <tr>
               <td>국어점수</td>
-              <td><input type="text" name="korScore" onChange={(e)=>{
+              <td><input type="text" name="korScore" Value={sco.korScore} onChange={(e)=>{
                 score(e)
               }} /></td>
             </tr>
             <tr>
               <td>영어점수</td>
-              <td><input type="text" name="engScore" onChange={(e)=>{score(e)}}/></td>
+              <td><input type="text" name="engScore" Value={sco.engScore} onChange={(e)=>{score(e)}}/></td>
             </tr>
             <tr>
               <td>수학점수</td>
-              <td><input type="text" name="mathScore" onChange={(e)=>{score(e)}}/></td>
+              <td><input type="text" name="mathScore" Value={sco.mathScore} onChange={(e)=>{score(e)}}/></td>
             </tr>
             
           </table>

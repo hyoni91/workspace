@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 const StuInput = ()=>{
   const [input, setInput] = useState({})
   const navigate = useNavigate()
@@ -23,8 +24,8 @@ const StuInput = ()=>{
       name.focus()
       return;
     }
-    axios
-    .post('/stuInsert', input)
+
+    axios.post('/stuInsert',input)
     .then((res)=>{
       alert('등록 완료')
       console.log(res.data)
