@@ -2,6 +2,8 @@ package com.green.Board.vo;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class BoardVO {
     //게시글 정보
@@ -10,4 +12,7 @@ public class BoardVO {
     private String content;
     private String memId;  //FK
     private String createDate;
+
+//    //comment 리스트
+//    private List<ReplyVO> replys;
 }

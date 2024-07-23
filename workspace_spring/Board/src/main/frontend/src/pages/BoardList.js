@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { getBoardList } from '../apis';
+import { getBoardList } from '../apis/b_api';
+
 function BoardList() {
   const navigate = useNavigate();
   const [boardList, setBoardList] = useState([])
@@ -24,7 +25,7 @@ function BoardList() {
           <span onClick={()=>{navigate('/login')}}>Login</span> 
           <span onClick={()=>{navigate('/join')}}>Join</span>
         </div>
-        <h2>자유게시판</h2>
+        <h2 className='main-h2'>자유게시판</h2>
         <div className='serch-div'>
           <select>
             <option>제목</option>
@@ -53,7 +54,9 @@ function BoardList() {
                 return(
                   <tr key={i}>
                     <td>{i+1}</td>
-                    <td><span onClick={()=>{}}>{board.title}</span></td>
+                    <td><span onClick={()=>{
+                      navigate(`/detail/${board.boardNum}`)
+                    }}>{board.title}</span></td>
                     <td>{board.memId}</td>
                     <td>{board.createDate}</td>
                   </tr>
@@ -63,7 +66,7 @@ function BoardList() {
           </tbody>
         </table>
         <div>
-          <button className='list-btn' type='button'>작성하기</button>
+          <button className='list-btn' type='button' onClick={()=>{navigate('/wirteForm')}}>작성하기</button>
           </div>
       </div>
     </>

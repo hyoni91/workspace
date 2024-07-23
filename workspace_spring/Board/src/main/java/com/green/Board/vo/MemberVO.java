@@ -2,6 +2,8 @@ package com.green.Board.vo;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class MemberVO {
     //회원정보

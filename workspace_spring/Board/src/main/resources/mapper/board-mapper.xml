@@ -9,7 +9,9 @@
         <result column="CONTENT" property="content" />
         <result column="MEM_ID" property="memId" />
         <result column="CREATE_DATE" property="createDate" />
+<!--        <collection property="replys" resultMap="reply" />-->
     </resultMap>
+    
 
     <select id="boardList" resultMap="board">
         SELECT
@@ -19,6 +21,23 @@
         ,CREATE_DATE
         FROM BOARD
     </select>
+
+
+    <!-- 상세 페이지 -->
+<!--    <select id="detail" resultMap="board">-->
+<!--        SELECT-->
+<!--        CREATE_DATE-->
+<!--        ,B.MEM_ID-->
+<!--        ,TITLE-->
+<!--        ,CONTENT-->
+<!--        ,REPLY_DATE-->
+<!--        ,R.MEM_ID-->
+<!--        ,REPLY_CONTENT-->
+<!--        FROM board B, board_reply R-->
+<!--        WHERE B.BOARD_NUM = R.BOARD_NUM-->
+<!--        AND B.BOARD_NUM = #{boardNum}-->
+<!--        ORDER BY  R.REPLY_NUM DESC-->
+<!--    </select>-->
 
 </mapper>
 
