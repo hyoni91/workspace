@@ -5,10 +5,7 @@ import com.green.Board.vo.BoardVO;
 import jakarta.annotation.Resource;
 import lombok.extern.log4j.Log4j;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -34,6 +31,19 @@ public class BoardController {
 //        return boardService.detail(boardNum);
 //    }
 
+    //글등록
+    @PostMapping("/insert")
+    public void insert(@RequestBody BoardVO boardVO){
+        System.out.println(boardVO);
+        boardService.insert(boardVO);
+    }
+
+    //상세글
+    @GetMapping("/detail/{boardNum}")
+    public BoardVO detail(@PathVariable("boardNum") int boardNum){
+        System.out.println(boardService.detail(boardNum));
+        return boardService.detail(boardNum);
+    }
 }
 
 

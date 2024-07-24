@@ -27,13 +27,16 @@ public class MemberController {
     public void join(@RequestBody MemberVO memberVO){
         System.out.println(memberVO);
         memberService.join(memberVO);
+        //insert는 리액트에 데이터 넘길 필요없어서 리턴 따로 필요없음 (데이터 넘기는 건 res.data를 말함)
     }
 
     //로그인
     @PostMapping("/login")
-    public void login(@RequestBody MemberVO memberVO){
-
-        memberService.login(memberVO);
+    public MemberVO login(@RequestBody MemberVO memberVO){
+       MemberVO member =  memberService.login(memberVO);
+       //member에 조회된 데이터 없으면 null값을 가진다.
+       //이때, 리액트는 null이 아닌 빈 문자로 들어간다.
+        return member; //react에 자료 넘겨줌  res.data!!!
     }
 
 

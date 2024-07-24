@@ -22,22 +22,29 @@
         FROM BOARD
     </select>
 
+    <insert id="insert">
+        INSERT INTO BOARD(
+        TITLE
+        ,CONTENT
+        ,MEM_ID
+        ) VALUES(
+        #{title}
+        ,#{content}
+        ,#{memId}
+        )
+    </insert>
 
     <!-- 상세 페이지 -->
-<!--    <select id="detail" resultMap="board">-->
-<!--        SELECT-->
-<!--        CREATE_DATE-->
-<!--        ,B.MEM_ID-->
-<!--        ,TITLE-->
-<!--        ,CONTENT-->
-<!--        ,REPLY_DATE-->
-<!--        ,R.MEM_ID-->
-<!--        ,REPLY_CONTENT-->
-<!--        FROM board B, board_reply R-->
-<!--        WHERE B.BOARD_NUM = R.BOARD_NUM-->
-<!--        AND B.BOARD_NUM = #{boardNum}-->
-<!--        ORDER BY  R.REPLY_NUM DESC-->
-<!--    </select>-->
+    <select id="detail" resultMap="board">
+        SELECT
+        CREATE_DATE
+        ,MEM_ID
+        ,TITLE
+        ,CONTENT
+        ,BOARD_NUM
+        FROM board
+        WHERE BOARD_NUM = #{boardNum}
+    </select>
 
 </mapper>
 

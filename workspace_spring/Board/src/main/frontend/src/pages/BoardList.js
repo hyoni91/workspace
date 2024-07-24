@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { getBoardList } from '../apis/b_api';
+import Login from './Login';
 
 function BoardList() {
   const navigate = useNavigate();
@@ -18,18 +19,17 @@ function BoardList() {
     })
   },[])
 
+  
+
   return (
     <>
       <div className='content'>
-        <div className='login-div'>
-          <span onClick={()=>{navigate('/login')}}>Login</span> 
-          <span onClick={()=>{navigate('/join')}}>Join</span>
-        </div>
+        <div className='login-div' />
         <h2 className='main-h2'>자유게시판</h2>
         <div className='serch-div'>
           <select>
             <option>제목</option>
-            <option>??</option>
+            <option>작성자</option>
           </select>
           <input type='text'/>
           <button type='button'>검색</button>
@@ -65,9 +65,7 @@ function BoardList() {
             }
           </tbody>
         </table>
-        <div>
           <button className='list-btn' type='button' onClick={()=>{navigate('/wirteForm')}}>작성하기</button>
-          </div>
       </div>
     </>
   )

@@ -10,7 +10,18 @@
         <result column="MEM_ID" property="memId"/>
         <result column="BOARD_NUM" property="boardNum"/>
     </resultMap>
-	
+
+    <select id="detail" resultMap="reply">
+        SELECT
+        REPLY_DATE
+        ,MEM_ID
+        ,REPLY_CONTENT
+        FROM BOARD_REPLY
+        WHERE BOARD_NUM = #{boardNum}
+        ORDER BY REPLY_NUM DESC
+    </select>
+
+
 </mapper>
 
 

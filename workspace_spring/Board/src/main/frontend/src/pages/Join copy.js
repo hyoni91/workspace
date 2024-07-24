@@ -1,8 +1,9 @@
+import axios from 'axios'
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import * as api from '../apis/m_api'
 
-function Join() {
+function Joincopy() {
   const navigate = useNavigate();
 
     //input 밸류값 저장할 state변수
@@ -95,38 +96,34 @@ function Join() {
           <span onClick={()=>{navigate('/join')}}>Join</span>
         </div>
         <h2>회원가입</h2>
-        <table className='join-table'>
-          <tr>
-            <td>아이디</td>
-            <td>
-              <input type='text' required placeholder='아이디를 입력하세요' name='memId' onChange={(e)=>{
-                getMember(e)
-              }}/>
-              <button className='checkBtn' type='button' onClick={()=>{
-                checkId()
-              }}>중복확인</button>
-            </td>
-          </tr>
-          <tr>
-            <td>비밀번호</td>
-            <td><input type='password' name='memPw' placeholder='비밀번호를 입력하세요.' required onChange={(e)=>{getMember(e)}}/></td>
-          </tr>
-          <tr>
-            <td>비밀번호 확인</td>
-            <td><input type='password' placeholder='비밀번호를 확인하세요.' required name='confirmPw' onChange={(e)=>{getMember(e)}} /></td>
-          </tr>
-          <tr>
-            <td>이름</td>
-          <td><input type='text' placeholder='이름을 입력하세요.'  required name='memName' onChange={(e)=>{getMember(e)}}/></td>
-          </tr>
-          <tr>
-            <td>성별</td>
-          <td className='radio'>
-            <input className='radio' type='radio' name='gender' value={'male'} checked={member.gender == 'male'} onChange={(e)=>{getMember(e)}}/>남
-            <input className='radio'  type='radio' name='gender' value={'female'} checked={member.gender == 'female'} onChange={(e)=>{getMember(e)}} />여
-          </td>
-          </tr>
-        </table>
+        <div className='joindiv'>
+            <div className='id'>
+              <label>아이디</label>
+                <input type='text' required placeholder='아이디를 입력하세요' name='memId' onChange={(e)=>{
+                  getMember(e)
+                }}/>
+                <button className='checkBtn' type='button' onClick={()=>{
+                  checkId()
+                }}>중복확인</button>
+            </div>
+            <div className='pw'>
+              <label>비밀번호</label>
+              <input type='password' name='memPw' placeholder='비밀번호를 입력하세요.' required onChange={(e)=>{getMember(e)}}/>
+            </div>
+            <div className='pwchk'>
+              <label>비밀번호 확인</label>
+              <input type='password' placeholder='비밀번호를 확인하세요.' required name='confirmPw' onChange={(e)=>{getMember(e)}} />
+            </div>
+            <div className='name'>
+              <label>이름</label>
+            <input type='text' placeholder='이름을 입력하세요.'  required name='memName' onChange={(e)=>{getMember(e)}}/>
+            </div>
+            <div className='gender'>
+              <label>성별</label>
+              <input className='radio' type='radio' name='gender' value={'male'} checked={member.gender == 'male'} onChange={(e)=>{getMember(e)}}/>남
+              <input className='radio'  type='radio' name='gender' value={'female'} checked={member.gender == 'female'} onChange={(e)=>{getMember(e)}} />여
+            </div>
+        </div>
         <button type='button' className='joinbtn' disabled={isDisabled} onClick={()=>{
           regMember()
         }}>가입하기</button>
@@ -135,4 +132,4 @@ function Join() {
   )
 }
 
-export default Join;
+export default Joincopy;

@@ -1,6 +1,7 @@
 .App {
   width: 100vw;
   height: 100vh;
+  margin: auto;
 }
 
 .content{
@@ -14,18 +15,28 @@
 }
 
 h2{
-  text-align: center;
+  text-align: center;;
 }
 
+.namespan{
+  color: lightcoral;
+}
 
+.namespan:hover{
+  cursor: auto;
+  color:  lightcoral;
+}
 
-/* login , join flex */
+.logout{
+  text-align: right;
+}
+
+/* login , join 버튼 flex */
 .login-div{
   width: 100%;
   display: flex;
   justify-content: end;
   gap: 20px;
-
 }
 
 
@@ -42,6 +53,7 @@ h2{
   margin-top: 25px;
   width:100%;
   text-align: center;
+  position: relative;
 }
 
 thead{
@@ -57,6 +69,23 @@ tbody{
 .table tbody > tr:nth-child(even){
   background-color: rgb(255, 222, 211);
 }
+
+/* 목록버튼 */
+.list-btn{
+  border:none;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 0px 5px;
+  background-color:lightsalmon;
+  color: white;
+}
+
+
+.btn{
+  padding: 5px;
+  margin: 0px 5px;
+}
+
 
 /* 테이블 안쪽 여백 늘리기 */
 tr,td{
@@ -82,21 +111,9 @@ span:hover{
 .join-table{
   margin-top: 30px;
   margin: auto;
-
 }
 
-.list-btn{
-  border:none;
-  border-radius: 10px;
-  padding: 10px;
-  margin: 0px 5px;
-}
-
-.btn{
-  padding: 5px;
-  margin: 0px 5px;
-}
-
+/* 회원가입, 로그인 버튼 */
 .joinbtn{
   padding: 5px;
   width: 100px;
@@ -104,17 +121,11 @@ span:hover{
   font-size: 15px;
 }
 
-.list-btn{
-  background-color:lightsalmon;
-  color: white;
-}
-
 /* 아이디 중복 검사 버튼 */
 .checkBtn{
   margin-left: 5px;
   height: 25px;
 }
-
 
 /* detail btn */
 .detail-btn{
@@ -148,3 +159,31 @@ span:hover{
   margin-bottom: 25px;
 }
 
+/*회원가입 남여 radio버튼 가운데로 오게 flex */
+.radio{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.writeForm{
+  
+  margin-top: 10px;
+  border: 1px solid red;
+  display: inline-block;
+  position: absolute;
+  top: 50%; left: 50%; 
+  
+}
+
+
+/* test
+
+.id,.pw,.pwchk,.name,.gender{
+  margin-bottom: 15px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+} */

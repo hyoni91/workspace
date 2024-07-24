@@ -10,4 +10,10 @@ public interface BoardService {
 
 //    //상세
 //    BoardVO detail(int boardNum);
+
+    //글 등록
+    void insert(BoardVO boardVO);
+
+    //상세 글
+    BoardVO detail(int boardNum);
 }
