@@ -1,6 +1,7 @@
 package com.green.Board.service;
 
 import com.green.Board.vo.BoardVO;
+import com.green.Board.vo.SearchVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,6 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public List<BoardVO> getBoardList() {
         return sqlSession.selectList("boardMapper.boardList");
-
     }
 
     @Override
@@ -29,8 +29,5 @@ public class BoardServiceImpl implements BoardService {
         return sqlSession.selectOne("boardMapper.detail", boardNum);
     }
 
-//    @Override
-//    public BoardVO detail(int boardNum) {
-//        return sqlSession.selectOne("boardMapper.detail", boardNum);
-//    }
+
 }

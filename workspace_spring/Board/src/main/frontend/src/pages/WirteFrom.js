@@ -5,12 +5,14 @@ import { useNavigate } from 'react-router-dom';
 
 function WirteFrom({getLoginInfo}) {
   const navigate = useNavigate()
+  //로그인 아이디 불러와서 초기값에 저장해두기
   const [wirte, setWirte] = useState({
     memId : getLoginInfo.memId,
     title : '',
     content : ''
   });
 
+  //타이틀과, 내용 값 받아오기
   function getValue(e){
     setWirte({
       ...wirte,
@@ -18,6 +20,7 @@ function WirteFrom({getLoginInfo}) {
     })
   }
 
+  //등록버튼 누르면 입력 실행
   function goInsert(wirte){
     b_api.getWiterInfo(wirte)
     .then((res)=>{
@@ -44,6 +47,7 @@ function WirteFrom({getLoginInfo}) {
         </table>
         <button className='btn' type='button' onClick={()=>{
           goInsert(wirte)
+          navigate('/')
         }}>등록하기</button>
       </div>
     </>

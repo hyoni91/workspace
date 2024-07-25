@@ -13,6 +13,5 @@ public class BoardVO {
     private String memId;  //FK
     private String createDate;
 
-//    //comment 리스트
-//    private List<ReplyVO> replys;
+
 }

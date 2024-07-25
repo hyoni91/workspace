@@ -16,11 +16,29 @@
         REPLY_DATE
         ,MEM_ID
         ,REPLY_CONTENT
+        ,REPLY_NUM
         FROM BOARD_REPLY
         WHERE BOARD_NUM = #{boardNum}
         ORDER BY REPLY_NUM DESC
     </select>
 
+    <insert id="insert">
+        INSERT INTO BOARD_REPLY(
+        BOARD_NUM
+        ,REPLY_CONTENT
+        ,MEM_ID
+        )
+        VALUES(
+        #{boardNum}
+        ,#{replyContent}
+        ,#{memId}
+        )
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM BOARD_REPLY
+        WHERE REPLY_NUM = #{replyNum}
+    </delete>
 
 </mapper>
 

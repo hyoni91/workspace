@@ -9,7 +9,6 @@
         <result column="CONTENT" property="content" />
         <result column="MEM_ID" property="memId" />
         <result column="CREATE_DATE" property="createDate" />
-<!--        <collection property="replys" resultMap="reply" />-->
     </resultMap>
     
 
@@ -20,6 +19,9 @@
         ,MEM_ID
         ,CREATE_DATE
         FROM BOARD
+        <if test="searchValue != null and searchValue.equals('')">
+            WHERE ${searchKeyWord} LIKE CONCAT ('%',#{searchValue},'%')
+        </if>
     </select>
 
     <insert id="insert">
@@ -45,6 +47,16 @@
         FROM board
         WHERE BOARD_NUM = #{boardNum}
     </select>
+
+
+<!--    <select id="B.R.detail" resultMap="board">-->
+<!--        SELECT CREATE_DATE ,B.MEM_ID ,TITLE ,CONTENT-->
+<!--        ,REPLY_DATE,R.MEM_ID, REPLY_CONTENT-->
+<!--        FROM board B, board_reply R-->
+<!--        WHERE B.BOARD_NUM = R.BOARD_NUM-->
+<!--        AND B.BOARD_NUM = #{boardNum}-->
+<!--        ORDER BY  R.REPLY_NUM DESC-->
+<!--    </select>-->
 
 </mapper>
 
