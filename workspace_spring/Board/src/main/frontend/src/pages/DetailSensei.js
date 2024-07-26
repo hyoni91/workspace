@@ -1,6 +1,7 @@
 import React from 'react'
 
 function DetailSensei() {
+  
 
   return (
   <div className='content'>

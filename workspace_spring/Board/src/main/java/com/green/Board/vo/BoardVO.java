@@ -13,5 +13,4 @@ public class BoardVO {
     private String memId;  //FK
     private String createDate;
 
-
 }

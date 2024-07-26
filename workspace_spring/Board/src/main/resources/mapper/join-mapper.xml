@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<mapper namespace="joinMapper">
+
+    <resultMap id="board" type="com.green.Board.vo.BoardVO">
+        <id column="BOARD_NUM" property="boardNum" />
+        <result column="TITLE" property="title" />
+        <result column="CONTENT" property="content" />
+        <result column="MEM_ID" property="memId" />
+        <result column="CREATE_DATE" property="createDate" />
+
+        <!-- 본 매퍼와 1:1 관계 property="vo의 변수"  -->
+        <association property="memberVO" resultMap="member" />
+
+        <!-- 본 매퍼와 1:n관계 -->
+        <!-- 다른 매퍼 파일에 있는 매퍼를 불러오고 싶을 때 -->
+        <collection property="replyList" resultMap="replyMapper.reply" />
+
+    </resultMap>
+
+    <resultMap id="member" type="com.green.Board.vo.MemberVO">
+        <id column="MEM_ID" property="memId" />
+        <result column="MEM_PW" property="memPw" />
+        <result column="MEM_NAME" property="memName" />
+        <result column="GENDER" property="gender" />
+        <result column="MEM_ROLE" property="memRole" />
+    </resultMap>
+
+
+
+
+    <!-- 게시글의 제목 작성자아이디 작성자명 작성자권한 조회-->
+    <select id="testB" resultMap="board">
+        SELECT BOARD_NUM
+            ,TITLE
+            ,CONTENT
+            ,CREATE_DATE
+            ,B.MEM_ID
+            ,M.MEM_NAME
+            ,M.MEM_ROLE
+        FROM BOARD B , BOARD_MEMBER M
+        WHERE B.MEM_ID = M.MEM_ID
+    </select>
+
+
+    <!-- 11번 게시글의 게시글 제목, 작성자 id , 작성된 댓글 내용 조회-->
+    <select id="test2" resultMap="board">
+        SELECT TITLE, B.MEM_ID, REPLY_CONTENT, B.BOARD_NUM
+        FROM BOARD B, BOARD_REPLY R
+        WHERE B.BOARD_NUM = R.BOARD_NUM
+        AND B.BOARD_NUM = 11
+    </select>
+
+
+    <select id="aa" resultMap="board">
+        SELECT BOARD_NUM, TITLE, CONTENT
+        FROM BOARD
+    </select>
+
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

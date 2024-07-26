@@ -24,7 +24,6 @@ function BoardList({getLoginInfo}) {
   }
   console.log(search)
   
-
   useEffect(()=>{
     getBoardList()
     .then((res)=>{

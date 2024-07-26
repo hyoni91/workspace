@@ -16,8 +16,9 @@ function App() {
   //로그인 여부 state변수
   const navigate = useNavigate()
   const getLoginInfo = JSON.parse(window.sessionStorage.getItem('loginInfo'))
-  const [ isLogin, setIsLogin ] = useState({});
-  
+  const [ isLogin, setIsLogin ] = useState({
+  });
+
   useEffect(()=>{
     if(getLoginInfo != null){
       setIsLogin(getLoginInfo)
@@ -29,12 +30,12 @@ function App() {
 
         <div className='login-div'>
           { 
-              isLogin.memName != null ?
+              isLogin.memId != null ?
               <div> 
                 <span className='namespan'>'{isLogin.memName}'</span> 님 반갑습니다. 
                   <span className='logout' onClick={()=>{
                     //Storage의 정보 제거 & 그림을 다시 그리기 위해 state변수 값 변경
-                    window.sessionStorage.removeItem(setIsLogin('loginInfo'))
+                    window.sessionStorage.clear(setIsLogin('loginInfo'))
                     navigate('/')
                   }}>💁‍♀️logout</span>
               </div>
@@ -51,13 +52,12 @@ function App() {
         <Route path='/join' element={<Join />}/>
         <Route path='/login' element={<Login setIsLogin={setIsLogin}/>}/>
         <Route path='/wirteForm' element={<WirteFrom getLoginInfo={getLoginInfo}/>}/>
-        <Route path='/detail/:boardNum' element={<Detail  getLoginInfo={getLoginInfo}/>}/>
+        <Route path='/detail/:boardNum' element={<Detail  getLoginInfo={isLogin}/>}/>
         {/* 게시글 상세페이지(두 테이블) */}
-        <Route />
+        {/* <Route path='/senseiDetail' /> */}
         <Route path='/update' element={<Update />}/>
         <Route path='/replyFrom/:boardNum' element={<ReplyFrom getLoginInfo={getLoginInfo}/>}/>
         <Route path='/boardUpdate/:boardNum' element={<div>수정</div>}/>
-        {/* <Route path='/test' element={<Joincopy/>}/> */}
       </Routes>
     
       

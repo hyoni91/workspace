@@ -49,15 +49,6 @@
     </select>
 
 
-<!--    <select id="B.R.detail" resultMap="board">-->
-<!--        SELECT CREATE_DATE ,B.MEM_ID ,TITLE ,CONTENT-->
-<!--        ,REPLY_DATE,R.MEM_ID, REPLY_CONTENT-->
-<!--        FROM board B, board_reply R-->
-<!--        WHERE B.BOARD_NUM = R.BOARD_NUM-->
-<!--        AND B.BOARD_NUM = #{boardNum}-->
-<!--        ORDER BY  R.REPLY_NUM DESC-->
-<!--    </select>-->
-
 </mapper>
 
 

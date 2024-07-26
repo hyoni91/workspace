@@ -33,10 +33,11 @@ function Login({setIsLogin}) {
         memName : res.data.memName,
         memRole : res.data.memRole
       }
-      window.sessionStorage.setItem('loginInfo', JSON.stringify(loginInfo));
-    
+  
       //main페이지에 재렌더링을 해주기 위해서 state 변수 값 주기
       setIsLogin(loginInfo);
+      
+      window.sessionStorage.setItem('loginInfo', JSON.stringify(loginInfo));
       //로그인 성공 후 게시글 목록 페이지로 이동
       navigate('/')
       
