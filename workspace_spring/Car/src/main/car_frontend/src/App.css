@@ -1,0 +1,94 @@
+.container{
+  width: 100vw;
+  height: 100vh;
+  background-color: #EEEEEE;
+}
+
+/* 메뉴 상단 바  */
+ul{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 80px;
+  background-color: #201E43;
+  color: white;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+li:hover{
+  cursor: pointer;
+  color: yellow;
+}
+
+.header-h1{
+  text-align: center;
+  margin-top: 25px;
+}
+
+tr,td{
+  padding: 10px;
+  font-size: 1.4rem;
+
+}
+
+/* 차량관리 css */
+.sized{
+  margin: 20px 20px;
+
+}
+
+.title-h3{
+  /* background-color: #508C9B; */
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.carinfo{
+  font-size: 1.4rem;
+  /* 사이즈 정해주기 */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.carinfo > div >span{
+/* 제조자 모델명 차량가격 글씨 조절*/
+  display: inline-block;
+  margin-top: 15px;
+  width: 100px;
+  font-size: 1.5rem;
+}
+
+input,select{
+/* 인풋 박스 크기 */
+  width: 250px;
+  height: 35px;
+  font-size: 1.2rem;
+}
+
+.carinfo-btn{
+  border: none;
+  background-color: #201E43;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.carinfo-btn:hover{
+  cursor: pointer;
+  background-color:#0a0841;
+  color: rgb(211, 211, 211);
+}
+
+/* 차량목록 테이블 */
+table{
+  width: 800px;
+  border: 1px solid black;
+}
+
+thead{
+  border-bottom: 5px double;
+}

@@ -12,4 +12,7 @@ public interface ReplyService {
     void insert(ReplyVO replyVO);
 
     void delete(int replyNum);
+
+    //해당 게시물 댓글 삭제
+    void deleteAll(int boardNum);
 }

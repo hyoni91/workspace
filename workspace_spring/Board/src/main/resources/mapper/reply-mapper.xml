@@ -40,6 +40,12 @@
         WHERE REPLY_NUM = #{replyNum}
     </delete>
 
+    <!-- 해당 게시글댓글 전체 삭제 -->
+    <delete id="deleteAll">
+        DELETE FROM board_reply
+        WHERE BOARD_NUM = #{boardNum}
+    </delete>
+
 </mapper>
 
 

@@ -20,14 +20,11 @@ public class BoardController {
     @Resource(name="boardService")
     private BoardService boardService;
 
-
     //게시글 목록
     @GetMapping("/list")
     public List<BoardVO> getBoardList(){
         return boardService.getBoardList();
     }
-
-
 
     //글등록
     @PostMapping("/insert")
@@ -41,6 +38,19 @@ public class BoardController {
     public BoardVO detail(@PathVariable("boardNum") int boardNum){
         System.out.println(boardService.detail(boardNum));
         return boardService.detail(boardNum);
+    }
+
+    //글삭제
+    @DeleteMapping("/delete/{boardNum}")
+    public void delete(@PathVariable("boardNum") int boardNum){
+        boardService.delete(boardNum);
+    }
+
+    //글 수정
+    @PutMapping("/update")
+    public void update(@RequestBody BoardVO boardVO){
+        System.out.println(boardVO);
+        boardService.update(boardVO);
     }
 
 }

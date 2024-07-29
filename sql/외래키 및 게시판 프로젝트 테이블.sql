@@ -18,12 +18,12 @@ CREATE TABLE BOARD_MEMBER(
 
 -- 임시 회원 데이터
 INSERT INTO board_member(MEM_ID, MEM_PW, MEM_NAME, GENDER, MEM_ROLE) 
-VALUES('java', '1111', '김자바', 'male', 'user');
+VALUES('mita', '1112', '김자바', 'male', 'USER');
 INSERT INTO BOARD_MEMBER(MEM_ID, MEM_PW, MEM_NAME, GENDER, MEM_ROLE) 
-VALUES('admin', '1111', '관리자', 'female', 'admin');
+VALUES('tata', '1111', '관리자', 'female', 'ADMIN');
 
 SELECT * FROM board_member;
-
+DELETE FROM board_member WHERE MEM_ID = 'mita';
 
 -- 게시글 정보 테이블 (회원만 게시글 작성 가능)
 -- REFERENCES 테이블명(컬럼명)  : 참조해서 넣겠다! (외래키를 줌)
@@ -38,14 +38,14 @@ CREATE TABLE BOARD(
 
 -- 게시글 임시 데이터
 INSERT INTO board(TITLE, CONTENT, MEM_ID) 
-VALUES('1번 글','1번 내용','java');
+VALUES('1번 글','1번 내용','saran');
 INSERT INTO board(TITLE, CONTENT, MEM_ID) 
-VALUES('2번 글','2번 내용','java');
+VALUES('2번 글','2번 내용','mita');
 INSERT INTO board(TITLE, CONTENT, MEM_ID) 
-VALUES('3번 글','3번 내용','admin');
+VALUES('3번 글','3번 내용','tata');
 
 SELECT * FROM board;
-
+DELETE FROM board WHERE BOARD_NUM = 8;
 
 
 -- 댓글 정보 테이블 (회원만 댓글 작성 가능)
@@ -59,18 +59,18 @@ CREATE TABLE BOARD_REPLY(
 
 -- 댓글 임시 데이터
 INSERT INTO board_reply(REPLY_CONTENT, MEM_ID, BOARD_NUM) 
-VALUES('댓글 1', 'java', 2 );
+VALUES('댓글 1', 'saran', 5 );
 INSERT INTO board_reply(REPLY_CONTENT, MEM_ID, BOARD_NUM) 
-VALUES('댓글 2', 'java', 3 );
+VALUES('댓글 2', 'mita', 5 );
 INSERT INTO board_reply(REPLY_CONTENT, MEM_ID, BOARD_NUM) 
-VALUES('댓글 3', 'java', 2 );
+VALUES('댓글 3', 'tata', 6 );
 INSERT INTO board_reply(REPLY_CONTENT, MEM_ID, BOARD_NUM) 
-VALUES('댓글 4', 'admin', 2 );
+VALUES('댓글 4', 'tata', 7 );
 INSERT INTO board_reply(REPLY_CONTENT, MEM_ID, BOARD_NUM) 
-VALUES('댓글 5', 'admin', 3 );
+VALUES('댓글 5', 'mita', 6 );
 
 SELECT * FROM board_reply;
-
+DELETE FROM board_reply WHERE REPLY_NUM = 5;
 
 -- 데이터 조회 연습
 
@@ -85,7 +85,7 @@ ORDER BY BOARD_NUM DESC;
 
 -- 모든 게시글의 글 번호, 글 제목 , 작성자 및 해당 글에 작성된 댓글의 댓글 내용, 댓글 작성자, 댓글 작성일을 조회
 -- 게시글 번호 기준 최신 순으로 정렬 후, 같은 게시글에 대한 댓글은 가장 최근에 달린 댓글 순으로 조회 
-SELECT B.BOARD_NUM, B.TITLE,  B.MEM_ID, R.REPLY_CONTENT, R.MEM_ID, R.REPLY_DATE
+SELECT B.BOARD_NUM, B.TITLE,  B.MEM_ID, R.REPLY_CONTENT, R.MEM_ID, R.REPLY_DATE , REPLY_NUM
 FROM board B, board_reply R
 WHERE B.BOARD_NUM = R.BOARD_NUM
 ORDER BY B.BOARD_NUM DESC, R.REPLY_NUM DESC;
@@ -99,3 +99,88 @@ B.BOARD_NUM
 ,B.CREATE_DATE
 FROM board B, BOARD_MEMBER M
 WHERE B.MEM_ID = M.MEM_ID;
+
+
+-- id 중복 여부 확인
+SELECT MEM_ID
+FROM board_member
+WHERE MEM_ID = 'java';
+
+
+-- 로그인 쿼리(id와 pw확인)
+SELECT MEM_ID
+FROM board_member
+WHERE MEM_ID = 'tata'
+AND MEM_PW = '1111';
+
+
+-- JOIN연습 쿼리
+-- ID : tata인 회원이 작성한 게시글의 글제목 내용 작정자id 작성자명 작성자 권한 조회
+SELECT TITLE, CONTENT, B.MEM_ID, M.MEM_NAME, MEM_ROLE
+FROM board B, board_member M
+WHERE B.MEM_ID = M.MEM_ID
+AND B.MEM_ID = 'tata';
+
+-- JOIN연습 쿼리2 -> 글 번호가 15번 이하인 게시글의 글 번호, 제목, 글 작성자 조회하되 글 번호 기준 오름차순
+SELECT BOARD_NUM, TITLE, M.MEM_NAME
+FROM board B, board_member M
+WHERE B.MEM_ID = M.MEM_ID
+AND B.BOARD_NUM < 15;
+
+-- 11번 게시글의 게시글 제목, 작성자 id , 작성된 댓글 내용, 댓글 작성자 id조회
+SELECT TITLE, B.MEM_ID, REPLY_CONTENT, R.MEM_ID
+FROM board B, board_reply R
+WHERE B.BOARD_NUM = R.BOARD_NUM
+AND B.BOARD_NUM = 11;
+
+-- 11번 게시글의 게시글 제목, 작성자 id , 작성된 댓글 내용, 댓글 작성자 id, 댓글 작성자 이름 조회
+SELECT TITLE, B.MEM_ID, REPLY_CONTENT, R.MEM_ID, M.MEM_NAME
+FROM board B, board_reply R, board_member M
+WHERE B.BOARD_NUM = R.BOARD_NUM AND R.MEM_ID = M.MEM_ID
+AND B.BOARD_NUM = 11;
+
+
+
+-- 상세정보 보기 JOIN 쿼리문
+-- 문제점 : 이렇게하면 댓글이 없으면 조회가 안된다.
+-- 왜냐, 조인의 조건이 불일치
+SELECT CREATE_DATE ,B.MEM_ID ,TITLE ,CONTENT
+		,REPLY_DATE,R.MEM_ID, REPLY_CONTENT
+FROM board B, board_reply R
+WHERE B.BOARD_NUM = R.BOARD_NUM
+AND B.BOARD_NUM = 7
+ORDER BY  R.REPLY_NUM DESC;
+
+
+
+SELECT REPLY_DATE ,MEM_ID ,REPLY_CONTENT
+FROM BOARD_REPLY
+WHERE BOARD_NUM = 6
+ORDER BY REPLY_NUM DESC;
+
+
+-- 댓글 삭제
+DELETE FROM BOARD_REPLY
+WHERE REPLY_NUM = 21;
+
+
+
+SELECT BOARD_NUM
+   ,TITLE
+   ,B.MEM_ID 
+   ,M.MEM_NAME 
+   ,M.MEM_ROLE
+FROM BOARD B , BOARD_MEMBER M
+WHERE B.MEM_ID = M.MEM_ID;
+
+
+-- 해당 게시글 댓글 삭제
+DELETE FROM board_reply
+WHERE BOARD_NUM = 13;
+
+
+
+UPDATE BOARD SET 
+TITLE = '123'
+,CONTENT = '수정test'
+WHERE BOARD_NUM = 20;

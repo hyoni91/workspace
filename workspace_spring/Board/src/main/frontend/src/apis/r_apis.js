@@ -15,7 +15,14 @@ export function goInsert(data){
   return response
 }
 
+//댓글삭제
 export function goDelete(replyNum) {
   const response = axios.delete(`/reply/delete/${replyNum}`)
   return response
 } 
+
+//해당 게시글 댓글 모두 삭제
+export function goDeleteAll(boardNum){
+  const response = axios.delete(`/reply/deleteAll/${boardNum}`)
+  return response
+}

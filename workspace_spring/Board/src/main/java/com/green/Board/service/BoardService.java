@@ -15,4 +15,14 @@ public interface BoardService {
     //상세 글
     BoardVO detail(int boardNum);
 
+    //글삭제
+    void delete(int boardNum);
+
+    /*글 삭제 풀이 (댓글+게시글삭제)*/
+    void delete2(int boardNum);
+
+
+
+    //글수정
+    void update(BoardVO boardVO);
 }

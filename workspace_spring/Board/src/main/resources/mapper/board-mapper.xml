@@ -48,6 +48,17 @@
         WHERE BOARD_NUM = #{boardNum}
     </select>
 
+    <delete id="delete">
+        DELETE FROM board
+        WHERE BOARD_NUM = #{boardNum}
+    </delete>
+
+    <update id="update">
+        UPDATE BOARD SET
+        TITLE = #{title}
+        ,CONTENT = #{content}
+        WHERE BOARD_NUM = #{boardNum}
+    </update>
 
 </mapper>
 

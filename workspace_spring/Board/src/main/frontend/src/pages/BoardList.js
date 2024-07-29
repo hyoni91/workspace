@@ -22,7 +22,6 @@ function BoardList({getLoginInfo}) {
       [e.target.name] : e.target.value
     })
   }
-  console.log(search)
   
   useEffect(()=>{
     getBoardList()

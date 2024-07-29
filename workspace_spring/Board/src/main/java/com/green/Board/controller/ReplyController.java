@@ -31,4 +31,9 @@ public class ReplyController {
     public void delete(@PathVariable("replyNum") int replyNum){
         replyService.delete(replyNum);
     }
+
+    @DeleteMapping("/deleteAll/{boardNum}")
+    public void deleteAll(@PathVariable("boardNum") int boardNum){
+        replyService.deleteAll(boardNum);
+    }
 }

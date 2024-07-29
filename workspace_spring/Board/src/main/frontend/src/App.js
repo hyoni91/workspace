@@ -16,7 +16,7 @@ function App() {
   //로그인 여부 state변수
   const navigate = useNavigate()
   const getLoginInfo = JSON.parse(window.sessionStorage.getItem('loginInfo'))
-  const [ isLogin, setIsLogin ] = useState({
+  const [isLogin,setIsLogin ] = useState({
   });
 
   useEffect(()=>{
@@ -57,7 +57,7 @@ function App() {
         {/* <Route path='/senseiDetail' /> */}
         <Route path='/update' element={<Update />}/>
         <Route path='/replyFrom/:boardNum' element={<ReplyFrom getLoginInfo={getLoginInfo}/>}/>
-        <Route path='/boardUpdate/:boardNum' element={<div>수정</div>}/>
+        <Route path='/boardUpdate/:boardNum' element={<Update/>}/>
       </Routes>
     
       

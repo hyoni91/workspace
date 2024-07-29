@@ -21,3 +21,15 @@ export function getDetail(boardNum){
   const response = axios.get(`/board/detail/${boardNum}`)
   return response
 }
+
+//게시글 삭제
+export function goDelete(boardNum){
+  const response = axios.delete(`/board/delete/${boardNum}`)
+  return response
+}
+
+//게시글 수정
+export function getBoardUpdate(data){
+  const response = axios.put('board/update', data)
+  return response;
+}
