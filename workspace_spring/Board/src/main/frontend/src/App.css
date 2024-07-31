@@ -219,3 +219,27 @@ margin-left: 10px
 .tbody-none{
   border: none;
 }
+
+
+/* like button*/
+
+.likes-span{
+  font-size: 0.9rem;
+  color: rgb(238, 147, 147);
+}
+
+.likes-span:hover{
+  cursor: pointer;
+  color: rgb(238, 147, 147);
+}
+
+
+/* paging */
+
+.pageNo-span{
+  margin-top: 30px;
+}
+
+.pageNo-span span{
+  margin-right: 35px;
+}

@@ -5,10 +5,9 @@ import axios from "axios";
 
 //글목록
 export function getBoardList(){
-  const response = axios.get('/board/list')
+  const response = axios.post('/board/list')
   return response;
 }
-
 
 //글작성
 export function getWiterInfo(data){
@@ -30,6 +29,6 @@ export function goDelete(boardNum){
 
 //게시글 수정
 export function getBoardUpdate(data){
-  const response = axios.put('board/update', data)
+  const response = axios.put(`/board/update`, data)
   return response;
 }

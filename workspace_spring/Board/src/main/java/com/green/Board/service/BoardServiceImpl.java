@@ -19,6 +19,13 @@ public class BoardServiceImpl implements BoardService {
         return sqlSession.selectList("boardMapper.boardList");
     }
 
+    // 전체 게시글 개수
+    @Override
+    public int getTotalBoard() {
+        return sqlSession.selectOne("boardMapper.totalBoardCnt");
+    }
+
+
     @Override
     public void insert(BoardVO boardVO) {
         sqlSession.insert("boardMapper.insert", boardVO);

@@ -2,17 +2,21 @@ package com.green.Board.controller;
 
 import com.green.Board.service.BoardService;
 import com.green.Board.vo.BoardVO;
+import com.green.Board.vo.PageVO;
 import com.green.Board.vo.ReplyVO;
 import com.green.Board.vo.SearchVO;
 import jakarta.annotation.Resource;
 import lombok.extern.log4j.Log4j;
 import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-@Log4j2
+@Slf4j
 @RestController
 @RequestMapping("/board")
 public class BoardController {
@@ -21,9 +25,25 @@ public class BoardController {
     private BoardService boardService;
 
     //게시글 목록
-    @GetMapping("/list")
-    public List<BoardVO> getBoardList(){
-        return boardService.getBoardList();
+    @PostMapping("/list")
+    public Map<String, Object> getBoardList(){
+
+        //페이지 정보를 담을 수 있는 PageVO 객체 생성
+        //매개변수에는 전체 게시글 개수를 담고 있는 쿼리를 불러온다.
+        PageVO pageInfo = new PageVO(boardService.getTotalBoard());
+        //메서드 호출
+        pageInfo.setPageInfo();
+
+        //페이지 VO 내용 확인
+        System.out.println(pageInfo);
+
+        //리액트로 가져갈 모든 데이터를 담을 변수
+        Map<String,Object> mapData = new HashMap<>();
+        //페이징 정보가 담긴 데이터
+        mapData.put("pageInfo", pageInfo);
+        //게시글 목록 정보가 담긴 데이터
+        mapData.put("boardList",boardService.getBoardList());
+        return mapData;
     }
 
     //글등록
@@ -49,7 +69,6 @@ public class BoardController {
     //글 수정
     @PutMapping("/update")
     public void update(@RequestBody BoardVO boardVO){
-        System.out.println(boardVO);
         boardService.update(boardVO);
     }
 

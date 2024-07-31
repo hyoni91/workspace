@@ -15,18 +15,33 @@ function BoardList({getLoginInfo}) {
     searchKeyWord : 'TITLE',
     searchValue :''
   })
-  //검색 정보 가져오기
-  function getSearchValue(e){
-    setSearch({
-      ...search,
-      [e.target.name] : e.target.value
-    })
+
+  //페이지 인포 변수
+  const [pageInfo, setPageInfo] = useState({})
+
+  //for문은 return문 밖에 적어야하므로 함수로 만들어서 호츨 시키기
+  function forPageInfo(){
+    const pageNo=[];
+    for(let i=pageInfo.startPageNo; i < pageInfo.endPageNo+1 ; i++){
+      pageNo.push(<span key={i} onClick={(e)=>{getList()}} >{i}</span>)
+    }
+    return pageNo;
   }
-  
+
+  //paging한 페이지 번호를 클릭하면 다시 게시글을 조회하는 기능
+  function getList(){
+    getBoardList()
+    .then()
+    .catch()
+  }
+
+
+  //목록화면
   useEffect(()=>{
     getBoardList()
     .then((res)=>{
-      setBoardList(res.data)
+      setBoardList(res.data.boardList)
+      setPageInfo(res.data.pageInfo)
     })
     .catch((error)=>{
       console.log(error)
@@ -34,9 +49,25 @@ function BoardList({getLoginInfo}) {
     })
   },[])
 
-    
+  //검색 정보 가져오기
+  function getSearchValue(e){
+    setSearch({
+      ...search,
+      [e.target.name] : e.target.value
+    })
+  }
 
-
+//검색함수
+function goSearch(){
+  getBoardList()
+  .then((res)=>{ 
+    setBoardList(res.data)
+  })
+  .catch((error)=>{
+    alert(error)
+    console.log(error)
+  })
+}
 
   return (
       <>
@@ -49,12 +80,13 @@ function BoardList({getLoginInfo}) {
               <option name={'memId'}  value={'MEM_ID'} >작성자</option>
             </select>
             <input type='text' name='searchValue'onChange={(e)=> getSearchValue(e)}/>
-            <button type='button' onClick={()=>{}}  >검색</button>
+            <button type='button' onClick={()=>{goSearch()}} >검색</button>
           </div>
           <table className='table'>
             <thead>
               <tr>
                 <td>No</td>
+                <td>글번호</td>
                 <td>제목</td>
                 <td>작성자</td>
                 <td>작성일</td>
@@ -70,14 +102,9 @@ function BoardList({getLoginInfo}) {
                 boardList.map((board,i)=>{
                   return(
                     <tr key={i}>
-                      <td>{i+1}</td>
+                      <td>{boardList.length-i}</td>
+                      <td>{board.boardNum}</td>
                       <td>
-                        {/* <span onClick={()=>{
-                        navigate(`/detail/${board.boardNum}`)
-                      }}>{board.title}
-                      </span> */}
-  
-                      {/* 상세보기 (두개테이블) */}
                         <span onClick={()=>{
                         navigate(`/detail/${board.boardNum}`)
                       }}>{board.title}
@@ -89,7 +116,7 @@ function BoardList({getLoginInfo}) {
                   )
                 })
               }
-            </tbody>
+            </tbody>  
           </table>
           {
             getLoginInfo != null ?
@@ -97,7 +124,15 @@ function BoardList({getLoginInfo}) {
             :
             <></>
           }
-          
+          {
+              pageInfo.prev != false? <span>prev</span>: <></>
+          }
+          <div className='pageNo-span'>
+            {forPageInfo()}
+            {
+              pageInfo.next != false? <span>next</span>: <></>
+            }
+          </div>
         </div>
       </>
   )

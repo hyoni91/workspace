@@ -9,6 +9,9 @@ public interface BoardService {
 
     List<BoardVO> getBoardList();
 
+    //전체 게시글 개수 조회
+    int getTotalBoard();
+
     //글 등록
     void insert(BoardVO boardVO);
 
@@ -20,8 +23,6 @@ public interface BoardService {
 
     /*글 삭제 풀이 (댓글+게시글삭제)*/
     void delete2(int boardNum);
-
-
 
     //글수정
     void update(BoardVO boardVO);

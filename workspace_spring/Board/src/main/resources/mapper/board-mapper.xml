@@ -9,6 +9,7 @@
         <result column="CONTENT" property="content" />
         <result column="MEM_ID" property="memId" />
         <result column="CREATE_DATE" property="createDate" />
+
     </resultMap>
     
 
@@ -19,9 +20,14 @@
         ,MEM_ID
         ,CREATE_DATE
         FROM BOARD
-        <if test="searchValue != null and searchValue.equals('')">
-            WHERE ${searchKeyWord} LIKE CONCAT ('%',#{searchValue},'%')
-        </if>
+        ORDER BY BOARD_NUM DESC
+        LIMIT 5 OFFSET 0;
+    </select>
+
+    <!-- 전체 데이터 수 조회 -->
+    <select id="totalBoardCnt" resultType="int">
+        SELECT COUNT(BOARD_NUM)
+        FROM board;
     </select>
 
     <insert id="insert">
@@ -55,7 +61,8 @@
 
     <update id="update">
         UPDATE BOARD SET
-        TITLE = #{title}
+        BOARD_NUM = #{boardNum}
+        ,TITLE = #{title}
         ,CONTENT = #{content}
         WHERE BOARD_NUM = #{boardNum}
     </update>

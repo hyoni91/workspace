@@ -4,7 +4,7 @@
 <!-- 해당 파일에 모든 쿼리문을 작성 -->
 <mapper namespace="carMapper">
     <resultMap id="car" type="com.green.Car.vo.CarVO">
-        <result column="MODEL_NUM" property="modelNum" />
+        <id column="MODEL_NUM" property="modelNum" />
         <result column="MODEL_NAME" property="modelName" />
         <result column="PRICE" property="price" />
         <result column="BRAND" property="brand" />
@@ -27,6 +27,7 @@
         MODEL_NUM
         ,MODEL_NAME
         ,BRAND
+        ,PRICE
         FROM CAR_INFO
     </select>
 

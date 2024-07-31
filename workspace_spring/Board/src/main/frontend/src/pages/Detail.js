@@ -17,6 +17,13 @@ function Detail({getLoginInfo}) {
     boardNum : ''
   })
 
+  //공감 변수
+  const [likes, setLikes] = useState(0)
+  //공감클릭
+  const getLike = ()=>{
+    setLikes(likes+1)
+  }
+
   const [replyDetail, setReplyDetail] = useState([])
 
    //댓글 삭제 이후 재랜더링을 위한 useState
@@ -137,7 +144,7 @@ function Detail({getLoginInfo}) {
                 <></>
                 
             }
-            
+            <span className='likes-span' onClick={()=>{getLike()}}>공감🙌{likes}</span>
             </div>
 
           </div>

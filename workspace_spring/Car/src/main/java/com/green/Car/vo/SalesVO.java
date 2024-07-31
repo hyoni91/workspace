@@ -9,4 +9,5 @@ public class SalesVO {
     private String buyerTel;
     private String color;
     private int modelNum;
+    private String sDate;
 }

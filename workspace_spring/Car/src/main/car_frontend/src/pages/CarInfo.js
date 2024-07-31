@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import * as c_api from '../apis/c_apis'
+import { useNavigate } from 'react-router-dom'
 
 
 function CarInfo() {
-  
+  const navigate = useNavigate()
+
   //car목록
   const [carInfo,setCarInfo] = useState([])
   //car등록값
   const [regCar, setRegCar] = useState({
-    brand : '',
+    brand : '현대',
     madelName : '',
     price : 0
   })
@@ -24,7 +26,7 @@ function CarInfo() {
       alert('error!')
       console.log(error)
     })
-  },[])
+  },[regCar])
 
 
   function getRegInfo(e){
@@ -38,7 +40,10 @@ function CarInfo() {
   function goInsert(){
     c_api.postInfo(regCar)
     .then((res)=>{
-
+      setRegCar({
+        getRegInfo:''
+      })
+      navigate('/carinfo')
     })
     .catch((error)=>{
       alert('error!')
@@ -70,7 +75,7 @@ function CarInfo() {
           <button className='carinfo-btn' onClick={()=>{goInsert(regCar)}}>등록하기</button>
         </div>
         <h3>차량 목록</h3>
-        <table>
+        <table className='carInfoTable'>
         <thead>
           <tr>
             <td>모델번호</td>
@@ -80,12 +85,17 @@ function CarInfo() {
         </thead>
         {
           carInfo.length == 0 ?
-          <div>현재 등록된 차량이 없습니다.</div>
+          <tbody>
+            <tr>
+              <td colSpan={'3'}>현재 등록된 차량이 없습니다.</td>
+            </tr>
+            
+          </tbody>
           :
           carInfo.map((car,i)=>{
             return(
-            <tbody>
-              <tr key={i}>
+            <tbody key={i}>
+              <tr>
                 <td>{car.modelNum}</td>
                 <td>{car.modelName}</td>
                 <td>{car.brand}</td>
@@ -96,7 +106,6 @@ function CarInfo() {
         }
       </table>
       </div>
-      
     </>
   )
 }

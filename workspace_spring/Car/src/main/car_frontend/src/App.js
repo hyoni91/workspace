@@ -3,6 +3,8 @@ import './App.css';
 import './reset.css';
 import { Route, Router, Routes, useNavigate } from 'react-router-dom';
 import CarInfo from './pages/CarInfo';
+import SalesInfo from './pages/SalesInfo';
+import SaleList from './pages/SaleList';
 
 function App() {
   const navigate = useNavigate();
@@ -22,8 +24,8 @@ function App() {
       <Routes>
         <Route path='/' element={<h1 className='header-h1'>차량 관리 시스템</h1>}/>
         <Route path='/carinfo' element={<CarInfo />}/>
-        <Route path='/salesinfo' element={<div>판매정보</div>}/>
-        <Route path='/carlist' element={<div>판매목록</div>}/>
+        <Route path='/salesinfo' element={<SalesInfo />}/>
+        <Route path='/carlist' element={<SaleList />}/>
       </Routes>
 
 

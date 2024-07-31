@@ -4,12 +4,38 @@
 <!-- 해당 파일에 모든 쿼리문을 작성 -->
 <mapper namespace="salesMapper">
 	<resultMap id="sales" type="com.green.Car.vo.SalesVO">
-        <result column="SALES_NUM" property="salesNum"/>
+        <id column="SALES_NUM" property="salesNum"/>
         <result column="BUYER" property="buyer"/>
         <result column="BUYER_TEL" property="buyerTel"/>
         <result column="COLOR" property="color"/>
         <result column="MODEL_NUM" property="modelNum"/>
+        <result column="S_DATE" property="sDate"/>
     </resultMap>
+
+    <insert id="insert">
+        INSERT INTO SALES_INFO(
+        BUYER
+        ,BUYER_TEL
+        ,COLOR
+        ,MODEL_NUM
+        ) VALUES(
+        #{buyer}
+        ,#{buyerTel}
+        ,#{color}
+        ,#{modelNum}
+        )
+    </insert>
+
+    <select id="select" resultMap="sales">
+        SELECT
+        SALES_NUM
+        ,BUYER
+        ,BUYER_TEL
+        ,S_DATE
+        ,COLOR
+        FROM SALES_INFO
+    </select>
+
 </mapper>
 
 

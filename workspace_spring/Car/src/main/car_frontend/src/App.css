@@ -2,6 +2,7 @@
   width: 100vw;
   height: 100vh;
   background-color: #EEEEEE;
+  margin: auto;
 }
 
 /* 메뉴 상단 바  */
@@ -35,7 +36,7 @@ tr,td{
 /* 차량관리 css */
 .sized{
   margin: 20px 20px;
-
+  /* margin: auto; */
 }
 
 .title-h3{
@@ -84,11 +85,61 @@ input,select{
 }
 
 /* 차량목록 테이블 */
-table{
+ table{
   width: 800px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  
 }
 
-thead{
-  border-bottom: 5px double;
+.carInfoTable > thead{
+  border-bottom: 10px double;
+  background-color: #4a45a7;
+  text-align: center;
+  color: white;
+}
+
+.carInfoTable > tbody{
+  text-align: center;
+}
+
+.carInfoTable > tbody:nth-child(odd){
+  background-color: #c9c7fc;
+}
+
+
+/* SalesInfo css */
+.sales-content{
+  /* text-align: center; */
+  /* margin: auto; */
+  /* border: 1px solid red; */
+}
+
+.sales-content> div{
+  margin-bottom: 20px;
+}
+
+.sales-content> div> span{
+  display: inline-block;
+  width: 100px;
+  text-align: left;
+  font-size: 1.4rem;
+  margin-left: 10px;
+  /* border: 1px solid blue; */
+}
+
+.sales-input{
+  width: 700px;
+}
+
+/* 판매목록 */
+
+.listContent{
+  margin: 20px 20px;
+  border: 1px solid black;
+ 
+}
+
+.saleListTable{
+  text-align: center;
+  /* border: 1px solid black; */
 }
