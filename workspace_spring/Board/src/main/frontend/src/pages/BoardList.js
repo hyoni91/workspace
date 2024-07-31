@@ -23,22 +23,29 @@ function BoardList({getLoginInfo}) {
   function forPageInfo(){
     const pageNo=[];
     for(let i=pageInfo.startPageNo; i < pageInfo.endPageNo+1 ; i++){
-      pageNo.push(<span key={i} onClick={(e)=>{getList()}} >{i}</span>)
+      pageNo.push(<span key={i} onClick={(e)=>{getList(i)}} >{i}</span>)
     }
     return pageNo;
   }
 
   //paging한 페이지 번호를 클릭하면 다시 게시글을 조회하는 기능
-  function getList(){
-    getBoardList()
-    .then()
-    .catch()
+  function getList(pageNo){
+    //매개변수로 pagin번호를 넘겨준다.
+    getBoardList(pageNo)
+    .then((res)=>{
+      setBoardList(res.data.boardList);
+      setPageInfo(res.data.pageInfo);
+    })
+    .catch((error)=>{
+      alert(error)
+      console.log(error)
+    })
   }
 
 
   //목록화면
   useEffect(()=>{
-    getBoardList()
+    getBoardList(1)
     .then((res)=>{
       setBoardList(res.data.boardList)
       setPageInfo(res.data.pageInfo)
@@ -124,13 +131,14 @@ function goSearch(){
             :
             <></>
           }
-          {
-              pageInfo.prev != false? <span>prev</span>: <></>
-          }
+          
           <div className='pageNo-span'>
+          {
+              pageInfo.prev != false? <span onClick={()=>{getList(pageInfo.startPageNo-1)}}>prev</span>: <></>
+          }
             {forPageInfo()}
             {
-              pageInfo.next != false? <span>next</span>: <></>
+              pageInfo.next != false? <span onClick={()=>{getList(pageInfo.endPageNo+1)}}>next</span>: <></>
             }
           </div>
         </div>

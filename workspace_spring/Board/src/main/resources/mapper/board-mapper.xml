@@ -21,7 +21,7 @@
         ,CREATE_DATE
         FROM BOARD
         ORDER BY BOARD_NUM DESC
-        LIMIT 5 OFFSET 0;
+        LIMIT #{displayDataCnt} OFFSET #{displayDataCnt};
     </select>
 
     <!-- 전체 데이터 수 조회 -->

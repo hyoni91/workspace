@@ -26,14 +26,19 @@ public class BoardController {
 
     //게시글 목록
     @PostMapping("/list")
-    public Map<String, Object> getBoardList(){
+    public Map<String, Object> getBoardList(@RequestBody(required = false) SearchVO searchVO , PageVO pageVO){
+        log.info("======================넘어온 페이지 번호 :"+ searchVO.getPageNo());
 
         //페이지 정보를 담을 수 있는 PageVO 객체 생성
         //매개변수에는 전체 게시글 개수를 담고 있는 쿼리를 불러온다.
         PageVO pageInfo = new PageVO(boardService.getTotalBoard());
+
+        //화면상 나타나는 현재 페이지 번호
+        if(searchVO.getPageNo() !=0){
+            pageInfo.setNowPageNo(searchVO.getPageNo());
+        }
         //메서드 호출
         pageInfo.setPageInfo();
-
         //페이지 VO 내용 확인
         System.out.println(pageInfo);
 
@@ -41,8 +46,10 @@ public class BoardController {
         Map<String,Object> mapData = new HashMap<>();
         //페이징 정보가 담긴 데이터
         mapData.put("pageInfo", pageInfo);
+
         //게시글 목록 정보가 담긴 데이터
-        mapData.put("boardList",boardService.getBoardList());
+        mapData.put("boardList",boardService.getBoardList(pageVO));
+
         return mapData;
     }
 

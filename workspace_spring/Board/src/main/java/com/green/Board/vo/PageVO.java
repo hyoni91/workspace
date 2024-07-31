@@ -43,7 +43,7 @@ public class PageVO {
     public PageVO(int totalDataCnt) {
         this.nowPageNo = 1; //첫 페이지는 무조건 1번 페이지로 설정
         this.displayPageCnt = 5;  //한 화면에 나타내는 페이지의 수 (data아님)
-        this.displayDataCnt = 5;
+        this.displayDataCnt = 5;  //한 화면에 나타내는 데이터(글) 수
         this.totalDataCnt = totalDataCnt;  // 매개변수 totalDataCnt는 DB에서 조회한 전체 데이터 수
     }
 

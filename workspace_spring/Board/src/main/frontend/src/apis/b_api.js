@@ -4,8 +4,10 @@
 import axios from "axios";
 
 //글목록
-export function getBoardList(){
-  const response = axios.post('/board/list')
+export function getBoardList(pageNo){
+  //pageNo는 현재 searchVO로 데이터를 받고 있기 때문에 객체로 들어옴.
+  // pageNo만 받기위해? 객체 형태로 넘겨줌
+  const response = axios.post('/board/list', {'pageNo':pageNo})
   return response;
 }
 

@@ -6,4 +6,5 @@ import lombok.Data;
 public class SearchVO {
     private String searchKeyWord;
     private String searchValue;
+    private int pageNo;
 }

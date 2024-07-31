@@ -1,13 +1,14 @@
 package com.green.Board.service;
 
 import com.green.Board.vo.BoardVO;
+import com.green.Board.vo.PageVO;
 import com.green.Board.vo.SearchVO;
 
 import java.util.List;
 
 public interface BoardService {
 
-    List<BoardVO> getBoardList();
+    List<BoardVO> getBoardList(PageVO pageVO);
 
     //전체 게시글 개수 조회
     int getTotalBoard();
