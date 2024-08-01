@@ -15,9 +15,10 @@ public class BoardServiceImpl implements BoardService {
     @Autowired
     private SqlSessionTemplate sqlSession;
 
+
     @Override
     public List<BoardVO> getBoardList(PageVO pageVO) {
-        return sqlSession.selectList("boardMapper.boardList", pageVO);
+        return sqlSession.selectList("boardMapper.boardList",pageVO);
     }
 
     // 전체 게시글 개수

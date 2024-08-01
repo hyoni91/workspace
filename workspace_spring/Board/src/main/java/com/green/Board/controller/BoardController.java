@@ -26,7 +26,7 @@ public class BoardController {
 
     //게시글 목록
     @PostMapping("/list")
-    public Map<String, Object> getBoardList(@RequestBody(required = false) SearchVO searchVO , PageVO pageVO){
+    public Map<String, Object> getBoardList(@RequestBody(required = false) SearchVO searchVO){
         log.info("======================넘어온 페이지 번호 :"+ searchVO.getPageNo());
 
         //페이지 정보를 담을 수 있는 PageVO 객체 생성
@@ -48,10 +48,13 @@ public class BoardController {
         mapData.put("pageInfo", pageInfo);
 
         //게시글 목록 정보가 담긴 데이터
-        mapData.put("boardList",boardService.getBoardList(pageVO));
+        mapData.put("boardList",boardService.getBoardList(pageInfo));
 
         return mapData;
     }
+
+
+
 
     //글등록
     @PostMapping("/insert")

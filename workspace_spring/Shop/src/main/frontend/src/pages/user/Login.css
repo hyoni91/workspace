@@ -1,0 +1,13 @@
+
+.logintable{
+  margin-top: 30px;
+}
+
+.logintable input{
+  width: 300px;
+}
+
+.login-btn{
+  margin-top: 20px;
+  text-align: center;
+}

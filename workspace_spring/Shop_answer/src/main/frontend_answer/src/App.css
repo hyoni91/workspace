@@ -1,0 +1,22 @@
+.container{
+  border: 1px solid black;
+  width: 100vw;
+}
+
+.header{
+  width: 100%;
+  color: white;
+  background-color: black;
+}
+
+.login-div{
+  display: flex;
+  justify-content: right;
+  gap: 15px;
+}
+
+.layout-div{
+  width: 86%;
+  border: 1px solid red;
+  margin: 0 auto;
+}

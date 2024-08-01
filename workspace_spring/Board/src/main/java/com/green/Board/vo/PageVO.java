@@ -5,10 +5,9 @@ package com.green.Board.vo;
 // *데이터 = 게시글을 의미함
 
 import lombok.Data;
-import lombok.ToString;
 
 @Data
-public class PageVO {
+public class PageVO{
 
     //전체 게시글의 데이터 수
     private int totalDataCnt;
@@ -37,6 +36,8 @@ public class PageVO {
     //next 버튼의 유무
     private boolean next;
 
+    //조회 쿼리에서 offset에 들어갈 변수
+    private int offset;
 
 
     /*생성자 (필요한 값 초기화 시키기)*/
@@ -72,7 +73,11 @@ public class PageVO {
 
         //next 버튼 유무
         next = endPageNo != totalPageCnt;
+
+        offset = displayDataCnt * (nowPageNo -1);
     }
+
+
 
 
 

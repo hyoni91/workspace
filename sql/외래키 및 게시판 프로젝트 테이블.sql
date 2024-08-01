@@ -45,7 +45,7 @@ INSERT INTO board(TITLE, CONTENT, MEM_ID)
 VALUES('3번 글','3번 내용','tata');
 
 SELECT * FROM board;
-DELETE FROM board WHERE BOARD_NUM = 8;
+DELETE FROM board WHERE BOARD_NUM =11;
 
 
 -- 댓글 정보 테이블 (회원만 댓글 작성 가능)
@@ -161,7 +161,7 @@ ORDER BY REPLY_NUM DESC;
 
 -- 댓글 삭제
 DELETE FROM BOARD_REPLY
-WHERE REPLY_NUM = 21;
+WHERE BOARD_NUM = 11;
 
 
 
@@ -184,3 +184,55 @@ UPDATE BOARD SET
 TITLE = '123'
 ,CONTENT = '수정test'
 WHERE BOARD_NUM = 20;
+
+INSERT INTO 
+board(
+TITLE
+,CONTENT
+,MEM_ID
+) 
+VALUES(
+'페이징처리'
+,'페이징 처리'
+,'kook111'
+);
+
+
+---------------------- 페이징 처리를 위한 쿼리 ---------------------------------
+
+-- 1페이지 쿼리
+SELECT BOARD_NUM
+,TITLE
+,MEM_ID
+,CREATE_DATE
+FROM board
+ORDER BY BOARD_NUM DESC
+LIMIT 5 OFFSET 0;
+
+
+-- 2페이지 쿼리
+SELECT BOARD_NUM
+,TITLE
+,MEM_ID
+,CREATE_DATE
+FROM board
+ORDER BY BOARD_NUM DESC
+LIMIT 5 OFFSET 5;
+
+
+-- 3페이지 쿼리  (결국 LIMIT와 OFFSET은 변수가 되면 된다는 뜻)
+SELECT BOARD_NUM
+,TITLE
+,MEM_ID
+,CREATE_DATE
+FROM board
+ORDER BY BOARD_NUM DESC
+LIMIT 5 OFFSET 10;
+
+
+
+-- 테이블에 존재하는 테이터 개수 조회
+SELECT COUNT(BOARD_NUM)
+FROM board;
+
+

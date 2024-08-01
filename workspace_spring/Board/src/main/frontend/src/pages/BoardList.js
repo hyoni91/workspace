@@ -28,6 +28,8 @@ function BoardList({getLoginInfo}) {
     return pageNo;
   }
 
+  console.log(pageInfo)
+
   //paging한 페이지 번호를 클릭하면 다시 게시글을 조회하는 기능
   function getList(pageNo){
     //매개변수로 pagin번호를 넘겨준다.

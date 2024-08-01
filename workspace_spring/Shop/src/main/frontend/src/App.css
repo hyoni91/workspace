@@ -1,0 +1,91 @@
+
+/* color
+#EEEDEB
+#E6B9A6
+#939185
+#2F3645
+*/
+
+.container{
+  width: 100vw;
+  height: 100vh;
+  font-size: 18px;
+}
+
+.login-div{
+  width: 100%;
+  /* color: rgb(0, 0, 0); */
+  color: rgb(255, 255, 255);
+  /* background-color: rgb(233, 230, 230); */
+  background-color: #2F3645;
+}
+
+.header{
+  display: flex;
+  justify-content: right;
+  gap: 20px;
+  font-size: 20px;
+  margin-right: 25px;
+  
+  /* border: 1px solid red; */
+}
+
+.banner-img{
+  width: 100%;
+  height: 180px;
+  object-fit:cover ;
+  object-position:bottom;
+  display: block;
+}
+
+.banner{
+  position: relative;
+}
+
+.title-div{
+  position: absolute;
+  top: 50%;
+  transform: translate(30pxm, -50%);
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 2rem;
+  /* color: rgb(233, 230, 230); */
+  color: rgb(253, 248, 248);
+  letter-spacing: 10px;
+  
+}
+
+.layout-div{
+  width: 80%;
+  height: 100%;
+  /* border: 1px solid red; */
+  margin: 0px auto;
+}
+
+span:hover, button:hover, select:hover{
+  cursor: pointer;
+}
+
+button{
+  font-size: 15px; 
+  /* border: none; */
+  border-radius: 5px;
+  letter-spacing: 1px;
+}
+input{
+  width: 500px;
+  padding: 8px;
+  font-size: 15px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+}
+
+select{
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+input:focus, select:focus{
+  outline: none;
+  border-color: rgb(141, 141, 141);
+}
