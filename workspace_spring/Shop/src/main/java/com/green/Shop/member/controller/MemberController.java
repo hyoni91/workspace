@@ -26,4 +26,12 @@ public class MemberController {
         log.info("=============================member:"+ memberVO);
         memberService.join(memberVO);
     }
+
+    @PostMapping("login")
+    public MemberVO login(@RequestBody MemberVO memberVO){
+        MemberVO loginMember = memberService.login(memberVO);
+
+        //로그인 데이터가 없으면 빈값 --> 로그인 안됨
+        return loginMember;
+    }
 }

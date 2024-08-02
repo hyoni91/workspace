@@ -33,6 +33,7 @@
         ,BUYER_TEL
         ,S_DATE
         ,COLOR
+        ,MODEL_NUM
         FROM SALES_INFO
     </select>
 

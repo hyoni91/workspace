@@ -2,6 +2,12 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
+@font-face {
+	font-family: 'GmarketSansMedium';
+	src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
 
 
 html, body, div, span, applet, object, iframe,
@@ -12,7 +18,7 @@ small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
+ caption, tbody, tfoot, thead,  th,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
@@ -46,12 +52,16 @@ table {
 	border-spacing: 0;
 }
 
+td{
+	padding: 10px;
+}
+
 
 /* 에스테리스크 (모든, 전부) */
 *{
   box-sizing: border-box;
 	/* font-family: "Noto Sans", sans-serif; */
-	font-family: "Montserrat", sans-serif; 
+	font-family: "GmarketSansMedium", sans-serif; 
 }
 
 

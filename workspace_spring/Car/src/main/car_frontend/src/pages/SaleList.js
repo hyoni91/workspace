@@ -55,14 +55,13 @@ function SaleList() {
                 <td>{sale.sdate}</td>
                 <td>{sale.color}</td>
               </tr>
-              
               )
             })
           }
           
         </tbody>
       </table>
-      <h2>WHERE절에 모델번호 매칭시켜서 car정보 받아오기이이이이이!!!!!!!!!!!!!</h2>
+      
     </div>
   )
 }

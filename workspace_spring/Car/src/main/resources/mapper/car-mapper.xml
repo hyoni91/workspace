@@ -31,6 +31,14 @@
         FROM CAR_INFO
     </select>
 
+    <select id="selectInfo" resultMap="car">
+        SELECT
+        MODEL_NAME
+        ,PRICE
+        FROM CAR_INFO
+        WHERE MODEL_NUM = #{modelNum}
+    </select>
+
 </mapper>
 
 
