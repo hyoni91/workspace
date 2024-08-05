@@ -5,6 +5,7 @@ import './Join.css';
 import { useDaumPostcodePopup } from 'react-daum-postcode';
 import axios from 'axios';
 import Modal from '../common/Modal';
+import { joinValidate } from '../../validate/joinValidate';
 
 const Join = () => {
   const navigate = useNavigate()
@@ -62,19 +63,52 @@ const Join = () => {
     memEmail:''
   })
 
-  console.log(joinData)
+  //유효성 검사 참조 변수
+  const memId_valid_tag = useRef();
+  const memName_valid_tag = useRef();
+  const memPw_valid_tag = useRef();
+  const memTel_valid_tag = useRef();
+  const confirmPw_valid_tag = useRef();
+  //Ref배열로 활용(유효성 검사 참조 변수)
+  const valid_tag = useRef([
+    memId_valid_tag,
+    memPw_valid_tag, 
+    memName_valid_tag, 
+    memTel_valid_tag, 
+    confirmPw_valid_tag ]);
+
+  //유효성 검사 결과를 저장하는 변수
+  const [validResult, setValidResult] = useState(false)
+
   
+
+
   function changeJoinData(e){
+    const tagName = e.target.name;
+
       if(e.target.name == 'memId'){
         setIsDisabled(true)
       }
-      setJoinData({
+      //입력한 데이터 
+      const newData = {
         ...joinData,
+          //validation(유효성)처리 
         [e.target.name] : e.target.name != 'memEmail' ? 
                           e.target.value : 
                           email_1.current.value + email_2.current.value
-      })
+      }
+      // 입력한 데이터(newData)에 대한 유효성 검사 (매개변수 잊지마)
+      //모든 데이터가 유효한 테이터라면 리턴 true
+      const result = joinValidate(newData, valid_tag.current , tagName)
+      setValidResult(result)
+
+      console.log(validResult)
+
+      //유효성이 끝난 데이터를 state변수에 담음 ----> 이때 재랜더링됨
+        setJoinData(newData)
+      
     }
+
 
     //id중복 확인
   function idChkBtn(){
@@ -83,7 +117,7 @@ const Join = () => {
       alert('아이디는 필수입력입니다.')
       return;
     }
-
+    
     axios.get(`/api_member/idChk/${joinData.memId}`)
     .then((res)=>{
       const result = res.data;
@@ -98,22 +132,20 @@ const Join = () => {
     })
 
   }
-
-
-
   //회원 가입 버튼 클릭 시 insert쿼리 실행하기
   function join(){
+    if(!validResult){
+      alert('입력 데이터를 확인하세요')
+      return ; 
+    }
 
     if(joinData.memPw != joinData.comfirmPw){
-      alert('비밀번호가 일치하지 않습니다.')
-      return;
+      alert('다시 확인해 주세요.')
+      return ; 
     }
 
     axios.post(`/api_member/join`, joinData)
     .then((res)=>{
-      setIsShow(true)     
-      navigate('/')
-    
     })
     .catch((error)=>{
       console.log(error)
@@ -136,25 +168,35 @@ const Join = () => {
             <tr>
               <td>아이디</td>
               <td>
-                <input className='input-size' type='text' id='id' name='memId' onChange={(e)=>{changeJoinData(e)}}/>
+                <input className='input-size' type='text' id='id' name='memId'  required onChange={(e)=>{changeJoinData(e)}}/>
               <button type='button' onClick={()=>{idChkBtn()}}>중복확인</button>
+              <div className='feedback' ref={memId_valid_tag} ></div>
               </td>
             </tr>
             <tr>
               <td>비밀번호</td>
-              <td><input type='password' name='memPw' onChange={(e)=>{changeJoinData(e)}}/></td>
+              <td><input type='password'  required name='memPw' onChange={(e)=>{changeJoinData(e)}}/>
+              <div className='feedback' ref={memPw_valid_tag}  ></div>
+              </td>
             </tr>
             <tr>
               <td>비밀번호 확인</td>
-              <td><input type='password' name='comfirmPw' onChange={(e)=>{changeJoinData(e)}}/></td>
+              <td><input type='password'  required name='comfirmPw' onChange={(e)=>{changeJoinData(e)}}/>
+              <div className='feedback' ref={confirmPw_valid_tag}  ></div>
+              </td>
             </tr>
             <tr>
               <td>이름</td>
-              <td><input type='text' name='memName'onChange={(e)=>{changeJoinData(e)}}/></td>
+              <td>
+                <input type='text'  required name='memName'onChange={(e)=>{changeJoinData(e)}}/>
+                <div className='feedback' ref={memName_valid_tag} ></div>
+              </td>
             </tr>
             <tr>
-              <td>연락처</td>
-              <td><input type='text' name='memTel' placeholder='숫자만 입력하세요.' onChange={(e)=>{changeJoinData(e)}}/></td>
+              <td>핸드폰 번호</td>
+              <td><input type='text'  name='memTel' placeholder='"-"과 함께 입력하세요.' onChange={(e)=>{changeJoinData(e)}}/>
+              <div className='feedback'  ref={memTel_valid_tag}  ></div>
+              </td>
             </tr>
             <tr className='addr-boxsize'>
               <td>주소</td>
@@ -181,8 +223,9 @@ const Join = () => {
             </tr>
           </tbody>
         </table>
-      <div className='btn-div'><button type='button' disabled={isDisabled} onClick={()=>{
+      <div className='btn-div'><button type='button' disabled={isDisabled}  onClick={()=>{
         join()
+        setIsShow(true)
         }}>회원가입</button>
       </div>
     </div>

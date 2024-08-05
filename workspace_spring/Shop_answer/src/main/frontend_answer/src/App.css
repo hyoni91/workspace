@@ -139,4 +139,19 @@ input:focus, select:focus{
   padding: 5px;
 }
 
-/* 모달 애니메이션 정의 */
+/* 유효성 검사 글자 */
+.feedback{
+  font-size: 0.65rem;
+  margin-top: 3px;
+  visibility: hidden;
+}
+
+.feedback.error{
+  color: red;
+  visibility: visible;
+}
+
+.feedback.good{
+  color: rgba(33, 156, 49);
+  visibility: visible;
+}

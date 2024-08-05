@@ -10,4 +10,5 @@ public class SalesVO {
     private String color;
     private int modelNum;
     private String sDate;
+    private CarVO carVO;
 }

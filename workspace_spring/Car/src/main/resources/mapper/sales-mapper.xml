@@ -10,6 +10,7 @@
         <result column="COLOR" property="color"/>
         <result column="MODEL_NUM" property="modelNum"/>
         <result column="S_DATE" property="sDate"/>
+        <association property="CarVO" resultMap="carMapper.car" />
     </resultMap>
 
     <insert id="insert">

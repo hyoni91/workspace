@@ -10,4 +10,7 @@ public interface MemberService {
 
     //id중복체크
     boolean idChk(String memId);
+
+    //전번중복체크
+    boolean telChk(String memTel);
 }

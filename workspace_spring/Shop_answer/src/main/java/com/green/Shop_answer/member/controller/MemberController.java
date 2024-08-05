@@ -29,4 +29,9 @@ public class MemberController {
 
     }
 
+    @GetMapping("/telChk/{memTel}")
+    public boolean telChk(@PathVariable("memTel") String memTel){
+        return memberService.telChk(memTel);
+    }
+
 }

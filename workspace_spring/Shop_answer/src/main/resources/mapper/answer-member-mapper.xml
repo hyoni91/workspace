@@ -45,6 +45,12 @@
         WHERE MEM_ID = #{memId}
     </select>
 
+    <select id="confirmTel" resultType="String">
+        SELECT
+        MEM_TEL
+        FROM ANSWER_SHOP_MEMBER
+        WHERE MEM_TEL = #{memTel}
+    </select>
 
 </mapper>
 
