@@ -30,9 +30,9 @@ export const joinValidate = (newData, valid_tag,tagName) => {
       break;
 
     case 'memPw':
-      const regex_memPw = /^[a-z0-9]{4,12}$/;
+      const regex_memPw = /^[a-z0-9](?=.*[a-z])(?=.*[0-9]).{3,12}$/g;
       if(!regex_memPw.test(newData.memPw)){
-        sendFeedbackMsg(valid_tag[1],'*비밀번호는 영문/소문자 조합으로 4~12자까지 가능합니다.', 'error')
+        sendFeedbackMsg(valid_tag[1],'*비밀번호는 영문(소문자)과 숫자로 조합된 4~12자까지 가능합니다.', 'error')
         resultArr[1] = false;
       }else{
         sendFeedbackMsg(valid_tag[1],'*사용 가능한 비밀번호 입니다.', 'good')

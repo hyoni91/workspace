@@ -4,6 +4,7 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import UserLayout from './pages/user/UserLayout';
 import AdminLayout from './pages/admin/AdminLayout';
 import Join from './pages/user/Join';
+import Login from './pages/user/Login';
 
 
 function App() {
@@ -12,14 +13,19 @@ function App() {
     <div className="container">
       <div className='login-div'>
       <div className='header'>
-          <span onClick={()=>{navigate('login')}}>LOGIN</span>
-          <span onClick={()=>{navigate('join')}}>JOIN</span>
+          <div className='bookstore'>
+            <spna>BOOK STORE</spna>
+          </div>
+          <div>
+            <span onClick={()=>{navigate('loginForm')}}>LOGIN</span>
+            <span onClick={()=>{navigate('join')}}>JOIN</span>
+          </div>
         </div>
         <div className='banner'>
           <div>
-            <img className='banner-img' src='http://localhost:8080/images/banner4.jpg' />
+            <img className='banner-img' src='http://localhost:8080/images/book_banner.jpg' />
           </div>
-          <div className='title-div'>BOOK STORE</div>
+          <div className='title-div'>뭐적을까?</div>
         </div>
         
       </div>
@@ -30,6 +36,7 @@ function App() {
           <Route path='/' element={<UserLayout />}>
             <Route path='' element={<div>상품 목록 화면</div>}/>
             <Route path='join' element={<Join />}/>
+            <Route path='loginForm' element={<Login />}/>
           </Route>
 
           {/* admin route */}

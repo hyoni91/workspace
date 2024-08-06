@@ -16,15 +16,9 @@ const Join = () => {
   //모달창 랜더링 여부
   const [isShow, setIsShow] = useState(false)
 
-  //모달창 안의 내용을 생성하는 함수 
-  function setModalContent(){
-    return(
-      <div>
-        환영합니다😍 <br />
-        회원가입을 축하합니다.
-        </div>
-    )
-  }
+  //아이디 중복검사 여부 
+  const [isChkId, setIsChkId] = useState(false)
+
 
   //input태그를 참조하는 변수 
   const email_1 = useRef();
@@ -80,9 +74,6 @@ const Join = () => {
   //유효성 검사 결과를 저장하는 변수
   const [validResult, setValidResult] = useState(false)
 
-  
-
-
   function changeJoinData(e){
     const tagName = e.target.name;
 
@@ -114,6 +105,7 @@ const Join = () => {
   function idChkBtn(){
 
     if(joinData.memId == ''){
+      setIsChkId(false)
       alert('아이디는 필수입력입니다.')
       return;
     }
@@ -121,12 +113,13 @@ const Join = () => {
     axios.get(`/api_member/idChk/${joinData.memId}`)
     .then((res)=>{
       const result = res.data;
-      result? alert('이미 사용중인 아이디입니다.'): alert('사용 가능합니다.')
-
-      if(!result){
-        setIsDisabled(false)
-      }
-    })
+      result? alert('이미 사용중인 아이디입니다.'): alert('사용 가능합니다.') 
+        return setIsChkId(true)})
+      //회원가입 버튼 여부 (아이디 중복 검사안하면 오류뜨도록 설정했기때문에 주석처리중)
+    //   if(!result){
+    //     setIsDisabled(false)
+    //   }
+    // })
     .catch((error)=>{
       console.log(error)
     })
@@ -139,24 +132,42 @@ const Join = () => {
       return ; 
     }
 
-    if(joinData.memPw != joinData.comfirmPw){
-      alert('다시 확인해 주세요.')
-      return ; 
+    //아이디 중복 검사 했는지 확인
+    if(!isChkId){
+      alert('아이디 중복검사를 실행하세요')
+      return;
     }
+
 
     axios.post(`/api_member/join`, joinData)
     .then((res)=>{
+      //모달창 띄우기 -> 확인 누르면 로그인페이지 이동
+      setIsShow(true)
     })
     .catch((error)=>{
       console.log(error)
     })
   }
 
+   //모달창 안의 내용을 생성하는 함수 
+    function setModalContent(){
+    return(
+      <div>
+        환영합니다😍 <br />
+        회원가입을 축하합니다.
+        </div>
+    )
+  }
+
+  //모달창을 닫으면 실행되는 함수 
+  function offModalBtn(){
+    navigate('/loginForm');
+  }
 
   return (
     <div className='joinpage'>
       {
-        isShow? <Modal  content={setModalContent}   setIsShow={setIsShow}/> : null
+        isShow? <Modal  content={setModalContent}   setIsShow={setIsShow}  offBtn = {offModalBtn}/> : null
       }
       
         <table className='jointable'>
@@ -168,7 +179,8 @@ const Join = () => {
             <tr>
               <td>아이디</td>
               <td>
-                <input className='input-size' type='text' id='id' name='memId'  required onChange={(e)=>{changeJoinData(e)}}/>
+                <input className='input-size' type='text' id='id' name='memId'  required onChange={(e)=>{setIsChkId(false)
+                  changeJoinData(e)}}/>
               <button type='button' onClick={()=>{idChkBtn()}}>중복확인</button>
               <div className='feedback' ref={memId_valid_tag} ></div>
               </td>
@@ -223,9 +235,8 @@ const Join = () => {
             </tr>
           </tbody>
         </table>
-      <div className='btn-div'><button type='button' disabled={isDisabled}  onClick={()=>{
+      <div className='btn-div'><button type='button'   onClick={()=>{
         join()
-        setIsShow(true)
         }}>회원가입</button>
       </div>
     </div>

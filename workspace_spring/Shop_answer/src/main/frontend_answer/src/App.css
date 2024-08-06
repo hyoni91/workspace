@@ -3,23 +3,36 @@
   width: 100vw;
   height: 100vh;
   font-size: 17px;
+  /* background-color: rgb(255, 156, 156); */
 }
 
 /* 로그인과 조인 글자  */
 .login-div{
   width: 100%;
-  color: rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+  background-color: #ffffff;
 }
 
 /* 로그인과 조인 글자 */
 .header{
   display: flex;
-  justify-content: right;
-  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  /* gap: 20px; */
   font-size: 16px;
   margin-right: 25px;
+  padding: 20px;
 }
+
+.bookstore{
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.header > div:nth-child(2) > span{
+  margin-right: 15px;
+}
+
 
 .header > span:hover{
   font-weight: bolder;
@@ -28,9 +41,9 @@
 /* 배너 이미지 */
 .banner-img{
   width: 100%;
-  height: 200px;
-  object-fit:cover ;
-  object-position:center;
+  height: 300px;
+  object-fit:cover;
+  object-position: bottom;
   display: block;
 }
 
@@ -42,13 +55,11 @@
   position: absolute;
   top: 50%;
   transform: translate(30pxm, -50%);
-  margin-left: 10px;
+  margin-left: 50px;
   font-weight: bold;
-  font-size: 1.8rem;
-  /* color: rgb(233, 230, 230); */
-  color: rgb(206, 230, 211);
+  font-size: 2.2rem;
+  color: rgb(255, 255, 255);
   letter-spacing: 6px;
-  
 }
 
 .layout-div{
@@ -69,7 +80,6 @@ button{
   letter-spacing: 1px;
 }
 
-
 input{
   width: 500px;
   padding: 8px;
@@ -87,7 +97,6 @@ input:focus, select:focus{
   outline: none;
   border-color: rgb(141, 141, 141);
 }
-
 
 /* 모달창 만들기 */
 .modal-container{

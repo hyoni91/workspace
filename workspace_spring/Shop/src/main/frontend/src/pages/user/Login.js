@@ -1,9 +1,26 @@
 import React, { useState } from 'react'
 import './Login.css';
 import * as m_api from '../../apis/m_api'
+import Modal from './common/Modal';
+import { useNavigate } from 'react-router-dom';
 
 
-const Login = () => {
+const Login = ({setIsLogin}) => {
+  const navigate = useNavigate()
+  const [isShow, setIsShow] = useState(false)
+
+  function loginModalContent(){
+    return  <div>
+    로그인 성공😍 <br />
+    반갑습니다.
+    </div>
+  }
+
+  function offModalBtn(){
+    navigate('/')
+  }
+
+
   const [loginMem, setLoginMem] = useState({
     memId :'',
     memPw :'',
@@ -24,19 +41,22 @@ const Login = () => {
   const goLogin = ()=>{
     m_api.getLoginInfo(loginMem)
     .then((res)=>{
+      //모달창
+      setIsShow(true)
       if(res.data !=''){
-        alert('로그인가능')
         const loginInfo = {
           memId : res.data.memId,
           memRole : res.data.memRole,
           memName : res.data.memName
         }
-
         window.sessionStorage.setItem('loginInfo', JSON.stringify(loginInfo))
-
+        setIsLogin(loginInfo)
+        navigate('/')
+        
       }else{
         alert('아이디 혹은 비밀번호가 일치하지 않습니다.')
       }
+
     })
     .catch((error)=>{
       alert('error!')
@@ -47,6 +67,9 @@ const Login = () => {
 
   return (
     <div>
+      {
+        isShow? <Modal setIsShow={setIsShow} content={loginModalContent} offbtn={offModalBtn}/> : null
+      }
       <table className='logintable'>
         <tbody>
           <tr>

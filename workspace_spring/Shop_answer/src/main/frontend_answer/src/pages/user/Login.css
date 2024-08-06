@@ -1,0 +1,20 @@
+
+.logintable{
+  margin-top: 50px;
+}
+
+.logintable input{
+  width: 300px;
+}
+
+.loginbtn-div{
+  margin-top: 50px;
+  text-align: center;
+}
+
+.login-btn{
+  font-size: 18px;
+  border: none;
+  padding: 11px;
+  width: 140px;
+}

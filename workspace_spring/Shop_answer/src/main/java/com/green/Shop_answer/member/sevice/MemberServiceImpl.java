@@ -25,10 +25,8 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public boolean telChk(String memTel) {
-        String telChk = sqlSession.selectOne("answerMapper.confirmTel",memTel);
-
-        return telChk != null;
+    public MemberVO login(MemberVO memberVO) {
+        return sqlSession.selectOne("answerMemberMapper.login", memberVO);
     }
 
 

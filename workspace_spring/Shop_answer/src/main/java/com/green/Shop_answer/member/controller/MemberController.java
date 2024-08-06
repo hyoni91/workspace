@@ -29,9 +29,11 @@ public class MemberController {
 
     }
 
-    @GetMapping("/telChk/{memTel}")
-    public boolean telChk(@PathVariable("memTel") String memTel){
-        return memberService.telChk(memTel);
+
+    @PostMapping("/login")
+    public MemberVO login(@RequestBody MemberVO memberVO){
+        //로그인 정보 없으면 빈값 (null뜸) --> 리액트는 빈 값
+        return memberService.login(memberVO);
     }
 
 }

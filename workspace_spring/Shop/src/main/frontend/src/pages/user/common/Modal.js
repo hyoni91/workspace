@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-const Modal = ({content, setIsShow}) => {
+const Modal = ({content, setIsShow, offbtn}) => {
   return (
     <div className='modal-container' onClick={setIsShow(false)}>
         <div className='modal'>
@@ -13,7 +13,10 @@ const Modal = ({content, setIsShow}) => {
             {content()}
           </div>
           <div className='modal-footer'>
-            <button type='button' onClick={()=>{setIsShow(false)}}>확인</button>
+            <button type='button' onClick={()=>{
+              setIsShow(false)
+              offbtn()
+            }}>확인</button>
           </div>
         </div>
       </div>
