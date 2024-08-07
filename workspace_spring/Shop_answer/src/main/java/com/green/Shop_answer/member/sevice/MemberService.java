@@ -1,7 +1,10 @@
 package com.green.Shop_answer.member.sevice;
 
 
+import com.green.Shop_answer.item.vo.ItemVO;
 import com.green.Shop_answer.member.vo.MemberVO;
+
+import java.util.List;
 
 public interface MemberService {
 
@@ -13,4 +16,7 @@ public interface MemberService {
 
     //로그인
     MemberVO login(MemberVO memberVO);
+
+    //상품 목록 리스트
+    List<ItemVO> itemList();
 }

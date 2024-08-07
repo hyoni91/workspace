@@ -1,0 +1,38 @@
+
+.header-userpage{
+  padding: 25px;
+}
+
+.header-userpage > ul{
+  display: flex;
+  justify-content: space-around;
+}
+
+
+
+
+/* AdminLayout */
+.header-userpage li{
+  width: 130px;
+  text-align: center;
+}
+
+
+.dropMenu{
+  position: relative;
+  width: 160px;
+}
+
+.dropMenu-content{
+  top: 19px; left: 0px;
+  position: absolute;
+  height: 100px;
+  background-color: rgb(238, 235, 232);
+  text-align: left;
+  
+  /* visibility: hidden; */
+}
+
+.dropMenu-content.on{
+  visibility: visible;
+}

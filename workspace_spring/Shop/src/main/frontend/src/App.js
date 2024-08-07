@@ -6,19 +6,22 @@ import AdminLayout from './pages/admin/AdminLayout';
 import Join from './pages/user/Join';
 import Login from './pages/user/Login';
 import { useEffect, useState } from 'react';
-import ItemList from './pages/user/ItemList';
+import RegItem from './pages/admin/RegItem';
 
 function App() {
   const navigate = useNavigate()
 
-  const getLoginInfo = () =>{
-    JSON.parse(window.sessionStorage.getItem('loginInfo'))}
-
   const [isLogin, setIsLogin] =useState({});
 
   useEffect(()=>{
+    const getLoginInfo = window.sessionStorage.getItem('loginInfo')
+
     if(getLoginInfo != null){
-      setIsLogin(getLoginInfo)
+      
+      const obj_loginInfo = JSON.parse(getLoginInfo)
+      
+      setIsLogin(obj_loginInfo)
+
     }
     },[])
 
@@ -28,12 +31,15 @@ function App() {
       <div className='login-div'>
       <div className='header'>
         {
-          isLogin != null?
+          Object.keys(isLogin) != 0?
             <>
                 <span> <span className='memName-span'>'{isLogin.memName}'</span>님</span>
-              <span>LOGOUT</span>
+              <span onClick={()=>{
+                window.sessionStorage.removeItem('loginInfo')
+                  setIsLogin({})
+                  navigate('/')
+              }}>LOGOUT</span>
             </>
-
           :
           <>
             <span onClick={()=>{navigate('login')}}>LOGIN</span>
@@ -55,16 +61,14 @@ function App() {
 
           {/* user route */}
           <Route path='/' element={<UserLayout />}>
-            <Route path='' element={<ItemList />}/>
             <Route path='join' element={<Join />}/>
-            <Route path='login' element={<Login setIsLogin={setIsLogin}/>}/>
+            <Route path='login' element={<Login setIsLogin={setIsLogin} isLogin={isLogin}  />}/>
             
           </Route>
 
           {/* admin route */}
           <Route path='/admin' element={<AdminLayout />}>
-            <Route path='test1' element={<div>admin first page</div>}/>
-            <Route path='test2' element={<div>admin second page</div>}/>
+            <Route path='regItem' element={<RegItem />}/>
           </Route>
 
         </Routes>

@@ -4,11 +4,12 @@ import Modal from '../common/Modal'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-const Login = () => {
+const Login = ({setLoginInfo, loginInfo}) => {
   const navigate = useNavigate()
   
-  //모달의 변수 {content, setIsShow, offBtn}전달해야함
 
+  
+  //모달의 변수 {content, setIsShow, offBtn}전달해야함
   //로그인창 미입력시 모달창 띄우기 (setIsShow)
   const [ loginModal, setLoginModal] = useState(false)
   //로그인 성공 여부 모달창 띄우기(setIsShow)
@@ -27,10 +28,17 @@ const Login = () => {
 }
 //로그인후 모달칭 안의 확인 버튼 클릭시 실행되는 내용
 function handleBtn(){
-  isLoginSuccess?  navigate('/') : setAfterLoginModal(false)
+  if(isLoginSuccess){
+    //로그인 권한 판단하려면? App.js에 있는 로그인 정보를 받아서 판단 가능
+    if(loginInfo.memRole == 'USER'){
+      //로그인 정보가 일반 회원이면?
+      navigate('/')
+    }else if(loginInfo.memRole == 'ADMIN'){
+      //로그인 정보가 관리자라면?
+      navigate('/admin/regItem')
+    }
+  }
 }
-
-
 
   // id, pw 저장할 함수 
   const [loginData, setLoginData] = useState({
@@ -54,10 +62,8 @@ function handleBtn(){
       setLoginModal(true)
       return;
     }
-
     axios.post('/api_member/login', loginData)
     .then((res)=>{
-
       //모달은 성공이든 실패든 모달 띄우기
       setAfterLoginModal(true);
       //자바에서 null 데이터가 넘어오면 res.data는 빈 문자로 데이터 변환
@@ -76,7 +82,9 @@ function handleBtn(){
         }
         //스토리지에 아이디 이름 권한 정보 추가(밸류값에 JSON활용)  ---> 세션스토리지는 문자열만 저장가능하기 때문에!
         window.sessionStorage.setItem('loginInfo',JSON.stringify(loginInfo))
+        setLoginInfo(loginInfo)
       }
+      //App.js의 로그인 정보를 담을 state변수에 로그인 정보를 저장한다.(props활용)
     })
     .catch((error)=>{
       console.log(error)

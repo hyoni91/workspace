@@ -1,0 +1,33 @@
+
+
+.regItem > div {
+  display: flex;
+  flex-direction: column;
+  width: 78%;
+  margin: auto;
+}
+
+.regItem > div{
+  margin-bottom: 15px;
+}
+
+.category-select{
+  width: 500px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.regItem > div >span {
+  display: inline-block;
+  /* border: 1px solid red; */
+  width: 150px;
+  padding: 5px
+}
+
+.regItem-btn{
+  margin-top: 35px;
+}
+.regItem-btn > button{
+  padding: 15px;
+  font-size: 1.1rem;
+}

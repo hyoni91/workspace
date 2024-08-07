@@ -8,7 +8,8 @@
 
 /* 로그인과 조인 글자  */
 .login-div{
-  width: 100%;
+  width: 90%;
+  margin: auto;
   color: rgb(0, 0, 0);
   background-color: #ffffff;
 }
@@ -41,7 +42,8 @@
 /* 배너 이미지 */
 .banner-img{
   width: 100%;
-  height: 300px;
+  margin: auto;
+  height: 460px;
   object-fit:cover;
   object-position: bottom;
   display: block;
@@ -163,4 +165,13 @@ input:focus, select:focus{
 .feedback.good{
   color: rgba(33, 156, 49);
   visibility: visible;
+}
+
+
+/* login정보 아이디 */
+.login_memId{
+  cursor: none;
+  color:#bd6540;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
