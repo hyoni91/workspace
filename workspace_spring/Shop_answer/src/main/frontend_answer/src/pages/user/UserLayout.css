@@ -30,7 +30,7 @@
   background-color: rgb(238, 235, 232);
   text-align: left;
   
-  /* visibility: hidden; */
+  visibility: hidden;
 }
 
 .dropMenu-content.on{

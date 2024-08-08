@@ -24,4 +24,17 @@ public class AdminServiceImpl implements AdminService{
     public void insetItem(ItemVO itemVO) {
         sqlSession.insert("answerAdminMapper.insertItem", itemVO);
     }
+
+    @Override
+    public void insertImgs(ItemVO itemVO) {
+        sqlSession.insert("answerAdminMapper.insertImgs", itemVO);
+    }
+
+    //다음에 들어갈 item_code조회
+    @Override
+    public int getNextItemCode() {
+        return sqlSession.selectOne("answerAdminMapper.getNextItemCode");
+    }
+
+
 }

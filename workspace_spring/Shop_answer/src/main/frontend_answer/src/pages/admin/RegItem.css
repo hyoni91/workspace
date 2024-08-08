@@ -3,7 +3,7 @@
 .regItem > div {
   display: flex;
   flex-direction: column;
-  width: 78%;
+  width: 50%;
   margin: auto;
 }
 
@@ -12,7 +12,7 @@
 }
 
 .category-select{
-  width: 500px;
+  width: 100%;
   padding: 10px;
   font-size: 1rem;
 }
@@ -21,7 +21,8 @@
   display: inline-block;
   /* border: 1px solid red; */
   width: 150px;
-  padding: 5px
+  padding: 5px;
+  font-size: 1.2rem;
 }
 
 .regItem-btn{
@@ -30,4 +31,16 @@
 .regItem-btn > button{
   padding: 15px;
   font-size: 1.1rem;
+  border: 1px solid lightgrey;
+
 }
+
+.regItem-input{
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+
+/* 이미지 첨부 css */
+

@@ -94,6 +94,10 @@ function handleBtn(){
   return (
     <div className='joinpage'>
       <table className='logintable'>
+        <colgroup>
+        <col width={'30%'}/>
+        <col width={'*'}/>
+        </colgroup>
         <tbody>
           <tr>
             <td>아이디</td>
@@ -108,6 +112,8 @@ function handleBtn(){
       <div className='loginbtn-div'>
         <button type='button' className='login-btn' onClick={()=>{login()}} >로그인하기</button>
       </div>
+      
+      
       {  /*//id, pw 미입력시 띄우는 모달창*/
         loginModal ? <Modal content={()=>{
         return(
