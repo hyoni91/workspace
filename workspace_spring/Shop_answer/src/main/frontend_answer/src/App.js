@@ -8,6 +8,8 @@ import Login from './pages/user/Login';
 import { useEffect, useState } from 'react';
 import RegItem from './pages/admin/RegItem';
 import ItemList from './pages/user/ItemList';
+import DisplayItem from './pages/user/DisplayItem';
+import ItemDetail from './pages/user/ItemDetail';
 
 
 //새로고침 : State변수의 값이 전부 초기화된다.
@@ -80,9 +82,10 @@ function App() {
 
           {/* user route */}
           <Route path='/' element={<UserLayout />}>
-            <Route path='' element={<ItemList />}/>
+            <Route path='' element={<DisplayItem />}/>
             <Route path='join' element={<Join />}/>
             <Route path='loginForm' element={<Login setLoginInfo={setLoginInfo} loginInfo={loginInfo} />}/>
+            <Route path='book_detail/:itemCode' element={<ItemDetail />}/>
           </Route>
 
           {/* admin route */}

@@ -8,7 +8,7 @@
 
 /* 로그인과 조인 글자  */
 .login-div{
-  width: 78%;
+  width: 68%;
   margin: auto;
   color: rgb(0, 0, 0);
   background-color: #ffffff;
@@ -43,7 +43,7 @@
 .banner-img{
   width: 100%;
   margin: auto;
-  height: 460px;
+  height: 368px;
   object-fit:cover;
   object-position: bottom;
   display: block;
@@ -65,7 +65,7 @@
 }
 
 .layout-div{
-  width: 80%;
+  width: 64%;
   height: 100%;
   /* border: 1px solid red; */
   margin: 0px auto;

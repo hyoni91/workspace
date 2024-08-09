@@ -11,7 +11,7 @@
     <!-- 이때 주의 할점 ,셀렉트로 카테고리를 선택하기 때문에 카테고리 번호가 1번부터 조회되도록 오더바이 주기 -->
     <select id="getCategoryList" resultMap="answerItemMapper.category">
         SELECT CATE_CODE,CATE_NAME
-        FROM item_category
+        FROM  ANSWER_ITEM_CATEGORY
         ORDER BY CATE_CODE ASC;
     </select>
 
@@ -55,7 +55,7 @@
 
     <!-- 다음에 들어갈 item_code 조화 -->
     <select id="getNextItemCode" resultType="int" >
-        SELECT MAX(ITEM_CODE)+1
+        SELECT IFNULL(MAX(ITEM_CODE)+1,0)+1
         FROM ANSWER_SHOP_ITEM
     </select>
 

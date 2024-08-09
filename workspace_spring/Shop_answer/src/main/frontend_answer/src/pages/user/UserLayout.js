@@ -12,7 +12,8 @@ const UserLayout = () => {
           <li>소설/에세이</li>
           <li>자기계발</li>
         </ul>
-      </div> 
+      </div>
+      <hr /> 
     <Outlet />
     </div>
     
