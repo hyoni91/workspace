@@ -22,9 +22,23 @@ li:hover{
   color: yellow;
 }
 
+/* 메인화면 사진 */
+.background-img{
+  width: 100%;
+  object-fit: cover;
+  object-position: center center;
+  opacity: 0.9;
+  position: relative;
+}
+
 .header-h1{
   text-align: center;
   margin-top: 25px;
+  position: absolute;
+  top: 400px;
+  left: 50px;
+  color: white;
+  font-size: 4rem;
 }
 
 tr,td{
@@ -33,9 +47,18 @@ tr,td{
 
 }
 
+/* 인풋 공용 */
+input, select{
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+
+
+
 /* 차량관리 css */
 .sized{
-  margin: 20px 20px;
+  /* margin: 20px 20px; */
   /* margin: auto; */
 }
 
@@ -55,17 +78,17 @@ tr,td{
   margin-bottom: 30px;
 }
 
-.carinfo > div >span{
+.carinfo > div >p{
 /* 제조자 모델명 차량가격 글씨 조절*/
-  display: inline-block;
-  margin-top: 15px;
+  /* display: inline-block; */
+  margin-bottom: 5px;
   width: 100px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 input,select{
 /* 인풋 박스 크기 */
-  width: 250px;
+  width: 300px;
   height: 35px;
   font-size: 1.2rem;
 }
@@ -85,7 +108,7 @@ input,select{
 }
 
 /* 차량목록 테이블 */
- table{
+  table{
   width: 800px;
   /* border: 1px solid black; */
   
@@ -111,11 +134,13 @@ input,select{
 .sales-content{
   /* text-align: center; */
   /* margin: auto; */
-  /* border: 1px solid red; */
+  /* border: 8px solid red; */
 }
 
 .sales-content> div{
   margin-bottom: 20px;
+/* border: 8px solid red; */
+
 }
 
 .sales-content> div> span{

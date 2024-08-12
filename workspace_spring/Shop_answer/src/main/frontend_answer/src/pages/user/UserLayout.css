@@ -9,30 +9,37 @@
 }
 
 
-
-
 /* AdminLayout */
-.header-userpage li{
-  width: 130px;
+.header-userpage  li{
+  width: 180px;
   text-align: center;
 }
 
 
 .dropMenu{
-  position: relative;
-  width: 160px;
+  /* position: relative; */
+  /* width: 160px; */
 }
 
 .dropMenu-content{
-  top: 19px; left: 0px;
-  position: absolute;
-  height: 100px;
-  background-color: rgb(238, 235, 232);
-  text-align: left;
-  
-  visibility: hidden;
+  /* top: 100%;  */
+  /* position: absolute; */
+  /* border: 1px solid red; */
+  background-color: rgb(250, 245, 245);
+  /* text-align: left; */
+  border-radius: 0.5rem;
+  transition: ease-in(1s) ;
 }
 
-.dropMenu-content.on{
-  visibility: visible;
+.dropMenu-content > ul{
+  text-align: center;
+}
+.dropMenu-content li{
+  margin-top: 5px;
+  padding: 5px;
+}
+.dropMenu-content li:hover{
+  background-color: rgb(235, 228, 228);
+  cursor: pointer;
+  border-radius: 0.5rem;
 }

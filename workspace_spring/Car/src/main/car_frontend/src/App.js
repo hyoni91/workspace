@@ -20,9 +20,12 @@ function App() {
           </ul>
         </div>
       </div>
-
+      
       <Routes>
-        <Route path='/' element={<h1 className='header-h1'>차량 관리 시스템</h1>}/>
+        <Route path='/' element={<div>
+        <img className='background-img' src={(`http://localhost:8080/images/car2.jpg`)}/>
+        <h1 className='header-h1'>차량 관리 시스템</h1>
+      </div>}/>
         <Route path='/carinfo' element={<CarInfo />}/>
         <Route path='/salesinfo' element={<SalesInfo />}/>
         <Route path='/carlist' element={<SaleList />}/>

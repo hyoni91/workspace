@@ -1,24 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import * as c_api from '../apis/c_apis'
 import * as s_api from '../apis/s_apis'
-import axios from 'axios'
+import axios, { Axios } from 'axios'
 
 function SaleList() {
-  const [carList, setCarList] = useState([])
   const [salesList, setSalesList] = useState([])
 
-  console.log(carList)
+
   console.log(salesList)
   useEffect(()=>{
-    axios.all([c_api.carList(), s_api.selectSaleInfo()])
-    .then((axios.spread((res1,res2)=>{
-      setCarList(res1.data)
-      setSalesList(res2.data)
-    })))
-    .catch((error)=>{
-      alert(error)
-      console.log(error)
-    })
+      axios.get('/sales/select')
+      .then((res)=>{
+        setSalesList(res.data)
+      })
+      .catch((error)=>{
+        console(error)
+      })
+
   },[])
 
   return (
@@ -41,19 +39,22 @@ function SaleList() {
         </thead>
         <tbody>
           {
-            carList.length == 0 ? 
+            salesList.length == 0 ?
             <tr>
-              <td colSpan={'6'}>구매 정보가 없습니다.</td>
+              <td colSpan={'6'}>등록된 구매정보가 없습니다.</td>
             </tr>
             :
-            salesList.map((sale,i)=>{
+            
+            salesList.map((sale, i)=>{
               return(
               <tr key={i}>
                 <td>{i+1}</td>
                 <td>{sale.buyer}</td>
-                <td>{sale.buyerTel}</td>
+                <td>{sale.buyerTell}</td>
                 <td>{sale.sdate}</td>
                 <td>{sale.color}</td>
+                <td>{sale.carVO.modelName}</td>
+                <td>{sale.carVO.price}</td>
               </tr>
               )
             })

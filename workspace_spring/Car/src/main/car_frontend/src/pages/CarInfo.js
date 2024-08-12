@@ -57,7 +57,7 @@ function CarInfo() {
         <div className='title-h3'><h3>차량등록하기</h3></div>
         <div className='carinfo'>
           <div>
-            <span>제조사</span>
+            <p>제조사</p>
             <select name='brand' onChange={(e)=>{getRegInfo(e)}}>
               <option value={'현대'}>현대</option>
               <option value={'기아'}>기아</option>
@@ -65,11 +65,11 @@ function CarInfo() {
             </select>
           </div>
           <div>
-            <span>모델명</span>
+            <p>모델명</p>
             <input type='text' name='modelName' onChange={(e)=>{getRegInfo(e)}}/>
           </div>
           <div>
-            <span>차량가격</span>
+            <p>차량가격</p>
             <input type='text' name='price' onChange={(e)=>{getRegInfo(e)}}/>
           </div>
           <button className='carinfo-btn' onClick={()=>{goInsert(regCar)}}>등록하기</button>

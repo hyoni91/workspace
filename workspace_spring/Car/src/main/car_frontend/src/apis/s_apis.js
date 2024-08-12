@@ -6,7 +6,3 @@ export function postSalesInfo(data){
   return response;
 }
 
-export function selectSaleInfo(){
-  const response = axios.get(`/sales/select`)
-  return response
-}

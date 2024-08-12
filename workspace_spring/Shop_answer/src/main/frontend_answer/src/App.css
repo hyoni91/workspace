@@ -1,9 +1,9 @@
 
+
 .container{
   width: 100vw;
   height: 100vh;
   font-size: 17px;
-  /* background-color: rgb(255, 156, 156); */
 }
 
 /* 로그인과 조인 글자  */
@@ -11,7 +11,7 @@
   width: 68%;
   margin: auto;
   color: rgb(0, 0, 0);
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
 }
 
 /* 로그인과 조인 글자 */

@@ -10,6 +10,12 @@ import RegItem from './pages/admin/RegItem';
 import ItemList from './pages/user/ItemList';
 import DisplayItem from './pages/user/DisplayItem';
 import ItemDetail from './pages/user/ItemDetail';
+import Cate1 from './pages/user/Cate1';
+import ItemManage from './pages/admin/ItemManage';
+import CategoryManage from './pages/admin/CategoryManage';
+import SaleHistoryOfMonth from './pages/admin/SaleHistoryOfMonth';
+import SearchUser from './pages/admin/SearchUser';
+import RecordOfMonth from './pages/admin/RecordOfMonth';
 
 
 //새로고침 : State변수의 값이 전부 초기화된다.
@@ -39,7 +45,7 @@ function App() {
       //이때! 문제? 맨 처음엔 빈값이 들어간다. --> useEffect는 모든 그림을 그린 후 실행된다.
     }
   },[])
-  
+
   return (
     <div className="container">
       <div className='login-div'>
@@ -60,6 +66,12 @@ function App() {
               // 상품 목록 페이지로 이동
               navigate('/')
             }} >Logout</span>
+            {
+              loginInfo.memRole == 'ADMIN'?
+              <span onClick={()=>{navigate('/admin/management')}}>관리자페이지</span>
+              :
+              <></>
+            }
           </div>
           :
           <div>
@@ -81,16 +93,22 @@ function App() {
         <Routes>
 
           {/* user route */}
-          <Route path='/' element={<UserLayout />}>
+          <Route path='/' element={<UserLayout/>}>
             <Route path='' element={<DisplayItem />}/>
             <Route path='join' element={<Join />}/>
             <Route path='loginForm' element={<Login setLoginInfo={setLoginInfo} loginInfo={loginInfo} />}/>
+            <Route path='cate1List/:cateNum' element={<Cate1 />} />
             <Route path='book_detail/:itemCode' element={<ItemDetail />}/>
           </Route>
 
           {/* admin route */}
           <Route path='/admin' element={<AdminLayout />}>
+            <Route path='management' element={<ItemManage />}/>
             <Route path='regItem' element={<RegItem />}/>
+            <Route path='cate_management' element={<CategoryManage />}/>
+            <Route path='sale_history_month' element={<SaleHistoryOfMonth />}/>
+            <Route path='search_user' element={<SearchUser />}/>
+            <Route path='record_month' element={<RecordOfMonth />}/>
           </Route>
 
         </Routes>

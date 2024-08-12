@@ -60,7 +60,21 @@
         AND I.ITEM_CODE = #{itemCode}
     </select>
 
-
+    <select id="cate1List" resultMap="item">
+        SELECT
+        I.ITEM_CODE
+        ,ITEM_NAME
+        ,ITEM_STATUS
+        ,ITEM_PRICE
+        ,CATE_NAME
+        ,IS_MAIN
+        ,ATTACHED_FILE_NAME
+        ,IMG_CODE
+        FROM answer_shop_item I ,  ANSWER_ITEM_CATEGORY C , answer_item_img IMG
+        WHERE I.CATE_CODE = C.CATE_CODE AND IMG.ITEM_CODE = I.ITEM_CODE
+        AND IS_MAIN = 'Y'
+        AND C.CATE_CODE = #{cateNum}
+    </select>
 
 
 </mapper>

@@ -35,7 +35,7 @@ function handleBtn(){
       navigate('/')
     }else if(loginInfo.memRole == 'ADMIN'){
       //로그인 정보가 관리자라면?
-      navigate('/admin/regItem')
+      navigate('/admin/management')
     }
   }
 }
