@@ -29,6 +29,7 @@
         <result column="ITEM_CODE" property="itemCode"/>
     </resultMap>
 
+
     <!-- 상품 목록 화면 -->
     <select id="itemList" resultMap="item">
         SELECT
@@ -75,7 +76,6 @@
         AND IS_MAIN = 'Y'
         AND C.CATE_CODE = #{cateNum}
     </select>
-
 
 </mapper>
 

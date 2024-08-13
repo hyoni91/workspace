@@ -19,6 +19,8 @@ const DisplayItem = () => {
     })
   },[])
 
+
+
   return (
     <>
       <div className='item-list-title'>이달의 책</div>

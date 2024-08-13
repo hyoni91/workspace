@@ -1,12 +1,10 @@
 package com.green.Shop_answer.item.controller;
 
 import com.green.Shop_answer.item.service.ItemService;
+import com.green.Shop_answer.item.vo.CartVO;
 import com.green.Shop_answer.item.vo.ItemVO;
 import jakarta.annotation.Resource;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,4 +28,5 @@ public class ItemController {
         System.out.println(cateNum);
         return itemService.cate1List(cateNum);
     }
+
 }

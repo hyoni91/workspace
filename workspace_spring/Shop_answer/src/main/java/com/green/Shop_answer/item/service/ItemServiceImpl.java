@@ -1,5 +1,6 @@
 package com.green.Shop_answer.item.service;
 
+import com.green.Shop_answer.item.vo.CartVO;
 import com.green.Shop_answer.item.vo.ItemVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,5 @@ public class ItemServiceImpl implements ItemService {
     public List<ItemVO> cate1List(int cateNum) {
         return  sqlSession.selectList("answerItemMapper.cate1List", cateNum);
     }
-
-
-
 
 }

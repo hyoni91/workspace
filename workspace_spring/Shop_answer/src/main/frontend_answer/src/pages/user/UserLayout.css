@@ -28,15 +28,16 @@
   background-color: rgb(250, 245, 245);
   /* text-align: left; */
   border-radius: 0.5rem;
-  transition: ease-in(1s) ;
 }
 
 .dropMenu-content > ul{
   text-align: center;
+
 }
 .dropMenu-content li{
   margin-top: 5px;
   padding: 5px;
+
 }
 .dropMenu-content li:hover{
   background-color: rgb(235, 228, 228);

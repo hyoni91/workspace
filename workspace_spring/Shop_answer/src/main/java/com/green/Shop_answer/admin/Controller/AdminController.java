@@ -48,6 +48,7 @@ public class AdminController {
         ImgVO subImgVO = FileUploadUtil.fileUpload(subImg);
         subImgVO.setIsMain("N");
 
+
         //등록한 상품의 item_code조회
         int nextItemCode = adminService.getNextItemCode();
 

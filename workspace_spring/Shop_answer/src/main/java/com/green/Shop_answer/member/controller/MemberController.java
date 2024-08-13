@@ -1,5 +1,6 @@
 package com.green.Shop_answer.member.controller;
 
+import com.green.Shop_answer.item.vo.CartVO;
 import com.green.Shop_answer.item.vo.ItemVO;
 import com.green.Shop_answer.member.sevice.MemberService;
 import com.green.Shop_answer.member.vo.MemberVO;
@@ -43,6 +44,14 @@ public class MemberController {
     @GetMapping("/itemList")
     public List<ItemVO> itemList(){
         return memberService.itemList();
+    }
+
+
+    //장바구니 담기
+    @PostMapping("/cartInsert")
+    public void cartInsert(@RequestBody CartVO cartVO){
+        System.out.println(cartVO);
+        memberService.cartInsert(cartVO);
     }
 
 }

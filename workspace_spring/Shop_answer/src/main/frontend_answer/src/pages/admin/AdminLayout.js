@@ -15,7 +15,7 @@ const AdminLayout = () => {
           <li className='dropMenu'>
             <span onClick={()=>{
             if(!isShow){
-              navigate('/admin/management')
+              // navigate('/admin/management')
               setIsShow(true)
               setIsShow1(false)
               setIsShow2(false)
@@ -26,7 +26,7 @@ const AdminLayout = () => {
           }}>상품관리</span>
             {
               isShow?  
-                <div className='dropMenu-content'>
+            <div className='dropMenu-content'>
               <ul>
                 <li onClick={()=>{
                   navigate('/admin/management')
@@ -50,7 +50,7 @@ const AdminLayout = () => {
           <li>
             <span onClick={()=>{
             if(!isShow1){
-              navigate('/admin/sale_history_month')
+              // navigate('/admin/sale_history_month')
               setIsShow1(true)
               setIsShow(false)
               setIsShow2(false)
@@ -82,7 +82,7 @@ const AdminLayout = () => {
           <li>
             <span onClick={()=>{
             if(!isShow2){
-              navigate('/admin/search_user')
+              // navigate('/admin/search_user')
               setIsShow2(true)
               setIsShow1(false)
               setIsShow(false)
@@ -117,7 +117,7 @@ const AdminLayout = () => {
           <li>
             <span onClick={()=>{
             if(!isShow3){
-              navigate('/admin/record_month')
+              // navigate('/admin/record_month')
               setIsShow3(true)
               setIsShow1(false)
               setIsShow2(false)

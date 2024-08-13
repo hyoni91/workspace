@@ -16,6 +16,7 @@ import CategoryManage from './pages/admin/CategoryManage';
 import SaleHistoryOfMonth from './pages/admin/SaleHistoryOfMonth';
 import SearchUser from './pages/admin/SearchUser';
 import RecordOfMonth from './pages/admin/RecordOfMonth';
+import MyCartPage from './pages/user/MyCartPage';
 
 
 //새로고침 : State변수의 값이 전부 초기화된다.
@@ -51,7 +52,7 @@ function App() {
       <div className='login-div'>
       <div className='header'>
           <div className='bookstore'>
-            <span onClick={()=>{navigate('')}} >BOOK STORE</span>
+            <span onClick={()=>{navigate('')}} >🏚BOOK STORE</span>
           </div>
           {
             //빈 객채인지 확인 : object.keys() -> 객체 안의 모든 키값
@@ -70,7 +71,7 @@ function App() {
               loginInfo.memRole == 'ADMIN'?
               <span onClick={()=>{navigate('/admin/management')}}>관리자페이지</span>
               :
-              <></>
+              <span onClick={()=>{navigate('/my_cart_page')}}>장바구니❤</span>
             }
           </div>
           :
@@ -98,14 +99,15 @@ function App() {
             <Route path='join' element={<Join />}/>
             <Route path='loginForm' element={<Login setLoginInfo={setLoginInfo} loginInfo={loginInfo} />}/>
             <Route path='cate1List/:cateNum' element={<Cate1 />} />
-            <Route path='book_detail/:itemCode' element={<ItemDetail />}/>
+            <Route path='book_detail/:itemCode' element={<ItemDetail loginInfo={loginInfo} />}/>
+            <Route path='my_cart_page' element={<MyCartPage />}/>
           </Route>
 
           {/* admin route */}
           <Route path='/admin' element={<AdminLayout />}>
             <Route path='management' element={<ItemManage />}/>
             <Route path='regItem' element={<RegItem />}/>
-            <Route path='cate_management' element={<CategoryManage />}/>
+            <Route path='category_management' element={<CategoryManage />}/>
             <Route path='sale_history_month' element={<SaleHistoryOfMonth />}/>
             <Route path='search_user' element={<SearchUser />}/>
             <Route path='record_month' element={<RecordOfMonth />}/>
