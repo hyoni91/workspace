@@ -17,6 +17,13 @@ import SaleHistoryOfMonth from './pages/admin/SaleHistoryOfMonth';
 import SearchUser from './pages/admin/SearchUser';
 import RecordOfMonth from './pages/admin/RecordOfMonth';
 import MyCartPage from './pages/user/MyCartPage';
+import { BsCart4 } from "react-icons/bs";
+import { RiLogoutBoxRLine } from "react-icons/ri";
+import { MdOutlineManageHistory } from "react-icons/md";
+
+
+
+
 
 
 //새로고침 : State변수의 값이 전부 초기화된다.
@@ -52,12 +59,13 @@ function App() {
       <div className='login-div'>
       <div className='header'>
           <div className='bookstore'>
-            <span onClick={()=>{navigate('')}} >🏚BOOK STORE</span>
+            <span onClick={()=>{navigate('')}} >BOOK STORE
+            </span>
           </div>
           {
             //빈 객채인지 확인 : object.keys() -> 객체 안의 모든 키값
           Object.keys(loginInfo) != 0 ?
-          <div>
+          <div className='login-content'>
             <span className='login_memId'>'{loginInfo.memId}'님</span>
             <span onClick={()=>{
               //로그아웃 => 세션스토리지의 정보 삭제
@@ -66,12 +74,12 @@ function App() {
               setLoginInfo({});
               // 상품 목록 페이지로 이동
               navigate('/')
-            }} >Logout</span>
+            }} ><RiLogoutBoxRLine size={'22'} className='logout-icon'/></span>
             {
               loginInfo.memRole == 'ADMIN'?
-              <span onClick={()=>{navigate('/admin/management')}}>관리자페이지</span>
+              <span onClick={()=>{navigate('/admin/management')}}><MdOutlineManageHistory size={'22'} className='anmin-icon'/></span>
               :
-              <span onClick={()=>{navigate('/my_cart_page')}}>장바구니❤</span>
+              <span onClick={()=>{navigate('/my_cart_page')}}><BsCart4 size={'22'}/></span>
             }
           </div>
           :
@@ -100,7 +108,7 @@ function App() {
             <Route path='loginForm' element={<Login setLoginInfo={setLoginInfo} loginInfo={loginInfo} />}/>
             <Route path='cate1List/:cateNum' element={<Cate1 />} />
             <Route path='book_detail/:itemCode' element={<ItemDetail loginInfo={loginInfo} />}/>
-            <Route path='my_cart_page' element={<MyCartPage />}/>
+            <Route path='my_cart_page' element={<MyCartPage loginInfo={loginInfo}/>}/>
           </Route>
 
           {/* admin route */}

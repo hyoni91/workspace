@@ -25,4 +25,10 @@ public class ItemServiceImpl implements ItemService {
         return  sqlSession.selectList("answerItemMapper.cate1List", cateNum);
     }
 
+    //cart list
+    @Override
+    public ItemVO cartList(String memId) {
+        return sqlSession.selectOne("answerItemMapper.myCart", memId);
+    }
+
 }

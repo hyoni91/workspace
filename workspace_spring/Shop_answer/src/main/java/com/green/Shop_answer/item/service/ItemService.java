@@ -13,5 +13,8 @@ public interface ItemService {
     //인터넷/it 목록
     List<ItemVO> cate1List(int cateNum);
 
+//    cart list
+
+    ItemVO cartList(String memId);
 
 }

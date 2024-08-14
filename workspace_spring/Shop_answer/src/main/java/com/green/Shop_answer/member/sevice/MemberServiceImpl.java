@@ -44,5 +44,11 @@ public class MemberServiceImpl implements MemberService {
         sqlSession.insert("answerMemberMapper.cartInsert", cartVO);
     }
 
+//    // 멤버별 장바구니
+//    @Override
+//    public MemberVO myCartPage(String memId) {
+//        return sqlSession.selectOne("answerMemberMapper.cartList", memId);
+//    }
+
 
 }

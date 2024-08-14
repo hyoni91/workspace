@@ -14,16 +14,10 @@
         <result column="MEM_EMAIL" property="memEmail" />
         <result column="MEM_ROLE" property="memRole" />
 <!--        <collection property="cartList" resultMap="cart" />-->
-<!--        <collection property="itemList" resultMap="answerItemMapper.item" />-->
+        <collection property="itemList" resultMap="answerItemMapper.item" />
     </resultMap>
 
-<!--    <resultMap id="cart" type="com.green.Shop_answer.item.vo.CartVO">-->
-<!--        <id column="CART_CODE" property="cartCode"/>-->
-<!--        <result column="CART_CNT" property="cartCnt"/>-->
-<!--        <result column="ITEM_CODE" property="itemCode"/>-->
-<!--        <result column="MEM_ID" property="memId"/>-->
-<!--        <result column="CART_DATE" property="cartDate"/>-->
-<!--    </resultMap>-->
+
 
     <insert id="join">
         INSERT INTO ANSWER_SHOP_MEMBER(
@@ -80,17 +74,6 @@
         ,#{memId}
         )
     </insert>
-
-<!--    &lt;!&ndash; 장바구니 목록 &ndash;&gt;-->
-<!--    <select id="cartList" resultMap="member" >-->
-<!--        SELECT ATTACHED_FILE_NAME, ITEM_NAME , ITEM_PRICE ,CART_CNT, CART_DATE-->
-<!--        FROM answer_item_img as IMG , answer_shop_item I, ANSWER_SHOP_CART C , answer_shop_member M-->
-<!--        WHERE C.MEM_ID = M.MEM_ID-->
-<!--        AND C.ITEM_CODE = I.ITEM_CODE = IMG.ITEM_CODE-->
-<!--        AND IMG.IS_MAIN = 'Y'-->
-<!--        AND C.MEM_ID = #{memId};-->
-<!--    </select>-->
-
 
 </mapper>
 

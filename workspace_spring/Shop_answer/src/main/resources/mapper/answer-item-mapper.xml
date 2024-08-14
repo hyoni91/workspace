@@ -14,6 +14,7 @@
         <result column="CATE_CODE" property="cateCode" />
         <association property="category" resultMap="category" />
         <collection property="imgList" resultMap="img"/>
+        <collection property="cartList" resultMap="cart"/>
     </resultMap>
 
     <resultMap id="category" type="com.green.Shop_answer.item.vo.CategoryVO">
@@ -27,6 +28,14 @@
         <result column="ATTACHED_FILE_NAME" property="attachedFileName"/>
         <result column="IS_MAIN" property="isMain"/>
         <result column="ITEM_CODE" property="itemCode"/>
+    </resultMap>
+
+    <resultMap id="cart" type="com.green.Shop_answer.item.vo.CartVO">
+        <id column="CART_CODE" property="cartCode"/>
+        <result column="CART_CNT" property="cartCnt"/>
+        <result column="ITEM_CODE" property="itemCode"/>
+        <result column="MEM_ID" property="memId"/>
+        <result column="CART_DATE" property="cartDate"/>
     </resultMap>
 
 
@@ -47,6 +56,7 @@
 
     </select>
 
+    <!-- 상품 상세 조회 -->
     <select id="itemDetail" resultMap="item">
         SELECT I.ITEM_CODE
             ,ITEM_NAME
@@ -61,6 +71,7 @@
         AND I.ITEM_CODE = #{itemCode}
     </select>
 
+    <!-- 카테고리별 상품 목록 -->
     <select id="cate1List" resultMap="item">
         SELECT
         I.ITEM_CODE
@@ -75,6 +86,16 @@
         WHERE I.CATE_CODE = C.CATE_CODE AND IMG.ITEM_CODE = I.ITEM_CODE
         AND IS_MAIN = 'Y'
         AND C.CATE_CODE = #{cateNum}
+    </select>
+
+    <!-- 멤버별 장바구니 -->
+    <select id="myCart" resultMap="item">
+        SELECT ATTACHED_FILE_NAME, ITEM_NAME , ITEM_PRICE ,CART_CNT, CART_DATE
+        FROM answer_item_img as IMG , answer_shop_item I, ANSWER_SHOP_CART C , answer_shop_member M
+        WHERE C.MEM_ID = M.MEM_ID
+        AND C.ITEM_CODE = I.ITEM_CODE = IMG.ITEM_CODE
+        AND IMG.IS_MAIN = 'Y'
+        AND C.MEM_ID = #{memId}
     </select>
 
 </mapper>

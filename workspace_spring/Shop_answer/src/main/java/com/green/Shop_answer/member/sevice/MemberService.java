@@ -24,4 +24,7 @@ public interface MemberService {
 //    //장바구니 담기
     void cartInsert(CartVO cartVO);
 
+//    //멤버별 카드
+//    MemberVO myCartPage(String memId);
+
 }

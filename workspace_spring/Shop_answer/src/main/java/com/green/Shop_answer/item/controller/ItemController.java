@@ -29,4 +29,9 @@ public class ItemController {
         return itemService.cate1List(cateNum);
     }
 
+    @GetMapping("/cartList/{memId}")
+    public ItemVO cartList(@PathVariable("memId")String memId){
+        return itemService.cartList(memId);
+    }
+
 }

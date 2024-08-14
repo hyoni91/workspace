@@ -15,4 +15,5 @@ public class ItemVO {
     private int cateCode;
     private CategoryVO category;
     private List<ImgVO> imgList;
+    private List<CartVO> cartList;
 }

@@ -12,7 +12,10 @@
 }
 
 .detail-intro{
-  margin-top: 85px;
+  /* margin-top: 85px; */
+  /* border: 1px solid red; */
+  align-self: center;
+  
 }
 
 .detail-intro > button{
@@ -37,7 +40,13 @@
   text-align: center;
 }
 
+.detail-mainimg{
+  align-self: center;
+  width: 550px;
+}
+
 .detail-footer-img{
   text-align: center;
   margin-top: 25px;
 }
+

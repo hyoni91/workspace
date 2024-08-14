@@ -4,14 +4,16 @@
   width: 100vw;
   height: 100vh;
   font-size: 17px;
+  /* background-color: lightgrey; */
 }
 
 /* 로그인과 조인 글자  */
 .login-div{
-  width: 68%;
+  /* width: 68%; */
+  width: 100%;
   margin: auto;
   color: rgb(0, 0, 0);
-  /* background-color: #ffffff; */
+  /* background-color: #916767; */
 }
 
 /* 로그인과 조인 글자 */
@@ -69,6 +71,7 @@
   height: 100%;
   /* border: 1px solid red; */
   margin: 0px auto;
+  /* background-color: rgb(238, 234, 229); */
 }
 
 span:hover, button:hover, select:hover{
@@ -175,3 +178,23 @@ input:focus, select:focus{
   font-weight: bold;
   font-size: 1.1rem;
 }
+
+.login-content{
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+/* 리액트 아이콘 */
+
+/* 장바구니 */
+.icon{
+  width: 50px;
+}
+
+.logout-icon, .anmin-icon{
+  margin-top: 4px;
+}
+

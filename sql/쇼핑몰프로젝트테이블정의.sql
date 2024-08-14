@@ -24,6 +24,10 @@ CREATE TABLE SHOP_MEMBER(
 
 SELECT * FROM shop_member;
 
+UPDATE shop_member
+SET MEM_ROLE = 'ADMIN'
+WHERE MEM_ID = 'kook111';
+
 
 -- 2) 상품 카테고리 테이블
 CREATE TABLE ITEM_CATEGORY (
@@ -31,8 +35,11 @@ CREATE TABLE ITEM_CATEGORY (
 	,CATE_NAME VARCHAR(50) NOT NULL UNIQUE 
 );
 
-SELECT * FROM ITEM_CATEGORY;
+SELECT * FROM item_category;
 
+INSERT INTO item_category VALUES (1, '인터넷/IT');
+INSERT INTO item_category VALUES (2, '소설/에세이');
+INSERT INTO item_category VALUES (3, '자기계발');
 
 -- 3) 상품 정보 테이블
 -- ITEM_STATUS (상품 상태) : FOR_SALE(판매중) , SOLD_OUT(매진) 
@@ -46,11 +53,24 @@ CREATE TABLE SHOP_ITEM (
 	,CATE_CODE INT NOT NULL REFERENCES ITEM_CATEGORY(CATE_CODE)
 );
 
-SELECT * FROM SHOP_ITEM;
+SELECT * FROM shop_item;
+
+INSERT INTO shop_item(
+ITEM_NAME
+,ITEM_PRICE
+,ITEM_INTRO
+,CATE_CODE
+) VALUES(
+'마션'
+,23000
+,'인생 최고의 시간이 될 줄 알았던 한 달이 겨우 엿새 만에 악몽으로 바뀌어버렸다!
+'
+,2
+);
+
 
 SELECT MEM_ID
 FROM SHOP_MEMBER
  WHERE MEM_ID= 'tata';
  
 
-INSET INTO item_category VALUES (1, '인터넷/IT')

@@ -34,5 +34,21 @@ sales_info(
   ,'010-111-1111'
   ,'화이트'
   ,6
-  )
-
+  );
+  
+  SELECT 
+  C.MODEL_NAME
+  ,C.PRICE
+  FROM car_info C, sales_info S
+  WHERE C.MODEL_NUM = S.MODEL_NUM;
+  
+  SELECT
+  BUYER
+  , BUYER_TEL
+  , S_DATE
+  , COLOR
+  , C.MODEL_NAME
+  , C.PRICE
+  FROM car_info C, sales_info S
+  WHERE C.MODEL_NUM = S.MODEL_NUM;
+  
