@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './ItemDetail.css'
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-const ItemDetail = ({loginInfo}) => {
+const ItemDetail = () => {
   const {itemCode} = useParams();
-  console.log(loginInfo)
+  const navegate = useNavigate()
   
   const [bookDetail, setBookDetail] = useState({
     itemCode:'',
@@ -60,6 +60,8 @@ const ItemDetail = ({loginInfo}) => {
     })
   },[])
   
+
+  //memId는 새로고침 하면 id가 풀리기 때문에 session데이터로 가져옴
   //cart에 관한 변수와 함수
   //사실장 useRef는 필요가 없음
   const itemCnt = useRef(1);
@@ -67,12 +69,11 @@ const ItemDetail = ({loginInfo}) => {
     {
       cartCnt : 1,
       itemCode : itemCode,
-      memId : loginInfo.memId
+      memId : JSON.parse(window.sessionStorage.getItem('loginInfo')).memId 
     }
 );
 
-// console.log(cart)
-
+  console.log(cart)
   const onChangeCnt = e =>{
     setCart({
       ...cart,
@@ -82,16 +83,20 @@ const ItemDetail = ({loginInfo}) => {
 
   function cartInput(){
     if(window.confirm('장바구니에 담을까요?')){
-      axios.post("/api_member/cartInsert", cart)
+      axios.post("/api_cart/cartInsert", cart)
       .then((res)=>{
-        console.log(res.data)
+        const result = window.confirm('쇼핑을 계속하겠습니까?')
+        
+        //취소 선택하면 장바구니 목록페이지로 이동
+        if(!result){
+          navegate('/my_cart_page')
+        }
       })
       .catch((error)=>{
         console.log(error)
       })
     }
   }
-
 
 
   return (
@@ -106,7 +111,7 @@ const ItemDetail = ({loginInfo}) => {
           <p>{bookDetail.itemPrice.toLocaleString()}원</p>
           <div>
             수량
-            <input type='number' min={1} max={10} readOnly ref={itemCnt} name='cartCnt' defaultValue={1} onChange={(e)=>{onChangeCnt(e)}}/>
+            <input type='number' min={1} max={10}  ref={itemCnt} name='cartCnt' defaultValue={1} onChange={(e)=>{onChangeCnt(e)}}/>
           </div>
           <div>
             총가격

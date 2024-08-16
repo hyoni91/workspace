@@ -63,6 +63,10 @@ CREATE TABLE ANSWER_ITEM_IMG (
 SELECT * FROM answer_item_img;
 SELECT * FROM answer_shop_item;
 
+SELECT ATTACHED_FILE_NAME 
+FROM answer_item_img
+WHERE IS_MAIN = 'Y'
+AND ITEM_CODE = 9;
 
 -- 5) 장바구니 정보 테이블
 
@@ -82,12 +86,13 @@ DELETE FROM answer_shop_cart;
 -- ---------장바구니 관련 쿼리 ---------------
 
 -- 장바구니 목록 테이블 조회
-SELECT ATTACHED_FILE_NAME, ITEM_NAME , ITEM_PRICE ,CART_CNT, CART_DATE
+SELECT IMG.ATTACHED_FILE_NAME, ITEM_NAME , ITEM_PRICE ,CART_CNT, CART_DATE , CART_CODE , C.ITEM_CODE,CART_CODE
 FROM answer_item_img IMG , answer_shop_item I, ANSWER_SHOP_CART C , answer_shop_member M
-WHERE C.MEM_ID = M.MEM_ID
-AND C.ITEM_CODE = I.ITEM_CODE = IMG.ITEM_CODE
-AND IMG.IS_MAIN = 'Y'
-AND C.MEM_ID = 'koya';
+WHERE C.ITEM_CODE = I.ITEM_CODE 
+AND C.MEM_ID = M.MEM_ID 
+AND IMG.ITEM_CODE = C.ITEM_CODE
+AND IMG.IS_MAIN = 'Y'  
+AND C.MEM_ID = 'mang';
 
 
 -- 장바구니 수량 변경
@@ -103,7 +108,7 @@ WHERE CART_CODE = 9;
 
 
 
-
+SELECT DATE_FORMAT(CART_DATE, '%Y년%m월%d일') FROM answer_shop_cart;
 
 
 

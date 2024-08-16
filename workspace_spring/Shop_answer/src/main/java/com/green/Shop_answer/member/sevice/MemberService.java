@@ -1,7 +1,6 @@
 package com.green.Shop_answer.member.sevice;
 
 
-import com.green.Shop_answer.item.vo.CartVO;
 import com.green.Shop_answer.item.vo.ItemVO;
 import com.green.Shop_answer.member.vo.MemberVO;
 
@@ -20,11 +19,5 @@ public interface MemberService {
 
     //상품 목록 리스트
     List<ItemVO> itemList();
-
-//    //장바구니 담기
-    void cartInsert(CartVO cartVO);
-
-//    //멤버별 카드
-//    MemberVO myCartPage(String memId);
 
 }

@@ -22,13 +22,6 @@ const Cate1 = () => {
     },[cateNum])
     
 
-    // if(cateNum == 1){
-    //   return (<>인터넷/IT</>)
-    // }else if(cateNum == 2){
-    //   return (<>소설/에세이</>)
-    // } else{
-    //   return (<>자기계발</>)
-    // }
   
   useEffect(()=>{
     axios.get(`/api_item/cate1List/${cateNum}`)

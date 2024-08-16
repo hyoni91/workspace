@@ -1,22 +1,57 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './MyCartPage.css'
 import { BsCart4 } from "react-icons/bs";
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
-const MyCartPage = ({loginInfo}) => {
-const [myCart,setMyCart] = useState({})
-console.log(myCart)
+const MyCartPage = () => {
+  const navigate = useNavigate()
+  const memId = JSON.parse(window.sessionStorage.getItem('loginInfo')).memId 
+  const [myCart,setMyCart] = useState([])
 
-  useEffect(()=>{
-    axios.get(`/api_item/cartList/${loginInfo.memId}`)
+  //checkbox
+  const [chk, setChk] = useState([])
+  const [chkAll , setChkAll] = useState(true)
+
+ 
+
+
+useEffect(()=>{
+  axios.get(`/api_cart/cartList/${memId}`)
+  .then((res)=>{
+    setMyCart(res.data)
+
+    //조회한 개수만큼 chk 배열에 true 저장
+    const length = res.data.length
+    const chkarr =[]
+    console.log(length)
+    res.data.forEach((e , i)=>{
+      chkarr.push(true)
+      
+    })
+  
+    setChk(chkarr)
+
+    
+  })
+  .catch(()=>{})
+},[])
+
+
+function goDelete(cartCode){
+  const result = window.confirm('정말로 삭제하시겠습니까?')
+    axios.delete(`/api_cart/cartDelete/${cartCode}`)
     .then((res)=>{
-      setMyCart(res.data)
+      if(result){
+      alert('삭제되었습니다.')
+      navigate('/my_cart_page')
+      }
     })
     .catch((error)=>{
       console.log(error)
     })
-  },[])
+}
 
   return (
     <div className='cartpage'>
@@ -24,19 +59,19 @@ console.log(myCart)
       <div className='cart-content'>
         <table className='cart-table'>
           <colgroup>
-            <col width={'10%'}/>
-            <col width={'10%'}/>
+            <col width={'5%'}/>
+            <col width={'5%'}/>
             <col width={'*'}/>
             <col width={'10%'}/>
-            <col width={'10%'}/>
-            <col width={'10%'}/>
-            <col width={'10%'}/>
-            <col width={'10%'}/>
+            <col width={'8%'}/>
+            <col width={'15%'}/>
+            <col width={'18%'}/>
+            <col width={'15%'}/>
           </colgroup>
           <thead>
             <tr>
               <td>No</td>
-              <td><input className='cart-chkbox' type='checkbox'/></td>
+              <td><input className='cart-chkbox'  type='checkbox' checked={chkAll}/></td>
               <td>상품 정보</td>
               <td>가격</td>
               <td>수량</td>
@@ -47,22 +82,44 @@ console.log(myCart)
           </thead>
           <tbody>
             {
-              myCart == null ?
+              myCart.length == 0 ?
               <tr>
                 <td colSpan={'8'}>현재 등록 된 상품이 없습니다.</td>
               </tr>
               :
-                  <tr>
-                    <td>{myCart.itemName}</td>
-                    <td>{myCart.itemName}</td>
-                    <td>{myCart.itemName}</td>
-                    <td>{myCart.itemPrice}</td>
-                    <td></td>
-                  </tr>
-
+              myCart.map((cart,i)=>{
+                return(
+                <tr key={i}>
+                  <td>{i+1}</td>
+                  <td><input type='checkbox' checked={chk[i]} className='cart-chkbox' onChange={(e)=>{
+                    const copyChk = [...chk];
+                    copyChk[i] = !copyChk[i];
+                    setChk(copyChk);
+                  }} /></td>
+                  <td className='carttd'>
+                  <img className='cartimg' src={(`http://localhost:8080/upload/${cart.item.imgList[0].attachedFileName}`)}/>
+                    <span>{cart.item.itemName}</span>
+                    </td>
+                  <td>{cart.item.itemPrice.toLocaleString()}원</td>
+                  <td>{cart.cartCnt}</td>
+                  <td>{(cart.item.itemPrice*cart.cartCnt).toLocaleString()}원
+                    </td>
+                  <td>{cart.cartDate}</td>
+                  <td><button  className='delete-btn' type='button' onClick={()=>{goDelete(cart.cartCode) }}>삭제</button></td>
+                </tr>
+                )
+              })
             }
           </tbody>
         </table>
+        <div className='cartPrice'>
+          <h5>총 금액</h5>
+          <p>얼마얼마</p>
+          </div>
+        <div className='cart-btn'>
+          <button>선택삭제</button>
+          <button>선택구매</button>
+        </div>
       </div>
     </div>
   )

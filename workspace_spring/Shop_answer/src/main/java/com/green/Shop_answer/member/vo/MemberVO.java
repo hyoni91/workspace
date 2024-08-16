@@ -1,6 +1,5 @@
 package com.green.Shop_answer.member.vo;
 
-import com.green.Shop_answer.item.vo.CartVO;
 import com.green.Shop_answer.item.vo.ItemVO;
 import lombok.Data;
 
@@ -17,6 +16,5 @@ public class MemberVO {
     private String addrDetail;
     private String memEmail;
     private String memRole;
-    private List<CartVO> cartList;
-//    private List<ItemVO> itemList;  //item으로 옮김
+    private List<ItemVO> itemList;
 }

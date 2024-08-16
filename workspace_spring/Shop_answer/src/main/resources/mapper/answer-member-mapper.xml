@@ -13,7 +13,6 @@
         <result column="ADDR_DETAIL" property="addrDetail" />
         <result column="MEM_EMAIL" property="memEmail" />
         <result column="MEM_ROLE" property="memRole" />
-<!--        <collection property="cartList" resultMap="cart" />-->
         <collection property="itemList" resultMap="answerItemMapper.item" />
     </resultMap>
 
@@ -62,18 +61,7 @@
         AND MEM_PW = #{memPw}
     </select>
 
-    <!-- 장바구니 -->
-    <insert id="cartInsert">
-        INSERT INTO ANSWER_SHOP_CART(
-         CART_CNT
-        ,ITEM_CODE
-        ,MEM_ID
-        )VALUES(
-        #{cartCnt}
-        ,#{itemCode}
-        ,#{memId}
-        )
-    </insert>
+
 
 </mapper>
 

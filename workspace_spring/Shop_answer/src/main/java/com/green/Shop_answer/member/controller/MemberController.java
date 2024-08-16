@@ -1,6 +1,5 @@
 package com.green.Shop_answer.member.controller;
 
-import com.green.Shop_answer.item.vo.CartVO;
 import com.green.Shop_answer.item.vo.ItemVO;
 import com.green.Shop_answer.member.sevice.MemberService;
 import com.green.Shop_answer.member.vo.MemberVO;
@@ -33,7 +32,6 @@ public class MemberController {
 
     }
 
-
     @PostMapping("/login")
     public MemberVO login(@RequestBody MemberVO memberVO){
         //로그인 정보 없으면 빈값 (null뜸) --> 리액트는 빈 값
@@ -46,12 +44,5 @@ public class MemberController {
         return memberService.itemList();
     }
 
-
-    //장바구니 담기
-    @PostMapping("/cartInsert")
-    public void cartInsert(@RequestBody CartVO cartVO){
-        System.out.println(cartVO);
-        memberService.cartInsert(cartVO);
-    }
 
 }

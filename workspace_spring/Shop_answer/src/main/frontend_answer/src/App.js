@@ -54,6 +54,7 @@ function App() {
     }
   },[])
 
+
   return (
     <div className="container">
       <div className='login-div'>
@@ -107,8 +108,8 @@ function App() {
             <Route path='join' element={<Join />}/>
             <Route path='loginForm' element={<Login setLoginInfo={setLoginInfo} loginInfo={loginInfo} />}/>
             <Route path='cate1List/:cateNum' element={<Cate1 />} />
-            <Route path='book_detail/:itemCode' element={<ItemDetail loginInfo={loginInfo} />}/>
-            <Route path='my_cart_page' element={<MyCartPage loginInfo={loginInfo}/>}/>
+            <Route path='book_detail/:itemCode' element={<ItemDetail />}/>
+            <Route path='my_cart_page' element={<MyCartPage />}/>
           </Route>
 
           {/* admin route */}
