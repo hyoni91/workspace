@@ -14,30 +14,22 @@ const MyCartPage = () => {
   const [chk, setChk] = useState([])
   const [chkAll , setChkAll] = useState(true)
 
- 
-
-
 useEffect(()=>{
   axios.get(`/api_cart/cartList/${memId}`)
   .then((res)=>{
     setMyCart(res.data)
-
     //조회한 개수만큼 chk 배열에 true 저장
-    const length = res.data.length
-    const chkarr =[]
-    console.log(length)
-    res.data.forEach((e , i)=>{
-      chkarr.push(true)
-      
-    })
-  
+    //조회된 자바구니 목록만큼 체크박스의 값을 설정
+    let chkarr = new Array(res.data.length)
+    //한번에 같은 값 넣기
+    chkarr.fill(true)
     setChk(chkarr)
-
-    
   })
   .catch(()=>{})
 },[])
 
+// console.log(chk)
+// console.log(chkAll)
 
 function goDelete(cartCode){
   const result = window.confirm('정말로 삭제하시겠습니까?')
@@ -51,6 +43,24 @@ function goDelete(cartCode){
     .catch((error)=>{
       console.log(error)
     })
+}
+
+//체크박스 mount, update시 변경!!!
+useEffect(()=>{
+  if(chk.length != 0){
+    const copyChks = [...chk]
+    if(chkAll){
+      copyChks.fill(true)
+    }else{
+      copyChks.fill(false)
+    }
+    setChk(copyChks)
+  }
+},[chkAll])
+
+// chkAll의 체크여부에 따른 체크박스 변경함수
+function changeChkAll(e){
+  setChkAll(!chkAll) 
 }
 
   return (
@@ -71,7 +81,8 @@ function goDelete(cartCode){
           <thead>
             <tr>
               <td>No</td>
-              <td><input className='cart-chkbox'  type='checkbox' checked={chkAll}/></td>
+              <td><input className='cart-chkbox'  type='checkbox' checked={chkAll}
+              onChange={(e)=>{changeChkAll(e)}}/></td>
               <td>상품 정보</td>
               <td>가격</td>
               <td>수량</td>
@@ -80,7 +91,7 @@ function goDelete(cartCode){
               <td></td>
             </tr>
           </thead>
-          <tbody>
+          <tbody className='cart-tbody'>
             {
               myCart.length == 0 ?
               <tr>
@@ -92,6 +103,7 @@ function goDelete(cartCode){
                 <tr key={i}>
                   <td>{i+1}</td>
                   <td><input type='checkbox' checked={chk[i]} className='cart-chkbox' onChange={(e)=>{
+                    // 스프레드 연산자....???
                     const copyChk = [...chk];
                     copyChk[i] = !copyChk[i];
                     setChk(copyChk);

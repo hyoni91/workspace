@@ -2,7 +2,6 @@
 .cart-content{
   width: 90%;
   margin:18px auto;
-
 }
 
 .cart-table{
@@ -13,21 +12,22 @@
 .cart-table > thead{
   border-top: 1px solid lightgrey;
   border-bottom: 4px double lightgrey;
-  
 }
 
 .cart-table tr,td {
   padding: 10px;
-  /* border: 1px solid red; */
-  
+}
+
+.cart-table tr{
+  border-bottom: 1px solid lightgray;
 }
 
 .cart-table > tbody tr:nth-child(even){
- 
+  background-color: rgb(239, 242, 245);
 }
 
 .cart-chkbox{
-  width: 15px;
+  width: 30px;
 }
 
 .cartimg{

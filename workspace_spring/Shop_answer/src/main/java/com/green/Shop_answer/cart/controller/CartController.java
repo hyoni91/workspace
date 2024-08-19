@@ -19,7 +19,7 @@ public class CartController {
     //장바구니 담기
     @PostMapping("/cartInsert")
     public void cartInsert(@RequestBody CartVO cartVO){
-        System.out.println(cartVO);
+        System.out.println("=====================" + cartVO);
         cartService.cartInsert(cartVO);
     }
 

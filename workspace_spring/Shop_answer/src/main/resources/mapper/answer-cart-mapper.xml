@@ -15,7 +15,16 @@
 
 
         <!-- 장바구니 -->
-        <insert id="cartInsert">
+
+
+    <insert id="cartInsert">
+            <if test='itemCode != ""'>
+                UPDATE answer_shop_cart SET
+                CART_CNT = CART_CNT+#{cartCnt}
+                WHERE ITEM_CODE = #{itemCode}
+                AND MEM_ID = #{memId}
+            </if>
+
             INSERT INTO ANSWER_SHOP_CART(
             CART_CNT
             ,ITEM_CODE
