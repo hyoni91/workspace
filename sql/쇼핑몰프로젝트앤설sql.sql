@@ -79,7 +79,18 @@ CREATE TABLE ANSWER_SHOP_CART(
 );
 
 
-SELECT * FROM ANSWER_SHOP_CART;
+SELECT * FROM answer_shop_cart;
+
+
+SELECT ITEM_CODE FROM answer_shop_cart 
+WHERE MEM_ID = 'koya'
+AND ITEM_CODE = 10;
+
+UPDATE answer_shop_cart SET
+CART_CNT = CART_CNT+1
+WHERE ITEM_CODE= 9
+AND MEM_ID = 'koya';
+
 DELETE FROM answer_shop_cart;
 
 
