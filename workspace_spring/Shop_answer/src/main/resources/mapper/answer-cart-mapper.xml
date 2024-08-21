@@ -18,13 +18,14 @@
 
 
     <insert id="cartInsert">
-            <if test='itemCode != ""'>
-                UPDATE answer_shop_cart SET
-                CART_CNT = CART_CNT+#{cartCnt}
-                WHERE ITEM_CODE = #{itemCode}
-                AND MEM_ID = #{memId}
-            </if>
-
+        <choose>
+        <when test='itemCode !=null'>
+            UPDATE answer_shop_cart SET
+            CART_CNT = CART_CNT+#{cartCnt}
+            WHERE ITEM_CODE = #{itemCode}
+            AND MEM_ID = #{memId}
+        </when>
+        <otherwise>
             INSERT INTO ANSWER_SHOP_CART(
             CART_CNT
             ,ITEM_CODE
@@ -34,7 +35,11 @@
             ,#{itemCode}
             ,#{memId}
             )
-        </insert>
+        </otherwise>
+
+        </choose>
+
+    </insert>
 
 
         <!-- 멤버별 장바구니 -->

@@ -14,7 +14,7 @@ function SalesInfo() {
     modelNum :'',
     buyer:'',
     buyerTel:'',
-    color:''
+    color:'블랙'
 
   })
 
@@ -82,7 +82,9 @@ function SalesInfo() {
         <span>연락처</span>
         <input type='text' name='buyerTel' onChange={(e)=>{getSalesInfo(e)}}/>
       </div>
-      <button type='button' onClick={()=>{ regSaleInfo(saleInfo)}}>판매등록</button>
+      <div className='salesinfo-bnt'>
+        <button type='button' onClick={()=>{ regSaleInfo(saleInfo)}}>판매등록</button>
+      </div>
     </div>
   )
 }

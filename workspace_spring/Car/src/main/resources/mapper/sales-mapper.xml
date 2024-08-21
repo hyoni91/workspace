@@ -31,7 +31,7 @@
         SELECT
         BUYER
         , BUYER_TEL
-        , S_DATE
+        , DATE_FORMAT(S_DATE, '%y-%m-%d %H:%i') AS S_DATE
         , COLOR
         , C.MODEL_NAME
         , C.PRICE

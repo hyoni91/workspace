@@ -11,7 +11,8 @@ ul{
   justify-content: space-around;
   align-items: center;
   height: 80px;
-  background-color: #201E43;
+  /* background-color: #201E43; */
+  background-color: black;
   color: white;
   font-weight: 500;
   font-size: 1.1rem;
@@ -114,6 +115,10 @@ input,select{
   
 }
 
+.carInfoTable{
+  margin: 100px auto;
+}
+
 .carInfoTable > thead{
   border-bottom: 10px double;
   background-color: #4a45a7;
@@ -126,18 +131,25 @@ input,select{
 }
 
 .carInfoTable > tbody:nth-child(odd){
-  background-color: #c9c7fc;
+  background-color: #ccccd8;
 }
 
 
 /* SalesInfo css */
 .sales-content{
+  width: 50%;
+  margin: 50px auto;
   /* text-align: center; */
   /* margin: auto; */
   /* border: 8px solid red; */
 }
 
-.sales-content> div{
+.sales-content > h3{
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+}
+
+.sales-content> div {
   margin-bottom: 20px;
 /* border: 8px solid red; */
 
@@ -156,15 +168,47 @@ input,select{
   width: 700px;
 }
 
+.salesinfo-bnt{
+  width: 100%;
+  margin-top: 50px;
+  /* border: 1px solid red; */
+
+  text-align: center;
+}
+
+.salesinfo-bnt > button{
+  width: 150px;
+  padding: 10px;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 10px;
+  border: none;
+  background-color: #0a0841;
+  color: white;
+  cursor: pointer;
+}
+
+.salesinfo-bnt > button:hover{
+  background-color: #07053a;
+  color: rgb(230, 228, 228);
+
+}
+
 /* 판매목록 */
 
 .listContent{
-  margin: 20px 20px;
-  border: 1px solid black;
- 
+  margin: 20px auto;
 }
 
 .saleListTable{
+  margin: auto;
+  text-align: center;
+  width: 90%;
+  border: 1px solid black;
+}
+
+.saleListTable > thead , .saleListTable td{
   text-align: center;
   /* border: 1px solid black; */
 }
+

@@ -22,6 +22,15 @@ function SaleList() {
   return (
     <div className='listContent'>
       <table className='saleListTable'>
+        {/* <colgroup>
+          <col width={'8%'}/>
+          <col width={'15%'}/>
+          <col width={'30%'}/>
+          <col width={'20%'}/>
+          <col width={'15%'}/>
+          <col width={'15%'}/>
+          <col width={'*'}/>
+        </colgroup> */}
         <thead >
           <tr>
             <td rowSpan={'2'}>No</td>
@@ -50,11 +59,11 @@ function SaleList() {
               <tr key={i}>
                 <td>{i+1}</td>
                 <td>{sale.buyer}</td>
-                <td>{sale.buyerTell}</td>
+                <td>{sale.buyerTel}</td>
                 <td>{sale.sdate}</td>
                 <td>{sale.color}</td>
                 <td>{sale.carVO.modelName}</td>
-                <td>{sale.carVO.price}</td>
+                <td>{sale.carVO.price.toLocaleString()}원</td>
               </tr>
               )
             })

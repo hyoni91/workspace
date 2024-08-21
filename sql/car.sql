@@ -52,3 +52,4 @@ sales_info(
   FROM car_info C, sales_info S
   WHERE C.MODEL_NUM = S.MODEL_NUM;
   
+DELETE FROM sales_info WHERE SALES_NUM = 4;

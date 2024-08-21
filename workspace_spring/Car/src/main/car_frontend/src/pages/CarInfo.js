@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import * as c_api from '../apis/c_apis'
 import { useNavigate } from 'react-router-dom'
 
@@ -14,7 +14,7 @@ function CarInfo() {
     madelName : '',
     price : 0
   })
-  console.log(regCar)
+
 
   //차량 목록
   useEffect(()=>{
@@ -39,11 +39,16 @@ function CarInfo() {
   //등록버튼
   function goInsert(){
     c_api.postInfo(regCar)
-    .then((res)=>{
-      setRegCar({
-        getRegInfo:''
-      })
+    .then((res)=>
+      {
       navigate('/carinfo')
+      setRegCar({
+        brand: '현대',
+        modelName: '',
+        price: 0
+      })
+
+      
     })
     .catch((error)=>{
       alert('error!')
@@ -74,7 +79,7 @@ function CarInfo() {
           </div>
           <button className='carinfo-btn' onClick={()=>{goInsert(regCar)}}>등록하기</button>
         </div>
-        <h3>차량 목록</h3>
+        {/* <h3>차량 목록</h3> */}
         <table className='carInfoTable'>
         <thead>
           <tr>

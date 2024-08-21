@@ -54,18 +54,49 @@ SELECT * FROM dept;
 
 SELECT EMPNO, ENAME, SAL, COMM
 FROM emp
-WHERE SAL <= 500 AND SAL > 300 AND COMM IS NOT NULL; 
+WHERE COMM IS NOT NULL
+AND SAL >= 500 OR SAL > 3000; 
 
 -- 사원들 중 이름이 ‘기’로 끝나기나, ‘김’이 들어가는 사원들의 사번, 이름, 입사일을 조회하되, 
 -- 사번기준 내림차순 정렬하여 조회하는 쿼리문을 작성하세요.
 
 SELECT EMPNO, ENAME, HIREDATE
 FROM emp
-WHERE ENAME LIKE  '%기'OR '%김%' 
+WHERE ENAME LIKE  '%기' 
+OR ENAME LIKE '%김%'
 ORDER BY EMPNO DESC; 
 
 
+-- 1월에 입사한 모든 사원의 사번, 이름, 입사일, 커미션을 입사일 기준 오름차순으로 조회하는 쿼리문을 작성하세요. 
+-- 단, 커미션이 NULL일 경우 커미션은 0으로 조회되어야 한다.
+
+SELECT EMPNO, ENAME, HIREDATE, IFNULL(COMM,0) AS COMM
+FROM emp
+WHERE MONTH(HIREDATE) = 1
+ORDER BY HIREDATE;
+
+-- 부서별로 그룹지어서 부서별 급여의 합과 급여의 평균, 커미션의 평균을 조회하는 쿼리문을 작성하여라. 
+-- 단 조회는 부서별 급여의 총합이 큰 순서대로 조회되어야 한다.
+
+SELECT DEPTNO, SUM(SAL) AS 총급여 , AVG(SAL) AS 평균, AVG(COMM) 커미션평균
+FROM emp
+GROUP BY deptNO;
+
+-- 서브쿼리를 사용하여 부서명이 ‘인사부’인 사원의 사번, 이름, 입사일, 급여, 부서번호, 부서명을 조회하는 
+-- 쿼리문을 작성해보자
+
+SELECT E.EMPNO , ENAME, HIREDATE, SAL, E.DEPTNO, DNAME
+FROM emp E, dept D
+WHERE DNAME = (SELECT DNAME FROM dept WHERE DNAME='인사부');
 
 
+-- . 조인을 사용하여 부서명이 ‘인사부’가 아니고 급여가 500이상인 
+-- 사원의 사번, 이름, 입사일, 급여, 부서번호, 부서명을 조회하는 쿼리문을 작성해보자.
+-- 단, 정렬은 사번 기준 내림차순으로 정렬 후 사원 이름 기준 오름차순으로 정렬한다
 
-
+SELECT E.EMPNO, ENAME, HIREDATE, SAL, D.DEPTNO, DNAME
+FROM emp E, dept D
+WHERE E.DEPTNO = D.DEPTNO
+AND D.DNAME != '인사부'
+AND SAL >= 500
+ORDER BY E.EMPNO DESC , ENAME ASC ;
