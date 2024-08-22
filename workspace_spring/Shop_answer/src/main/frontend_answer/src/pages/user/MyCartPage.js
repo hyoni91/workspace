@@ -69,8 +69,8 @@ function changeChkAll(e){
       <div className='cart-content'>
         <table className='cart-table'>
           <colgroup>
-            <col width={'5%'}/>
-            <col width={'5%'}/>
+            <col width={'3%'}/>
+            <col width={'3%'}/>
             <col width={'*'}/>
             <col width={'10%'}/>
             <col width={'8%'}/>
@@ -101,7 +101,7 @@ function changeChkAll(e){
               myCart.map((cart,i)=>{
                 return(
                 <tr key={i}>
-                  <td>{i+1}</td>
+                  <td><span>{i+1}</span></td>
                   <td><input type='checkbox' checked={chk[i]} className='cart-chkbox' onChange={(e)=>{
                     // 스프레드 연산자....???
                     const copyChk = [...chk];
@@ -113,7 +113,7 @@ function changeChkAll(e){
                     <span>{cart.item.itemName}</span>
                     </td>
                   <td>{cart.item.itemPrice.toLocaleString()}원</td>
-                  <td>{cart.cartCnt}</td>
+                  <td><input type='number' value={cart.cartCnt}/></td>
                   <td>{(cart.item.itemPrice*cart.cartCnt).toLocaleString()}원
                     </td>
                   <td>{cart.cartDate}</td>
@@ -126,7 +126,7 @@ function changeChkAll(e){
         </table>
         <div className='cartPrice'>
           <h5>총 금액</h5>
-          <p>얼마얼마</p>
+          <p>1000000</p>
           </div>
         <div className='cart-btn'>
           <button>선택삭제</button>

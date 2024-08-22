@@ -2,6 +2,7 @@
 .cart-content{
   width: 90%;
   margin:18px auto;
+  font-size: 1rem;
 }
 
 .cart-table{
@@ -31,7 +32,7 @@
 }
 
 .cartimg{
-  width: 100px;
+  width:70px;
 }
 
 .carttd{
@@ -39,7 +40,6 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-  /* border: 1px solid black; */
 }
 
 .cartPrice{
@@ -53,7 +53,6 @@
 
 .cartPrice p {
   margin-bottom: 10px;
-
 }
 
 .cart-btn{
@@ -71,3 +70,15 @@
   width: 80px;
   padding: 5px
 }
+
+.cart-table input{
+  width: 50px;
+}
+
+/* .cart-table  tr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+  width: 1200px;
+} */
