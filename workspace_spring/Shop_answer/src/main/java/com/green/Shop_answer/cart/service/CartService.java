@@ -5,7 +5,8 @@ import com.green.Shop_answer.cart.vo.CartVO;
 import java.util.List;
 
 public interface CartService {
-     //장바구니 담기
+
+    //장바구니 담기
     void cartInsert(CartVO cartVO);
 
     //장바구니 목록

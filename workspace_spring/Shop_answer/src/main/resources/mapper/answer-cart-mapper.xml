@@ -14,18 +14,25 @@
         </resultMap>
 
 
-        <!-- 장바구니 -->
-
-
-    <insert id="cartInsert">
-        <choose>
-        <when test='itemCode !=null'>
-            UPDATE answer_shop_cart SET
-            CART_CNT = CART_CNT+#{cartCnt}
+        <!-- 장바구니 등록 여부 -->
+        <select id="checkCart" resultType="Integer">
+            SELECT CART_CODE
+            FROM answer_shop_cart
             WHERE ITEM_CODE = #{itemCode}
             AND MEM_ID = #{memId}
-        </when>
-        <otherwise>
+        </select>
+
+        <!-- 장바구니 수정 -->
+        <update id="update">
+            UPDATE answer_shop_cart
+            SET CART_CNT = CART_CNT+#{cartCnt}
+            ,CART_DATE = NOW()
+            WHERE ITEM_CODE = #{itemCode}
+            AND MEM_ID = #{memId}
+        </update>
+
+        <!-- 장바구니 등록 -->
+        <insert id="cartInsert">
             INSERT INTO ANSWER_SHOP_CART(
             CART_CNT
             ,ITEM_CODE
@@ -35,16 +42,12 @@
             ,#{itemCode}
             ,#{memId}
             )
-        </otherwise>
-
-        </choose>
-
-    </insert>
+         </insert>
 
 
         <!-- 멤버별 장바구니 -->
         <select id="cartList" resultMap="cart">
-            SELECT ATTACHED_FILE_NAME, ITEM_NAME , ITEM_PRICE ,CART_CNT, DATE_FORMAT(CART_DATE, '%Y-%m-%d') AS CART_DATE, CART_CODE
+            SELECT ATTACHED_FILE_NAME, ITEM_NAME , ITEM_PRICE ,CART_CNT, DATE_FORMAT(CART_DATE, '%Y-%m-%d %h:%s') AS CART_DATE, CART_CODE
             FROM answer_item_img as IMG , answer_shop_item I, ANSWER_SHOP_CART C , answer_shop_member M
             WHERE C.MEM_ID = M.MEM_ID
             AND C.ITEM_CODE = I.ITEM_CODE

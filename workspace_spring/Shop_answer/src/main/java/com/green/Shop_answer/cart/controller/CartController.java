@@ -16,7 +16,7 @@ public class CartController {
     @Resource(name = "cartService")
     private CartService cartService;
 
-    //장바구니 담기
+    //장바구니 등록
     @PostMapping("/cartInsert")
     public void cartInsert(@RequestBody CartVO cartVO){
         System.out.println("=====================" + cartVO);
