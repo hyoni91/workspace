@@ -20,6 +20,8 @@ import MyCartPage from './pages/user/MyCartPage';
 import { BsCart4 } from "react-icons/bs";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import { MdOutlineManageHistory } from "react-icons/md";
+import Calendar from 'react-calendar';
+import Caltest from './pages/admin/Caltest';
 
 
 
@@ -120,6 +122,7 @@ function App() {
             <Route path='sale_history_month' element={<SaleHistoryOfMonth />}/>
             <Route path='search_user' element={<SearchUser />}/>
             <Route path='record_month' element={<RecordOfMonth />}/>
+            <Route path='test' element={<Caltest />}/>
           </Route>
 
         </Routes>
