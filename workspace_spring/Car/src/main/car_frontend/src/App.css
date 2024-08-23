@@ -12,7 +12,7 @@ ul{
   align-items: center;
   height: 80px;
   /* background-color: #201E43; */
-  background-color: black;
+  background-color: #1E2A5E;
   color: white;
   font-weight: 500;
   font-size: 1.1rem;
@@ -28,7 +28,7 @@ li:hover{
   width: 100%;
   object-fit: cover;
   object-position: center center;
-  opacity: 0.9;
+  opacity: 0.8;
   position: relative;
 }
 
@@ -66,7 +66,7 @@ input, select{
 .title-h3{
   /* background-color: #508C9B; */
   text-align: center;
-  margin-bottom: 10px;
+  margin: 10px 0px;
   padding: 5px;
 }
 
@@ -96,7 +96,7 @@ input,select{
 
 .carinfo-btn{
   border: none;
-  background-color: #201E43;
+  background-color: #1E2A5E;
   color: white;
   border-radius: 10px;
   padding: 10px;
@@ -104,7 +104,7 @@ input,select{
 
 .carinfo-btn:hover{
   cursor: pointer;
-  background-color:#0a0841;
+  background-color:#1a2863;
   color: rgb(211, 211, 211);
 }
 
@@ -116,7 +116,7 @@ input,select{
 }
 
 .carInfoTable{
-  margin: 100px auto;
+  margin: 20px auto;
 }
 
 .carInfoTable > thead{
@@ -130,18 +130,20 @@ input,select{
   text-align: center;
 }
 
-.carInfoTable > tbody:nth-child(odd){
-  background-color: #ccccd8;
+.carInfoTable > tbody:nth-child(even){
+  background-color:  #babadd;
 }
 
 
 /* SalesInfo css */
+
+h3{
+  text-align: center;
+}
+
 .sales-content{
   width: 50%;
   margin: 50px auto;
-  /* text-align: center; */
-  /* margin: auto; */
-  /* border: 8px solid red; */
 }
 
 .sales-content > h3{
@@ -151,8 +153,6 @@ input,select{
 
 .sales-content> div {
   margin-bottom: 20px;
-/* border: 8px solid red; */
-
 }
 
 .sales-content> div> span{
@@ -161,7 +161,6 @@ input,select{
   text-align: left;
   font-size: 1.4rem;
   margin-left: 10px;
-  /* border: 1px solid blue; */
 }
 
 .sales-input{
@@ -171,8 +170,6 @@ input,select{
 .salesinfo-bnt{
   width: 100%;
   margin-top: 50px;
-  /* border: 1px solid red; */
-
   text-align: center;
 }
 
@@ -183,13 +180,13 @@ input,select{
   text-align: center;
   border-radius: 10px;
   border: none;
-  background-color: #0a0841;
+  background-color: #1E2A5E;
   color: white;
   cursor: pointer;
 }
 
 .salesinfo-bnt > button:hover{
-  background-color: #07053a;
+  background-color:#1a2863;
   color: rgb(230, 228, 228);
 
 }
@@ -203,8 +200,19 @@ input,select{
 .saleListTable{
   margin: auto;
   text-align: center;
-  width: 90%;
-  border: 1px solid black;
+  width: 80%;
+}
+
+
+.saleListTable > thead{
+  border-bottom: 10px double;
+  background-color: #4a45a7;
+  text-align: center;
+  color: white;
+}
+
+.saleListTable > tbody{
+  border: 1px solid;
 }
 
 .saleListTable > thead , .saleListTable td{
@@ -212,3 +220,6 @@ input,select{
   /* border: 1px solid black; */
 }
 
+.saleListTable > tbody  tr:nth-child(even){
+  background-color:  #babadd;
+}
