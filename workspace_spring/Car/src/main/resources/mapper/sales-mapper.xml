@@ -36,7 +36,8 @@
         , C.MODEL_NAME
         , C.PRICE
         FROM car_info C, sales_info S
-        WHERE C.MODEL_NUM = S.MODEL_NUM;
+        WHERE C.MODEL_NUM = S.MODEL_NUM
+        ORDER BY S_DATE DESC
     </select>
 
 </mapper>
