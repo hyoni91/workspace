@@ -1,5 +1,4 @@
 
-
 -- 환자 정보
 CREATE TABLE MEDICAL_MEMBER(
 	MEM_NUM INT PRIMARY KEY AUTO_INCREMENT
@@ -9,15 +8,9 @@ CREATE TABLE MEDICAL_MEMBER(
 	,MEM_ROLE VARCHAR(30) DEFAULT('USER')
 );
 
-
-DROP TABLE medical_dept;
-DROP TABLE medical_doctor;
-DROP TABLE medical_schedule;
-
 CREATE TABLE medical_dept(
 	DEPT_NUM INT PRIMARY KEY AUTO_INCREMENT
 	,DEPT_NAME VARCHAR(30) NOT NULL
-	
 );
 
 -- 의료진
@@ -39,7 +32,31 @@ CREATE TABLE MEDICAL_schedulE(
 	,SCH_STATUS VARCHAR(10) DEFAULT('Y')
 );
 
+-- ----------------------------------------------------------------------------------------------
 
-UPDATE medical_doctor
-SET DOC_NAME = '정다영'
-WHERE DOC_NUM = 12;
+SELECT * FROM MEDICAL_schedulE;
+SELECT * FROM medical_member;
+SELECT * FROM medical_dept;
+
+-- -----------------------------------------------------------------------------------------------
+
+
+-- 예약을 위한 테이블 수정 제안 (20240826 아직 create안 함)
+CREATE TABLE MEDICAL_SCHEDULE(
+	SCH_NUM INT PRIMARY KEY AUTO_INCREMENT
+	,DOC_NUM INT REFERENCES MEDICAL_DOCTOR(DOC_NUM) ON DELETE CASCADE
+	,MEM_NUM INT REFERENCES MEDICAL_MEMBER(MEM_NUM) ON DELETE CASCADE
+	,REG_DATE DATETIME DEFAULT CURRENT_TIMESTAMP -- 접수날짜
+	,SCH_DATE DATE NOT NULL -- 예약날짜 년월일
+	,SCH_TIME TIME NOT NULL -- 예약 날짜 시간
+	,DETAIL VARCHAR(100)
+	,SCH_STATUS VARCHAR(10) DEFAULT('Y')  -- ('confirmed', 'pending', 'cancelled') DEFAULT 'pending',
+);
+
+-- 예약이 겹치는지 확인하는 쿼리  제안 (20240826 )
+SELECT  1 -- 2???
+FROM Appointments
+WHERE DOC_NUM = ?  -- 예약하려는 의사 ID
+AND SCH_DATE = ?  -- 예약하려는 날짜
+AND SCH_TIME = ?  -- 예약하려는 시간
+LIMIT 1; -- 2?????

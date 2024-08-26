@@ -103,9 +103,13 @@ ORDER BY SUM(SAL) DESC;
 -- 서브쿼리를 사용하여 부서명이 ‘인사부’인 사원의 사번, 이름, 입사일, 급여, 부서번호, 부서명을 조회하는 
 -- 쿼리문을 작성해보자
 
-SELECT E.EMPNO , ENAME, HIREDATE, SAL, E.DEPTNO, DNAME
-FROM emp E, dept D
-WHERE DNAME = (SELECT DNAME FROM dept WHERE DNAME='인사부');
+
+
+SELECT EMPNO, ENAME, HIREDATE, SAL, DEPTNO, (SELECT DNAME FROM dept WHERE DNAME ='인사부') AS DNAME
+FROM emp
+WHERE DEPTNO = (SELECT DEPTNO FROM dept WHERE DNAME = '인사부') ;
+
+
 
 
 -- . 조인을 사용하여 부서명이 ‘인사부’가 아니고 급여가 500이상인 
