@@ -11,6 +11,7 @@ import Update from './pages/Update';
 import Joincopy from './pages/Join copy';
 import { useEffect, useState } from 'react';
 import ReplyFrom from './pages/ReplyFrom';
+import Graph from './pages/Graph';
 
 function App() {
   //로그인 여부 state변수
@@ -58,6 +59,8 @@ function App() {
         <Route path='/update' element={<Update />}/>
         <Route path='/replyFrom/:boardNum' element={<ReplyFrom getLoginInfo={getLoginInfo}/>}/>
         <Route path='/boardUpdate/:boardNum' element={<Update/>}/>
+        {/* 그래프 연습페이지 */}
+        <Route path='/graph_test' element={<Graph />}/>
       </Routes>
     
       

@@ -62,6 +62,8 @@ const ItemDetail = () => {
   
 
   //memId는 새로고침 하면 id가 풀리기 때문에 session데이터로 가져옴
+  const memID = JSON.parse(window.sessionStorage.getItem('loginInfo'))
+  console.log(window.sessionStorage.getItem('loginInfo'))
   //cart에 관한 변수와 함수
   //사실장 useRef는 필요가 없음
   const itemCnt = useRef(1);
@@ -69,7 +71,7 @@ const ItemDetail = () => {
     {
       cartCnt : 1,
       itemCode : itemCode,
-      memId : JSON.parse(window.sessionStorage.getItem('loginInfo')).memId 
+      memId : memID ? memID: '' 
     }
 );
 

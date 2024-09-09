@@ -1,0 +1,130 @@
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.graph-container{
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid red; */
+  height: 100vh;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 590;
+  background-color: #FAFBFE;
+
+}
+
+.graph-headerr{
+  height:120px;
+  text-align: center;
+  color: black;
+}
+
+.graph-header{
+  display: flex;
+  width: 97%;
+  gap: 50px;
+}
+
+.header-content{
+  width: 45%;
+  display: grid;
+  grid-template-columns: repeat(2,50%); 
+  gap: 15px;
+}
+
+.header-content > div{
+  color: #6C757D;
+  height:170px;
+  padding:31px;
+  background-color: #FFFFFF;
+  box-shadow: 0 3px 6px #FAFBFE, 0 3px 6px rgba(99, 99, 99, 0.23);
+}
+
+.header-graph{
+  width: 52%;
+  background-color: #FFFFFF;
+  box-shadow: 0 3px 6px #FAFBFE, 0 3px 6px rgba(99, 99, 99, 0.23);
+  color: #6C757D;
+}
+
+.graph-mainbar > div{
+  /* background-color:#2E3542; */
+  background-color:#F5FAFE;
+  /* color:white; */
+  color:#6C757D;
+  width: 25%;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.graph-content{
+  display: flex;
+  width: 97%;
+  gap: 50px;
+  margin-top: 50px;
+}
+
+.graph-div{
+  width: 60%;
+  height: 550px;
+  background-color: #FFFFFF;
+  box-shadow: 0 3px 6px #FAFBFE, 0 3px 6px rgba(99, 99, 99, 0.23);
+}
+
+
+.graph-table{
+  /* border: 1px solid; */
+  width: 870px;
+  background-color: #FFFFFF;
+  box-shadow: 0 3px 6px #FAFBFE, 0 3px 6px rgba(99, 99, 99, 0.23);
+}
+
+.graph-table > thead{
+  font-family: 'Pretendard-Regular';
+  background-color: #FFFFFF;
+  color: rgb(24, 1, 1);
+  border: none;
+  background-color: lightblue;
+}
+
+.graph-table > tbody{
+  border: none;
+}
+
+
+
+.icon-span > i{
+  font-size: 30px;
+}
+
+.header-content p{
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+}
+
+.header-content div > span:nth-child(2){
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+
+.weather-div{
+  width: 40%;
+  height: 400px;
+  background-color: #FFFFFF;
+  box-shadow: 0 3px 6px #FAFBFE, 0 3px 6px rgba(99, 99, 99, 0.23);
+}
+
+.graph-weather{
+  width: 60%;
+  height: 400px;
+  background-color: #FFFFFF;
+  box-shadow: 0 3px 6px #FAFBFE, 0 3px 6px rgba(99, 99, 99, 0.23);
+  margin-bottom: 50px;
+}
