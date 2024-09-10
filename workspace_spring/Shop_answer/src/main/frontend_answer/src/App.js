@@ -124,7 +124,6 @@ function App() {
             <Route path='sale_history_month' element={<SaleHistoryOfMonth />}/>
             <Route path='search_user' element={<SearchUser />}/>
             <Route path='record_month' element={<RecordOfMonth />}/>
-            <Route path='test2' element={<KakaoTest />}/>
           </Route>
 
         </Routes>
