@@ -20,11 +20,6 @@ import MyCartPage from './pages/user/MyCartPage';
 import { BsCart4 } from "react-icons/bs";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import { MdOutlineManageHistory } from "react-icons/md";
-import Calendar from 'react-calendar';
-import Caltest from './pages/admin/Caltest';
-import KakaoTest from './pages/projectTest/KakaoTest';
-
-
 
 
 
@@ -113,7 +108,7 @@ function App() {
             <Route path='cate1List/:cateNum' element={<Cate1 />} />
             <Route path='book_detail/:itemCode' element={<ItemDetail />}/>
             <Route path='my_cart_page' element={<MyCartPage />}/>
-            <Route path='test' element={<KakaoTest />} />
+            {/* <Route path='test' element={<KakaoTest />} /> */}
           </Route>
 
           {/* admin route */}
@@ -124,6 +119,7 @@ function App() {
             <Route path='sale_history_month' element={<SaleHistoryOfMonth />}/>
             <Route path='search_user' element={<SearchUser />}/>
             <Route path='record_month' element={<RecordOfMonth />}/>
+            {/* <Route path='test2' element={<KakaoTest />}/> */}
           </Route>
 
         </Routes>
