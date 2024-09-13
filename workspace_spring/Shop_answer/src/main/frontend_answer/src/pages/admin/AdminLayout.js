@@ -8,6 +8,7 @@ const AdminLayout = () => {
   const [isShow2, setIsShow2] = useState(false)
   const [isShow3, setIsShow3] = useState(false)
 
+
   return (
     <div className='admin-menu'>
       <div className='header-userpage'>
@@ -98,11 +99,11 @@ const AdminLayout = () => {
                   <li onClick={()=>{
                     navigate('/admin/search_user')
                     setIsShow2(false)
-                  }}>유저검색</li>
-                  <li onClick={()=>{
-                    navigate('/admin')
+                  }}>유저정보관리</li>
+                  {/* <li onClick={()=>{
+                    navigate(`/admin/UserInfo/:mem`)
                     setIsShow2(false)
-                  }}>유저정보변경</li>
+                  }}>유저정보변경</li> */}
                   <li onClick={()=>{
                     navigate('/admin')
                     setIsShow2(false)

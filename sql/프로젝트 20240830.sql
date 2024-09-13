@@ -10,15 +10,17 @@ DROP TABLE PATIENT_CHART;
 SELECT * FROM medical_dept;
 SELECT * FROM medical_doctor;
 SELECT * FROM medical_member;
-SELECT * FROM medical_schedule;
+SELECT * FROM medical_schedule ORDER BY SCH_DATE DESC;
 SELECT * FROM patient_chart;
 SELECT * FROM DOCTOR_IMG;
-SELECT * FROM USER_BOARD;
+SELECT * FROM user_board;
+SELECT * FROM patient_chart;
+
+-- 과거(오늘기준) 예약 삭제
+DELETE FROM medical_schedule WHERE SCH_DATE < CURRENT_DATE();
 
 DELETE FROM  medical_doctor WHERE doc_name = '다롱이';
 -- --------------------------------------------------------------------
-
-
 
 -- 2024-08-30
 -- DROP TABLE medical_schedule;
@@ -67,11 +69,32 @@ CREATE TABLE PATIENT_CHART(
 	,DOC_NUM VARCHAR(20) REFERENCES medical_doctor(DOC_NUM) ON DELETE CASCADE
    ,MEM_NUM VARCHAR(20) REFERENCES medical_member(MEM_NUM) ON DELETE CASCADE
    ,DEPT_NUM INT REFERENCES medical_dept(DEPT_NUM) ON DELETE CASCADE -- 진료과 번호 조인
-	,SYMPTOM VARCHAR(200) NOT NULL 
-	,CHECK_UP VARCHAR(200)
-	,DISEASE VARCHAR(100)
-	,PRESCRIPTION VARCHAR(200)
+	,SYMPTOM VARCHAR(200) NOT NULL -- 증상 
+	,CHECK_UP VARCHAR(200) -- 검사
+	,DISEASE VARCHAR(100) -- 병명
+	,PRESCRIPTION VARCHAR(200) -- 처방
 );
+
+INSERT INTO patient_chart(
+	DOC_NUM
+	,MEM_NUM
+	,DEPT_NUM
+	,SYMPTOM
+	,CHECK_UP
+	,DISEASE
+	,PRESCRIPTION
+) VALUES(
+	'DOC_00005'
+	,'CTL_00001'
+	,5
+	,'가슴이 조여요'
+	,'X-RAY'
+	,'없음'
+	,'OOO 7일분'
+);
+
+
+SELECT * FROM patient_chart WHERE MEM_NUM = 'CTL_00001';
 
 
 
@@ -132,4 +155,12 @@ BOARD_NUM INT AUTO_INCREMENT PRIMARY KEY
 , CREATE_DATE DATETIME DEFAULT CURRENT_TIMESTAMP
 , MEM_NUM VARCHAR(20) REFERENCES medical_member(MEM_NUM)
 );
+
+
+-- 환자 정보만
+
+SELECT * FROM medical_member 
+WHERE MEM_NUM LIKE '%CTL%' 
+AND MEM_NAME LIKE '%유%';
+
 

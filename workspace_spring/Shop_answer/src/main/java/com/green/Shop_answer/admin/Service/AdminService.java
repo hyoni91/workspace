@@ -1,7 +1,9 @@
 package com.green.Shop_answer.admin.Service;
 
+import com.green.Shop_answer.admin.vo.SearchVO;
 import com.green.Shop_answer.item.vo.CategoryVO;
 import com.green.Shop_answer.item.vo.ItemVO;
+import com.green.Shop_answer.member.vo.MemberVO;
 
 import java.util.List;
 
@@ -18,4 +20,10 @@ public interface AdminService {
 
     //다음에 들어갈 item_code 조회
     int getNextItemCode();
+
+    //모든 유저 정보
+    List<MemberVO> memberSelect(SearchVO searchVO);
+
+    //한 유저의 상세정보
+    MemberVO userInfo(String memId);
 }

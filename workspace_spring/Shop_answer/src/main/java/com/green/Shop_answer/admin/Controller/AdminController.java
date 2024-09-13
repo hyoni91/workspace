@@ -2,9 +2,11 @@ package com.green.Shop_answer.admin.Controller;
 
 
 import com.green.Shop_answer.admin.Service.AdminService;
+import com.green.Shop_answer.admin.vo.SearchVO;
 import com.green.Shop_answer.item.vo.CategoryVO;
 import com.green.Shop_answer.item.vo.ImgVO;
 import com.green.Shop_answer.item.vo.ItemVO;
+import com.green.Shop_answer.member.vo.MemberVO;
 import com.green.Shop_answer.util.FileUploadUtil;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
@@ -72,5 +74,17 @@ public class AdminController {
         adminService.insertImgs(itemVO);
     }
 
+    //모든 유저 정보조회
+    @PostMapping("/selectAllUser")
+    List<MemberVO> selectAllUser(@RequestBody SearchVO searchVO){
+        System.out.println("============================="+ searchVO);
+        return  adminService.memberSelect(searchVO);
+    }
+
+    //유저 상세 정보
+    @GetMapping("/userInfo/{memId}")
+    MemberVO userInfo(@PathVariable("memId") String memId){
+        return adminService.userInfo(memId);
+    }
 }
 

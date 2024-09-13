@@ -61,6 +61,18 @@
         AND MEM_PW = #{memPw}
     </select>
 
+    <select id="memselect" resultMap="member">
+        SELECT * FROM ANSWER_SHOP_MEMBER
+        <if test='searchValue != null and !searchValue.equals("")'>
+            WHERE MEM_ID LIKE CONCAT ('%',#{searchValue},'%')
+        </if>
+    </select>
+
+    <select id="userInfo" resultMap="member">
+        SELECT * FROM ANSWER_SHOP_MEMBER
+        WHERE MEM_ID = #{memID}
+    </select>
+
 
 
 </mapper>
