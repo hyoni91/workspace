@@ -77,7 +77,7 @@ export const joinValidate = (newData, valid_tag,tagName) => {
   
   // ()의 데이터가 들어가 있는 확인
   //false가 들어가면 리턴 ture 
-   console.log(!resultArr.includes(false))
+    console.log(!resultArr.includes(false))
   return  !resultArr.includes(false)
   
 }
