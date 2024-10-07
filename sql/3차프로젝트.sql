@@ -92,19 +92,12 @@ INSERT INTO PRODUCTS(
 );
 
 INSERT INTO order_requests(
-	REQUEST_NUM
-	,PRODUCT_NUM
+	PRODUCT_NUM
 	,QUANTITY
 	,CUSTOMER_NUM
 ) VALUES(
-	15
-	,3
-	,40
-	,12
-),VALUES(
-	15
-	,3
-	,10
+	3
+	,100
 	,12
 );
 
@@ -242,5 +235,41 @@ SET ORDER_STATUS = '배송완료'
 WHERE ORDER_NUM = 5;
 
 
+-- --------------------------------------------
+UPDATE ORDERS
+SET ORDER_STATUS = '배송중'
+WHERE ORDER_NUM = 5;
 
 
+UPDATE delivery
+SET DELIVERY_STATUS = '배송중'
+WHERE ORDER_NUM = 5;
+
+
+ SELECT C.CUSTOMER_NAME
+ 			,C.CUSTOMER_OWNER
+ 			,C.CUSTOMER_TEL
+ 			,O.ORDER_NUM
+        ,O.ORDER_DATE
+        ,P.PRODUCT_NAME
+        ,R.QUANTITY
+        , P.PRODUCT_PRICE
+        ,(P.PRODUCT_PRICE * QUANTITY) AS PRODUCT_PRICE
+        ,O.ORDER_STATUS
+        FROM order_requests R , products P , orders O, customers C
+        WHERE O.REQUEST_NUM = R.REQUEST_NUM
+        AND C.CUSTOMER_NUM = R.CUSTOMER_NUM
+        AND R.REQUEST_NUM = 16;
+
+
+INSERT INTO delivery(
+	ORDER_NUM
+	,DELIVERY_DRIVER_NAME
+	,DELIVERY_DRIVER_PHONE
+	,DELIVERY_ADDRESS
+) VALUES(
+	10
+	,'김배달'
+	,'010-1234-0000'
+	,'울산 남구 갈밭로 7'
+);
