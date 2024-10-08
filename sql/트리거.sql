@@ -1,3 +1,5 @@
+
+
 -- 트리거를 사용하여 발주 테이블에 주문이 들어오면 수주테이블에 자동 저장
 
 DROP TRIGGER order_orderRequest_update;
@@ -28,3 +30,6 @@ END; //
 			
 DELIMITER;			
 order_orderRequest_update_cancel
+
+
+DROP TRIGGER 트리거 이름
