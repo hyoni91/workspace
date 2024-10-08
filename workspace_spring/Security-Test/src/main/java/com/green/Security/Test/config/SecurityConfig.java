@@ -19,8 +19,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 // 세션방식 : 서버에 로그인한 사람의 정보를 다 들어가있음/ 요청되면 요청된 키와 서버의 장부안에서 비교후 인증 (세션스토리지랑다른거임)
 // jwt토큰방식 : Json Web Token(암호화된 문자열)
 
-
-
 //이 클래스에서 시큐리티의 인증 및 인가에 대한 설명
 @Configuration  //클래읏에 대한 객체 생성 어노테이션
 @EnableWebSecurity //해당 클래스가 Security 설정 클래스임을 인지
@@ -43,7 +41,6 @@ public class SecurityConfig {
     public AuthenticationManager getAuthenticationManager(AuthenticationConfiguration configuration) throws Exception{
         return configuration.getAuthenticationManager();
     }
-
 
 
     //인증 및 인가에대한 설정을 진행하는 메서드
