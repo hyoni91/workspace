@@ -25,11 +25,15 @@ SELECT * FROM CHART_MEDICINE;
 -- 마지막 차트 번호 조회
 SELECT MAX(CHART_NUM) AS CHART_NUM FROM patient_chart;
 
+
+
 -- 과거(오늘기준) 예약 삭제
 DELETE FROM medical_schedule WHERE SCH_DATE < CURRENT_DATE();
-DELETE FROM  medical_doctor WHERE doc_name = '다롱이';
+
+
 -- --------------------------------------------------------------------
 
+-- 회원 정보(환자)
 CREATE TABLE medical_member(
   MEM_NUM VARCHAR(20) PRIMARY KEY
   ,MEM_NAME VARCHAR(20) NOT NULL
@@ -38,7 +42,7 @@ CREATE TABLE medical_member(
   ,MEM_ROLE VARCHAR(30) DEFAULT('USER')
 );
 
--- 20240830 의료진
+-- 의료진 정보
 CREATE TABLE MEDICAL_DOCTOR(
   DOC_NUM VARCHAR(20) PRIMARY KEY 
   ,DOC_NAME VARCHAR(20) NOT NULL
@@ -47,6 +51,7 @@ CREATE TABLE MEDICAL_DOCTOR(
 );
 
 
+-- 예약 정보
 CREATE TABLE MEDICAL_SCHEDULE(
         SCH_NUM INT PRIMARY KEY AUTO_INCREMENT -- 예약 번호(PK)
         ,DOC_NUM VARCHAR(20) REFERENCES medical_doctor(DOC_NUM) ON DELETE CASCADE -- 의료진 테이블 조인

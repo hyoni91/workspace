@@ -73,7 +73,7 @@ INSERT INTO CUSTOMERS(
 INSERT INTO CATEGORY(
 	CATE_NAME
 ) VALUES(
-	'의약품'
+	'주사용품'
 );
 
 
@@ -84,11 +84,11 @@ INSERT INTO PRODUCTS(
 	,STOCK
 	,DETAIL
 ) VALUES(
-	'경동아스피린장용정'
-	,2
-	,2000
-	,300
-	,'심혈관질환 및 혈전 예방약'
+	'일회용 주사기'
+	,4
+	,3000
+	,500
+	,'일회용 주사기 60cc'
 );
 
 INSERT INTO order_requests(
@@ -96,9 +96,9 @@ INSERT INTO order_requests(
 	,QUANTITY
 	,CUSTOMER_NUM
 ) VALUES(
-	3
-	,100
-	,12
+	4
+	,30
+	,13
 );
 
 
@@ -124,6 +124,20 @@ SELECT * FROM INVENTORY;
 SELECT * FROM delivery;
 
 DELETE FROM INVENTORY;
+
+-- 해당 제품의 stock이 있는 지 확인
+SELECT current_stock 
+FROM inventory
+WHERE product_num = 3;
+
+-- 배송대기 중인 상품의 수량 합계 
+SELECT SUM(QUANTITY)
+FROM order_requests r , orders o
+WHERE r.REQUEST_NUM = o.REQUEST_NUM
+and PRODUCT_NUM = 3
+AND o.ORDER_STATUS = '배송대기';
+
+
 
 
 DELETE FROM INVENTORY 
@@ -152,11 +166,11 @@ INSERT INTO inventory(
  ,INCOMING_QTY
  ,OUTGOING_QTY
 ) VALUES(
-	3
-	,3
-	,'경동아스피린장용정'
-	,300
-	,300
+	4
+	,4
+	,'일회용 주사기'
+	,500
+	,500
 	,0
 	,0
 );
@@ -296,6 +310,21 @@ WHERE ORDER_NUM = 5;
         WHERE O.REQUEST_NUM = R.REQUEST_NUM
         AND C.CUSTOMER_NUM = R.CUSTOMER_NUM
         AND R.REQUEST_NUM = 16;
+
+
+SELECT
+        ORDER_NUM
+        ,P.PRODUCT_NUM
+        ,O.REQUEST_NUM
+        ,ORDER_DATE
+        ,ORDER_STATUS
+        ,C.CUSTOMER_NUM
+        ,C.CUSTOMER_NAME
+        ,(R.QUANTITY * P.PRODUCT_PRICE) as TOTALPRICE
+        FROM order_requests R, orders O , customers C, products P
+        WHERE O.REQUEST_NUM = R.REQUEST_NUM
+        AND R.CUSTOMER_NUM = C.CUSTOMER_NUM
+        AND R.PRODUCT_NUM = P.PRODUCT_NUM;
 
 
 INSERT INTO delivery(

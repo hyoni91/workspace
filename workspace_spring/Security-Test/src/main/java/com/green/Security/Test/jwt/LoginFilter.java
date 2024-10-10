@@ -1,17 +1,27 @@
 package com.green.Security.Test.jwt;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.green.Security.Test.vo.MemberVO;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletInputStream;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.tomcat.util.json.JSONParser;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.util.StreamUtils;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.Collection;
+import java.util.Iterator;
 
 /*
 security를 사용한 로그인은 먼저 UsernamePasswordAuthenticationFilter 클래스로부터 시작한다.(상속)
@@ -32,9 +42,13 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
     // 실제 로그인 검증을 실행하는 객체
     private final AuthenticationManager authenticationManager;
 
+    //JwtUtil 의존성 주입
+    private final JwtUtil jwtUtil;
+
     //기본 설정값을 변경시키기 위해 직접 생성자를 만들어 주었기 때문에 @RequiredArgsConstructor은 필요가 없다.
-    public LoginFilter(AuthenticationManager authenticationManager){
+    public LoginFilter(AuthenticationManager authenticationManager, JwtUtil jwtUtil){
         this.authenticationManager = authenticationManager;
+        this.jwtUtil = jwtUtil;
 
         //로그인 요청 경로 변경
         setFilterProcessesUrl("/member/login");
@@ -57,14 +71,36 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         //메서드가 실행되는지 확인
         log.info("LoginFilter클래스의 attemptAuthentication 실행");
 
-        //우리가 입력한 아이디, 비번 가져오기(임시코드)
-        String username = obtainUsername(request);
-        String password = obtainPassword(request);
-        log.info("입력받은 아이디 : {} , 입력받은 비밀번호: {}", username, password);
 
+        //아이디와 비번 받아오기
+        //리액트에서 전달되는 데이터는 JSON 타입으로 자바로 가져온다
+        //JSON 타입 : 자바스크립트의 개체를 문자열화 시킨 것
+        // 1. json 타입의 데이터를 자바의 클래스 형태로 변화시켜줄 객체 생성
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        //2번~3번은 예외처리를 해줘야함 (데이터가 안 넘어올 수도 있기 때문에)
+        MemberVO vo = null;
+        try {
+            // 2. 리액트에서 넘어오는 json 데이터 받기(문자열 형태라는 것!)
+            ServletInputStream inputStream = request.getInputStream(); //넘겨져 오는 모든 data
+            String messageBody = StreamUtils.copyToString(inputStream, StandardCharsets.UTF_8); //넘어온 data 중 body부분만 빼기
+
+            // 3. json 데이터를 MemberVO 형태로 변환 (messageBody 예시 => "{"memId":"kjs", "memPw" : "123" }"
+            vo = objectMapper.readValue(messageBody, MemberVO.class); // 위의 문자열을 MemberVO형태로 바꾸기! value만 빼오기! "kjs" "123" ,,
+        }catch (IOException e){
+            System.out.println("attemptAuthentication 메소드에서 json으로 넘어오는 로그인 정보 받기 실패");
+            e.printStackTrace(); //오류 원인 출력
+        }catch(Exception e){
+            //3번 코드가 오류난 경우
+            System.out.println("json으로 넘어오는 로그인 정보를 MemberVO 객체로 변환 중 예외 발생");
+            e.printStackTrace();
+        }
+
+
+        log.info("입력받은 아이디 : {} , 입력받은 비밀번호: {}", vo.getMemId(), vo.getMemPw());
 
         //아이디와 비밀번호를 AuthenticationManager클래스에 전달하는 보안이 좋은 통이 된다.
-        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(username,password, null);
+        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(vo.getMemId(),vo.getMemPw(), null);
         return authenticationManager.authenticate(authToken);
 
     }
@@ -74,11 +110,33 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
         log.info("로그인 성공");
 
+
+        //매개변수로 전달되는 Authentication authResult 이 객체에 로그인 성공한 회원 정보 다 있음
+        //토큰 생성을 위한 로그인한 회원의 아이디와 권한정보
+        //로그인한 회원 아이디
+        String userId = authResult.getName();
+        //로그인한 회원 권한정보
+        Collection<? extends GrantedAuthority> authorities = authResult.getAuthorities();
+        Iterator<? extends GrantedAuthority> iterator = authorities.iterator();
+        GrantedAuthority auth = iterator.next();
+        String role = auth.getAuthority();
+
+        //jwt 토큰 생성
+        String token = jwtUtil.createJwt(userId,role);
+
+        //생성한 토큰을 client의 헤더에 담아서 응답
+        //응답 헤더에는 key:value 형태로 데이터 추가
+        //Bearer : 뒤에 오는 문자열이 jwt 토큰 형태임을 알려준다.
+        //"Authorization" : "Bearer 토큰"
+        response.setHeader("Authorization","Bearer "+ token );
+        response.setStatus(HttpStatus.OK.value()); //200 Status를 반환해 준다. (성공했을때)
+
     }
 
     // 로그인 실패 시 실행되는 메서드
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
         log.info("로그인 실패");
+        response.setStatus(401); //인증 실패 Status반환
     }
 }
