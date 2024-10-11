@@ -21,7 +21,7 @@ const Login = () => {
     axios.post(`/member/login`, loginData)
     .then((res)=>{
       console.log(res)
-      alert('어세오세요!')
+      alert('✨🎉🎊🎇🎆')
       navigate('/')
     })
     .catch((error)=>{

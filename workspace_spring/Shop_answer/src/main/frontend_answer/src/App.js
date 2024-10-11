@@ -94,7 +94,7 @@ function App() {
           <div>
             <img className='banner-img' src='http://localhost:8080/images/book_banner.jpg' />
           </div>
-          <div className='title-div'>뭐뭐뭐뭐뭐뭐뭐</div>
+          <div className='title-div'></div>
         </div>
         
       </div>
