@@ -21,6 +21,8 @@ SELECT * FROM patient_chart;
 SELECT * FROM MEDICINE;
 SELECT * FROM CHART_MEDICINE;
 
+SHOW CREATE TABLE  medical_schedule;
+
 
 -- 마지막 차트 번호 조회
 SELECT MAX(CHART_NUM) AS CHART_NUM FROM patient_chart;
@@ -83,7 +85,6 @@ CREATE TABLE MEDICINE(
 );
 
 
-
 CREATE TABLE CHART_MEDICINE(
 	C_M_NUM INT AUTO_INCREMENT PRIMARY KEY
 	, CHART_NUM INT REFERENCES patient_chart(CHART_NUM) ON DELETE CASCADE
@@ -108,7 +109,7 @@ FROM medical_member M , medical_dept E, medical_doctor D, medical_schedule S
 WHERE S.MEM_NUM = M.MEM_NUM
 AND S.DEPT_NUM = D.DEPT_NUM 
 AND S.DEPT_NUM = E.DEPT_NUM
-AND SCH_NUM = 1;
+AND SCH_NUM = 80;
 
 -- -------------------------------------------
 

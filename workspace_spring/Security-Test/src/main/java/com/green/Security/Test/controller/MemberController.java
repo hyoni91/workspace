@@ -19,6 +19,7 @@ public class MemberController {
     private final MemberService memberService;
     private final PasswordEncoder passwordEncoder;
 
+
     @GetMapping("/loginForm")
     public String loginForm(){
         String name = "java";

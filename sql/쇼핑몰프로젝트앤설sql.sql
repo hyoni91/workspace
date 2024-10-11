@@ -7,6 +7,8 @@
 -- 5: 장바구니 정보 테이블
 -- 6: 구매 정보 테이블
 
+SHOW CREATE TABLE ANSWER_SHOP_CART;
+
 
 -- 1) 회원 정보 테이블
 -- 권한정보 : USER, ADMIN 

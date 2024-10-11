@@ -1,6 +1,7 @@
 package com.green.Security.Test.config;
 
 
+import com.green.Security.Test.jwt.JwtConfirmFilter;
 import com.green.Security.Test.jwt.JwtUtil;
 import com.green.Security.Test.jwt.LoginFilter;
 import lombok.RequiredArgsConstructor;
@@ -64,6 +65,10 @@ public class SecurityConfig {
         );
 
 
+        //LoginFilter 앞에 JwtConfirmFilter를 추가
+        httpSecurity.addFilterBefore(new JwtConfirmFilter(jwtUtil), LoginFilter.class);
+
+
         //LoginFilter클래스를 Filter에 추가
         //필터를 어디에 추가할 지는 두번째 매개변수에서 지정
         httpSecurity.addFilterAt(new LoginFilter(getAuthenticationManager(configuration),jwtUtil), UsernamePasswordAuthenticationFilter.class);
@@ -77,7 +82,11 @@ public class SecurityConfig {
                                 "/member/loginForm",
                                 "/member/joinForm",
                                 "/member/join",
-                                "/member/login").permitAll() // [/] 요청은 누구나 접근 가능
+                                "/member/login",
+                                "/test1").permitAll() // [/]요청은 누구나 접근 가능
+                        .requestMatchers("/test3").hasRole("USER") //인가 설정(해당 권한을 가진 회원만 접근가능)
+                        .requestMatchers("/test4").hasRole("ADMIN")
+                        .requestMatchers("/test5").hasAnyRole("ADMIN","MANAGER")
                         .anyRequest().authenticated() // 위의 요청 이외의 요청은 인증 후 접근 가능
         );
 
