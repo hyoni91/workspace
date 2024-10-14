@@ -84,10 +84,10 @@ public class SecurityConfig {
                                 "/member/join",
                                 "/member/login",
                                 "/test1").permitAll() // [/]요청은 누구나 접근 가능
-                        .requestMatchers("/test3").hasRole("USER") //인가 설정(해당 권한을 가진 회원만 접근가능)
-                        .requestMatchers("/test4").hasRole("ADMIN")
-                        .requestMatchers("/test5").hasAnyRole("ADMIN","MANAGER")
-                        .anyRequest().authenticated() // 위의 요청 이외의 요청은 인증 후 접근 가능
+                        .requestMatchers("/test3").hasAuthority("USER") //인가 설정(해당 권한을 가진 회원만 접근가능)
+                        .requestMatchers("/test4").hasAuthority("ADMIN")
+                        .requestMatchers("/test5").hasAnyAuthority("ADMIN","MANAGER")
+                        .anyRequest().authenticated() // 위의 요청 이외의 요청은 인증 후 접근 가능(test2가 해당 됨)
         );
 
         return httpSecurity.build();

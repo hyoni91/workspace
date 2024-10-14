@@ -56,3 +56,22 @@ input{
   margin-bottom: 8px;
   font-size: 14px;
 }
+
+.token-btn{
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  background-color:rgb(2, 184, 184);
+  color: white;
+  cursor: pointer;
+}
+
+.testbtn button{
+  margin-top: 5px;
+  padding: 8px;
+  width: 130px;
+  border: none;
+  background-color: rgb(102, 0, 146);
+  color: white;
+  cursor: pointer;
+}

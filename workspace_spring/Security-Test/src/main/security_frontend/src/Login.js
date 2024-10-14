@@ -22,10 +22,23 @@ const Login = () => {
     .then((res)=>{
       console.log(res)
       alert('✨🎉🎊🎇🎆')
+
+      //응답 헤더에 담긴 토큰을 localStorage에 저장
+      window.localStorage.setItem("Authorization" , res.headers.authorization)
       navigate('/')
+
     })
     .catch((error)=>{
-      console.log(error)
+      //오류 코드가 401이면 다시 로그인 
+      if(error.response.status == 401){
+        alert('다시 시도해 주세요.')
+        
+      }else{
+         //그 외의 오류 코드 발생 시 처리
+          console.log(error)
+      }
+      
+      
     })
   }
 

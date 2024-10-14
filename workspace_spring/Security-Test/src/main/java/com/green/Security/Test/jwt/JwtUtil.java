@@ -42,7 +42,7 @@ public class JwtUtil {
                 .claim("userId",userId)
                 .claim("role",role)
                 .issuedAt(new Date(System.currentTimeMillis())) //토큰 발행 시간(iat)
-                .expiration( new Date(System.currentTimeMillis() + (1000 * 60 * 60) )) //토큰의 유효기간(1000=1초)
+                .expiration( new Date(System.currentTimeMillis() + (1000 * 60 * 10) )) //토큰의 유효기간(1000=1초)
                 //시간 계산 (1000 * 60 * 60 * 24) 초 분 시간 일 로 계산하는게 편하다!
                 .compact();
     }
