@@ -1,7 +1,16 @@
 
+SELECT * FROM inventory;
 
-SELECT * FROM answer_shop_member;
+SELECT * FROM customers;
 
+INSERT INTO order_requests(
+	PRODUCT_NUM
+	,CUSTOMER_NUM
+	,QUANTITY
 
-SELECT * FROM answer_shop_member
-WHERE MEM_NAME LIKE '%테%';
+) VALUES(
+	2
+	,18
+	,600
+);
+

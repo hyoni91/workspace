@@ -15,13 +15,13 @@ SELECT * FROM medical_doctor;
 SELECT * FROM medical_member;
 SELECT * FROM medical_schedule ORDER BY SCH_DATE DESC;
 SELECT * FROM patient_chart;
-SELECT * FROM DOCTOR_IMG;
+SELECT * FROM doctor_img;
 SELECT * FROM user_board;
 SELECT * FROM patient_chart;
 SELECT * FROM MEDICINE;
 SELECT * FROM CHART_MEDICINE;
 
-SHOW CREATE TABLE  medical_schedule;
+SHOW CREATE TABLE temp_data;
 
 
 -- 마지막 차트 번호 조회
@@ -152,3 +152,18 @@ WHERE MEM_NUM LIKE '%CTL%'
 AND MEM_NAME LIKE '%유%';
 
 
+INSERT INTO medical_schedule(
+	DOC_NUM
+	,MEM_NUM
+	,DEPT_NUM
+	,SCH_DATE
+	,SCH_TIME
+	,DETAIL
+) VALUES(
+	'DOC_00001'
+	,'CTL_00001'
+	,1
+	,'2024-10-15'
+	,'10:00'
+	,'가슴에 멍울이 잡혀요'
+);
