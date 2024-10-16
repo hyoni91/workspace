@@ -20,6 +20,8 @@ const RegItem = () => {
     itemIntro: ''
   })
 
+  console.log(inputItem)
+
   //첨부파일을 저장할 변수 
   const [mainImg, setMainImg] = useState(null);
   const [subImg, setSubImg] = useState(null);
@@ -39,20 +41,21 @@ const RegItem = () => {
   //밸류값이 빈값인지 참조
   const itemName_Ref = useRef();
   const itemPrice_Ref = useRef();
+
   //onChange함수
   function handleItemInfo(e){
-    if(itemName_Ref.current.value=='' || itemPrice_Ref.current.value == 0){
-      setIsDisabled(true)
-    }else{
-      setIsDisabled(false)
+    // if(itemName_Ref.current.value=='' || itemPrice_Ref.current.value == 0){
+    //   setIsDisabled(true)
+    // }else{
+    //   setIsDisabled(false)
       setInputItem({
         ...inputItem,
         [e.target.name] : e.target.value
       })
-    }
+    // }
   }
 
-  //클릭시 등록 (쌤 insetItem)
+  //클릭시 등록 
   function getItemInfo(){
     //config를 변수로 선언해서 매개변수 넣어줌
     const fileConfig = {headers : {'Content-Type' : 'multipart/form-data'}}
@@ -82,11 +85,16 @@ const RegItem = () => {
       <div className='regItem'>
         <div>
           <span>상품 카테고리</span>
-          <select  className='category-select' name='cateCode'  onChange={(e)=>{handleItemInfo(e)}}>
+          <select  
+            className='category-select' 
+            name='cateCode'
+            onChange={(e)=>{handleItemInfo(e)}}>
             {
               categoryList.map((cate, i)=>{
                 return(
-                  <option value={cate.cateCode} key={i}>{cate.cateName}</option>
+                  <option value={cate.cateCode} key={i}>
+                    {cate.cateName}
+                  </option>
                 )
               })
             }
@@ -94,11 +102,21 @@ const RegItem = () => {
         </div>
         <div>
           <span>상품명</span>
-          <input className='regItem-input' type='text' name='itemName' ref={itemName_Ref}  onChange={(e)=>{handleItemInfo(e)}}/>
+          <input 
+            className='regItem-input' 
+            type='text' 
+            name='itemName'
+            ref={itemName_Ref}  
+            onChange={(e)=>{handleItemInfo(e)}}/>
         </div>
         <div>
           <span>상품가격</span>
-          <input type='text' className='regItem-input'  name='itemPrice' ref={itemPrice_Ref}  onChange={(e)=>{handleItemInfo(e)}}/>
+          <input 
+            type='text' 
+            className='regItem-input'  
+            name='itemPrice' 
+            ref={itemPrice_Ref}  
+            onChange={(e)=>{handleItemInfo(e)}}/>
         </div>
         <div>
           <span>상품소개</span>

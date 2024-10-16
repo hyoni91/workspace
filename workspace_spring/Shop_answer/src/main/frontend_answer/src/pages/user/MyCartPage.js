@@ -14,21 +14,31 @@ const MyCartPage = () => {
   const [chk, setChk] = useState([])
   const [chkAll , setChkAll] = useState(true)
 
+  //총금액
+  const [sum, setSum] = useState(0)
+
 useEffect(()=>{
   axios.get(`/api_cart/cartList/${memId}`)
   .then((res)=>{
     setMyCart(res.data)
+    let price = 0
+    console.log(res.data)
+    res.data.forEach((e,i)=>{
+      price = price + e.item.itemPrice*e.cartCnt
+    })
+
     //조회한 개수만큼 chk 배열에 true 저장
     //조회된 자바구니 목록만큼 체크박스의 값을 설정
     let chkarr = new Array(res.data.length)
     //한번에 같은 값 넣기
     chkarr.fill(true)
     setChk(chkarr)
+    setSum(price)
   })
   .catch(()=>{})
 },[])
 
-// console.log(chk)
+console.log(sum)
 // console.log(chkAll)
 
 function goDelete(cartCode){
@@ -126,7 +136,7 @@ function changeChkAll(e){
         </table>
         <div className='cartPrice'>
           <h5>총 금액</h5>
-          <p>1000000</p>
+          <p>{sum.toLocaleString()}원</p>
           </div>
         <div className='cart-btn'>
           <button>선택삭제</button>

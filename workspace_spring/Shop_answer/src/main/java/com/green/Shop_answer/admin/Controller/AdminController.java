@@ -62,7 +62,7 @@ public class AdminController {
 
         //----------itemVO 객체에 저장된 빈값의 정보를 전부 저장-------------------//
         //1. imgVO를 여러개 저장할 수 있는 List생성
-        List<ImgVO> imgList = new ArrayList<>();
+            List<ImgVO> imgList = new ArrayList<>();
         //2. imgList에 첨부된 이밎 정보 저장
         imgList.add(mainImgVO);
         imgList.add(subImgVO);
