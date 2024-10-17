@@ -32,4 +32,31 @@ DELIMITER;
 order_orderRequest_update_cancel
 
 
-DROP TRIGGER 트리거 이름
+DROP TRIGGER AFTER_INSERT_PRODUCTS;
+
+
+-- 최초 재고 등록
+CREATE TRIGGER AFTER_INSERT_PRODUCTS
+AFTER INSERT ON PRODUCTS
+FOR EACH ROW
+INSERT INTO INVENTORY (
+       CATE_NUM, 
+       PRODUCT_NUM, 
+       PRODUCT_NAME, 
+       STOCK_DATE,
+       INITIAL_STOCK, 
+       INCOMING_QTY, 
+       OUTGOING_QTY, 
+       CURRENT_STOCK
+   ) VALUES (
+       NEW.CATE_NUM,          
+       NEW.PRODUCT_NUM,       
+       NEW.PRODUCT_NAME,      
+       NOW(),           
+       NEW.STOCK,             
+       NEW.STOCK,             
+       0,                     
+       NEW.STOCK              
+   );
+
+

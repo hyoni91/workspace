@@ -9,7 +9,7 @@ INSERT INTO order_requests(
 	,QUANTITY
 
 ) VALUES(
-	1
+	4
 	,18
 	,600
 );
