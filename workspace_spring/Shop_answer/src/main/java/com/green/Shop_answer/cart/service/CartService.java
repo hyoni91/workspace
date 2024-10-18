@@ -13,5 +13,5 @@ public interface CartService {
     List<CartVO> cartList(String memId);
 
     //장바구니 삭제
-    void cartDelete(int cartCode);
+    void cartDelete(List<Integer> cartNumList);
 }

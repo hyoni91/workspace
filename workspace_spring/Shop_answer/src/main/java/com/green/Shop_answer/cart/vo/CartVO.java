@@ -13,4 +13,5 @@ public class CartVO {
     private String memId;
     private String cartDate;
     private ItemVO item;
+    private List<Integer> cartNumList;
 }

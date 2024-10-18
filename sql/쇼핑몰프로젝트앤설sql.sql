@@ -63,7 +63,7 @@ CREATE TABLE ANSWER_ITEM_IMG (
 );
 
 SELECT * FROM answer_item_img;
-SELECT * FROM answer_shop_item;
+SELECT * FROM ANSWER_SHOP_CART;
 
 SELECT ATTACHED_FILE_NAME 
 FROM answer_item_img

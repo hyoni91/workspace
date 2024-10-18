@@ -11,15 +11,17 @@ const MyCartPage = () => {
   const [myCart,setMyCart] = useState([])
 
   //checkbox
-  const [chk, setChk] = useState([])
-  const [chkAll , setChkAll] = useState(true)
+  const [chks, setChks] = useState([])
+  const [chkAll , setChkAll] = useState(false)
+  const [cartCode, setCartCode] = useState([])
 
   //총금액
   const [sum, setSum] = useState(0)
 
-useEffect(()=>{
+  useEffect(()=>{
   axios.get(`/api_cart/cartList/${memId}`)
   .then((res)=>{
+    console.log(res.data)
     setMyCart(res.data)
     let price = 0
     console.log(res.data)
@@ -31,19 +33,20 @@ useEffect(()=>{
     //조회된 자바구니 목록만큼 체크박스의 값을 설정
     let chkarr = new Array(res.data.length)
     //한번에 같은 값 넣기
-    chkarr.fill(true)
-    setChk(chkarr)
+    chkarr.fill(false)
+    setChks(chkarr)
     setSum(price)
   })
   .catch(()=>{})
-},[])
+  },[])
 
-console.log(sum)
-// console.log(chkAll)
 
-function goDelete(cartCode){
+function goDelete(data){
   const result = window.confirm('정말로 삭제하시겠습니까?')
-    axios.delete(`/api_cart/cartDelete/${cartCode}`)
+
+    axios.delete('/api_cart/cartDelete', {
+    data: cartCode // JSON 형식으로 전달
+    })
     .then((res)=>{
       if(result){
       alert('삭제되었습니다.')
@@ -51,27 +54,41 @@ function goDelete(cartCode){
       }
     })
     .catch((error)=>{
-      console.log(error)
+      console.error('Error Data:', error.response.data);
+      console.error('Error Status:', error.response.status);
     })
 }
 
-//체크박스 mount, update시 변경!!!
-useEffect(()=>{
-  if(chk.length != 0){
-    const copyChks = [...chk]
-    if(chkAll){
-      copyChks.fill(true)
-    }else{
-      copyChks.fill(false)
-    }
-    setChk(copyChks)
-  }
-},[chkAll])
 
-// chkAll의 체크여부에 따른 체크박스 변경함수
-function changeChkAll(e){
-  setChkAll(!chkAll) 
-}
+const handleCheckAll = (e) => {
+  const newChks = chks.map(() => !chkAll);
+  setChks(newChks);
+  setChkAll(!chkAll);
+};
+
+
+const handleCheck = (index,e) => {
+  const newChks = [...chks];
+  newChks[index] = !newChks[index];
+  setChks(newChks);
+  setChkAll(newChks.every(chk => chk)); 
+
+   // 체크된 거래처 상태 업데이트
+    if (newChks[index]) {
+    // 체크된 경우
+      setCartCode(prev => [
+      ...prev,
+       e.target.value  // 객체 형태로 추가
+      ]);
+        } else {
+          // 체크 해제된 경우
+            setCartCode(prev => 
+                prev.filter(
+                  num => num !== e.target.value
+                ));
+      }
+
+};
 
   return (
     <div className='cartpage'>
@@ -91,8 +108,13 @@ function changeChkAll(e){
           <thead>
             <tr>
               <td>No</td>
-              <td><input className='cart-chkbox'  type='checkbox' checked={chkAll}
-              onChange={(e)=>{changeChkAll(e)}}/></td>
+              <td>
+                <input 
+                  className='cart-chkbox'  
+                  type='checkbox'
+                  checked={chkAll}
+                  onChange={()=>{handleCheckAll()}}/>
+              </td>
               <td>상품 정보</td>
               <td>가격</td>
               <td>수량</td>
@@ -112,22 +134,29 @@ function changeChkAll(e){
                 return(
                 <tr key={i}>
                   <td><span>{i+1}</span></td>
-                  <td><input type='checkbox' checked={chk[i]} className='cart-chkbox' onChange={(e)=>{
-                    // 스프레드 연산자....???
-                    const copyChk = [...chk];
-                    copyChk[i] = !copyChk[i];
-                    setChk(copyChk);
-                  }} /></td>
+                  <td>
+                    <input 
+                      type='checkbox' 
+                      name='cartCode'
+                      checked={chks[i]} 
+                      className='cart-chkbox' 
+                      value={cart.cartCode}
+                      onChange={(e)=>{handleCheck(i,e)
+                    }} />
+                  </td>
                   <td className='carttd'>
-                  <img className='cartimg' src={(`http://localhost:8080/upload/${cart.item.imgList[0].attachedFileName}`)}/>
+                  <img 
+                    className='cartimg' 
+                    src={(`http://localhost:8080/upload/${cart.item.imgList[0].attachedFileName}`)}
+                  />
                     <span>{cart.item.itemName}</span>
-                    </td>
+                  </td>
                   <td>{cart.item.itemPrice.toLocaleString()}원</td>
                   <td><input type='number' value={cart.cartCnt}/></td>
                   <td>{(cart.item.itemPrice*cart.cartCnt).toLocaleString()}원
                     </td>
                   <td>{cart.cartDate}</td>
-                  <td><button  className='delete-btn' type='button' onClick={()=>{goDelete(cart.cartCode) }}>삭제</button></td>
+                  <td><button  className='delete-btn' type='button'onClick={()=>{goDelete(cart.cartCode)}} >삭제</button></td>
                 </tr>
                 )
               })
@@ -139,7 +168,7 @@ function changeChkAll(e){
           <p>{sum.toLocaleString()}원</p>
           </div>
         <div className='cart-btn'>
-          <button>선택삭제</button>
+          <button type='button' onClick={()=>{goDelete()}}>선택삭제</button>
           <button>선택구매</button>
         </div>
       </div>

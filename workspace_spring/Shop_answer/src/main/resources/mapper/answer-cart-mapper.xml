@@ -59,7 +59,10 @@
         <!-- 장바구니 삭제 -->
         <delete id="delete">
             DELETE FROM answer_shop_cart
-            WHERE CART_CODE = #{cartCode}
+            WHERE CART_CODE IN
+            <foreach collection="cartNumList" item="cartCode" open="(" separator="," close=")">
+                #{cartCode}
+            </foreach>
         </delete>
 </mapper>
 

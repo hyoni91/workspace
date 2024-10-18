@@ -30,9 +30,10 @@ public class CartController {
     }
 
     //장바구니 삭제
-    @DeleteMapping("/cartDelete/{cartCode}")
-    public void cartDelete(@PathVariable("cartCode")int cartCode){
-        System.out.println(cartCode);
-        cartService.cartDelete(cartCode);
+    @DeleteMapping("/cartDelete")
+    public void cartDelete(@RequestBody List<Integer> cartNumList){
+        System.out.println("===================================="+cartNumList);
+        cartService.cartDelete(cartNumList);
     }
+
 }

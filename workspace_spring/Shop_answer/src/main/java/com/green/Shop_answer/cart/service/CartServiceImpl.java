@@ -5,8 +5,10 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.IllegalFormatCodePointException;
 import java.util.List;
+import java.util.Map;
 
 @Service("cartService")
 public class CartServiceImpl implements CartService{
@@ -36,8 +38,10 @@ public class CartServiceImpl implements CartService{
 
     //장바구니 삭제
     @Override
-    public void cartDelete(int cartCode) {
-        sqlSession.delete("answerCartMapper.delete", cartCode);
+    public void cartDelete(List<Integer> cartNumList) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("cartNumList", cartNumList);
+        sqlSession.delete("answerCartMapper.delete", params);
     }
 
 
