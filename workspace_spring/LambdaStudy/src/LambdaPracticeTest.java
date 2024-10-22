@@ -5,13 +5,13 @@ import java.util.List;
 public class LambdaPracticeTest {
     public static void main(String[] args) {
 
-        //문제1.람다식으로 LambdaPractice인터페이스 안의 printName메소드의 기능을
-        // 사용하여 '홍길동입니다' 호출 및 출력
+        //문제1.람다식으로 LambdaPractice 인터페이스 안의 printName 메소드의 기능을
+        //사용하여 '홍길동입니다' 호출 및 출력
 
         LambdaPractice p= () -> System.out.println("홍길동 입니다");
         p.printName();
 
-        //문제2. 람다식 for문으로 리스트 출력
+        //문제2. 람다식 for 문으로 리스트 출력
         List<String> nameList = new ArrayList<>();
         nameList.add("석진");
         nameList.add("냄준");
@@ -47,6 +47,23 @@ public class LambdaPracticeTest {
 
         LambdaPractice4 result = null;
         result = (a,b) -> a > b ? a-b : b;
+
+
+        //람다식 연습
+        System.out.println("----제네릭 문법을 적용한 람다식----");
+
+        LambdaPractice5<Integer> p5 = (a,b) -> {return a + b;};
+        System.out.println(p5.getResult(10,10));
+
+        LambdaPractice5<String> p6 = (school,name) -> {return "학교 : " + school + ", 이름 : " + name;};
+        String info = p6.getResult("방탄고","석진");
+        System.out.println(info);
+
+
+        LambdaPractice7<String,Integer > p7 = (str1,str2) -> str1.length() + str2.length();
+        System.out.println(p7.getResult("안녕하세요","반가워요"));
+
+
 
     }
 }

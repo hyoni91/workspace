@@ -24,5 +24,21 @@ interface LambdaPractice3 {
 
 
 interface LambdaPractice4 {
+
     int getResult(int a, int b);
+}
+
+
+//람다식 연습
+//함수형인터페이스의 추상메소드는 하나!
+//혹시나 또 다른 메소드가 들어오는 등의 실수 방지를 위해서 @Override 적어두기!!!
+@FunctionalInterface
+interface LambdaPractice5<T> {
+    T getResult(T a, T b);
+}
+
+
+@FunctionalInterface
+interface LambdaPractice7<T,R> {
+    R getResult(T a, T b);
 }
