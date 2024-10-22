@@ -1,7 +1,11 @@
 
+
+SHOW CREATE TABLE products;
+
+
 SELECT * FROM inventory;
 
-SELECT * FROM order_requests;
+SELECT * FROM orders ;
 
 INSERT INTO order_requests(
 	PRODUCT_NUM
@@ -15,7 +19,7 @@ INSERT INTO order_requests(
 ),(
 	5
 	,31
-	,8500
+	,5000
 );
 
 
@@ -75,5 +79,27 @@ JOIN inventory I ON I.PRODUCT_NUM = R.PRODUCT_NUM
 WHERE O.ORDER_STATUS = '배송대기'
 GROUP BY R.PRODUCT_NUM;
 
+
+
+-- 241022 그룹화 개개인
+
+ SELECT C.CUSTOMER_NAME
+        ,C.CUSTOMER_ADDR
+        ,C.CUSTOMER_OWNER
+        ,C.CUSTOMER_TEL
+        ,O.ORDER_NUM
+        ,O.ORDER_DATE
+        ,P.PRODUCT_NAME
+        ,R.PRODUCT_NUM
+        ,R.QUANTITY
+        , P.PRODUCT_PRICE
+        ,(P.PRODUCT_PRICE * QUANTITY) AS PRODUCT_PRICE
+        ,O.ORDER_STATUS
+        FROM order_requests R , products P , orders O, customers C
+        WHERE O.REQUEST_NUM = R.REQUEST_NUM
+        AND C.CUSTOMER_NUM = R.CUSTOMER_NUM
+        AND R.PRODUCT_NUM = P.PRODUCT_NUM
+        AND O.ORDER_DATE = '2024-10-21 16:56:53'
+		  AND O.ORDER_STATUS = '배송대기';
 
 
