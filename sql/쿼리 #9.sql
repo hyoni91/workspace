@@ -2,10 +2,12 @@
 
 SHOW CREATE TABLE products;
 
+DROP TABLE customers;
 
-SELECT * FROM inventory;
+SELECT * FROM customers;
 
-SELECT * FROM orders ;
+SELECT * FROM orders
+where order_date = '2024-10-18 16:49:24';
 
 INSERT INTO order_requests(
 	PRODUCT_NUM

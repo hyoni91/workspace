@@ -42,7 +42,7 @@ const MyCartPage = () => {
 
 
 function goDelete(data){
-  const result = window.confirm('정말로 삭제하시겠습니까?')
+
 
     axios.delete('/api_cart/cartDelete', {
     data: cartCode // JSON 형식으로 전달
