@@ -60,3 +60,34 @@ INSERT INTO INVENTORY (
    );
 
 
+
+DELIMITER //
+
+CREATE TRIGGER order_orderRequest_update_ing
+AFTER UPDATE
+ON ORDERS
+FOR EACH ROW
+BEGIN
+END; //
+
+DELIMITER ;
+
+
+
+
+-- 트리거 UPDATE 배송완료 (공급사>거래처)
+DELIMITER //
+
+CREATE TRIGGER order_orderRequest_update_cancel
+AFTER UPDATE
+ON ORDERS
+FOR EACH ROW
+BEGIN
+	IF NEW.ORDER_STATUS = '배송완료' THEN
+		UPDATE order_requests 
+		SET REQUEST_STATUS = '배송완료'
+		WHERE REQUEST_NUM = NEW.REQUEST_NUM;
+	END IF;
+END; //
+
+DELIMITER ;

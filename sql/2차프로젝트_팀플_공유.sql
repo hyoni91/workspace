@@ -1,6 +1,6 @@
 
 
-SELECT * FROM board;
+SELECT * FROM medical_member;
 
 
 
