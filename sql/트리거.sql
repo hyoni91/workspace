@@ -39,25 +39,25 @@ DROP TRIGGER AFTER_INSERT_PRODUCTS;
 CREATE TRIGGER AFTER_INSERT_PRODUCTS
 AFTER INSERT ON PRODUCTS
 FOR EACH ROW
-INSERT INTO INVENTORY (
-       CATE_NUM, 
-       PRODUCT_NUM, 
-       PRODUCT_NAME, 
-       STOCK_DATE,
-       INITIAL_STOCK, 
-       INCOMING_QTY, 
-       OUTGOING_QTY, 
-       CURRENT_STOCK
-   ) VALUES (
-       NEW.CATE_NUM,          
-       NEW.PRODUCT_NUM,       
-       NEW.PRODUCT_NAME,      
-       NOW(),           
-       NEW.STOCK,             
-       NEW.STOCK,             
-       0,                     
-       NEW.STOCK              
-   );
+INSERT INTO inventory (
+ CATE_NUM, 
+ PRODUCT_NUM, 
+ PRODUCT_NAME, 
+ STOCK_DATE,
+ INITIAL_STOCK, 
+ INCOMING_QTY, 
+ OUTGOING_QTY, 
+ CURRENT_STOCK
+) VALUES (
+ NEW.CATE_NUM,          
+ NEW.PRODUCT_NUM,       
+ NEW.PRODUCT_NAME,      
+ NOW(),           
+ NEW.STOCK,             
+ NEW.STOCK,             
+ 0,                     
+ NEW.STOCK              
+);
 
 
 
@@ -91,3 +91,23 @@ BEGIN
 END; //
 
 DELIMITER ;
+
+
+DROP TRIGGER order_orderRequest_update_ing;
+
+DELIMITER //
+
+CREATE TRIGGER order_orderRequest_update_ing
+AFTER UPDATE
+ON ORDERS
+FOR EACH ROW
+BEGIN
+	IF NEW.ORDER_STATUS = '배송중' THEN
+		UPDATE order_requests 
+		SET REQUEST_STATUS = '배송중'
+		WHERE REQUEST_NUM = NEW.REQUEST_NUM;
+	END IF;
+END; //
+
+DELIMITER ;
+
