@@ -41,22 +41,33 @@ const MyCartPage = () => {
   },[])
 
 
+  //선택삭제
 function goDelete(data){
-
-
-    axios.delete('/api_cart/cartDelete', {
-    data: cartCode // JSON 형식으로 전달
-    })
+    axios.delete('/api_cart/cartDelete', {data:cartCode})
     .then((res)=>{
+      const result = window.confirm('삭제하시겠습니까?')
       if(result){
       alert('삭제되었습니다.')
-      navigate('/my_cart_page')
       }
     })
     .catch((error)=>{
       console.error('Error Data:', error.response.data);
       console.error('Error Status:', error.response.status);
     })
+}
+
+  //개별삭제
+function goDeleteInt(cartNum){
+  axios.delete(`/api_cart/cartDeleteInt/${cartNum}`)
+  .then(res=>{
+    const result = window.confirm('삭제하시겠습니까?')
+    if(result){
+      alert('삭제되었습니다.')
+    }
+  })
+  .catch(error=>
+    console.log(error)
+  )
 }
 
 
@@ -156,7 +167,7 @@ const handleCheck = (index,e) => {
                   <td>{(cart.item.itemPrice*cart.cartCnt).toLocaleString()}원
                     </td>
                   <td>{cart.cartDate}</td>
-                  <td><button  className='delete-btn' type='button'onClick={()=>{goDelete(cart.cartCode)}} >삭제</button></td>
+                  <td><button  className='delete-btn' type='button'onClick={()=>{goDeleteInt(cart.cartCode)}} >삭제</button></td>
                 </tr>
                 )
               })

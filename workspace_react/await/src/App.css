@@ -1,0 +1,15 @@
+.container {
+  margin: auto;
+  width: 1500px;
+  text-align: center;
+}
+
+.button-div{
+  margin-top: 50px;
+}
+
+.button-div button{
+  width: 100px;
+  padding: 5px;
+  cursor: pointer;
+}

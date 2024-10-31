@@ -29,11 +29,17 @@ public class CartController {
         return cartService.cartList(memId);
     }
 
-    //장바구니 삭제
+    //장바구니 선택 삭제
     @DeleteMapping("/cartDelete")
     public void cartDelete(@RequestBody List<Integer> cartNumList){
         System.out.println("===================================="+cartNumList);
         cartService.cartDelete(cartNumList);
+    }
+
+    //장바구니 단일 삭제
+    @DeleteMapping("/cartDeleteInt/{cartNum}")
+    public void cartDeleteInt(@PathVariable("cartNum") int cartNum){
+        cartService.cartDeleteInt(cartNum);
     }
 
 }
