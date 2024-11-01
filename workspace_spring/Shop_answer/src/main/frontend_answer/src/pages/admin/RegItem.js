@@ -9,7 +9,7 @@ const RegItem = () => {
   //category목록
   const [categoryList, setCategoryList] = useState([])
   //등록창 disabled 여부
-  const [isDisabled, setIsDisabled] = useState(true)
+  const [isDisabled, setIsDisabled] = useState(false)
 
   //inset입력값(쌤 변수명= insertItemData)
   const [inputItem, setInputItem] = useState({
