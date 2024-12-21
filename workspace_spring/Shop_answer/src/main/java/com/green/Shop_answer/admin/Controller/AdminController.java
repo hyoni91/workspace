@@ -72,6 +72,11 @@ public class AdminController {
 
         //아이템의 이미지 등록(아이템 등록시 들고 있던 data도 함께 넘겨야한다.)
         adminService.insertImgs(itemVO);
+
+        System.out.println("Received mainImg: " + mainImg.getOriginalFilename());
+        System.out.println("Received subImg: " + subImg.getOriginalFilename());
+        System.out.println("Saving files...");
+
     }
 
     //모든 유저 정보조회

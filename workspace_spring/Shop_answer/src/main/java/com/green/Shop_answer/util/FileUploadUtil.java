@@ -24,7 +24,14 @@ public class FileUploadUtil {
            imgVO = new ImgVO();
 
             //업로드 될 경로
-            String uploadPath = "D:\\01-STUDY\\dev\\workspace\\workspace_spring\\Shop_answer\\src\\main\\resources\\static\\upload\\";
+            String uploadPath = "/Users/hk.kim/Documents/GitHub/workspace/workspace_spring/Shop_answer/src/main/resources/static/upload/";
+
+
+            // 디렉터리 생성 여부 확인
+            File uploadDir = new File(uploadPath);
+            if (!uploadDir.exists()) {
+                uploadDir.mkdirs(); // 디렉터리 생성
+            }
 
             //첨부될 파일명(내가 선택한 원본 파일명)
             String originFileName = uploadFile.getOriginalFilename();
@@ -43,6 +50,7 @@ public class FileUploadUtil {
             //첨부기능 실행
             try {
                 uploadFile.transferTo((file));
+                System.out.println("파일 저장 경로: " + file.getAbsolutePath());
 
                 //첨부된 파일 정보를 imgVO에 저장
                 imgVO.setOriginFileName(originFileName);
@@ -51,7 +59,10 @@ public class FileUploadUtil {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+
         }
+
+
         return imgVO;
     }
 }

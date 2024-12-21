@@ -109,7 +109,7 @@ const Join = () => {
       alert('아이디는 필수입력입니다.')
       return;
     }
-   e
+   
     axios.get(`/api_member/idChk/${joinData.memId}`)
     .then((res)=>{
       const result = res.data;
