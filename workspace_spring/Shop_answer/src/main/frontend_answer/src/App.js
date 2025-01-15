@@ -7,15 +7,15 @@ import Join from './pages/user/Join';
 import Login from './pages/user/Login';
 import { useEffect, useState } from 'react';
 import RegItem from './pages/admin/RegItem';
-import ItemList from './pages/user/ItemList';
+// import ItemList from './pages/user/ItemList';
 import DisplayItem from './pages/user/DisplayItem';
 import ItemDetail from './pages/user/ItemDetail';
 import Cate1 from './pages/user/Cate1';
-import ItemManage from './pages/admin/ItemManage';
+// import ItemManage from './pages/admin/ItemManage';
 import CategoryManage from './pages/admin/CategoryManage';
-import SaleHistoryOfMonth from './pages/admin/SaleHistoryOfMonth';
+// import SaleHistoryOfMonth from './pages/admin/SaleHistoryOfMonth';
 import SearchUser from './pages/admin/SearchUser';
-import RecordOfMonth from './pages/admin/RecordOfMonth';
+// import RecordOfMonth from './pages/admin/RecordOfMonth';
 import MyCartPage from './pages/user/MyCartPage';
 import { BsCart4 } from "react-icons/bs";
 import { RiLogoutBoxRLine } from "react-icons/ri";
@@ -77,7 +77,7 @@ function App() {
             }} ><RiLogoutBoxRLine size={'22'} className='logout-icon'/></span>
             {
               loginInfo.memRole == 'ADMIN'?
-              <span onClick={()=>{navigate('/admin/management')}}><MdOutlineManageHistory size={'22'} className='anmin-icon'/></span>
+              <span onClick={()=>{navigate('/admin/regItem')}}><MdOutlineManageHistory size={'22'} className='anmin-icon'/></span>
               :
               <span onClick={()=>{navigate('/my_cart_page')}}><BsCart4 size={'22'}/></span>
             }
@@ -92,12 +92,13 @@ function App() {
         </div>
         <div className='banner'>
           <div>
-            <img className='banner-img' src='http://localhost:8080/images/book_banner.jpg' />
+            {/* <img className='banner-img' src='/images/book_banner.jpg' /> */}
+            <img className='banner-img' src="https://d2uxoteftzoxxe.cloudfront.net/images/book_banner.jpg" alt="Banner" />
           </div>
-          <div className='title-div'></div>
+          <div className='title-div'>Enjoy a book</div>
         </div>
-        
-      </div>
+              
+        </div>
       <div className='layout-div'>
         <Routes>
 
@@ -114,12 +115,10 @@ function App() {
 
           {/* admin route */}
           <Route path='/admin' element={<AdminLayout />}>
-            <Route path='management' element={<ItemManage />}/>
+            {/* <Route path='management' element={<ItemManage />}/> */}
             <Route path='regItem' element={<RegItem />}/>
             <Route path='category_management' element={<CategoryManage />}/>
-            <Route path='sale_history_month' element={<SaleHistoryOfMonth />}/>
             <Route path='search_user' element={<SearchUser />}/>
-            <Route path='record_month' element={<RecordOfMonth />}/>
             {/* <Route path='userInfo/:memId' element={<UserInfo />}/> */}
             {/* <Route path='test2' element={<KakaoTest />}/> */}
           </Route>

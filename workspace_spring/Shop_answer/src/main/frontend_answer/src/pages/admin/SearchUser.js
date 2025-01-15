@@ -16,8 +16,11 @@ const SearchUser = () => {
     setOpenModal(!openModal)
   }
 
+  console.log(searchValue)
+  const apiUrl = process.env.REACT_APP_API_URL;
+
   useEffect(()=>{
-    axios.post("/api_admin/selectAllUser",searchValue)
+    axios.post(`${apiUrl}/api_admin/selectAllUser`,searchValue)
     .then((res)=>{
       setAllUser(res.data)
     }).catch((error)=>{
@@ -27,7 +30,7 @@ const SearchUser = () => {
   },[])
 
   function getUserInfo(){
-    axios.post("/api_admin/selectAllUser",searchValue)
+    axios.post(`${apiUrl}/api_admin/selectAllUser`,searchValue)
     .then((res)=>{
       setAllUser(res.data)
     }).catch((error)=>{
@@ -42,22 +45,22 @@ const SearchUser = () => {
       <div>
         <div className='search-content'>
           <input type='text'
-          className='searchinput' name='searchValue' placeholder='ID를 입력하세요.' onChange={(e)=>{
+          className='searchinput' name='searchValue' placeholder='IDで検索' onChange={(e)=>{
             setSearchValue({
               ...searchValue,
               [e.target.name] : e.target.value
             })
           }}/>
-          <button type='button' className='searchUser-btn' onClick={()=>{getUserInfo()}}>검색</button>
+          <button type='button' className='searchUser-btn' onClick={()=>{getUserInfo()}}>検索</button>
         </div>
         <table className='searchUser-table'>
           <thead>
             <tr>
-              <td>번호</td>
+              <td>NO.</td>
               <td>ID</td>
-              <td>이름</td>
-              <td>연락처</td>
-              <td>메일주소</td>
+              <td>名前</td>
+              <td>連絡先</td>
+              <td>メールアドレス</td>
             </tr>
           </thead>
           <tbody>
